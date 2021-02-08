@@ -1,4 +1,5 @@
-import '../styles/memberedit.scss'
+import '../../styles/fish.scss'
+import '../../styles/font.scss'
 // require('./')
 function memberedit(props) {
   console.log(props)

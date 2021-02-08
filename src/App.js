@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 
 // 頁面用元件
 import NotFoundPage from './pages/NotFoundPage'
-import MemberEdit from './pages/memberedit'
+import MemberEdit from './pages/member/memberedit'
 
 // 組合用元件
 
