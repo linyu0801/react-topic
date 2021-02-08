@@ -5,6 +5,7 @@ import React, { useState } from 'react'
 // 頁面用元件
 import NotFoundPage from './pages/NotFoundPage'
 import MemberEdit from './pages/memberedit'
+import Cart from './pages/Cart'
 
 // 組合用元件
 
@@ -44,6 +45,9 @@ function App() {
             <Switch>
               <Route path="/memberedit">
                 <MemberEdit />
+              </Route>
+              <Route path="/cart">
+                <Cart />
               </Route>
 
               <Route path="*">
