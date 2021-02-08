@@ -3,12 +3,10 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import React, { useState } from 'react'
 
 // 頁面用元件
-import NotFoundPage from './pages/NotFoundPage'
-
 import MemberEdit from './pages/member/memberedit'
 import Login from './pages/member/login'
-import Cart from './pages/Cart'
 import Forget from './pages/member/forget'
+import Cart from './pages/cart/Cart'
 
 // 組合用元件
 
