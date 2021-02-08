@@ -4,7 +4,7 @@ import '../styles/fish.scss'
 function MyFooter(props) {
   return (
     <>
-      <div className="mt-auto py-3">
+      <div className="mt-auto">
         <footer className="footer"></footer>
       </div>
     </>
