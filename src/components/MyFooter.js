@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import '../styles/memberedit.scss'
+import '../styles/fish.scss'
 
 function MyFooter(props) {
   return (

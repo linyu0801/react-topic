@@ -1,4 +1,5 @@
-import '../styles/memberedit.scss'
+import '../../styles/fish.scss'
+import '../../styles/font.scss'
 // require('./')
 function memberedit(props) {
   console.log(props)
@@ -7,76 +8,6 @@ function memberedit(props) {
 
   return (
     <>
-      {/* <nav className="navbar navbar-expand-lg bg-dark">
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="*navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div
-          className="collapse navbar-collapse justify-content-between"
-          id="navbarNav"
-        >
-          <a className="navbar-brand" href="*">
-            icon
-          </a>
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <a className="nav-link" href="*">
-                首頁
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="*">
-                商品
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="*">
-                體驗
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="*">
-                場地租借
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="*">
-                部落格
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="*">
-                關於我們
-              </a>
-            </li>
-          </ul>
-          <ul className="navbar-nav nav-l">
-            <li className="nav-item">
-              <a className="nav-link" href="*">
-                <i className="fas fa-search"></i>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="*">
-                <i className="fas fa-user-alt"></i>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="*">
-                <i className="fas fa-shopping-cart"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav> */}
       <div className="container h-100 fish-mt-50">
         <div className="row">
           <div className="col-12 bread-div">

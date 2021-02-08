@@ -7,7 +7,6 @@ import {
   Button,
   NavDropdown,
 } from 'react-bootstrap'
-import '../styles/memberedit.scss'
 // 要使用能有active css效果的NavLink元件
 import { FaSearch } from 'react-icons/fa'
 import { FaUserAlt } from 'react-icons/fa'
