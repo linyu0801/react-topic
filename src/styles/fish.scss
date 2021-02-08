@@ -92,13 +92,13 @@ body {
   right: 12px;
 }
 .fish-forgetbg {
-  background: url('/images/forget.jpg') no-repeat center center;
+  background: url('../images/forget.jpg') no-repeat center center;
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.2);
   background-blend-mode: multiply;
 }
 .fish-loginbg {
-  background: url('/images/login.jpg') no-repeat;
+  background: url('../images/login.jpg') no-repeat;
   background-position: center -170px;
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.2);

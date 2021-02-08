@@ -8,6 +8,7 @@ import NotFoundPage from './pages/NotFoundPage'
 import MemberEdit from './pages/member/memberedit'
 import Login from './pages/member/login'
 import Cart from './pages/Cart'
+import Forget from './pages/member/forget'
 
 // 組合用元件
 
@@ -50,6 +51,9 @@ function App() {
               </Route>
               <Route path="/member/login">
                 <Login />
+              </Route>
+              <Route path="/member/forget">
+                <Forget />
               </Route>
               <Route path="/cart">
                 <Cart />
