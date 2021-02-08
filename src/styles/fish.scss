@@ -92,20 +92,20 @@ body {
   right: 12px;
 }
 .fish-forgetbg {
-  background: url('../images/forget.jpg') no-repeat center center;
+  background: url('/images/forget.jpg') no-repeat center center;
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.2);
   background-blend-mode: multiply;
 }
 .fish-loginbg {
-  background: url('../images/login.jpg') no-repeat;
+  background: url('/images/login.jpg') no-repeat;
   background-position: center -170px;
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.2);
   background-blend-mode: multiply;
 }
 .fish-registerbg {
-  background: url('../images/register.jpg') no-repeat center center;
+  background: url('/images/register.jpg') no-repeat center center;
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.2);
 
@@ -214,17 +214,17 @@ footer {
 .active-card-icons i {
   margin-left: 10px;
 }
-input[type='date']::-webkit-calendar-picker-indicator {
-  color: rgba(0, 0, 0, 0);
-  fill: #cdaa8a;
-  opacity: 1;
-  background-image: url('../icons/calendar.svg');
-  background-repeat: no-repeat;
-  background-position: 100% center;
-  background-size: 15px;
-  padding-right: 20px;
-  cursor: pointer;
-}
+// input[type='date']::-webkit-calendar-picker-indicator {
+//   color: rgba(0, 0, 0, 0);
+//   fill: #cdaa8a;
+//   opacity: 1;
+//   background-image: url('localhost3000:/icons/calendar.svg');
+//   background-repeat: no-repeat;
+//   background-position: 100% center;
+//   background-size: 15px;
+//   padding-right: 20px;
+//   cursor: pointer;
+// }
 
 .clbread {
   font-size: 14px;
@@ -248,7 +248,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
 
 .bgup-img::before {
   content: ' ';
-  background-image: url('../icons/goldbg.svg');
+  background-image: url('/icons/goldbg.svg');
   background-size: cover;
   position: absolute;
   right: 0px;
@@ -260,7 +260,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
 
 .bgdown-img::before {
   content: ' ';
-  background-image: url('../icons/goldbg.svg');
+  background-image: url('/icons/goldbg.svg');
   background-size: cover;
   position: absolute;
   left: -130px;
@@ -365,17 +365,17 @@ input[type='date']::-webkit-calendar-picker-indicator {
   white-space: nowrap;
 }
 .google {
-  background: url('../icons/google.svg') no-repeat center center;
+  background: url('/icons/google.svg') no-repeat center center;
   width: 45px;
   height: 40px;
 }
 .facebook {
-  background: url('../icons/facebook.svg') no-repeat center center;
+  background: url('/icons/facebook.svg') no-repeat center center;
   width: 45px;
   height: 40px;
 }
 .lock {
-  background: url('../icons/lock.svg') no-repeat center center;
+  background: url('/icons/lock.svg') no-repeat center center;
   width: 45px;
   height: 40px;
 }
