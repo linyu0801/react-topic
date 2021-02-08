@@ -1,17 +1,28 @@
-const [stateMode,setStateMode]=useState('step1')
+const [stateMode,setStateMode]=useState('mode1')
+const [stateStep,setStateStep]=useState('step1')
 
+// 用在切換步驟跟狀態
+
+// 如果stateStep是step1就多active的class
 1
-<button class="{stateMode === 'step1' && active}"onClick={()=>{
-    setStateMode('step1')
+<button class="{stateStep === 'step1' && active}" onClick={()=>{
+    setStateMode('mode1')
 }}
 
 2
 <button onClick={()=>{
-    setStateMode('step2')
+    setStateMode('mode2')
 }}
 
 3
 <button onClick={()=>{
-    setStateMode('step3')
+    setStateMode('mode2')
 }}
 
+// stateMode有變化時，把步驟設定回step1
+useEffect(()=>{
+    setStateStep('step1')
+},[stateMode])
+
+切換步驟狀態
+{stateStep==='step1' && <giugiuhi />}
