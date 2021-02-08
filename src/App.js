@@ -5,6 +5,7 @@ import React, { useState } from 'react'
 // 頁面用元件
 import MemberEdit from './pages/member/memberedit'
 import Login from './pages/member/login'
+import Forget from './pages/member/forget'
 import Cart from './pages/cart/Cart'
 import NotFoundPage from './pages/NotFoundPage'
 
@@ -49,6 +50,9 @@ function App() {
               </Route>
               <Route path="/member/login">
                 <Login />
+              </Route>
+              <Route path="/member/forget">
+                <Forget />
               </Route>
               <Route path="/cart">
                 <Cart />
