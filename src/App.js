@@ -1,25 +1,63 @@
-import logo from './logo.svg';
-import './App.css';
+// 使用套件
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import React, { useState } from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// 頁面用元件
+import NotFoundPage from './pages/NotFoundPage'
+import MemberEdit from './pages/memberedit'
+
+// 組合用元件
+
+import MainContent from './components/MainContent'
+import MyNavbar from './components/MyNavbar'
+import MyFooter from './components/MyFooter'
+import ScrollToTop from './components/ScrollToTop'
+//import BreadCrumb from './components/BreadCrumb'
+// 定義樣式
+const themes = {
+  light: {
+    foreground: '#000000',
+    background: '#eeeeee',
+  },
+  dark: {
+    foreground: '#ffffff',
+    background: '#222222',
+  },
 }
 
-export default App;
+// 建立樣版context也可以獨立出去一個檔案
+export const ThemeContext = React.createContext(themes.light)
+
+function App() {
+  // const [auth, setAuth] = useState(false)
+  // const [themeNow, setThemeNow] = useState(themes.light)
+
+  return (
+    <Router>
+      <>
+        <MyNavbar />
+        <MainContent>
+          <ScrollToTop>
+            {/* 套用全站樣式 */}
+            {/* <ThemeContext.Provider value={themeNow}> */}
+
+            <Switch>
+              <Route path="/memberedit">
+                <MemberEdit />
+              </Route>
+
+              <Route path="*">
+                <NotFoundPage />
+              </Route>
+            </Switch>
+            {/* </ThemeContext.Provider> */}
+            {/* end 匹配路由表 */}
+          </ScrollToTop>
+        </MainContent>
+        <MyFooter />
+      </>
+    </Router>
+  )
+}
+
+export default App
