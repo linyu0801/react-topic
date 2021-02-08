@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 // 頁面用元件
 import NotFoundPage from './pages/NotFoundPage'
 import MemberEdit from './pages/memberedit'
-import Cart from './pages/Cart'
+import Cart from './pages/cart/Cart'
 
 // 組合用元件
 
