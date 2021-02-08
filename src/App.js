@@ -6,6 +6,7 @@ import React, { useState } from 'react'
 import MemberEdit from './pages/member/memberedit'
 import Login from './pages/member/login'
 import Cart from './pages/cart/Cart'
+import NotFoundPage from './pages/NotFoundPage'
 
 // 組合用元件
 

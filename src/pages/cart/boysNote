@@ -1,0 +1,17 @@
+const [stateMode,setStateMode]=useState('step1')
+
+1
+<button class="{stateMode === 'step1' && active}"onClick={()=>{
+    setStateMode('step1')
+}}
+
+2
+<button onClick={()=>{
+    setStateMode('step2')
+}}
+
+3
+<button onClick={()=>{
+    setStateMode('step3')
+}}
+

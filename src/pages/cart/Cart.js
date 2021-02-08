@@ -10,7 +10,7 @@ function Cart(props) {
   // 利用match.params來取得url params (記得App元件中的Route要先定義)
   console.log('props.match.params', props.match.params)
 
-  const [active, setActive] = useState('')
+  const [highlight, setHighlight] = useState('')
 
   return (
     <>
@@ -44,9 +44,9 @@ function Cart(props) {
         <div className="row hhyy-step mt-5">
           <div className="col hy-cart-step d-flex justify-content-between">
             <div
-              className={'text-center' + active}
+              className={'text-center ' + highlight}
               onClick={() => {
-                setActive('hy-step-active ')
+                setHighlight('hy-step-active ')
               }}
             >
               <h5>Step.1</h5>
