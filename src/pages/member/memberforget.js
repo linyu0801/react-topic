@@ -2,6 +2,8 @@ import '../../styles/fish.scss'
 import '../../styles/font.scss'
 import React, { useState } from 'react'
 import FishAside from '../../components/FishAside'
+import { Link ,withRouter } from 'react-router-dom'
+
 function MemberForget(props) {
   return (
     <>
@@ -84,4 +86,4 @@ function MemberForget(props) {
   )
 }
 
-export default MemberForget
+export default withRouter(MemberForget)

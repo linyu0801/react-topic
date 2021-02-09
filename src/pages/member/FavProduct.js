@@ -1,6 +1,8 @@
 import '../../styles/fish.scss'
 import '../../styles/font.scss'
 import React, { useState } from 'react'
+import { Link ,withRouter } from 'react-router-dom'
+
 import FishAside from '../../components/FishAside'
 function FavProduct(props) {
   return (
@@ -328,4 +330,4 @@ function FavProduct(props) {
     </>
   )
 }
-export default FavProduct
+export default withRouter(FavProduct)

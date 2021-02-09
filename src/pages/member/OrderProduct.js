@@ -2,6 +2,8 @@ import '../../styles/fish.scss'
 import '../../styles/font.scss'
 import React, { useState } from 'react'
 import FishAside from '../../components/FishAside'
+import { Link ,withRouter } from 'react-router-dom'
+
 function OrderProduct(props) {
   return (
     <>
@@ -311,4 +313,4 @@ function OrderProduct(props) {
     </>
   )
 }
-export default OrderProduct
+export default withRouter(OrderProduct)

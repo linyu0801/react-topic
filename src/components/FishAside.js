@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
 import { Collapse } from 'reactstrap'
-import { Link } from 'react-router-dom'
+import { Link ,withRouter } from 'react-router-dom'
 
 function FishAside(props) {
+  console.log(window.location.pathname)
   const [MemberOpen, setMemberOpen] = useState(false)
   const [OrderOpen, setOrderOpen] = useState(false)
   const [FavOpen, setFavOpen] = useState(false)
   const toggle1 = () => setMemberOpen(!MemberOpen)
   const toggle2 = () => setFavOpen(!FavOpen)
   const toggle3 = () => setOrderOpen(!OrderOpen)
+  // const Pages = window.location.pathname
+
   return (
     <>
       <aside className="fish-aside h-100 col-2">
@@ -19,10 +22,13 @@ function FishAside(props) {
           <ul>
             <Collapse isOpen={!MemberOpen}>
               <Link to="edit">
-                <li className="fish-aside">編輯個人資訊</li>
+                <li className = {(window.location.pathname == '/member/edit' ? 'fish-aside-active' : 'fish-aside')}>
+                  編輯個人資訊
+                </li>
               </Link>
               <Link to="forget">
-                <li className="fish-aside">更改密碼</li>
+              <li className = {(window.location.pathname == '/member/forget' ? 'fish-aside-active' : 'fish-aside')}>
+更改密碼</li>
               </Link>
             </Collapse>
           </ul>
@@ -32,10 +38,12 @@ function FishAside(props) {
           <Collapse isOpen={FavOpen}>
             <ul>
               <Link to="fav-product">
-                <li className="fish-aside-active">商品收藏</li>
+              <li className = {(window.location.pathname == '/member/fav-product' ? 'fish-aside-active' : 'fish-aside')}>
+商品收藏</li>
               </Link>
               <Link to="fav-active">
-                <li className="fish-aside">活動收藏</li>
+              <li className = {(window.location.pathname == '/member/fav-active' ? 'fish-aside-active' : 'fish-aside')}>
+活動收藏</li>
               </Link>
             </ul>
           </Collapse>
@@ -45,13 +53,16 @@ function FishAside(props) {
           <Collapse isOpen={OrderOpen}>
             <ul>
               <Link to="order-product">
-                <li className="fish-aside">商品訂單</li>
+              <li className = {(window.location.pathname == '/member/order-product' ? 'fish-aside-active' : 'fish-aside')}>
+商品訂單</li>
               </Link>
               <Link to="order-active">
-                <li className="fish-aside">活動訂單</li>
+              <li className = {(window.location.pathname == '/member/order-active' ? 'fish-aside-active' : 'fish-aside')}>
+活動訂單</li>
               </Link>
               <Link to="order-class">
-                <li className="fish-aside">場地租借</li>
+              <li className = {(window.location.pathname == '/member/order-class' ? 'fish-aside-active' : 'fish-aside')}>
+場地租借</li>
               </Link>
             </ul>
           </Collapse>

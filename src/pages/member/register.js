@@ -1,5 +1,6 @@
 import '../../styles/fish.scss'
 import '../../styles/font.scss'
+import { Link ,withRouter } from 'react-router-dom'
 
 function register(props) {
   return (
@@ -62,4 +63,4 @@ function register(props) {
     </>
   )
 }
-export default register
+export default withRouter(register)

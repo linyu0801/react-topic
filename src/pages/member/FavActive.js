@@ -2,7 +2,7 @@ import '../../styles/fish.scss'
 import '../../styles/font.scss'
 import React, { useState } from 'react'
 import FishAside from '../../components/FishAside'
-import { Link } from 'react-router-dom'
+import { Link ,withRouter } from 'react-router-dom'
 
 function FavActive(props) {
   return (
@@ -226,4 +226,4 @@ function FavActive(props) {
     </>
   )
 }
-export default FavActive
+export default withRouter(FavActive)

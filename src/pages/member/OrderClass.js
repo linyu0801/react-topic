@@ -2,6 +2,8 @@ import '../../styles/fish.scss'
 import '../../styles/font.scss'
 import React, { useState } from 'react'
 import FishAside from '../../components/FishAside'
+import { Link ,withRouter } from 'react-router-dom'
+
 function OrderClass(props) {
   return (
     <>
@@ -334,4 +336,4 @@ function OrderClass(props) {
     </>
   )
 }
-export default OrderClass
+export default withRouter(OrderClass)

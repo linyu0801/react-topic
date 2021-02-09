@@ -54,7 +54,6 @@ function App() {
             {/* <ThemeContext.Provider value={themeNow}> */}
 
             <Switch>
-
               <Route path="/campaign/products/:id?">
                 <CampaignProductInfo />
               </Route>

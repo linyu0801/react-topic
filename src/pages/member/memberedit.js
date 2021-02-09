@@ -2,9 +2,11 @@ import '../../styles/fish.scss'
 import '../../styles/font.scss'
 import React, { useState } from 'react'
 import FishAside from '../../components/FishAside'
+import { Link ,withRouter } from 'react-router-dom'
 
 // require('./')
 function MemberEdit(props) {
+  // console.log(props.match)
   return (
     <>
       <div className="container h-100 fish-mt-50">
@@ -108,4 +110,4 @@ function MemberEdit(props) {
   )
 }
 
-export default MemberEdit
+export default withRouter(MemberEdit)
