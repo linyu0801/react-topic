@@ -1,11 +1,10 @@
 import '../../styles/fish.scss'
 import '../../styles/font.scss'
+import React, { useState } from 'react'
+import FishAside from '../../components/FishAside'
+
 // require('./')
-function memberedit(props) {
-  console.log(props)
-
-  //   const { auth, setAuth } = props
-
+function MemberEdit(props) {
   return (
     <>
       <div className="container h-100 fish-mt-50">
@@ -36,45 +35,7 @@ function memberedit(props) {
           </div>
         </div>
         <div className="row justify-content-center">
-          <aside className="fish-aside h-100 col-2">
-            <h4>會員中心</h4>
-            <ul data-toggle="collapse" data-target="*collapse-info">
-              <p className="fish-aside-ul-active">個人資訊</p>
-              <ul id="collapse-info" className="collapse show">
-                <a href="*">
-                  <li className="fish-aside-active">編輯個人資訊</li>
-                </a>
-                <a href="*">
-                  <li className="fish-aside">更改密碼</li>
-                </a>
-              </ul>
-            </ul>
-            <ul data-toggle="collapse" data-target="*collapse-fav">
-              收藏清單
-              <ul id="collapse-fav" className="collapse">
-                <a href="*">
-                  <li className="fish-aside">商品收藏</li>
-                </a>
-                <a href="*">
-                  <li>活動收藏</li>
-                </a>
-              </ul>
-            </ul>
-            <ul data-toggle="collapse" data-target="*collapseorder">
-              訂單資訊
-              <ul id="collapseorder" className="collapse">
-                <a href="*">
-                  <li className="fish-aside">商品訂單</li>
-                </a>
-                <a href="*">
-                  <li className="fish-aside">活動訂單</li>
-                </a>
-                <a href="*">
-                  <li className="fish-aside">場地租借</li>
-                </a>
-              </ul>
-            </ul>
-          </aside>
+          <FishAside />
           <div className="col-9">
             <div className="w-100 d-flex justify-content-center">
               <form
@@ -147,4 +108,4 @@ function memberedit(props) {
   )
 }
 
-export default memberedit
+export default MemberEdit

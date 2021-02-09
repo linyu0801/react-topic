@@ -1,6 +1,8 @@
 import '../../styles/fish.scss'
 import '../../styles/font.scss'
-function memberforget(props) {
+import React, { useState } from 'react'
+import FishAside from '../../components/FishAside'
+function MemberForget(props) {
   return (
     <>
       <div class="container h-100">
@@ -31,45 +33,7 @@ function memberforget(props) {
           </div>
         </div>
         <div class="row justify-content-center">
-          <aside class="fish-aside h-100 col-2">
-            <h4>會員中心</h4>
-            <ul data-toggle="collapse" data-target="*collapse-info">
-              <p class="fish-aside-ul-active">個人資訊</p>
-              <ul id="collapse-info" class="collapse show">
-                <a href="*">
-                  <li>編輯個人資訊</li>
-                </a>
-                <a href="*">
-                  <li class="fish-aside-active">更改密碼</li>
-                </a>
-              </ul>
-            </ul>
-            <ul data-toggle="collapse" data-target="*collapse-fav">
-              收藏清單
-              <ul id="collapse-fav" class="collapse">
-                <a href="*">
-                  <li class="fish-aside">商品收藏</li>
-                </a>
-                <a href="*">
-                  <li>活動收藏</li>
-                </a>
-              </ul>
-            </ul>
-            <ul data-toggle="collapse" data-target="*collapseorder">
-              訂單資訊
-              <ul id="collapseorder" class="collapse">
-                <a href="*">
-                  <li class="fish-aside">商品訂單</li>
-                </a>
-                <a href="*">
-                  <li class="fish-aside">活動訂單</li>
-                </a>
-                <a href="*">
-                  <li class="fish-aside">場地租借</li>
-                </a>
-              </ul>
-            </ul>
-          </aside>
+          <FishAside />
           <div class="col-9">
             <div class="w-100 d-flex justify-content-center">
               <form
@@ -120,4 +84,4 @@ function memberforget(props) {
   )
 }
 
-export default memberforget
+export default MemberForget
