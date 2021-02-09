@@ -1,7 +1,10 @@
 import '../../styles/fish.scss'
 import '../../styles/font.scss'
+import React, { useState } from 'react'
+import FishAside from '../../components/FishAside'
+import { Link } from 'react-router-dom'
 
-function fav_active(props) {
+function FavActive(props) {
   return (
     <>
       <div class="container h-100">
@@ -31,46 +34,7 @@ function fav_active(props) {
           </div>
         </div>
         <div class="row justify-content-center">
-          <aside class="fish-aside h-100 col-2">
-            <h4>會員中心</h4>
-            <ul data-toggle="collapse" data-target="*collapse-info">
-              個人資訊
-              <ul id="collapse-info" class="collapse">
-                <a href="*">
-                  <li class="fish-aside">編輯個人資訊</li>
-                </a>
-                <a href="*">
-                  <li class="fish-aside">更改密碼</li>
-                </a>
-              </ul>
-            </ul>
-            <ul data-toggle="collapse" data-target="*collapse-fav">
-              <p class="fish-aside-ul-active">收藏清單</p>
-
-              <ul id="collapse-fav" class="collapse show">
-                <a href="*">
-                  <li class="fish-aside">商品收藏</li>
-                </a>
-                <a href="*">
-                  <li class="fish-aside-active">活動收藏</li>
-                </a>
-              </ul>
-            </ul>
-            <ul data-toggle="collapse" data-target="*collapseorder">
-              訂單資訊
-              <ul id="collapseorder" class="collapse">
-                <a href="*">
-                  <li class="fish-aside">商品訂單</li>
-                </a>
-                <a href="*">
-                  <li class="fish-aside">活動訂單</li>
-                </a>
-                <a href="*">
-                  <li class="fish-aside">場地租借</li>
-                </a>
-              </ul>
-            </ul>
-          </aside>
+          <FishAside />
           <div class="col-9 desk-fav">
             <div class="campaignCardBig w-100 d-flex position-relative">
               <div class="cardBigImg"></div>
@@ -262,4 +226,4 @@ function fav_active(props) {
     </>
   )
 }
-export default fav_active
+export default FavActive

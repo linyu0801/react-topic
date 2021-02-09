@@ -3,19 +3,21 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import React, { useState } from 'react'
 
 // 頁面用元件
-import MemberEdit from './pages/member/memberedit'
-import MemberForget from './pages/member/memberforget'
-import OrderProduct from './pages/member/order_product'
-import OrderActive from './pages/member/order_active'
-import OrderClass from './pages/member/order_class'
+import MemberEdit from './pages/member/MemberEdit'
+import MemberForget from './pages/member/MemberForget'
+import OrderProduct from './pages/member/OrderProduct'
+import OrderActive from './pages/member/OrderActive'
+import OrderClass from './pages/member/OrderClass'
 import Login from './pages/member/login'
 import Forget from './pages/member/forget'
 import Register from './pages/member/register'
-import FavProduct from './pages/member/fav_product'
-import FavActive from './pages/member/fav_active'
+import FavProduct from './pages/member/FavProduct'
+import FavActive from './pages/member/FavActive'
 import Cart from './pages/cart/Cart'
 import CartTry from './pages/cart/CartTry'
 import NotFoundPage from './pages/NotFoundPage'
+import CampaignIndex from './pages/campaign/CampaignIndex'
+import CampaignProductInfo from './pages/campaign/CampaignProductInfo'
 
 // 組合用元件
 
@@ -53,6 +55,13 @@ function App() {
             {/* <ThemeContext.Provider value={themeNow}> */}
 
             <Switch>
+
+              <Route path="/campaign/products/:id?">
+                <CampaignProductInfo />
+              </Route>
+              <Route path="/campaign">
+                <CampaignIndex />
+              </Route>
               <Route path="/member/edit">
                 <MemberEdit />
               </Route>

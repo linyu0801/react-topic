@@ -1,10 +1,10 @@
 import '../../styles/fish.scss'
 import '../../styles/font.scss'
-
-function order_product(props) {
+import React, { useState } from 'react'
+import FishAside from '../../components/FishAside'
+function OrderClass(props) {
   return (
     <>
-      {' '}
       <div class="container h-100">
         <div class="row">
           <div class="col-12 bread-div">
@@ -20,7 +20,7 @@ function order_product(props) {
               訂單資訊 <span class="clspan">{'>'}</span>
             </a>
             <a class="clbread" href="*">
-              商品訂單{' '}
+              場地租借{' '}
             </a>
           </div>
         </div>
@@ -28,54 +28,16 @@ function order_product(props) {
           <div class="col-2"></div>
           <div class="col-9">
             <h2 class="fish-topic">
-              <i class="fab fa-wpforms"></i> 商品訂單
+              <i class="fab fa-wpforms"></i> 場地租借
             </h2>
           </div>
         </div>
         <div class="row justify-content-center">
-          <aside class="fish-aside h-100 col-2">
-            <h4>會員中心</h4>
-            <ul data-toggle="collapse" data-target="*collapse-info">
-              個人資訊
-              <ul id="collapse-info" class="collapse">
-                <a href="*">
-                  <li>編輯個人資訊</li>
-                </a>
-                <a href="*">
-                  <li class="fish-aside-">更改密碼</li>
-                </a>
-              </ul>
-            </ul>
-            <ul data-toggle="collapse" data-target="*collapse-fav">
-              收藏清單
-              <ul id="collapse-fav" class="collapse">
-                <a href="*">
-                  <li class="fish-aside">商品收藏</li>
-                </a>
-                <a href="*">
-                  <li>活動收藏</li>
-                </a>
-              </ul>
-            </ul>
-            <ul data-toggle="collapse" data-target="*collapseorder">
-              <p class="fish-aside-ul-active">訂單資訊</p>
+          <FishAside />
 
-              <ul id="collapseorder" class="collapse show">
-                <a href="*">
-                  <li class="fish-aside-active">商品訂單</li>
-                </a>
-                <a href="*">
-                  <li class="fish-aside">活動訂單</li>
-                </a>
-                <a href="*">
-                  <li class="fish-aside">場地租借</li>
-                </a>
-              </ul>
-            </ul>
-          </aside>
           <div class="col-9 desk-order">
             <div class="w-100 fish-order fish-order-pd d-flex justify-content-between">
-              <div class="col-3">
+              <div class="col-2">
                 <h6>訂單編號</h6>
                 <a href="*">
                   {' '}
@@ -98,14 +60,31 @@ function order_product(props) {
                   <h6 class="fish-order-text">123456</h6>{' '}
                 </a>
               </div>
-              <div class="col-3">
-                <h6>訂購日期</h6>
+              <div class="col-2">
+                <h6>租借館別</h6>
+                <h6 class="fish-order-text">大安館</h6>
+                <h6 class="fish-order-text">大安館</h6>
+                <h6 class="fish-order-text">大安館</h6>
+                <h6 class="fish-order-text">大安館</h6>
+                <h6 class="fish-order-text">大安館</h6>
+              </div>
+              <div class="col-2 dis-none">
+                <h6>租借日期</h6>
                 <h6 class="fish-order-text">2020/12/15</h6>
                 <h6 class="fish-order-text">2020/12/15</h6>
                 <h6 class="fish-order-text">2020/12/15</h6>
                 <h6 class="fish-order-text">2020/12/15</h6>
                 <h6 class="fish-order-text">2020/12/15</h6>
               </div>
+              <div class="col-2">
+                <h6>租借時數</h6>
+                <h6 class="fish-order-text">2 hr</h6>
+                <h6 class="fish-order-text">2.5 hr</h6>
+                <h6 class="fish-order-text">3 hr</h6>
+                <h6 class="fish-order-text">2 hr</h6>
+                <h6 class="fish-order-text">2 hr</h6>
+              </div>
+
               <div class="col-2">
                 <h6>訂單金額</h6>
                 <h6 class="fish-order-text">500</h6>
@@ -121,14 +100,6 @@ function order_product(props) {
                 <h6 class="fish-order-text">銀行轉帳</h6>
                 <h6 class="fish-order-text">銀行轉帳</h6>
                 <h6 class="fish-order-text">銀行轉帳</h6>
-              </div>
-              <div class="col-2">
-                <h6>訂單狀態</h6>
-                <h6 class="fish-order-text">已送達</h6>
-                <h6 class="fish-order-text">已取貨</h6>
-                <h6 class="fish-order-text">已取貨</h6>
-                <h6 class="fish-order-text">已送達</h6>
-                <h6 class="fish-order-text">已取貨</h6>
               </div>
             </div>
             <nav aria-label="Page navigation example" class="fish-order-mt">
@@ -188,108 +159,122 @@ function order_product(props) {
               <div class="w-100 fish-order fish-order-pd d-flex">
                 <div class="col-6 mob-pd mob-topic">
                   <h6>訂單編號</h6>
-                  <h6>訂購日期</h6>
+                  <h6>租借館別</h6>
+                  <h6>租借日期</h6>
+                  <h6>租借時數</h6>
                   <h6>訂單金額</h6>
                   <h6>付款方式</h6>
-                  <h6>訂單狀態</h6>
                 </div>
                 <div class="col-6 mob-pd">
                   <a href="*">
                     {' '}
                     <h6>123456</h6>{' '}
                   </a>
+                  <h6>大安館</h6>
                   <h6>2020/02/15</h6>
-                  <h6>800</h6>
-                  <h6>銀行轉帳</h6>
-                  <h6>已送達</h6>
-                </div>
-              </div>
-            </div>
-            <div class="mob-order-pd">
-              <div class="w-100 fish-order fish-order-pd d-flex">
-                <div class="col-6 mob-pd mob-topic">
-                  <h6>訂單編號</h6>
-                  <h6>訂購日期</h6>
-                  <h6>訂單金額</h6>
-                  <h6>付款方式</h6>
-                  <h6>訂單狀態</h6>
-                </div>
-                <div class="col-6 mob-pd">
-                  <a href="*">
-                    {' '}
-                    <h6>123456</h6>{' '}
-                  </a>
-                  <h6>2020/02/15</h6>
-                  <h6>800</h6>
-                  <h6>銀行轉帳</h6>
-                  <h6>已送達</h6>
-                </div>
-              </div>
-            </div>
-            <div class="mob-order-pd">
-              <div class="w-100 fish-order fish-order-pd d-flex">
-                <div class="col-6 mob-pd mob-topic">
-                  <h6>訂單編號</h6>
-                  <h6>訂購日期</h6>
-                  <h6>訂單金額</h6>
-                  <h6>付款方式</h6>
-                  <h6>訂單狀態</h6>
-                </div>
-                <div class="col-6 mob-pd">
-                  <a href="*">
-                    {' '}
-                    <h6>123456</h6>{' '}
-                  </a>
-                  <h6>2020/02/15</h6>
-                  <h6>800</h6>
-                  <h6>銀行轉帳</h6>
-                  <h6>已送達</h6>
-                </div>
-              </div>
-            </div>
-            <div class="mob-order-pd">
-              <div class="w-100 fish-order fish-order-pd d-flex">
-                <div class="col-6 mob-pd mob-topic">
-                  <h6>訂單編號</h6>
-                  <h6>訂購日期</h6>
-                  <h6>訂單金額</h6>
-                  <h6>付款方式</h6>
-                  <h6>訂單狀態</h6>
-                </div>
-                <div class="col-6 mob-pd">
-                  <a href="*">
-                    {' '}
-                    <h6>123456</h6>{' '}
-                  </a>
-                  <h6>2020/02/15</h6>
-                  <h6>800</h6>
-                  <h6>銀行轉帳</h6>
-                  <h6>已送達</h6>
-                </div>
-              </div>
-            </div>
-            <div class="mob-order-pd">
-              <div class="w-100 fish-order fish-order-pd d-flex">
-                <div class="col-6 mob-pd mob-topic">
-                  <h6>訂單編號</h6>
-                  <h6>訂購日期</h6>
-                  <h6>訂單金額</h6>
-                  <h6>付款方式</h6>
-                  <h6>訂單狀態</h6>
-                </div>
-                <div class="col-6 mob-pd">
-                  <a href="*">
-                    {' '}
-                    <h6>123456</h6>{' '}
-                  </a>
-                  <h6>2020/02/15</h6>
-                  <h6>800</h6>
-                  <h6>銀行轉帳</h6>
-                  <h6>已送達</h6>
-                </div>
-              </div>
-            </div>
+                  <h6>2hr</h6>
 
+                  <h6>800</h6>
+                  <h6>銀行轉帳</h6>
+                </div>
+              </div>
+            </div>
+            <div class="mob-order-pd">
+              <div class="w-100 fish-order fish-order-pd d-flex">
+                <div class="col-6 mob-pd mob-topic">
+                  <h6>訂單編號</h6>
+                  <h6>租借館別</h6>
+                  <h6>租借日期</h6>
+                  <h6>租借時數</h6>
+                  <h6>訂單金額</h6>
+                  <h6>付款方式</h6>
+                </div>
+                <div class="col-6 mob-pd">
+                  <a href="*">
+                    {' '}
+                    <h6>123456</h6>{' '}
+                  </a>
+                  <h6>大安館</h6>
+                  <h6>2020/02/15</h6>
+                  <h6>2hr</h6>
+
+                  <h6>800</h6>
+                  <h6>銀行轉帳</h6>
+                </div>
+              </div>
+            </div>
+            <div class="mob-order-pd">
+              <div class="w-100 fish-order fish-order-pd d-flex">
+                <div class="col-6 mob-pd mob-topic">
+                  <h6>訂單編號</h6>
+                  <h6>租借館別</h6>
+                  <h6>租借日期</h6>
+                  <h6>租借時數</h6>
+                  <h6>訂單金額</h6>
+                  <h6>付款方式</h6>
+                </div>
+                <div class="col-6 mob-pd">
+                  <a href="*">
+                    {' '}
+                    <h6>123456</h6>{' '}
+                  </a>
+                  <h6>大安館</h6>
+                  <h6>2020/02/15</h6>
+                  <h6>2hr</h6>
+
+                  <h6>800</h6>
+                  <h6>銀行轉帳</h6>
+                </div>
+              </div>
+            </div>
+            <div class="mob-order-pd">
+              <div class="w-100 fish-order fish-order-pd d-flex">
+                <div class="col-6 mob-pd mob-topic">
+                  <h6>訂單編號</h6>
+                  <h6>租借館別</h6>
+                  <h6>租借日期</h6>
+                  <h6>租借時數</h6>
+                  <h6>訂單金額</h6>
+                  <h6>付款方式</h6>
+                </div>
+                <div class="col-6 mob-pd">
+                  <a href="*">
+                    {' '}
+                    <h6>123456</h6>{' '}
+                  </a>
+                  <h6>大安館</h6>
+                  <h6>2020/02/15</h6>
+                  <h6>2hr</h6>
+
+                  <h6>800</h6>
+                  <h6>銀行轉帳</h6>
+                </div>
+              </div>
+            </div>
+            <div class="mob-order-pd">
+              <div class="w-100 fish-order fish-order-pd d-flex">
+                <div class="col-6 mob-pd mob-topic">
+                  <h6>訂單編號</h6>
+                  <h6>租借館別</h6>
+                  <h6>租借日期</h6>
+                  <h6>租借時數</h6>
+                  <h6>訂單金額</h6>
+                  <h6>付款方式</h6>
+                </div>
+                <div class="col-6 mob-pd">
+                  <a href="*">
+                    {' '}
+                    <h6>123456</h6>{' '}
+                  </a>
+                  <h6>大安館</h6>
+                  <h6>2020/02/15</h6>
+                  <h6>2hr</h6>
+
+                  <h6>800</h6>
+                  <h6>銀行轉帳</h6>
+                </div>
+              </div>
+            </div>
             <nav aria-label="Page navigation example" class="fish-order-mt">
               <ul class="pagination justify-content-center">
                 <li class="page-item">
@@ -349,4 +334,4 @@ function order_product(props) {
     </>
   )
 }
-export default order_product
+export default OrderClass

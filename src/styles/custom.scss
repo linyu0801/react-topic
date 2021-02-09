@@ -6,6 +6,17 @@ $secondary: #131010;
 @import '~bootstrap/scss/bootstrap.scss';
 
 // 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
-// main > .container {
-//   padding: 60px 15px 0;
-// }
+.carouselFinn{
+    height: 600px;
+    margin-bottom: 60px;
+}
+
+.carousel-item-finn{
+    height: 100%;
+}
+
+.carousel-item-finn>img{
+    height: 100%;
+    object-fit:cover;
+    object-position: center center;
+}
