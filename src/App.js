@@ -15,6 +15,8 @@ import FavProduct from './pages/member/FavProduct'
 import FavActive from './pages/member/FavActive'
 import Cart from './pages/cart/Cart'
 import NotFoundPage from './pages/NotFoundPage'
+import CampaignIndex from './pages/campaign/CampaignIndex'
+import CampaignProductInfo from './pages/campaign/CampaignProductInfo'
 
 // 組合用元件
 
@@ -52,6 +54,13 @@ function App() {
             {/* <ThemeContext.Provider value={themeNow}> */}
 
             <Switch>
+
+              <Route path="/campaign/products/:id?">
+                <CampaignProductInfo />
+              </Route>
+              <Route path="/campaign">
+                <CampaignIndex />
+              </Route>
               <Route path="/member/edit">
                 <MemberEdit />
               </Route>
