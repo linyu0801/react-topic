@@ -1,0 +1,28 @@
+{
+    "window.zoomLevel": 1,
+    "editor.wordWrap": "on",
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+    // 下面是eddy的設定檔
+    "editor.formatOnSave": true,
+    "[javascript]": {
+        "editor.formatOnSave": false
+    },
+    "prettier.disableLanguages": [
+        "js"
+    ],
+    "eslint.alwaysShowStatus": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "html.autoClosingTags": false,
+    "typescript.autoClosingTags": false,
+    "javascript.autoClosingTags": false,
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "workbench.iconTheme": "vscode-icons",
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+    // 上面是eddy的設定檔
+}
