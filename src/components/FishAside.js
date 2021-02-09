@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Collapse } from 'reactstrap'
-import { Link, withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function FishAside(props) {
   console.log(window.location.pathname)
@@ -38,7 +38,7 @@ function FishAside(props) {
               <Link to="edit">
                 <li
                   className={
-                    window.location.pathname == '/member/edit'
+                    window.location.pathname === '/member/edit'
                       ? 'fish-aside-active'
                       : 'fish-aside'
                   }
@@ -49,7 +49,7 @@ function FishAside(props) {
               <Link to="forget">
                 <li
                   className={
-                    window.location.pathname == '/member/forget'
+                    window.location.pathname === '/member/forget'
                       ? 'fish-aside-active'
                       : 'fish-aside'
                   }
@@ -75,7 +75,7 @@ function FishAside(props) {
               <Link to="fav-product">
                 <li
                   className={
-                    window.location.pathname == '/member/fav-product'
+                    window.location.pathname === '/member/fav-product'
                       ? 'fish-aside-active'
                       : 'fish-aside'
                   }
@@ -86,7 +86,7 @@ function FishAside(props) {
               <Link to="fav-active">
                 <li
                   className={
-                    window.location.pathname == '/member/fav-active'
+                    window.location.pathname === '/member/fav-active'
                       ? 'fish-aside-active'
                       : 'fish-aside'
                   }
@@ -112,7 +112,7 @@ function FishAside(props) {
               <Link to="order-product">
                 <li
                   className={
-                    window.location.pathname == '/member/order-product'
+                    window.location.pathname === '/member/order-product'
                       ? 'fish-aside-active'
                       : 'fish-aside'
                   }
@@ -123,7 +123,7 @@ function FishAside(props) {
               <Link to="order-active">
                 <li
                   className={
-                    window.location.pathname == '/member/order-active'
+                    window.location.pathname === '/member/order-active'
                       ? 'fish-aside-active'
                       : 'fish-aside'
                   }
@@ -134,7 +134,7 @@ function FishAside(props) {
               <Link to="order-class">
                 <li
                   className={
-                    window.location.pathname == '/member/order-class'
+                    window.location.pathname === '/member/order-class'
                       ? 'fish-aside-active'
                       : 'fish-aside'
                   }
