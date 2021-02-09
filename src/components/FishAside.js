@@ -10,17 +10,31 @@ function FishAside(props) {
   const toggle1 = () => setMemberOpen(!MemberOpen)
   const toggle2 = () => setFavOpen(!FavOpen)
   const toggle3 = () => setOrderOpen(!OrderOpen)
-  // const Pages = window.location.pathname
+  let page1 = ['/member/edit', '/member/forget']
+  let page2 = ['/member/fav-product', '/member/fav-active']
+  let page3 = [
+    '/member/order-product',
+    '/member/order-active',
+    '/member/order-class',
+  ]
 
   return (
     <>
       <aside className="fish-aside h-100 col-2">
         <h4>會員中心</h4>
 
-        <div onClick={toggle1}>
-          個人資訊
-          <ul>
-            <Collapse isOpen={!MemberOpen}>
+        <ul onClick={toggle1}>
+          <span
+            className={
+              page1.indexOf(window.location.pathname) > -1
+                ? 'fish-aside-ul-active'
+                : ''
+            }
+          >
+            個人資訊
+          </span>
+          <Collapse isOpen={!MemberOpen}>
+            <ul>
               <Link to="edit">
                 <li
                   className={
@@ -43,11 +57,19 @@ function FishAside(props) {
                   更改密碼
                 </li>
               </Link>
-            </Collapse>
-          </ul>
-        </div>
+            </ul>
+          </Collapse>
+        </ul>
         <ul onClick={toggle2}>
-          <span className="fish-aside-ul-active">收藏清單</span>
+          <span
+            className={
+              page2.indexOf(window.location.pathname) > -1
+                ? 'fish-aside-ul-active'
+                : null
+            }
+          >
+            收藏清單
+          </span>
           <Collapse isOpen={FavOpen}>
             <ul>
               <Link to="fav-product">
@@ -76,7 +98,15 @@ function FishAside(props) {
           </Collapse>
         </ul>
         <ul onClick={toggle3}>
-          訂單資訊
+          <span
+            className={
+              page3.indexOf(window.location.pathname) > -1
+                ? 'fish-aside-ul-active'
+                : null
+            }
+          >
+            訂單資訊
+          </span>
           <Collapse isOpen={OrderOpen}>
             <ul>
               <Link to="order-product">
