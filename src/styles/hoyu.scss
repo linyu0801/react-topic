@@ -64,6 +64,10 @@
   background-color: #ffeed3;
 }
 
+.hy-cartmode-active {
+  background-color: #cdaa8a;
+}
+
 @media screen and (max-width: 768px) {
   .hy-rwd-d-none {
     display: none;
@@ -73,7 +77,6 @@
   }
   .hy-img > img {
     height: 64px;
-    /* max-width: 100%; */
   }
 
   .hy-money::before {

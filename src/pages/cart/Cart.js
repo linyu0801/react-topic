@@ -10,7 +10,8 @@ function Cart(props) {
   // 利用match.params來取得url params (記得App元件中的Route要先定義)
   console.log('props.match.params', props.match.params)
 
-  const [highlight, setHighlight] = useState('')
+  const [cartMode, setCartMode] = useState('cart1')
+  const [stepMode, setStepMode] = useState('step1')
 
   return (
     <>
@@ -28,10 +29,27 @@ function Cart(props) {
         <div className="row hhyy-cate">
           <div className="col text-center mt-5 hy-bg">
             <h4 className="my-3">請按商品分類分別結帳</h4>
+
             <div className="cart-cate d-flex justify-content-between">
-              <div className="btn px-0 hy-bg">
+              <p>123</p>
+              <p>123</p>
+              <p>123</p>
+              <div
+                className={
+                  ' px-0 hy-bg ' +
+                  (cartMode === 'cart1' ? 'hy-cartmode-active' : '')
+                }
+              >
                 <h5>甜點商城</h5>
               </div>
+              <h5
+                className={
+                  ' px-0 hy-bg ' +
+                  (cartMode === 'cart1' ? 'hy-cartmode-active' : '')
+                }
+              >
+                甜點商城
+              </h5>
               <div className="btn px-0">
                 <h5>活動體驗</h5>
               </div>
@@ -44,9 +62,9 @@ function Cart(props) {
         <div className="row hhyy-step mt-5">
           <div className="col hy-cart-step d-flex justify-content-between">
             <div
-              className={'text-center ' + highlight}
+              className={'text-center ' + stepMode}
               onClick={() => {
-                setHighlight('hy-step-active ')
+                setStepMode('hy-step-active ')
               }}
             >
               <h5>Step.1</h5>
@@ -170,7 +188,12 @@ function Cart(props) {
                     <p>數量</p>
                   </div>
                   <div className="form-col hy-form-col">
-                    <p className="hy-money">2</p>
+                    <select name="" id="">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
                   </div>
                 </div>
                 <div className="form-row hy-form-row justify-content-between mb-5">
@@ -210,7 +233,12 @@ function Cart(props) {
                     <p>數量</p>
                   </div>
                   <div className="form-col hy-form-col">
-                    <p className="hy-money">2</p>
+                    <select name="" id="">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
                   </div>
                 </div>
                 <div className="form-row hy-form-row justify-content-between">
