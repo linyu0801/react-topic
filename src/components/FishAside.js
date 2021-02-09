@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Collapse } from 'reactstrap'
-import { Link ,withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 function FishAside(props) {
   console.log(window.location.pathname)
@@ -22,13 +22,26 @@ function FishAside(props) {
           <ul>
             <Collapse isOpen={!MemberOpen}>
               <Link to="edit">
-                <li className = {(window.location.pathname == '/member/edit' ? 'fish-aside-active' : 'fish-aside')}>
+                <li
+                  className={
+                    window.location.pathname == '/member/edit'
+                      ? 'fish-aside-active'
+                      : 'fish-aside'
+                  }
+                >
                   編輯個人資訊
                 </li>
               </Link>
               <Link to="forget">
-              <li className = {(window.location.pathname == '/member/forget' ? 'fish-aside-active' : 'fish-aside')}>
-更改密碼</li>
+                <li
+                  className={
+                    window.location.pathname == '/member/forget'
+                      ? 'fish-aside-active'
+                      : 'fish-aside'
+                  }
+                >
+                  更改密碼
+                </li>
               </Link>
             </Collapse>
           </ul>
@@ -38,12 +51,26 @@ function FishAside(props) {
           <Collapse isOpen={FavOpen}>
             <ul>
               <Link to="fav-product">
-              <li className = {(window.location.pathname == '/member/fav-product' ? 'fish-aside-active' : 'fish-aside')}>
-商品收藏</li>
+                <li
+                  className={
+                    window.location.pathname == '/member/fav-product'
+                      ? 'fish-aside-active'
+                      : 'fish-aside'
+                  }
+                >
+                  商品收藏
+                </li>
               </Link>
               <Link to="fav-active">
-              <li className = {(window.location.pathname == '/member/fav-active' ? 'fish-aside-active' : 'fish-aside')}>
-活動收藏</li>
+                <li
+                  className={
+                    window.location.pathname == '/member/fav-active'
+                      ? 'fish-aside-active'
+                      : 'fish-aside'
+                  }
+                >
+                  活動收藏
+                </li>
               </Link>
             </ul>
           </Collapse>
@@ -53,16 +80,37 @@ function FishAside(props) {
           <Collapse isOpen={OrderOpen}>
             <ul>
               <Link to="order-product">
-              <li className = {(window.location.pathname == '/member/order-product' ? 'fish-aside-active' : 'fish-aside')}>
-商品訂單</li>
+                <li
+                  className={
+                    window.location.pathname == '/member/order-product'
+                      ? 'fish-aside-active'
+                      : 'fish-aside'
+                  }
+                >
+                  商品訂單
+                </li>
               </Link>
               <Link to="order-active">
-              <li className = {(window.location.pathname == '/member/order-active' ? 'fish-aside-active' : 'fish-aside')}>
-活動訂單</li>
+                <li
+                  className={
+                    window.location.pathname == '/member/order-active'
+                      ? 'fish-aside-active'
+                      : 'fish-aside'
+                  }
+                >
+                  活動訂單
+                </li>
               </Link>
               <Link to="order-class">
-              <li className = {(window.location.pathname == '/member/order-class' ? 'fish-aside-active' : 'fish-aside')}>
-場地租借</li>
+                <li
+                  className={
+                    window.location.pathname == '/member/order-class'
+                      ? 'fish-aside-active'
+                      : 'fish-aside'
+                  }
+                >
+                  場地租借
+                </li>
               </Link>
             </ul>
           </Collapse>
