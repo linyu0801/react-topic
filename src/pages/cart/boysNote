@@ -26,3 +26,12 @@ useEffect(()=>{
 
 切換步驟狀態
 {stateStep==='step1' && <giugiuhi />}
+
+<div
+    className={
+        ' px-0 hy-bg ' +
+        (cartMode === 'cart1' ? 'hy-cartmode-active' : '')
+     }
+    >
+    <h5>甜點商城</h5>
+</div>

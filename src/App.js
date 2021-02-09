@@ -14,6 +14,7 @@ import Register from './pages/member/register'
 import FavProduct from './pages/member/fav_product'
 import FavActive from './pages/member/fav_active'
 import Cart from './pages/cart/Cart'
+import CartTry from './pages/cart/CartTry'
 import NotFoundPage from './pages/NotFoundPage'
 
 // 組合用元件
@@ -84,6 +85,9 @@ function App() {
               </Route>
               <Route path="/cart">
                 <Cart />
+              </Route>
+              <Route path="/carttry">
+                <CartTry />
               </Route>
 
               <Route path="*">
