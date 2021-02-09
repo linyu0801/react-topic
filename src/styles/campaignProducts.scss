@@ -1,0 +1,433 @@
+
+
+.btnText {
+  font-family: "Noto Sans TC";
+  font-size: 14px;
+  font-weight: lighter;
+  letter-spacing: 3px;
+}
+
+.breadcrumb {
+  background: none;
+  margin: 30px 0px;
+  padding: 0px;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  display: inline-block;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  color: #636c72;
+  content: "＞";
+  font-size: 12px;
+}
+
+li.breadcrumb-item {
+  padding: 0px !important;
+}
+
+li.breadcrumb-item a {
+  font-size: 12px;
+  text-decoration: none;
+  color: #cdaa8a;
+  font-family: "Noto Sans TC";
+  letter-spacing: 3px;
+}
+li.breadcrumb-item span {
+  font-family: "Noto Sans TC";
+  letter-spacing: 3px;
+  font-size: 12px;
+}
+
+.searchResultText{
+  margin-bottom: 30px;
+}
+
+.searchResult{
+  color: #cdaa8a;
+}
+
+.searchResult::before{
+  margin-right: 0.25em;
+  display: inline-block;
+  color: #250404;
+  font-size: 36px;
+  font-weight: bold;
+  content: '“';
+}
+
+.searchResult::after{
+  margin-left: 0.25em;
+  display: inline-block;
+  color: #250404;
+  font-size: 36px;
+  font-weight: bold;
+  content: '”';
+}
+
+.countResult{
+  color: #cdaa8a;
+  
+}
+
+.categoryGroup {
+  background-color: #ffeed3;
+  padding: 20px 0px;
+  margin-bottom: 30px;
+  color: #250404;
+}
+
+.categoryHeading{
+  padding: 0;
+  color: #250404;
+}
+.btn-link>h5{
+  color: #250404;
+}
+
+.btn-link:hover{
+  color: #250404;
+}
+.categoryTitle {
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding: 0px 30px;
+}
+
+.categoryBtn {
+  padding: 10px 30px;
+  background-color: #ffeed3;
+  border: 0px;
+  text-align: left;
+  font-family: "Noto Sans TC";
+  font-size: 14px;
+  font-weight: lighter;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+
+.categoryBtn:hover {
+  background-color: #cdaa8a;
+  font-weight: bold;
+}
+
+.categoryBtn.active {
+  background-color: #cdaa8a;
+  font-weight: bold;
+}
+
+.categoryRange {
+  color: #250404;
+  background-color: #ffeed3;
+  padding: 20px 30px;
+}
+
+.categoryRange form h5 {
+  margin-bottom: 6px;
+
+}
+
+#priceRangeMin {
+  width: 40%;
+  height: 46px;
+  border-radius: 0;
+  border: 1px solid #250404;
+  padding-left: 15px;
+  background: none;
+  font-family: "Noto Serif TC";
+  font-size: 14px;
+  letter-spacing: 0.05rem;
+}
+
+
+#priceRangeMin:focus{
+  outline: 0px;
+}
+
+#priceRangeMax{
+  width: 40%;
+  height: 46px;
+  border-radius: 0;
+  border: 1px solid #250404;
+  padding-left: 15px;
+  background: none;
+  font-family: "Noto Serif TC";
+  font-size: 14px;
+  letter-spacing: 0.05rem;
+}
+#priceRangeMax:focus{
+  outline: 0px;
+}
+
+.before::after{
+  display: inline-block;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  color: #250404;
+  content: "～";
+  font-size: 16px;
+  font-weight: bold;
+  padding-top: 10px;
+
+}
+
+.sortBar {
+  background-color: #ffeed3;
+  padding: 20px 30px;
+  margin-bottom: 30px;
+}
+
+.sortBar h5 {
+  color: #250404;
+  display: inline;
+  font-weight: bold;
+}
+
+.sortBar ol {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+.sortBar ol li {
+  display: inline;
+}
+
+.sortBar ol li a {
+  text-decoration: none;
+  color: #250404;
+  font-family: "Noto Sans TC";
+  font-size: 14px;
+  font-weight: lighter;
+  letter-spacing: 3px;
+}
+
+.sortBar ol li a:hover {
+  text-decoration: none;
+  color: #cdaa8a;
+  font-family: "Noto Sans TC";
+  font-size: 14px;
+  font-weight: lighter;
+  letter-spacing: 3px;
+}
+
+.sortBar ol li.active a {
+  text-decoration: none;
+  color: #250404;
+  font-family: "Noto Sans TC";
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.sortItem + .sortItem::before {
+  display: inline-block;
+  padding-right: 0.8rem;
+  padding-left: 0.8rem;
+  color: #250404;
+  content: "|";
+}
+
+.campaignCardBig {
+  background-color: #ffeed3;
+  margin-bottom: 30px;
+  transition-duration: 0.5s;
+  cursor: pointer;
+}
+
+.campaignCardBig:hover {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 16%);
+  transition-duration: 0.5s;
+}
+
+.cardBigImg {
+  background-image: url("../img/CardBigImg.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 40%;
+  background-size: cover;
+  
+
+}
+
+.cardBigText {
+  width: 60%;
+  padding: 30px;
+}
+
+.heart{
+  top: 0;
+  right: 0;
+  padding-right: 15px;
+  padding-top: 15px;
+  color: #636c72;
+
+}
+
+.heart:hover{
+  top: 0;
+  right: 0;
+  padding-right: 15px;
+  padding-top: 15px;
+  color: #d67b76;
+
+}
+
+.cardBigTag {
+  width: 70px;
+  height: 20px;
+  background-color: #d67b76;
+  margin-bottom: 10px;
+  font-family: "Noto Sans TC";
+  font-size: 10px;
+  text-align: center;
+  color: white;
+  font-weight: lighter;
+  letter-spacing: 0.075rem;
+}
+
+.cardBigTitle {
+  margin-bottom: 15px;
+}
+
+.cardBigContent > p {
+  font-family: "Noto Serif TC";
+  color: #636c72;
+  font-size: 12px;
+  letter-spacing: 0.075rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.cardBigContent > .location {
+  margin-bottom: 8px;
+  font-family: "Noto Sans TC";
+  font-weight: lighter;
+  letter-spacing: 0.15rem;
+}
+
+.cardBigContent > .calendar {
+  margin-bottom: 8px;
+  font-family: "Noto Sans TC";
+  font-weight: lighter;
+  letter-spacing: 0.15rem;
+}
+
+.cardBigContent > .stars {
+  font-size: 14px;
+  color: #cdaa8a;
+  letter-spacing: 1px;
+}
+
+@media screen and (max-width: 575.98px) { 
+  
+
+  .breadcrumb{
+    margin: 5px 0;
+  }
+
+  .searchBar{
+    margin-bottom: 15px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 16%) ; 
+    font-family: "Noto Serif TC";
+  }
+
+  .categoryGroup{
+    margin-bottom: 15px;
+  } 
+
+  
+
+  
+  .categoryBtn{
+    background-color:rgba(199, 171, 142, 15%) ;
+    width: 30%;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    padding: 10px 20px;
+    transition: 0.5s;
+  }
+ 
+  .categoryRange{
+    margin-bottom: 15px;
+  }
+
+  .sortBarPhoneBtn{
+    color: #250404;
+    font-size: 12px;
+    font-family: "Noto Serif TC";
+    font-weight: bold;
+    background: none;
+    border: none;
+    margin-bottom: 5px;
+  }
+
+  .sortBarPhoneBtn:focus{
+    outline: none;
+    box-shadow: none;
+    background-color: #ffeed3;
+    border-radius: 0px;
+  }
+
+  .sortBarPhoneMenu{
+    transform: translate3d(179px, 33px, 0px) !important;
+    min-width: 166px;
+    padding: 0;
+    text-align: center;
+    border-radius: 0px;
+    border: 0px;
+    background-color: #ffeed3;
+    font-family: "Noto Noto TC";
+    font-size: 12px;
+    font-weight: lighter;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 16%) ; 
+  }
+
+  .dropdown-toggle::after{
+    color: #250404;
+
+  }
+
+  .sortBarPhoneItem{
+    padding: 8px ;
+    color: #250404;
+    letter-spacing: 0.2em;
+    font-weight: lighter;
+  }
+
+  .sortBarPhoneItem.active{
+    background-color: #cdaa8a;
+    border-radius: 0px;
+    color: #250404;
+    font-weight: bold;
+  }
+
+  .sortBarPhoneItem:focus{
+    background-color: #cdaa8a;
+    border-radius: 0px;
+    color: #250404;
+    font-weight: bold;
+  }
+
+  .cardBigImg{
+    background-position: center -10px;
+    height: 180px;
+  }
+
+  .heart{
+    padding: 5px;
+  }
+
+  .heart:hover{
+    padding: 5px;
+    
+  }
+
+  .cardBigText{
+    padding: 20px;
+  }
+}
