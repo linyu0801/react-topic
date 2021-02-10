@@ -1,4 +1,8 @@
 @import '~bootstrap/scss/bootstrap.scss';
+.fontwhite {
+  color: white;
+  // margin: 0px;
+}
 
 body {
   overflow-x: hidden;
@@ -7,7 +11,10 @@ body {
   color: white;
   text-align: center;
 }
-
+// .FaUserAlt {
+//   height: auto;
+//   width: 20px;
+// }
 .w-80 {
   width: 80%;
 }
@@ -265,6 +272,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
   width: 276px;
   height: 276px;
   transform: rotate(230deg);
+  pointer-events: none;
 }
 
 .bgdown-img::before {
@@ -278,6 +286,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
   height: 450px;
   transform: rotate(350deg);
   z-index: -1;
+  pointer-events: none;
 }
 .card {
   text-align: center;

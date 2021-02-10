@@ -11,56 +11,67 @@ import {
 import { FaSearch } from 'react-icons/fa'
 import { FaUserAlt } from 'react-icons/fa'
 import { FaShoppingCart } from 'react-icons/fa'
-import { NavLink } from 'react-router-dom'
-
+import { NavLink, Link } from 'react-router-dom'
+import '../styles/custom.scss'
 function MyNavbar(props) {
   const { auth } = props
 
   return (
     <>
       <Navbar
-        className="bg-dark justify-content-between"
-        bg="dark"
+        className=" justify-content-between"
         collapseOnSelect
         expand="lg"
-        bg="primary"
         variant="dark"
         // fixed="top"
       >
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="#home" className="nav-left">
+          Icons
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mr-auto">
+          <Nav className="mr-auto nav-between">
             {/* 利用as屬性來作選單link的整合 */}
             {/* 參考：https://react-bootstrap.github.io/components/navs/#nav-link-props */}
-            <Nav.Link as={NavLink} to="/about">
+            <Nav.Link as={NavLink} to="#">
               首頁
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/register">
+            <Nav.Link as={NavLink} to="#">
               商品
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/login">
+            <Nav.Link as={NavLink} to="/campaign">
               體驗
             </Nav.Link>
 
-            <Nav.Link as={NavLink} to="/product-category">
+            <Nav.Link as={NavLink} to="#">
               場地租借
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/student">
+            <Nav.Link as={NavLink} to="#">
               部落格
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/counter">
+            <Nav.Link as={NavLink} to="#">
               關於我們
             </Nav.Link>
           </Nav>
-          <Nav>
+          <Nav className="nav-right">
             <Nav.Link href="#deets">
               <FaSearch />
             </Nav.Link>
-            <Nav.Link href="#deets">
-              <FaUserAlt />
-            </Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
+            <NavDropdown title={<FaUserAlt />}>
+              <NavDropdown.Item
+                as={NavLink}
+                to="/member/edit"
+                className="drop-border"
+              >
+                <p>會員中心</p>
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item as={NavLink} to="/member/edit">
+                <p>登出</p>
+              </NavDropdown.Item>
+            </NavDropdown>
+
+            <Nav.Link eventKey={2} as={NavLink} to="/cart">
               <FaShoppingCart />
             </Nav.Link>
           </Nav>
