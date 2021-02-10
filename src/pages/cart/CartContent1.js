@@ -196,11 +196,13 @@ function CartContent1(props) {
       </div>
       <div className="row my-5">
         <div className="col-1"></div>
-        <div className="col-5">
-          <button className="addToCartBtn">加入購物車</button>
+        <div className="col-4">
+          <button className="addToCartBtn">&lt; 繼續挑選</button>
         </div>
-        <div className="col-5">
-          <button className="addToCartBtn">加入購物車</button>
+        <div className="col-1"></div>
+        <div className="col-1"></div>
+        <div className="col-4">
+          <button className="addToCartBtn">下一步 &gt; </button>
         </div>
         <div className="col-1"></div>
       </div>
