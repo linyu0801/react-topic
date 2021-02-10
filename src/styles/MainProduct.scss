@@ -1,0 +1,236 @@
+
+
+.k-ul {
+  list-style: none;
+  padding: 0;
+}
+
+.k-main {
+  position: relative;
+}
+
+.k-hero-img {
+  position: relative;
+  height: 600px;
+  background: url("http://localhost:3000/k-images/product_hero-img.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  margin-bottom: 50px;
+}
+
+/*product-desc*/
+.k-product-desc {
+  position: absolute;
+  padding: 50px 0;
+  margin: auto;
+  top: 0px;
+  left: 5%;
+  bottom: 0;
+  width: 30%;
+  height: 40%;
+  color: #cdaa8a;
+  background-color: #3b434b;
+  opacity: 0.8;
+}
+
+.subtitle {
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: lighter;
+  margin-bottom: 0;
+  width: fit-content;
+  border-bottom: 1px solid #cdaa8a;
+}
+
+.k-title {
+  margin: 0.5rem 0;
+  font-weight: bold;
+}
+
+.k-description {
+  margin-bottom: 0;
+}
+
+/*k-breadcrumbs*/
+.k-upper {
+  margin-bottom: 25px;
+}
+.clbread {
+  font-size: 14px;
+  color: #cdaa8a;
+  font-family: "Noto Sans TC", sans-serif;
+  letter-spacing: 1.8px;
+  transition: 0.6s;
+}
+
+.clbread:hover {
+  color: #250404;
+  text-decoration: none;
+}
+
+.clspan {
+  color: #250404;
+}
+
+
+.product-search-btn {
+  font-family: "Noto Sans TC", sans-serif;
+  border: none;
+  border-radius: 10%;
+  background-color: #bebebe;
+  color: white;
+  transition: 0.6s;
+}
+
+.product-search-btn:hover {
+  border-radius: 10%;
+  color: white;
+  background-color: hsl(29, 40%, 67%);
+  border-color: #cdaa8a;
+}
+
+/*product-catergory 商品分類*/
+
+.k-product-category {
+  margin-bottom: 45px;
+}
+
+.k-category {
+  position: relative;
+}
+
+.k-category a {
+  font-size: 24px;
+  padding: 10px;
+  color: #bebebe;
+  text-decoration: none;
+  transition: 0.6s;
+}
+
+.k-category a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 0;
+  border-bottom: 1px solid #cdaa8a;
+  transition: 0.6s;
+}
+
+.k-category a:hover {
+  color: #250404;
+  text-decoration: none;
+}
+
+.k-category a:hover::before {
+  width: 100%;
+  text-decoration: none;
+}
+
+/*main-products 主商品*/
+
+.card {
+  width: 359px;
+  text-align: center;
+  border: none;
+}
+
+.k-img-box {
+  margin: 0 auto;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+}
+
+.product-img {
+  width: 100%;
+  height: auto;
+  transition: ease-in-out 0.7s;
+}
+
+.k-img-box > a:hover .product-img {
+  opacity: 0.8;
+  transform: scale(1.1);
+  text-decoration: none;
+}
+
+.card-body {
+  font-family: "Noto Serif TC", serif;
+  padding: 0;
+}
+
+.card-title {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  letter-spacing: 2.4px;
+  line-height: 35px;
+  color: #cdaa8a;
+}
+.card-text {
+  margin-bottom: 10px;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  line-height: 17px;
+}
+
+.product-hr {
+  margin: 0 auto 10px;
+  width: 28.5px;
+  background-color: #cdaa8a;
+}
+
+.k-product-price {
+  font-size: 16px;
+  letter-spacing: 1.6px;
+  line-height: 23px;
+}
+
+.product.card {
+  margin-bottom: 45px;
+}
+
+/*pagination*/
+.hoyu-mt {
+  margin: 30px 0;
+}
+
+.hoyu-page-link {
+  border: none;
+  color: #bebebe;
+  font-size: 24px;
+  /* padding: 0 8px; */
+}
+
+.hoyu-page-link:hover {
+  color: #cdaa8a;
+  background: none;
+  border: none;
+}
+
+.hoyu-page-arrow {
+  font-size: 12px;
+  line-height: 30px;
+  /* padding: 0 14px; */
+}
+
+/*golden ball*/
+.k-golden-design::before {
+  position: absolute;
+  bottom: -40px;
+  left: -200px;
+  content: "";
+  background: url("http://localhost:3000/k-images/goldenball.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 276px;
+  height: 276px;
+}
+
+/*temp-footer*/
+.temp-footer {
+  height: 387px;
+  background-color: #250404;
+}

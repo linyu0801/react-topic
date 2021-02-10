@@ -15,6 +15,7 @@ import FavProduct from './pages/member/FavProduct'
 import FavActive from './pages/member/FavActive'
 import Cart from './pages/cart/Cart'
 import CartTry from './pages/cart/CartTry'
+import MainProduct from './pages/mainProduct/MainProduct'
 import NotFoundPage from './pages/NotFoundPage'
 import CampaignIndex from './pages/campaign/CampaignIndex'
 import CampaignProductInfo from './pages/campaign/CampaignProductInfo'
@@ -55,6 +56,9 @@ function App() {
             {/* <ThemeContext.Provider value={themeNow}> */}
 
             <Switch>
+              <Route path="/mainproduct">
+                <MainProduct />
+              </Route>
               <Route path="/campaign/products/:id?">
                 <CampaignProductInfo />
               </Route>
@@ -106,6 +110,7 @@ function App() {
             {/* end 匹配路由表 */}
           </ScrollToTop>
         </MainContent>
+
         <MyFooter />
       </>
     </Router>
