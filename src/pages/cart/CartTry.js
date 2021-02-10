@@ -30,7 +30,7 @@ function CartTry() {
         </div>
         <CartCate cartCate={cartCate} setCartCate={setCartCate} />
         <CartStep cartStep={cartStep} setCartStep={setCartStep} />
-        {cartCate === 'cart1' && <CartContent1/>}
+        {cartCate === 'cart1' && <CartContent1 />}
       </div>
     </>
   )

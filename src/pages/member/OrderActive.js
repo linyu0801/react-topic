@@ -2,7 +2,7 @@ import '../../styles/fish.scss'
 import '../../styles/font.scss'
 import React, { useState } from 'react'
 import FishAside from '../../components/FishAside'
-import { Link ,withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 function OrderActive(props) {
   return (
@@ -42,23 +42,18 @@ function OrderActive(props) {
               <div class="col-2">
                 <h6>訂單編號</h6>
                 <a href="*">
-                  {' '}
                   <h6 class="fish-order-text">123456</h6>{' '}
                 </a>
                 <a href="*">
-                  {' '}
                   <h6 class="fish-order-text">123456</h6>{' '}
                 </a>
                 <a href="*">
-                  {' '}
                   <h6 class="fish-order-text">123456</h6>{' '}
                 </a>
                 <a href="*">
-                  {' '}
                   <h6 class="fish-order-text">123456</h6>{' '}
                 </a>
                 <a href="*">
-                  {' '}
                   <h6 class="fish-order-text">123456</h6>{' '}
                 </a>
               </div>
