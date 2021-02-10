@@ -12,7 +12,7 @@ import { FaSearch } from 'react-icons/fa'
 import { FaUserAlt } from 'react-icons/fa'
 import { FaShoppingCart } from 'react-icons/fa'
 import { NavLink, Link } from 'react-router-dom'
-import '../styles/custom.scss'
+import '../styles/navbar.scss'
 function MyNavbar(props) {
   const { auth } = props
 
