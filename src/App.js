@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import React, { useState } from 'react'
 
 // 頁面用元件
-import MemberEdit from './pages/member/MemberEdit'
-import MemberForget from './pages/member/MemberForget'
+import MemberEdit from './pages/member/Memberedit'
+import MemberForget from './pages/member/Memberforget'
 import OrderProduct from './pages/member/OrderProduct'
 import OrderActive from './pages/member/OrderActive'
 import OrderClass from './pages/member/OrderClass'

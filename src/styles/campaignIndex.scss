@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap');
 @import '~bootstrap/scss/bootstrap.scss';
 
-
 .container-fluid {
   padding: 0;
 }
@@ -9,14 +8,14 @@
 h2 {
   font-size: 48px;
   color: #cdaa8a;
-  font-family: "Noto Serif TC";
+  font-family: 'Noto Serif TC';
   font-weight: bold;
 }
 
 h3 {
   font-size: 36px;
   color: #250404;
-  font-family: "Noto Serif TC";
+  font-family: 'Noto Serif TC';
   font-weight: bold;
   letter-spacing: 0.05em;
 }
@@ -24,13 +23,13 @@ h3 {
 h4 {
   font-size: 24px;
   color: #250404;
-  font-family: "Noto Serif TC";
+  font-family: 'Noto Serif TC';
   font-weight: bold;
   letter-spacing: 0.1em;
 }
 
 h5 {
-  font-family: "Noto Serif TC";
+  font-family: 'Noto Serif TC';
   font-size: 16px;
   letter-spacing: 3px;
   margin-bottom: 0px;
@@ -38,7 +37,7 @@ h5 {
 }
 
 p {
-  font-family: "Noto Serif TC";
+  font-family: 'Noto Serif TC';
   font-size: 14px;
   letter-spacing: 0.1em;
 }
@@ -54,7 +53,7 @@ button:focus {
 }
 
 .heroImg {
-  background-image: url(img/HeroImg.jpg);
+  background-image: url(http://localhost:3000/img/HeroImg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -63,7 +62,7 @@ button:focus {
 }
 
 .searchTitle {
-  font-family: "Noto Serif TC";
+  font-family: 'Noto Serif TC';
   text-align: center;
 }
 
@@ -86,9 +85,7 @@ button:focus {
 #campaignSearch:focus {
   outline: none;
   color: #250404;
-  box-shadow: inset 0 0 10px darkgray
-
-  
+  box-shadow: inset 0 0 10px darkgray;
 }
 
 .searchBtn {
@@ -120,16 +117,16 @@ button:focus {
   cursor: pointer;
 }
 
-.campaignCard:hover{
+.campaignCard:hover {
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 16%);
   transition-duration: 0.5s;
 }
 
 .bgImg::before {
-  content: " ";
+  content: ' ';
   width: 100%;
   height: 800px;
-  background-image: url(img/illustration/goldenTriangle.png);
+  background-image: url(http://localhost:3000/img/illustration/goldenTriangle.png);
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
@@ -138,10 +135,10 @@ button:focus {
 }
 
 .experienceIntro::after {
-  content: " ";
+  content: ' ';
   width: 250px;
   height: 50%;
-  background-image: url(img/illustration/goldenRing.png);
+  background-image: url(http://localhost:3000/img/illustration/goldenRing.png);
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
@@ -150,10 +147,10 @@ button:focus {
 }
 
 .workshopIntro::after {
-  content: " ";
+  content: ' ';
   width: 400px;
   height: 100%;
-  background-image: url(img/illustration/goldenRing.png);
+  background-image: url(http://localhost:3000/img/illustration/goldenRing.png);
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
@@ -163,7 +160,7 @@ button:focus {
 }
 
 .cardImg {
-  background-image: url(img/CardImg.jpg);
+  background-image: url(http://localhost:3000/img/CardImg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -174,20 +171,20 @@ button:focus {
   padding: 20px 20px;
 }
 
-.price::before{
+.price::before {
   display: inline-block;
   padding: 0px 0.1rem;
   color: #250404;
   font-size: 16px;
-  font-family: "Noto Serif TC";
+  font-family: 'Noto Serif TC';
   font-weight: bold;
-  content: "$";
+  content: '$';
 }
 
 .campaignSite {
   font-size: 12px;
   color: #707070;
-  font-family: "Noto Sans TC";
+  font-family: 'Noto Sans TC';
   font-weight: lighter;
   letter-spacing: 1px;
 }
@@ -200,7 +197,7 @@ button:focus {
 
 .price {
   font-size: 16px;
-  font-family: "Noto Serif TC";
+  font-family: 'Noto Serif TC';
   color: #250404;
   letter-spacing: 3px;
   font-weight: bold;
@@ -216,14 +213,14 @@ button:focus {
 }
 
 .tastingText {
-  font-family: "Noto Serif TC";
+  font-family: 'Noto Serif TC';
   font-size: 16px;
   letter-spacing: 3px;
   line-height: 32px;
 }
 
 .tastingImg {
-  background-image: url(img/TastingImg.jpg);
+  background-image: url(http://localhost:3000/img/TastingImg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 500px;
@@ -239,7 +236,7 @@ button:focus {
 }
 
 .experientImg {
-  background-image: url(img/TastingImg.jpg);
+  background-image: url(http://localhost:3000/img/TastingImg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 500px;
@@ -257,22 +254,22 @@ button:focus {
   margin-top: 30px;
 }
 
-.k_btn:hover .btn-style{
+.k_btn:hover .btn-style {
   top: 30px;
   left: 50%;
   transform: translateX(-50%);
   width: 110px;
   height: 1px;
-  background:  #CDAA8A;
+  background: #cdaa8a;
 }
 
-.btn-style{
+.btn-style {
   position: absolute;
   top: 30px;
   left: 0px;
   width: 0px;
-  background:  #CDAA8A;
-  transition: 0.7s ease; 
+  background: #cdaa8a;
+  transition: 0.7s ease;
 }
 
 a.k_btn {
@@ -282,7 +279,6 @@ a.k_btn {
   text-decoration: none;
   font-size: 14px;
   line-height: 17px;
-  
 }
 
 html,
@@ -302,75 +298,67 @@ body {
   border-top: 1px solid #cdaa8a;
 }
 
-@media screen and (max-width: 575.98px) { 
-  
-  
-
+@media screen and (max-width: 575.98px) {
   h2 {
     font-size: 30px;
     color: #cdaa8a;
-    font-family: "Noto Serif TC";
+    font-family: 'Noto Serif TC';
     font-weight: bold;
     letter-spacing: 0.1em;
   }
 
-  h3{
+  h3 {
     font-size: 16px;
-    font-family: "Noto Serif TC";
+    font-family: 'Noto Serif TC';
     letter-spacing: 0.1em;
   }
 
   p {
     font-size: 12px;
-    font-family: "Noto Serif TC";
+    font-family: 'Noto Serif TC';
     letter-spacing: 0.1em;
-    
-    
   }
 
-  a{
+  a {
     font-size: 12px;
-    font-family: "Noto Sans TC";
+    font-family: 'Noto Sans TC';
     letter-spacing: 0.1em;
   }
 
-
-  .p-30{
+  .p-30 {
     padding-left: 30px;
     padding-right: 30px;
   }
 
-  .pl-30{
+  .pl-30 {
     padding-left: 30px;
-    
   }
 
-  .navbar{
+  .navbar {
     height: 70px;
   }
 
-  .heroImg{
+  .heroImg {
     height: 300px;
     margin-bottom: 30px;
   }
 
-  .hit{
+  .hit {
     margin-bottom: 5px;
   }
 
-  .campaignCards{
+  .campaignCards {
     height: 400px;
     display: flex;
     overflow: hidden;
     margin-bottom: 60px;
-
   }
 
   .campaignCard {
     height: auto;
   }
 
-  .cardPhone{
+  .cardPhone {
     height: 500px;
     margin-bottom: 30px;
   }
@@ -378,35 +366,35 @@ body {
   .cardText {
     padding: 15px;
   }
-  
-  .price::before{
+
+  .price::before {
     display: inline-block;
     padding: 0px 0.1rem;
     color: #250404;
     font-size: 14px;
-    font-family: "Noto Serif TC";
+    font-family: 'Noto Serif TC';
     font-weight: bold;
-    content: "$";
+    content: '$';
   }
-  
+
   .campaignSite {
     font-size: 12px;
     color: #707070;
-    font-family: "Noto Sans TC";
+    font-family: 'Noto Sans TC';
     font-weight: lighter;
     letter-spacing: 1px;
   }
-  
+
   .stars {
     font-size: 14px;
     color: #cdaa8a;
     letter-spacing: 1px;
     margin-bottom: 0px;
   }
-  
+
   .price {
     font-size: 14px;
-    font-family: "Noto Serif TC";
+    font-family: 'Noto Serif TC';
     color: #250404;
     letter-spacing: 3px;
     font-weight: bold;
@@ -416,9 +404,8 @@ body {
     margin-bottom: 0px;
   }
 
-  
-  .tastingBgImg{
-    background-image: url(../img/illustration/goldenTriangle.png);
+  .tastingBgImg {
+    background-image: url(http://localhost:3000/img/illustration/goldenTriangle.png);
     background-repeat: no-repeat;
     background-position: center center;
     opacity: 25%;
@@ -426,39 +413,33 @@ body {
     top: -30px;
   }
 
-  .tastingBg{
-
+  .tastingBg {
     height: 400px;
     margin-top: 0;
     top: 100px;
-
   }
 
-
-  .tastingContent{
+  .tastingContent {
     top: 0;
   }
 
-  .tastingImg{
+  .tastingImg {
     height: 200px;
     margin-bottom: 16px;
-
   }
 
-  .tastingTitle{
+  .tastingTitle {
     margin-bottom: 8px;
   }
 
-
-  .tastingText{
+  .tastingText {
     font-size: 14px;
     line-height: 20px;
   }
 
-
-  a.k_btn{
+  a.k_btn {
     width: 200px;
     font-size: 12px;
     border-bottom: 1px solid #cdaa8a;
   }
- }
+}
