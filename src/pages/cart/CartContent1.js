@@ -167,15 +167,7 @@ function CartContent1(props) {
                 </div>
               </>
             ))}
-            <div className="d-md-none d-block">
-              {/* <div className="form-row hy-form-row justify-content-between mb-3">
-                <div className="form-col hy-form-col">
-                  <div className="hy-img">
-                    <img src="/images/pd1.jpeg" alt="" />
-                  </div>
-                </div>
-              </>
-            ))}
+
             <div className="d-md-none d-block"></div>
             {/* M-商品清單結束 */}
             {/* 中間的裝飾線 */}
