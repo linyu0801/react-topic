@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import CartCate from './CartCate'
 import CartStep from './CartStep'
+import CartContent1 from './CartContent1'
 import Cart1 from './Cart1'
 // import Cart2 from './Cart2'
 // import Cart3 from './Cart3'
@@ -13,6 +14,7 @@ import '../../styles/font.scss'
 function CartTry() {
   const [cartCate, setCartCate] = useState('cart1')
   const [cartStep, setCartStep] = useState('step1')
+  // const [cartContent, setCartContent] = useState(['123'])
   return (
     <>
       <div className="container">
@@ -28,6 +30,7 @@ function CartTry() {
         </div>
         <CartCate cartCate={cartCate} setCartCate={setCartCate} />
         <CartStep cartStep={cartStep} setCartStep={setCartStep} />
+        {cartCate === 'cart1' && <CartContent1/>}
       </div>
     </>
   )

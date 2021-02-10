@@ -4,7 +4,9 @@ function CartStep(props) {
     <div className="row hhyy-step mt-5">
       <div className="col hy-cart-step d-flex justify-content-between">
         <div
-          className={'text-center ' + cartStep}
+          className={
+            'text-center ' + (cartStep === 'step1' ? 'hy-step-active' : '')
+          }
           onClick={() => {
             setCartStep('hy-step-active ')
           }}

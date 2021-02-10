@@ -1,5 +1,5 @@
-//尚未寫入App.js
-//import MainProduct from './pages/mainProduct/MainProduct'
+import '../../styles/MainProduct.scss'
+import '../../styles/font.scss'
 
 function MainProduct() {
   return (
@@ -64,7 +64,7 @@ function MainProduct() {
           </div>
 
           <ul className="k-main-products row">
-            <li className="col-lg-4 col-sm-12 product card">
+            <li className="col-lg-4 col-sm-12 k-product-card card">
               <div className="k-img-box">
                 <a href="#">
                   <img
@@ -85,7 +85,7 @@ function MainProduct() {
                 <div className="k-product-price">$ 450</div>
               </div>
             </li>
-            <li className="col-lg-4 col-sm-12 product card">
+            <li className="col-lg-4 col-sm-12 k-product-card card">
               <div className="k-img-box">
                 <a href="#">
                   <img
@@ -106,7 +106,7 @@ function MainProduct() {
                 <div className="k-product-price">$ 450</div>
               </div>
             </li>
-            <li className="col-lg-4 col-sm-12 product card">
+            <li className="col-lg-4 col-sm-12 k-product-card card">
               <div className="k-img-box">
                 <a href="#">
                   <img
@@ -127,7 +127,7 @@ function MainProduct() {
                 <div className="k-product-price">$ 450</div>
               </div>
             </li>
-            <li className="col-lg-4 col-sm-12 product card">
+            <li className="col-lg-4 col-sm-12 k-product-card card">
               <div className="k-img-box">
                 <a href="#">
                   <img
@@ -148,7 +148,7 @@ function MainProduct() {
                 <div className="k-product-price">$ 450</div>
               </div>
             </li>
-            <li className="col-lg-4 col-sm-12 product card">
+            <li className="col-lg-4 col-sm-12 k-product-card card">
               <div className="k-img-box">
                 <a href="#">
                   <img
@@ -169,7 +169,7 @@ function MainProduct() {
                 <div className="k-product-price">$ 450</div>
               </div>
             </li>
-            <li className="col-lg-4 col-sm-12 product card">
+            <li className="col-lg-4 col-sm-12 k-product-card card">
               <div className="k-img-box">
                 <a href="#">
                   <img
@@ -190,7 +190,7 @@ function MainProduct() {
                 <div className="k-product-price">$ 450</div>
               </div>
             </li>
-            <li className="col-lg-4 col-sm-12 product card">
+            <li className="col-lg-4 col-sm-12 k-product-card card">
               <div className="k-img-box">
                 <a href="#">
                   <img
@@ -211,7 +211,7 @@ function MainProduct() {
                 <div className="k-product-price">$ 450</div>
               </div>
             </li>
-            <li className="col-lg-4 col-sm-12 product card">
+            <li className="col-lg-4 col-sm-12 k-product-card card">
               <div className="k-img-box">
                 <a href="#">
                   <img
@@ -232,7 +232,7 @@ function MainProduct() {
                 <div className="k-product-price">$ 450</div>
               </div>
             </li>
-            <li className="col-lg-4 col-sm-12 product card">
+            <li className="col-lg-4 col-sm-12 k-product-card card">
               <div className="k-img-box">
                 <a href="#">
                   <img
