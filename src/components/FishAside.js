@@ -33,7 +33,13 @@ function FishAside(props) {
           >
             個人資訊
           </span>
-          <Collapse isOpen={!MemberOpen}>
+          <Collapse
+            isOpen={
+              page1.indexOf(window.location.pathname) > -1
+                ? !MemberOpen
+                : MemberOpen
+            }
+          >
             <ul>
               <Link to="edit">
                 <li
@@ -70,7 +76,11 @@ function FishAside(props) {
           >
             收藏清單
           </span>
-          <Collapse isOpen={FavOpen}>
+          <Collapse
+            isOpen={
+              page2.indexOf(window.location.pathname) > -1 ? !FavOpen : FavOpen
+            }
+          >
             <ul>
               <Link to="fav-product">
                 <li
@@ -107,7 +117,14 @@ function FishAside(props) {
           >
             訂單資訊
           </span>
-          <Collapse isOpen={OrderOpen}>
+          <Collapse
+            isOpen={
+              page3.indexOf(window.location.pathname) > -1
+                ? !OrderOpen
+                : OrderOpen
+            }
+          >
+            {' '}
             <ul>
               <Link to="order-product">
                 <li
