@@ -174,44 +174,9 @@ function CartContent1(props) {
                     <img src="/images/pd1.jpeg" alt="" />
                   </div>
                 </div>
-                <div className="form-col hy-form-col d-flex flex-column justify-content-around">
-                  <p className="my-0">巧克力重擊</p>
-                  <p className="my-0">7吋</p>
-                </div>
-                <div className="form-col hy-form-col d-flex flex-column justify-content-center">
-                <FaRegTimesCircle className="hy-color-gold" />
-                </div>
-              </div> */}
-              {/* <div className="form-row hy-form-row justify-content-between">
-                <div className="form-col hy-form-col">
-                  <p>單價</p>
-                </div>
-                <div className="form-col hy-form-col">
-                  <p className="hy-money">1700</p>
-                </div>
-              </div> */}
-              {/* <div className="form-row hy-form-row justify-content-between">
-                <div className="form-col hy-form-col">
-                  <p>數量</p>
-                </div>
-                <div className="form-col hy-form-col">
-                  <select name="" id="">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                  </select>
-                </div>
-              </div> */}
-              {/* <div className="form-row hy-form-row justify-content-between">
-                <div className="form-col hy-form-col">
-                  <p>小計</p>
-                </div>
-                <div className="form-col hy-form-col">
-                  <p className="hy-money">3400</p>
-                </div>
-              </div> */}
-            </div>
+              </>
+            ))}
+            <div className="d-md-none d-block"></div>
             {/* M-商品清單結束 */}
             {/* 中間的裝飾線 */}
             <div className="d-md-none d-block hy-form-border">
@@ -235,6 +200,16 @@ function CartContent1(props) {
 
             <input type="hidden" name="subtotal" value="800" />
           </form>
+        </div>
+        <div className="col-1"></div>
+      </div>
+      <div className="row my-5">
+        <div className="col-1"></div>
+        <div className="col-5">
+          <button className="addToCartBtn">加入購物車</button>
+        </div>
+        <div className="col-5">
+          <button className="addToCartBtn">加入購物車</button>
         </div>
         <div className="col-1"></div>
       </div>
