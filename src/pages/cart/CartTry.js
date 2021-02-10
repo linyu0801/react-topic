@@ -14,10 +14,20 @@ function CartTry() {
   const [Step, setStep] = useState('step1')
   return (
     <>
+      <div className="container">
+        <div className="row hhyy-bread">
+          <div className="col">
+            <a className="clbread" href="*">
+              首頁 <span className="clspan">&gt; </span>
+            </a>
+            <a className="clbread" href="*">
+              購物清單
+            </a>
+          </div>
+        </div>
+      </div>
+
       <CartCate cartCate={cartCate} setCartCate={setCartCate} />
-      {cartCate === 'cart1' ? <Cart1 /> : ''}
-      {/* {cartCate === 'cart2' ? <Cart2 /> : ''} */}
-      {/* {cartCate === 'cart3' ? <Cart3 /> : ''} */}
     </>
   )
 }
