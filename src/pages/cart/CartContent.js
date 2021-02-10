@@ -2,7 +2,10 @@ import { useState } from 'react'
 import { FaRegTimesCircle } from 'react-icons/fa'
 
 function CartContent(props) {
-  const [cartContent, setCartContent] = useState({})
+  const cartItems = [
+    { id: 1, size: '7吋', price: 400, qty: 10, subtotal: 4000 },
+  ]
+  const [cartContent, setCartContent] = useState(cartItems)
   //   const [payload, setPayloader] = useState({})
   //   const [hasError, setError] = useState(false)
   //   取得購物車內的資料
@@ -25,14 +28,12 @@ function CartContent(props) {
   //   }
 
   // 先用這個測試
-  const cartItems = [
-    { id: 1, size: '7吋', price: 400, qty: 10, subtotal: 4000 },
-  ]
 
-  return (
-    <>{/* {setCartContent(cartItems)}
-      {console.log(cartContent)} */}</>
-  )
+  //   setCartContent(cartItems)
+
+  console.log(cartContent)
+
+  return <></>
 }
 
 export default CartContent
