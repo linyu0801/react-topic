@@ -2,216 +2,221 @@ import '../../styles/fish.scss'
 import '../../styles/font.scss'
 import React, { useState } from 'react'
 import FishAside from '../../components/FishAside'
-import { Link ,withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
+import { FaRegTimesCircle, FaCartPlus } from 'react-icons/fa'
 
 function FavActive(props) {
   return (
     <>
-      <div class="container h-100">
-        <div class="row">
-          <div class="col-12 bread-div">
-            <a class="clbread" href="*">
-              首頁 <span class="clspan">{'>'}</span>
+      <div className="container h-100">
+        <div className="row">
+          <div className="col-12 bread-div">
+            <a className="clbread" href="*">
+              首頁 <span className="clspan">{'>'}</span>
             </a>
-            <a class="clbread" href="*">
+            <a className="clbread" href="*">
               {' '}
-              會員中心 <span class="clspan">{'>'}</span>
+              會員中心 <span className="clspan">{'>'}</span>
             </a>
-            <a class="clbread" href="*">
-              收藏清單 <span class="clspan">{'>'}</span>
+            <a className="clbread" href="*">
+              收藏清單 <span className="clspan">{'>'}</span>
             </a>
-            <a class="clbread" href="*">
+            <a className="clbread" href="*">
               收藏活動{' '}
             </a>
           </div>
         </div>
-        <div class="row justify-content-center">
-          <div class="col-2"></div>
-          <div class="col-9">
-            <h2 class="fish-topic">
-              <i class="fas fa-bookmark"></i> 活動收藏
+        <div className="row justify-content-center">
+          <div className="col-2"></div>
+          <div className="col-9">
+            <h2 className="fish-topic">
+              <i className="fas fa-bookmark"></i> 活動收藏
             </h2>
           </div>
         </div>
-        <div class="row justify-content-center">
+        <div className="row justify-content-center">
           <FishAside />
-          <div class="col-9 desk-fav">
-            <div class="campaignCardBig w-100 d-flex position-relative">
-              <div class="cardBigImg"></div>
-              <div class="cardBigText">
-                <div class="cardBigTag">
+          <div className="col-9 desk-fav">
+            <div className="campaignCardBig w-100 d-flex position-relative">
+              <div className="cardBigImg"></div>
+              <div className="cardBigText">
+                <div className="cardBigTag">
                   季節限定
-                  <div class="d-flex active-card-icons">
-                    <i class="fas fa-cart-plus"> </i>
-                    <i class="far fa-times-circle"></i>
+                  <div className="d-flex active-card-icons">
+                    <i>
+                      <FaCartPlus />{' '}
+                    </i>
+                    <i>
+                      <FaRegTimesCircle />
+                    </i>
                   </div>
                 </div>
-                <div class="cardBigTitle">
+                <div className="cardBigTitle">
                   <h5>【戀戀草莓季】Funsiamo 甜點蛋糕 DIY 手作</h5>
                 </div>
-                <div class="cardBigContent">
+                <div className="cardBigContent">
                   <p>
                     無經驗新手也能輕鬆做出甜點！Funsiamo 玩美烘焙體驗，透過 iPad
                     數位教學，搭配現場服務人員的親切協助，每個走進店裡的人都能帶走精美
                   </p>
-                  <p class="location">
-                    <i class="fas fa-map-marker-alt"></i> 台北市，板橋區
+                  <p className="location">
+                    <i className="fas fa-map-marker-alt"></i> 台北市，板橋區
                   </p>
-                  <p class="calendar">
-                    <i class="far fa-calendar-check"></i> 2021-03-05
+                  <p className="calendar">
+                    <i className="far fa-calendar-check"></i> 2021-03-05
                   </p>
-                  <div class="d-flex justify-content-between align-items-center mb-0">
-                    <p class="stars mb-0">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star-half-alt"></i>
-                      <i class="far fa-star"></i>
+                  <div className="d-flex justify-content-between align-items-center mb-0">
+                    <p className="stars mb-0">
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star-half-alt"></i>
+                      <i className="far fa-star"></i>
                     </p>
-                    <p class="price mb-0">350</p>
+                    <p className="price mb-0">350</p>
                   </div>
                 </div>
               </div>
             </div>
-            <nav aria-label="Page navigation example" class="fish-mt">
-              <ul class="pagination justify-content-center">
-                <li class="page-item">
+            <nav aria-label="Page navigation example" className="fish-mt">
+              <ul className="pagination justify-content-center">
+                <li className="page-item">
                   <a
-                    class="page-link hoyu-page-link hoyu-page-arrow"
+                    className="page-link hoyu-page-link hoyu-page-arrow"
                     href="*"
                     aria-label="Previous"
                   >
                     <span aria-hidden="true">
-                      <i class="fas fa-chevron-left"></i>
+                      <i className="fas fa-chevron-left"></i>
                     </span>
                   </a>
                 </li>
-                <li class="page-item">
-                  <a class="page-link hoyu-page-link" href="*">
+                <li className="page-item">
+                  <a className="page-link hoyu-page-link" href="*">
                     1
                   </a>
                 </li>
-                <li class="page-item">
-                  <a class="page-link hoyu-page-link" href="*">
+                <li className="page-item">
+                  <a className="page-link hoyu-page-link" href="*">
                     2
                   </a>
                 </li>
-                <li class="page-item">
-                  <a class="page-link hoyu-page-link" href="*">
+                <li className="page-item">
+                  <a className="page-link hoyu-page-link" href="*">
                     3
                   </a>
                 </li>
-                <li class="page-item">
-                  <a class="page-link hoyu-page-link" href="*">
+                <li className="page-item">
+                  <a className="page-link hoyu-page-link" href="*">
                     4
                   </a>
                 </li>
-                <li class="page-item">
-                  <a class="page-link hoyu-page-link" href="*">
+                <li className="page-item">
+                  <a className="page-link hoyu-page-link" href="*">
                     5
                   </a>
                 </li>
-                <li class="page-item">
+                <li className="page-item">
                   <a
-                    class="page-link hoyu-page-link hoyu-page-arrow"
+                    className="page-link hoyu-page-link hoyu-page-arrow"
                     href="*"
                     aria-label="Next"
                   >
                     <span aria-hidden="true">
-                      <i class="fas fa-chevron-right"></i>
+                      <i className="fas fa-chevron-right"></i>
                     </span>
                   </a>
                 </li>
               </ul>
             </nav>
           </div>
-          <div class="w-100 mob-display">
-            <div class="col-9 d-xl-none mx-auto">
-              <div class="campaignCardBig w-100 d-xl-none">
-                <div class="cardBigImg w-100 position-relative">
-                  <div class="d-flex active-card-icons">
-                    <i class="fas fa-cart-plus"> </i>
-                    <i class="far fa-times-circle"></i>
+          <div className="w-100 mob-display">
+            <div className="col-9 d-xl-none mx-auto">
+              <div className="campaignCardBig w-100 d-xl-none">
+                <div className="cardBigImg w-100 position-relative">
+                  <div className="d-flex active-card-icons">
+                    <i className="fas fa-cart-plus"> </i>
+                    <i className="far fa-times-circle"></i>
                   </div>
                 </div>
-                <div class="cardBigText w-100">
-                  <div class="cardBigTag">季節限定</div>
-                  <div class="cardBigTitle">
+                <div className="cardBigText w-100">
+                  <div className="cardBigTag">季節限定</div>
+                  <div className="cardBigTitle">
                     <h5>【戀戀草莓季】Funsiamo 甜點蛋糕 DIY 手作</h5>
                   </div>
-                  <div class="cardBigContent">
+                  <div className="cardBigContent">
                     <p>
                       無經驗新手也能輕鬆做出甜點！Funsiamo 玩美烘焙體驗，透過
                       iPad
                       數位教學，搭配現場服務人員的親切協助，每個走進店裡的人都能帶走精美
                     </p>
-                    <p class="location">
-                      <i class="fas fa-map-marker-alt"></i> 台北市，板橋區
+                    <p className="location">
+                      <i className="fas fa-map-marker-alt"></i> 台北市，板橋區
                     </p>
-                    <p class="calendar">
-                      <i class="far fa-calendar-check"></i> 2021-03-05
+                    <p className="calendar">
+                      <i className="far fa-calendar-check"></i> 2021-03-05
                     </p>
-                    <div class="d-flex justify-content-between align-items-center mb-0">
-                      <p class="stars mb-0">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
+                    <div className="d-flex justify-content-between align-items-center mb-0">
+                      <p className="stars mb-0">
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star-half-alt"></i>
+                        <i className="far fa-star"></i>
                       </p>
-                      <p class="price mb-0">350</p>
+                      <p className="price mb-0">350</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <nav aria-label="Page navigation example " class="fish-mt">
-              <ul class="pagination justify-content-center">
-                <li class="page-item">
+            <nav aria-label="Page navigation example " className="fish-mt">
+              <ul className="pagination justify-content-center">
+                <li className="page-item">
                   <a
-                    class="page-link hoyu-page-link hoyu-page-arrow"
+                    className="page-link hoyu-page-link hoyu-page-arrow"
                     href="*"
                     aria-label="Previous"
                   >
                     <span aria-hidden="true">
-                      <i class="fas fa-chevron-left"></i>
+                      <i className="fas fa-chevron-left"></i>
                     </span>
                   </a>
                 </li>
-                <li class="page-item">
-                  <a class="page-link hoyu-page-link" href="*">
+                <li className="page-item">
+                  <a className="page-link hoyu-page-link" href="*">
                     1
                   </a>
                 </li>
-                <li class="page-item">
-                  <a class="page-link hoyu-page-link" href="*">
+                <li className="page-item">
+                  <a className="page-link hoyu-page-link" href="*">
                     2
                   </a>
                 </li>
-                <li class="page-item">
-                  <a class="page-link hoyu-page-link" href="*">
+                <li className="page-item">
+                  <a className="page-link hoyu-page-link" href="*">
                     3
                   </a>
                 </li>
-                <li class="page-item">
-                  <a class="page-link hoyu-page-link" href="*">
+                <li className="page-item">
+                  <a className="page-link hoyu-page-link" href="*">
                     4
                   </a>
                 </li>
-                <li class="page-item">
-                  <a class="page-link hoyu-page-link" href="*">
+                <li className="page-item">
+                  <a className="page-link hoyu-page-link" href="*">
                     5
                   </a>
                 </li>
-                <li class="page-item">
+                <li className="page-item">
                   <a
-                    class="page-link hoyu-page-link hoyu-page-arrow"
+                    className="page-link hoyu-page-link hoyu-page-arrow"
                     href="*"
                     aria-label="Next"
                   >
                     <span aria-hidden="true">
-                      <i class="fas fa-chevron-right"></i>
+                      <i className="fas fa-chevron-right"></i>
                     </span>
                   </a>
                 </li>
@@ -220,8 +225,8 @@ function FavActive(props) {
           </div>
         </div>
 
-        <div class="bgup-img"></div>
-        <div class="bgdown-img"></div>
+        <div className="bgup-img"></div>
+        <div className="bgdown-img"></div>
       </div>
     </>
   )
