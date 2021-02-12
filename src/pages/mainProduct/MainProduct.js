@@ -17,10 +17,12 @@ function MainProduct() {
           <div className="row k-upper">
             <div className="col-lg-6 col-sm-12 k-breadcrumbs">
               <a className="clbread" href="">
-                首頁 <span className="clspan">></span>
+                首頁{'  '}
+                <span className="clspan">{'>'}</span>
               </a>
               <a className="clbread" href="">
-                商品 <span className="clspan">></span>
+                商品{'  '}
+                <span className="clspan">{'>'}</span>
               </a>
               <a className="clbread" href="">
                 全部商品
@@ -68,7 +70,7 @@ function MainProduct() {
               <div className="k-img-box">
                 <a href="#">
                   <img
-                    src="/images/1.jpeg"
+                    src="http://localhost:3000/k-images/1.jpeg"
                     className="card-img-top product-img"
                     alt="cake29"
                   />
