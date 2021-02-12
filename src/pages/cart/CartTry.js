@@ -28,9 +28,26 @@ function CartTry() {
             </a>
           </div>
         </div>
-        <CartCate cartCate={cartCate} setCartCate={setCartCate} />
-        <CartStep cartStep={cartStep} setCartStep={setCartStep} />
-        {cartCate === 'cart1' && <CartContent1 />}
+        <CartCate
+          cartCate={cartCate}
+          setCartCate={setCartCate}
+          cartStep={cartStep}
+          setCartStep={setCartStep}
+        />
+        <CartStep
+          cartCate={cartCate}
+          setCartCate={setCartCate}
+          cartStep={cartStep}
+          setCartStep={setCartStep}
+        />
+        {cartCate === 'cart1' && (
+          <CartContent1
+            cartCate={cartCate}
+            setCartCate={setCartCate}
+            cartStep={cartStep}
+            setCartStep={setCartStep}
+          />
+        )}
       </div>
     </>
   )

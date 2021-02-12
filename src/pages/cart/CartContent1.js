@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { FaRegTimesCircle } from 'react-icons/fa'
 
 function CartContent1(props) {
+  const { cartStep, setCartStep, cartCate, setCartCate } = props
   //   const [cartItems, setcartItems] = useState([]);
   //   const [payload, setPayloader] = useState({})
   //   const [hasError, setError] = useState(false)
@@ -78,14 +79,23 @@ function CartContent1(props) {
                       <td className="hy-rwd-d-none">{item.name}</td>
                       <td className="hy-rwd-d-none">{item.size}</td>
                       <td className="hy-rwd-d-none">{item.price}</td>
-                      <td className="hy-rwd-d-none">
-                        <select name="" id="">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select>
-                      </td>
+                      {cartStep === 'step1' && (
+                        <td className="hy-rwd-d-none">
+                          <select name="" id="">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                          </select>
+                        </td>
+                      )}
+                      {cartStep === 'step2' && (
+                        <td className="hy-rwd-d-none">數量</td>
+                      )}
+                      {cartStep === 'step3' && (
+                        <td className="hy-rwd-d-none">數量</td>
+                      )}
+
                       <td className="hy-rwd-d-none">400</td>
                       <td className="hy-rwd-d-none">
                         <FaRegTimesCircle className="hy-color-gold" />
@@ -198,12 +208,26 @@ function CartContent1(props) {
       <div className="row my-5">
         <div className="col-1"></div>
         <div className="col-4">
-          <button className="addToCartBtn">&lt; 繼續挑選</button>
+          <button
+            className="addToCartBtn"
+            onClick={() => {
+              setCartStep('step1')
+            }}
+          >
+            &lt; 繼續挑選
+          </button>
         </div>
         <div className="col-1"></div>
         <div className="col-1"></div>
         <div className="col-4">
-          <button className="addToCartBtn">下一步 &gt; </button>
+          <button
+            className="addToCartBtn"
+            onClick={() => {
+              setCartStep('step2')
+            }}
+          >
+            下一步 &gt;{' '}
+          </button>
         </div>
         <div className="col-1"></div>
       </div>
