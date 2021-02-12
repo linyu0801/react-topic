@@ -8,6 +8,8 @@
 
 .hoyu-a:hover {
   text-decoration: none;
+  color: white;
+  background-color: #250404;
 }
 
 .clbread {
@@ -70,6 +72,10 @@
 
 .hy-bg {
   background-color: #ffeed3;
+}
+
+.hy-bg-opacity {
+  background-color: rgba(205, 170, 138, 0.05);
 }
 
 .hy-cartmode-active {
