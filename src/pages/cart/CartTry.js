@@ -3,6 +3,7 @@ import { useState } from 'react'
 import CartCate from './CartCate'
 import CartStep from './CartStep'
 import CartContent1 from './CartContent1'
+import CartContent from './CartContent'
 import Cart1 from './Cart1'
 // import Cart2 from './Cart2'
 // import Cart3 from './Cart3'
@@ -28,9 +29,34 @@ function CartTry() {
             </a>
           </div>
         </div>
-        <CartCate cartCate={cartCate} setCartCate={setCartCate} />
-        <CartStep cartStep={cartStep} setCartStep={setCartStep} />
-        {cartCate === 'cart1' && <CartContent1 />}
+        <CartCate
+          cartCate={cartCate}
+          setCartCate={setCartCate}
+          cartStep={cartStep}
+          setCartStep={setCartStep}
+        />
+        <CartStep
+          cartCate={cartCate}
+          setCartCate={setCartCate}
+          cartStep={cartStep}
+          setCartStep={setCartStep}
+        />
+        {/* {cartCate === 'cart1' && (
+          <CartContent1
+            cartCate={cartCate}
+            setCartCate={setCartCate}
+            cartStep={cartStep}
+            setCartStep={setCartStep}
+          />
+        )} */}
+        {cartCate === 'cart1' && (
+          <CartContent
+            cartCate={cartCate}
+            setCartCate={setCartCate}
+            cartStep={cartStep}
+            setCartStep={setCartStep}
+          />
+        )}
       </div>
     </>
   )

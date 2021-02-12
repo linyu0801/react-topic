@@ -1,23 +1,24 @@
 import { Link } from 'react-router-dom'
 
 function CartCate(props) {
-  const { cartCate, setCartCate } = props
+  const { cartStep, setCartStep, cartCate, setCartCate } = props
 
   return (
     <>
-      <div className="row hhyy-cate hy-bg mt-5">
-        <div className="col-12 text-center p-3">請按商品分類分別結帳</div>
+      <div className="row hhyy-cate hy-bg mt-5 p-3">
+        <div className="col-12 text-center pb-3">請按商品分類分別結帳</div>
         <div
           className={
-            'col-4 text-center ' +
+            'col-4 text-center hy-bg-opacity hoyu-a ' +
             (cartCate === 'cart1' ? 'hy-cartmode-active' : '')
           }
         >
           <Link
-            className="hoyu-a w-100 d-block "
+            className={'hoyu-a w-100 d-block p-2'}
             to="/carttry"
             onClick={() => {
               setCartCate('cart1')
+              setCartStep('step1')
             }}
           >
             甜點商城
@@ -25,15 +26,16 @@ function CartCate(props) {
         </div>
         <div
           className={
-            'col-4 text-center ' +
+            'col-4 text-center hy-bg-opacity hoyu-a ' +
             (cartCate === 'cart2' ? 'hy-cartmode-active' : '')
           }
         >
           <Link
-            className="hoyu-a w-100 d-block"
+            className="hoyu-a w-100 d-block p-2"
             to="/carttry"
             onClick={() => {
               setCartCate('cart2')
+              setCartStep('step1')
             }}
           >
             活動體驗
@@ -41,15 +43,16 @@ function CartCate(props) {
         </div>
         <div
           className={
-            'col-4 text-center ' +
+            'col-4 text-center hy-bg-opacity hoyu-a ' +
             (cartCate === 'cart3' ? 'hy-cartmode-active' : '')
           }
         >
           <Link
-            className="hoyu-a w-100 d-block"
+            className="hoyu-a w-100 d-block p-2"
             to="/carttry"
             onClick={() => {
               setCartCate('cart3')
+              setCartStep('step1')
             }}
           >
             場地預定

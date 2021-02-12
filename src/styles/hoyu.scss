@@ -1,13 +1,17 @@
 /* * {
   outline: 1px red solid;
 } */
-
+.hy-w-6 {
+  width: 6.66%;
+}
 .hoyu-a {
   color: #250404;
 }
 
 .hoyu-a:hover {
   text-decoration: none;
+  color: white;
+  background-color: #250404;
 }
 
 .clbread {
@@ -35,6 +39,29 @@
   color: #cdaa8a;
 }
 
+.hoyu-select {
+  /*移除箭頭樣式*/
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+
+  /*改變右邊箭頭樣式*/
+  background: url('http://localhost:3000/icons/arrow-down.svg') no-repeat 95%
+    center;
+  background-size: 8px;
+}
+
+.hoyu-select-plastic {
+  /*移除箭頭樣式*/
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+
+  /*改變右邊箭頭樣式*/
+  background: url('http://localhost:3000/icons/arrow-down.svg') no-repeat 85%
+    center;
+  background-size: 8px;
+}
 .hy-step-active {
   color: #cdaa8a;
 }
@@ -70,6 +97,10 @@
 
 .hy-bg {
   background-color: #ffeed3;
+}
+
+.hy-bg-opacity {
+  background-color: rgba(205, 170, 138, 0.05);
 }
 
 .hy-cartmode-active {

@@ -1,7 +1,6 @@
-import { useState } from 'react'
 import { FaRegTimesCircle } from 'react-icons/fa'
 
-function CartContent1(props) {
+function Cart1Content1(props) {
   const { cartStep, setCartStep, cartCate, setCartCate } = props
   //   const [cartItems, setcartItems] = useState([]);
   //   const [payload, setPayloader] = useState({})
@@ -46,9 +45,15 @@ function CartContent1(props) {
       subtotal: 4000,
     },
   ]
-
   return (
     <>
+      <div className="row">
+        <div className="col-1"></div>
+        <div className="col-10">
+          <h4 className="mt-5 hy-color-gold">購物清單</h4>
+        </div>
+        <div className="col-1"></div>
+      </div>
       <div className="row">
         <div className="col-1"></div>
         <div className="col-10 hy-rwd">
@@ -114,7 +119,6 @@ function CartContent1(props) {
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td></td>
                   <td colSpan="2" className="hy-py-48">
                     購物清單小計
                   </td>
@@ -128,55 +132,57 @@ function CartContent1(props) {
             </table>
             {/* M-版本 */}
             {/* M-商品清單開始 */}
-            {cartItems.map((item, i) => (
-              <>
-                <div className="d-md-none d-block">
-                  <div className="form-row hy-form-row justify-content-between mb-3">
-                    <div className="form-col hy-form-col">
-                      <div className="hy-img">
-                        <img src={item.img} alt="" />
+            {cartItems.map((item, i) => {
+              return (
+                <>
+                  <div key={i} className="d-md-none d-block">
+                    <div className="form-row hy-form-row justify-content-between mb-3">
+                      <div className="form-col hy-form-col">
+                        <div className="hy-img">
+                          <img src={item.img} alt="" />
+                        </div>
+                      </div>
+                      <div className="form-col hy-form-col d-flex flex-column justify-content-around">
+                        <p className="my-0">{item.name}</p>
+                        <p className="my-0">{item.size}</p>
+                      </div>
+                      <div className="form-col hy-form-col d-flex flex-column justify-content-center">
+                        <FaRegTimesCircle className="hy-color-gold" />
                       </div>
                     </div>
-                    <div className="form-col hy-form-col d-flex flex-column justify-content-around">
-                      <p className="my-0">{item.name}</p>
-                      <p className="my-0">{item.size}</p>
+                    <div className="form-row hy-form-row justify-content-between">
+                      <div className="form-col hy-form-col">
+                        <p>單價</p>
+                      </div>
+                      <div className="form-col hy-form-col">
+                        <p className="hy-money">{item.price}</p>
+                      </div>
                     </div>
-                    <div className="form-col hy-form-col d-flex flex-column justify-content-center">
-                      <FaRegTimesCircle className="hy-color-gold" />
+                    <div className="form-row hy-form-row justify-content-between">
+                      <div className="form-col hy-form-col">
+                        <p>數量</p>
+                      </div>
+                      <div className="form-col hy-form-col">
+                        <select name="" id="">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                        </select>
+                      </div>
                     </div>
-                  </div>
-                  <div className="form-row hy-form-row justify-content-between">
-                    <div className="form-col hy-form-col">
-                      <p>單價</p>
-                    </div>
-                    <div className="form-col hy-form-col">
-                      <p className="hy-money">{item.price}</p>
-                    </div>
-                  </div>
-                  <div className="form-row hy-form-row justify-content-between">
-                    <div className="form-col hy-form-col">
-                      <p>數量</p>
-                    </div>
-                    <div className="form-col hy-form-col">
-                      <select name="" id="">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div className="form-row hy-form-row justify-content-between mb-4">
-                    <div className="form-col hy-form-col">
-                      <p>小計</p>
-                    </div>
-                    <div className="form-col hy-form-col">
-                      <p className="hy-money">3400</p>
+                    <div className="form-row hy-form-row justify-content-between mb-4">
+                      <div className="form-col hy-form-col">
+                        <p>小計</p>
+                      </div>
+                      <div className="form-col hy-form-col">
+                        <p className="hy-money">3400</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </>
-            ))}
+                </>
+              )
+            })}
 
             <div className="d-md-none d-block"></div>
             {/* M-商品清單結束 */}
@@ -205,34 +211,8 @@ function CartContent1(props) {
         </div>
         <div className="col-1"></div>
       </div>
-      <div className="row my-5">
-        <div className="col-1"></div>
-        <div className="col-4">
-          <button
-            className="addToCartBtn"
-            onClick={() => {
-              setCartStep('step1')
-            }}
-          >
-            &lt; 繼續挑選
-          </button>
-        </div>
-        <div className="col-1"></div>
-        <div className="col-1"></div>
-        <div className="col-4">
-          <button
-            className="addToCartBtn"
-            onClick={() => {
-              setCartStep('step2')
-            }}
-          >
-            下一步 &gt;{' '}
-          </button>
-        </div>
-        <div className="col-1"></div>
-      </div>
     </>
   )
 }
 
-export default CartContent1
+export default Cart1Content1
