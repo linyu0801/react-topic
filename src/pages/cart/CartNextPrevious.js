@@ -24,10 +24,11 @@ function CartNextPrevious(props) {
               <button
                 className="addToCartBtn"
                 onClick={() => {
+                  window.scrollTo(0, 0)
                   setCartStep('step2')
                 }}
               >
-                下一步 &gt;{' '}
+                下一步 &gt;
               </button>
             </div>
             <div className="col-1"></div>
@@ -42,6 +43,7 @@ function CartNextPrevious(props) {
               <button
                 className="addToCartBtn"
                 onClick={() => {
+                  window.scrollTo(0, 0)
                   setCartStep('step1')
                 }}
               >
@@ -54,6 +56,7 @@ function CartNextPrevious(props) {
               <button
                 className="addToCartBtn"
                 onClick={() => {
+                  window.scrollTo(0, 0)
                   setCartStep('step3')
                 }}
               >
@@ -73,6 +76,7 @@ function CartNextPrevious(props) {
                 className="addToCartBtn"
                 onClick={() => {
                   props.history.push('/')
+                  window.scrollTo(0, 0)
                 }}
               >
                 返回首頁

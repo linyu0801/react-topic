@@ -1,6 +1,17 @@
 /* * {
   outline: 1px red solid;
 } */
+
+.hy-table {
+  font-family: 'Noto Serif TC';
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.1rem;
+}
+
+.hy-table tr td {
+  padding: 0.5rem;
+}
 .hy-w-6 {
   width: 6.66%;
 }
