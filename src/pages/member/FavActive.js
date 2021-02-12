@@ -135,8 +135,12 @@ function FavActive(props) {
               <div className="campaignCardBig w-100 d-xl-none">
                 <div className="cardBigImg w-100 position-relative">
                   <div className="d-flex active-card-icons">
-                    <i className="fas fa-cart-plus"> </i>
-                    <i className="far fa-times-circle"></i>
+                    <i>
+                      <FaCartPlus />{' '}
+                    </i>
+                    <i>
+                      <FaRegTimesCircle />
+                    </i>
                   </div>
                 </div>
                 <div className="cardBigText w-100">

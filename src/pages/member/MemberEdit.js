@@ -2,7 +2,7 @@ import '../../styles/fish.scss'
 import '../../styles/font.scss'
 import React, { useState } from 'react'
 import FishAside from '../../components/FishAside'
-import { Link ,withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 // require('./')
 function MemberEdit(props) {
@@ -24,7 +24,8 @@ function MemberEdit(props) {
               個人資訊 <span className="clspan">{'>'}</span>
             </a>
             <a className="clbread" href="*">
-              編輯個人資訊{' '}
+              {' '}
+              編輯個人資訊
             </a>
           </div>
         </div>
