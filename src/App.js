@@ -14,7 +14,6 @@ import Register from './pages/member/register'
 import FavProduct from './pages/member/FavProduct'
 import FavActive from './pages/member/FavActive'
 import Cart from './pages/cart/Cart'
-import CartTry from './pages/cart/CartTry'
 import MainProduct from './pages/mainProduct/MainProduct'
 import NotFoundPage from './pages/NotFoundPage'
 import CampaignIndex from './pages/campaign/CampaignIndex'
@@ -97,9 +96,6 @@ function App() {
               </Route>
               <Route path="/cart">
                 <Cart />
-              </Route>
-              <Route path="/carttry">
-                <CartTry />
               </Route>
 
               <Route path="*">

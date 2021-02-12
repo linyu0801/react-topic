@@ -55,12 +55,13 @@ function CartContent(props) {
             cartStep={cartStep}
             setCartStep={setCartStep}
           />
-          <Cart1Content2
+          <Cart1Content3
             cartCate={cartCate}
             setCartCate={setCartCate}
             cartStep={cartStep}
             setCartStep={setCartStep}
           />
+
           <CartNextPrevious
             cartCate={cartCate}
             setCartCate={setCartCate}
