@@ -2,13 +2,7 @@ import { useState } from 'react'
 
 import CartCate from './CartCate'
 import CartStep from './CartStep'
-<<<<<<< HEAD
 import CartContent from './CartContent'
-=======
-import CartContent1 from './Cart1Content1'
-import CartContent from './CartContent'
-// import Cart1 from './Cart1'
->>>>>>> 5a37cfd352edae2eb8e39d528745e6ed33c6d60c
 // import Cart2 from './Cart2'
 // import Cart3 from './Cart3'
 // import Step1 from './Step1'
