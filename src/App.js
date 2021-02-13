@@ -8,7 +8,7 @@ import MemberForget from './pages/member/MemberForget'
 import OrderProduct from './pages/member/OrderProduct'
 import OrderActive from './pages/member/OrderActive'
 import OrderClass from './pages/member/OrderClass'
-import Login from './pages/member/login'
+import Login from './pages/member/Login'
 import Forget from './pages/member/forget'
 import Register from './pages/member/register'
 import FavProduct from './pages/member/FavProduct'
@@ -42,13 +42,13 @@ const themes = {
 export const ThemeContext = React.createContext(themes.light)
 
 function App() {
-  // const [auth, setAuth] = useState(false)
+  const [logindata, setLogindata] = useState('')
   // const [themeNow, setThemeNow] = useState(themes.light)
 
   return (
     <Router>
       <>
-        <MyNavbar />
+        <MyNavbar logindata={logindata} setLogindata={setLogindata} />
         <MainContent>
           <ScrollToTop>
             {/* 套用全站樣式 */}
@@ -65,13 +65,13 @@ function App() {
                 <CampaignIndex />
               </Route>
               <Route path="/member/edit">
-                <MemberEdit />
+                <MemberEdit logindata={logindata} />
               </Route>
-              <Route path="/member/forget">
+              <Route path="/member/editpassword">
                 <MemberForget />
               </Route>
               <Route path="/member/login">
-                <Login />
+                <Login logindata={logindata} setLogindata={setLogindata} />
               </Route>
               <Route path="/member/forget">
                 <Forget />

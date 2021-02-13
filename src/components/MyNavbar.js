@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   Navbar,
   Nav,
@@ -11,11 +11,18 @@ import {
 import { FaSearch } from 'react-icons/fa'
 import { FaUserAlt } from 'react-icons/fa'
 import { FaShoppingCart } from 'react-icons/fa'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink, Link, withRouter } from 'react-router-dom'
+import $ from 'jquery'
 import '../styles/navbar.scss'
 function MyNavbar(props) {
-  const { auth } = props
-
+  const { logindata, setLogindata } = props
+  useEffect(() => {
+    $('#logout').on('click', () => {
+      console.log('logout')
+      setLogindata('')
+      props.history.push('/member/login')
+    })
+  }, [logindata])
   return (
     <>
       <Navbar
@@ -53,6 +60,7 @@ function MyNavbar(props) {
               關於我們
             </Nav.Link>
           </Nav>
+
           <Nav className="nav-right">
             <Nav.Link href="#deets">
               <FaSearch />
@@ -66,9 +74,15 @@ function MyNavbar(props) {
                 <p>會員中心</p>
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item as={NavLink} to="/member/edit">
-                <p>登出</p>
-              </NavDropdown.Item>
+              {logindata.success === true ? (
+                <NavDropdown.Item id="logout">
+                  <p>登出</p>
+                </NavDropdown.Item>
+              ) : (
+                <NavDropdown.Item as={NavLink} to="/member/login">
+                  <p>登入</p>
+                </NavDropdown.Item>
+              )}
             </NavDropdown>
 
             <Nav.Link eventKey={2} as={NavLink} to="/cart">
@@ -81,4 +95,4 @@ function MyNavbar(props) {
   )
 }
 
-export default MyNavbar
+export default withRouter(MyNavbar)

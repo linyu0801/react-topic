@@ -3,14 +3,14 @@ import { Collapse } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
 function FishAside(props) {
-  console.log(window.location.pathname)
+  // console.log(window.location.pathname)
   const [MemberOpen, setMemberOpen] = useState(false)
   const [OrderOpen, setOrderOpen] = useState(false)
   const [FavOpen, setFavOpen] = useState(false)
   const toggle1 = () => setMemberOpen(!MemberOpen)
   const toggle2 = () => setFavOpen(!FavOpen)
   const toggle3 = () => setOrderOpen(!OrderOpen)
-  let page1 = ['/member/edit', '/member/forget']
+  let page1 = ['/member/edit', '/member/editpassword']
   let page2 = ['/member/fav-product', '/member/fav-active']
   let page3 = [
     '/member/order-product',
@@ -52,10 +52,10 @@ function FishAside(props) {
                   編輯個人資訊
                 </li>
               </Link>
-              <Link to="forget">
+              <Link to="editpassword">
                 <li
                   className={
-                    window.location.pathname === '/member/forget'
+                    window.location.pathname === '/member/editpassword'
                       ? 'fish-aside-active'
                       : 'fish-aside'
                   }
