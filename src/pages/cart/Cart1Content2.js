@@ -1,28 +1,26 @@
 import React, { useState, useEffect, useRef } from 'react'
 import $ from 'jquery'
 function Cart1Content2(props) {
-  let sameAsAccount = $('#sameAsAccount').prop('checked')
-
-  console.log(sameAsAccount)
   useEffect(() => {
-    // jQuery程式碼需要寫在這裡
     $('#sameAsAccount').on('click', () => {
       // $('#sameAsAccount').prop('checked') &&
       //   $('#receiver').val($('#account').val())
       // $('#receiverMobile').val($('#mobile').val())
-      if (!sameAsAccount) {
+      let sameAsAccount = $('#sameAsAccount').prop('checked')
+      console.log(sameAsAccount)
+      if (sameAsAccount === true) {
         $('#receiver').val($('#account').val())
         $('#receiverMobile').val($('#mobile').val())
       }
-      if (sameAsAccount) {
+      if (sameAsAccount === false) {
         $('#receiver').val('')
         $('#receiverMobile').val('')
       }
     })
-  }, [sameAsAccount])
+  }, [])
 
   function setBlur(obj, target2) {
-    console.log(obj.value)
+    // console.log(obj.value)
     // var target = document.getElementById(target2)
     // if (obj.value.length === obj.getAttribute('maxLength')) {
     //   target.focus()
@@ -35,7 +33,7 @@ function Cart1Content2(props) {
       <div className="row">
         <div className="col-1"></div>
         <div className="col-10">
-          <h4 class="mt-5 hy-color-gold">配送資訊</h4>
+          <h4 className="mt-5 hy-color-gold">配送資訊</h4>
         </div>
         <div className="col-1"></div>
       </div>
@@ -130,7 +128,7 @@ function Cart1Content2(props) {
       <div className="row">
         <div className="col-1"></div>
         <div className="col-10">
-          <h4 class="mt-5 hy-color-gold">付款資訊</h4>
+          <h4 className="mt-5 hy-color-gold">付款資訊</h4>
         </div>
         <div className="col-1"></div>
       </div>
@@ -165,7 +163,7 @@ function Cart1Content2(props) {
                   name="pan_no1"
                   size="4"
                   maxLength="4"
-                  onKeyUp="setBlur(this,'pan_no2');"
+                  // onKeyUp="setBlur(this,'pan_no2');"
                 />
                 <span className="hy-w-6">-</span>
                 <input
@@ -174,7 +172,6 @@ function Cart1Content2(props) {
                   name="pan_no2"
                   size="4"
                   maxLength="4"
-                  onKeyUp="setBlur(this,'pan_no3');"
                 />
                 <span className="hy-w-6">-</span>
 
@@ -184,7 +181,6 @@ function Cart1Content2(props) {
                   name="pan_no3"
                   size="4"
                   maxLength="4"
-                  onKeyUp={setBlur($(this), 'pan_no4')}
                 />
                 <span className="hy-w-6">-</span>
 
