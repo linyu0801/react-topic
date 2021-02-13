@@ -10,7 +10,7 @@ function FishAside(props) {
   const toggle1 = () => setMemberOpen(!MemberOpen)
   const toggle2 = () => setFavOpen(!FavOpen)
   const toggle3 = () => setOrderOpen(!OrderOpen)
-  let page1 = ['/member/edit', '/member/forget']
+  let page1 = ['/member/edit', '/member/editpassword']
   let page2 = ['/member/fav-product', '/member/fav-active']
   let page3 = [
     '/member/order-product',

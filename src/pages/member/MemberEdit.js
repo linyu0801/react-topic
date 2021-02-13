@@ -53,7 +53,7 @@ function MemberEdit(props) {
                   type="text"
                   name="username"
                   id="username"
-                  value={logindata.body[0].username}
+                  value={logindata.body ? logindata.body[0].username : ''}
                 />
                 <br />
                 <small></small>
@@ -65,7 +65,8 @@ function MemberEdit(props) {
                   type="text"
                   name="password"
                   id="password"
-                  value={logindata.body[0].email}
+                  // value={logindata.body ? logindata.body[0].username : ''}
+                  value={logindata.body ? logindata.body[0].username : ''}
                 />
                 <small>請輸入正確的電子郵件格式</small>
 
@@ -73,10 +74,10 @@ function MemberEdit(props) {
                 <br />
                 <input
                   className="w-100 pub-input"
-                  type="date"
+                  type="text"
                   name="birthday"
                   id="birthday"
-                  value={logindata.body[0].birthday}
+                  value={logindata.body ? logindata.body[0].birthday : ''}
                 />
                 <br />
                 <small></small>
@@ -88,7 +89,7 @@ function MemberEdit(props) {
                   type="text"
                   name="tel"
                   id="tel"
-                  value={logindata.body[0].tel}
+                  value={logindata.body ? logindata.body[0].tel : ''}
                 />
                 <small>請輸入正確的手機格式</small>
 
@@ -99,7 +100,7 @@ function MemberEdit(props) {
                   type="text"
                   name="address"
                   id="address"
-                  value={logindata.body[0].address}
+                  value={logindata.body ? logindata.body[0].address : ''}
                 />
                 <small></small>
 
