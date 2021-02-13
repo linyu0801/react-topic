@@ -1,12 +1,13 @@
 import '../../styles/fish.scss'
 import '../../styles/font.scss'
-// import { Link, withRouter } from 'react-router-dom'
+import { Link, withRouter, Redirect } from 'react-router-dom'
 import React, { useState } from 'react'
 // const [dataLoading, setDataLoading] = useState(false)
 
 function Login(props) {
   const [account, setAccount] = useState('')
   const [password, setPassword] = useState('')
+  const { logindata, setLogindata } = props
 
   async function LoginToSever() {
     // 開啟載入指示
@@ -32,37 +33,22 @@ function Login(props) {
 
     const response = await fetch(request)
     const data = await response.json()
-    console.log('伺服器回傳的json資料', data)
-    await (() => {
-      console.log('成功與否', data)
-      if (data.success == true) {
-        window.location.href('/member/edit')
-      } else {
-        console.log('帳號密碼錯誤')
-      }
-    })
+    console.log('伺服器回傳的json資料123', data)
+    setLogindata(data)
 
-    // 要等驗証過，再設定資料(簡單的直接設定)
-
-    //直接在一段x秒關掉指示器
-    // setTimeout(() => {
-    //   setDataLoading(false)
-    //   alert('儲存完成')
-    //   props.history.push('/')
-    // }, 500)
+    if (data.success === true) {
+      props.history.push('/')
+    }
   }
-  // const loading = (
-  //   <>
-  //     <div className="d-flex justify-content-center">
-  //       <div className="spinner-border" role="status">
-  //         <span className="sr-only">Loading...</span>
-  //       </div>
-  //     </div>
-  //   </>
-  // )
+  // let b = JSON.parse(logindata)
+  // console.log('logindata : ' + b)
+  // else {
+  //   props.history.push('/member/login')
+  // }
+
   return (
     <>
-      <div classNameName="fish-loginbg">
+      <div className="fish-login-bg">
         <div className="container h-100">
           <div className="row justify-content-center">
             <div className="fish-mask d-flex justify-content-center col-xl-6 col-lg-8 col-md-10 col-sm-12">
@@ -103,7 +89,8 @@ function Login(props) {
                 >
                   登入
                 </button>
-                <a href="*">註冊新帳號</a>
+                <Link to="/member/register">註冊新帳號</Link>
+
                 <div className="form-border w-100"></div>
                 <div className="fish-icons d-flex justify-content-between">
                   <a href="*" className="col-4">
@@ -118,13 +105,19 @@ function Login(props) {
                       <p>Facebook登入</p>
                     </div>
                   </a>
-
-                  <a href="*" className="col-4">
+                  <Link to="/member/forget" className="col-4">
                     <div className="forgetpassword ">
                       <div className="lock mx-auto"></div>
                       <p>忘記密碼</p>
                     </div>
-                  </a>
+                  </Link>
+
+                  {/* <a href="*" className="col-4">
+                    <div className="forgetpassword ">
+                      <div className="lock mx-auto"></div>
+                      <p>忘記密碼</p>
+                    </div>
+                  </a> */}
                 </div>
               </form>
             </div>
@@ -134,4 +127,4 @@ function Login(props) {
     </>
   )
 }
-export default Login
+export default withRouter(Login)

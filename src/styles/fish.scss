@@ -102,12 +102,12 @@ body {
   background-color: rgba(0, 0, 0, 0.2);
   background-blend-mode: multiply;
 }
-.fish-loginbg {
+.fish-login-bg {
   background: url('http://localhost:3000/images/login.jpg') no-repeat;
-  background-position: center -170px;
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.2);
   background-blend-mode: multiply;
+  background-position: center -170px;
 }
 .fish-registerbg {
   background: url('http://localhost:3000/images/register.jpg') no-repeat center
@@ -561,6 +561,9 @@ input[type='date']::-webkit-calendar-picker-indicator {
   .fish-mask {
     background-color: transparent;
     border: none;
+  }
+  .fish-login-bg {
+    background-position: none;
   }
 }
 @media screen and (max-width: 992px) {

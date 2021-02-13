@@ -7,6 +7,7 @@ import { Link, withRouter } from 'react-router-dom'
 // require('./')
 function MemberEdit(props) {
   // console.log(props.match)
+  const { logindata } = props
   return (
     <>
       <div className="container h-100 fish-mt-50">
@@ -45,13 +46,14 @@ function MemberEdit(props) {
                 action=""
                 className="pub-form col-xl-7 col-lg-8 col-md-10 col-sm-12"
               >
-                <label for="account ">使用者名稱</label>
+                <label for="username ">使用者名稱</label>
                 <br />
                 <input
                   className="w-100 pub-input"
                   type="text"
-                  name="acoount"
-                  id="account"
+                  name="username"
+                  id="username"
+                  value={logindata.body[0].username}
                 />
                 <br />
                 <small></small>
@@ -63,6 +65,7 @@ function MemberEdit(props) {
                   type="text"
                   name="password"
                   id="password"
+                  value={logindata.body[0].email}
                 />
                 <small>請輸入正確的電子郵件格式</small>
 
@@ -73,6 +76,7 @@ function MemberEdit(props) {
                   type="date"
                   name="birthday"
                   id="birthday"
+                  value={logindata.body[0].birthday}
                 />
                 <br />
                 <small></small>
@@ -84,6 +88,7 @@ function MemberEdit(props) {
                   type="text"
                   name="tel"
                   id="tel"
+                  value={logindata.body[0].tel}
                 />
                 <small>請輸入正確的手機格式</small>
 
@@ -94,6 +99,7 @@ function MemberEdit(props) {
                   type="text"
                   name="address"
                   id="address"
+                  value={logindata.body[0].address}
                 />
                 <small></small>
 

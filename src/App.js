@@ -42,13 +42,13 @@ const themes = {
 export const ThemeContext = React.createContext(themes.light)
 
 function App() {
-  // const [auth, setAuth] = useState(false)
+  const [logindata, setLogindata] = useState('')
   // const [themeNow, setThemeNow] = useState(themes.light)
 
   return (
     <Router>
       <>
-        <MyNavbar />
+        <MyNavbar logindata={logindata} setLogindata={setLogindata} />
         <MainContent>
           <ScrollToTop>
             {/* 套用全站樣式 */}
@@ -65,13 +65,13 @@ function App() {
                 <CampaignIndex />
               </Route>
               <Route path="/member/edit">
-                <MemberEdit />
+                <MemberEdit logindata={logindata} />
               </Route>
-              <Route path="/member/forget">
+              <Route path="/member/editpassword">
                 <MemberForget />
               </Route>
               <Route path="/member/login">
-                <Login />
+                <Login logindata={logindata} setLogindata={setLogindata} />
               </Route>
               <Route path="/member/forget">
                 <Forget />
