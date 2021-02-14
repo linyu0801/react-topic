@@ -8,13 +8,12 @@ import MemberForget from './pages/member/MemberForget'
 import OrderProduct from './pages/member/OrderProduct'
 import OrderActive from './pages/member/OrderActive'
 import OrderClass from './pages/member/OrderClass'
-import Login from './pages/member/login'
+import Login from './pages/member/Login'
 import Forget from './pages/member/forget'
 import Register from './pages/member/register'
 import FavProduct from './pages/member/FavProduct'
 import FavActive from './pages/member/FavActive'
 import Cart from './pages/cart/Cart'
-import CartTry from './pages/cart/CartTry'
 import MainProduct from './pages/mainProduct/MainProduct'
 import MainProductDetail from './pages/mainProduct/MainProductDetail'
 import NotFoundPage from './pages/NotFoundPage'
@@ -44,13 +43,13 @@ const themes = {
 export const ThemeContext = React.createContext(themes.light)
 
 function App() {
-  // const [auth, setAuth] = useState(false)
+  const [logindata, setLogindata] = useState('')
   // const [themeNow, setThemeNow] = useState(themes.light)
 
   return (
     <Router>
       <>
-        <MyNavbar />
+        <MyNavbar logindata={logindata} setLogindata={setLogindata} />
         <MainContent>
           <ScrollToTop>
             {/* 套用全站樣式 */}
@@ -70,13 +69,13 @@ function App() {
                 <CampaignIndex />
               </Route>
               <Route path="/member/edit">
-                <MemberEdit />
+                <MemberEdit logindata={logindata} />
               </Route>
-              <Route path="/member/forget">
+              <Route path="/member/editpassword">
                 <MemberForget />
               </Route>
               <Route path="/member/login">
-                <Login />
+                <Login logindata={logindata} setLogindata={setLogindata} />
               </Route>
               <Route path="/member/forget">
                 <Forget />
@@ -101,9 +100,6 @@ function App() {
               </Route>
               <Route path="/cart">
                 <Cart />
-              </Route>
-              <Route path="/carttry">
-                <CartTry />
               </Route>
 
               <Route path="*">

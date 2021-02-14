@@ -2,6 +2,19 @@
   outline: 1px red solid;
 } */
 
+.hy-table {
+  font-family: 'Noto Serif TC';
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.1rem;
+}
+
+.hy-table tr td {
+  padding: 0.5rem;
+}
+.hy-w-6 {
+  width: 6.66%;
+}
 .hoyu-a {
   color: #250404;
 }
@@ -37,6 +50,29 @@
   color: #cdaa8a;
 }
 
+.hoyu-select {
+  /*移除箭頭樣式*/
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+
+  /*改變右邊箭頭樣式*/
+  background: url('http://localhost:3000/icons/arrow-down.svg') no-repeat 95%
+    center;
+  background-size: 8px;
+}
+
+.hoyu-select-plastic {
+  /*移除箭頭樣式*/
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+
+  /*改變右邊箭頭樣式*/
+  background: url('http://localhost:3000/icons/arrow-down.svg') no-repeat 85%
+    center;
+  background-size: 8px;
+}
 .hy-step-active {
   color: #cdaa8a;
 }
