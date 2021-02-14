@@ -16,6 +16,7 @@ import FavActive from './pages/member/FavActive'
 import Cart from './pages/cart/Cart'
 import CartTry from './pages/cart/CartTry'
 import MainProduct from './pages/mainProduct/MainProduct'
+import MainProductDetail from './pages/mainProduct/MainProductDetail'
 import NotFoundPage from './pages/NotFoundPage'
 import CampaignIndex from './pages/campaign/CampaignIndex'
 import CampaignProductInfo from './pages/campaign/CampaignProductInfo'
@@ -58,6 +59,9 @@ function App() {
             <Switch>
               <Route path="/mainproduct">
                 <MainProduct />
+              </Route>
+              <Route path="/mainproductdetail">
+                <MainProductDetail />
               </Route>
               <Route path="/campaign/products/:id?">
                 <CampaignProductInfo />
