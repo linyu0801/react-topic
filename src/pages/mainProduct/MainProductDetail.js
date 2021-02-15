@@ -3,6 +3,7 @@ import '../../styles/font.scss'
 import { MdRemove } from 'react-icons/md'
 import { MdAdd } from 'react-icons/md'
 import { MdFavoriteBorder } from 'react-icons/md'
+import ProductCarousel from '../../components/ProductCarousel'
 
 function MainProductDetail() {
   return (
@@ -30,7 +31,8 @@ function MainProductDetail() {
 
         <div className="row k-mp-lower">
           <div className="col-lg-6 k-left-col">
-            <div className="carousel-box">
+            <ProductCarousel />
+            {/* <div className="carousel-box">
               <div
                 id="carouselExampleIndicators"
                 className="carousel slide"
@@ -77,7 +79,7 @@ function MainProductDetail() {
                   ></li>
                 </ol>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="col-lg-6 right-col">
