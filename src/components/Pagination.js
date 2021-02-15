@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom'
 import { MdKeyboardArrowRight } from 'react-icons/md'
 import { MdKeyboardArrowLeft } from 'react-icons/md'
-import '../styles/hoyu.scss'
-// import '../../styles/font.scss'
 
 function pagination() {
   return (
