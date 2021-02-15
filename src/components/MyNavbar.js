@@ -50,7 +50,7 @@ function MyNavbar(props) {
               體驗
             </Nav.Link>
 
-            <Nav.Link as={NavLink} to="#">
+            <Nav.Link as={NavLink} to="/studioRent/studioOrder">
               場地租借
             </Nav.Link>
             <Nav.Link as={NavLink} to="#">

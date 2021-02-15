@@ -15,9 +15,11 @@ import FavProduct from './pages/member/FavProduct'
 import FavActive from './pages/member/FavActive'
 import Cart from './pages/cart/Cart'
 import MainProduct from './pages/mainProduct/MainProduct'
+import MainProductDetail from './pages/mainProduct/MainProductDetail'
 import NotFoundPage from './pages/NotFoundPage'
 import CampaignIndex from './pages/campaign/CampaignIndex'
 import CampaignProductInfo from './pages/campaign/CampaignProductInfo'
+import StudioIntro from './pages/studioRent/studioOrder'
 
 // 組合用元件
 
@@ -58,6 +60,9 @@ function App() {
               <Route path="/mainproduct">
                 <MainProduct />
               </Route>
+              <Route path="/mainproductdetail">
+                <MainProductDetail />
+              </Route>
               <Route path="/campaign/products/:id?">
                 <CampaignProductInfo />
               </Route>
@@ -97,6 +102,10 @@ function App() {
               <Route path="/cart">
                 <Cart />
               </Route>
+              <Route path="/studioRent/studioOrder">
+                <StudioIntro />
+              </Route>
+
 
               <Route path="*">
                 <NotFoundPage />
