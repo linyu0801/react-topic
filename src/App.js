@@ -19,7 +19,8 @@ import MainProductDetail from './pages/mainProduct/MainProductDetail'
 import NotFoundPage from './pages/NotFoundPage'
 import CampaignIndex from './pages/campaign/CampaignIndex'
 import CampaignProductInfo from './pages/campaign/CampaignProductInfo'
-import StudioIntro from './pages/studioRent/studioOrder'
+import StudioOrder from './pages/studioRent/studioOrder'
+import StudioIntro1 from './pages/studioRent/studioIntro1'
 
 // 組合用元件
 
@@ -103,7 +104,10 @@ function App() {
                 <Cart />
               </Route>
               <Route path="/studioRent/studioOrder">
-                <StudioIntro />
+                <StudioOrder />
+              </Route>
+              <Route path="/studioRent/studioIntro1">
+                <StudioIntro1 />
               </Route>
 
               <Route path="*">

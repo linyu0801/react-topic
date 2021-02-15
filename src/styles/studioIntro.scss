@@ -95,13 +95,13 @@ a {
   margin-top: 20px;
 }
 
-.studioClass {
+.studioClassA {
   margin-bottom: 40px;
   margin-top: 40px;
 }
 
 .rightLine {
-  margin: 90px 0;
+  margin: 50px 0;
   padding: 0;
   background-color: #cdaa8a;
 }
@@ -219,14 +219,14 @@ small {
 }
 
 @media (max-width: 415px), print {
-  h1,
-  h2 {
+  .studioClassA,
+  .IntroTitle {
     font-size: 24px;
   }
 
   .cldirection-prev,
   .cldirection-next {
-    display: none;
+    display: none !important;
   }
 
   .clintroForm {
@@ -260,7 +260,7 @@ small {
 .decroBall {
   position: absolute;
   width: 350px;
-  bottom: -100px;
+  bottom: 0px;
   z-index: -1;
 }
 
@@ -276,6 +276,14 @@ small {
   position: absolute;
   width: 250px;
   top: -250px;
+  z-index: -1;
+}
+.decroBall4 {
+  position: absolute;
+  width: 250px;
+  right: 0px;
+  top: -50px;
+
   z-index: -1;
 }
 

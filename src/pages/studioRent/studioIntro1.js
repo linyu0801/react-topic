@@ -136,16 +136,22 @@ function studioIntro() {
       </div>
       <div className="decor">
         <img
-          src="http://localhost:3000/public/img/illustration/goldenRing.png"
+          src="http://localhost:3000/climage/goldenRing.png"
           className="decroBall"
+          alt="..."
+        />
+        <img
+          src="http://localhost:3000/climage/goldenRing.png"
+          className="decroBall4"
           alt="..."
         />
       </div>
       <div className="container">
         <div className="row">
           <div className="col-lg-5 col-12">
-            <h1 className="studioClass">大安館教室</h1>
+            <h1 className="studioClassA">大安館教室</h1>
           </div>
+
           <div className="col-lg-7 d-none d-sm-block">
             <hr className="rightLine w-100" />
           </div>
@@ -266,6 +272,21 @@ function studioIntro() {
           </div>
         </div>
       </div>
+      <div className="decor">
+        <img
+          src="http://localhost:3000/climage/goldenRing.png"
+          className="decroBall2"
+          alt="..."
+        />
+      </div>
+      <div className="decor">
+        <img
+          src="http://localhost:3000/climage/goldenRing.png"
+          className="decroBall3"
+          alt="..."
+        />
+      </div>
+
       <div className="container studioMap h-50 ">
         <h2>位置</h2>
         <h5>台北市中山區</h5>
