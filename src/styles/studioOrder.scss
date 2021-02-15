@@ -10,8 +10,6 @@
   background-position: center center;
 }
 
- 
-
 .clheromsg {
   font-size: 48px;
 
@@ -145,7 +143,7 @@ a {
 }
 
 .cardBigImg2 {
-  background-image: url('http://localhost:3000/climage/1/class1-2.jpg');
+  background-image: url('http://localhost:3000/climage/2/class2-1.jpeg');
   width: 40%;
   background-size: cover;
   overflow: hidden;
@@ -153,7 +151,7 @@ a {
 }
 
 .cardBigImg3 {
-  background-image: url('http://localhost:3000/climage/1/class1-2.jpg');
+  background-image: url('http://localhost:3000/climage/3/class3-1.jpg');
   width: 40%;
   background-size: cover;
   overflow: hidden;
@@ -215,11 +213,11 @@ a {
   position: absolute;
   width: 261px;
   height: 50px;
-  background-color: #cdaa8a;
+  background-color: #cdaa8a !important;
   right: 30px;
   bottom: 30px;
-  color: white;
-  border-radius: 0;
+  color: white !important;
+  border-radius: 0 !important;
 }
 
 .studioIntro {
