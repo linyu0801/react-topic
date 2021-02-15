@@ -1,6 +1,8 @@
 import '../../styles/MainProductDetail.scss'
 import '../../styles/font.scss'
-import { MdLocalBar } from 'react-icons/md'
+import { MdRemove } from 'react-icons/md'
+import { MdAdd } from 'react-icons/md'
+import { MdFavoriteBorder } from 'react-icons/md'
 
 function MainProductDetail() {
   return (
@@ -82,7 +84,9 @@ function MainProductDetail() {
             <div className="d-flex justify-content-between align-items-center">
               <h3 className="k-product-name">微醺森林</h3>
               <a href="" className="a-right-style">
-                <i className="k-collection far fa-heart"></i>
+                <i className="k-collection far fa-heart">
+                  <MdFavoriteBorder />
+                </i>
               </a>
             </div>
 
@@ -91,9 +95,13 @@ function MainProductDetail() {
             <div className="row shopping-zone">
               <div className="col-lg-6">
                 <div className="k-counter my-3">
-                  <i className="fas fa-minus k-left-icon"></i>
+                  <i className="fas fa-minus k-left-icon">
+                    <MdRemove />
+                  </i>
                   <span className="k-number">1</span>
-                  <i className="fas fa-plus k-right-icon"></i>
+                  <i className="fas fa-plus k-right-icon">
+                    <MdAdd />
+                  </i>
                 </div>
               </div>
               <div className="col-lg-6 my-2">
@@ -117,13 +125,9 @@ function MainProductDetail() {
             </div>
             <div className="info-body">
               <div className="k-xd-icon d-flex justify-content-between">
-                <span className="k-material-icons material-icons">
-                  local_bar
-                </span>
-                <span className="k-material-icons material-icons">
-                  emoji_nature
-                </span>
-                <span className="k-material-icons material-icons">cake</span>
+                <span className="k-material-icons material-icons"></span>
+                <span className="k-material-icons material-icons"></span>
+                <span className="k-material-icons material-icons"></span>
               </div>
 
               <h5 className="info-body-text text-center">
