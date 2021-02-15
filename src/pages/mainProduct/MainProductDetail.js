@@ -1,5 +1,6 @@
 import '../../styles/MainProductDetail.scss'
 import '../../styles/font.scss'
+import { MdLocalBar } from 'react-icons/md'
 
 function MainProductDetail() {
   return (
