@@ -16,13 +16,20 @@ import $ from 'jquery'
 import '../styles/navbar.scss'
 function MyNavbar(props) {
   const { logindata, setLogindata } = props
-  useEffect(() => {
-    $('#logout').on('click', () => {
-      console.log('logout')
-      setLogindata('')
-      props.history.push('/member/login')
-    })
-  }, [logindata])
+  function logout() {
+    console.log('logout')
+    sessionStorage.removeItem('mid')
+    setLogindata('')
+    props.history.push('/member/login')
+  }
+  // useEffect(() => {
+  //   $('#logout').on('click', () => {
+  //     console.log('logout')
+  //     sessionStorage.removeItem('mid')
+  //     setLogindata('')
+  //     props.history.push('/member/login')
+  //   })
+  // }, [logindata])
   return (
     <>
       <Navbar
@@ -74,8 +81,13 @@ function MyNavbar(props) {
                 <p>會員中心</p>
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              {logindata.success === true ? (
-                <NavDropdown.Item id="logout">
+              {sessionStorage.getItem('mid') ? (
+                <NavDropdown.Item
+                  id="logout"
+                  onClick={() => {
+                    logout()
+                  }}
+                >
                   <p>登出</p>
                 </NavDropdown.Item>
               ) : (
