@@ -21,6 +21,8 @@ import CampaignIndex from './pages/campaign/CampaignIndex'
 import CampaignProductInfo from './pages/campaign/CampaignProductInfo'
 import StudioOrder from './pages/studioRent/studioOrder'
 import StudioIntro1 from './pages/studioRent/studioIntro1'
+import StudioIntro2 from './pages/studioRent/studioIntro2'
+import StudioIntro3 from './pages/studioRent/studioIntro3'
 
 // 組合用元件
 
@@ -108,6 +110,12 @@ function App() {
               </Route>
               <Route path="/studioRent/studioIntro1">
                 <StudioIntro1 />
+              </Route>
+              <Route path="/studioRent/studioIntro2">
+                <StudioIntro2 />
+              </Route>
+              <Route path="/studioRent/studioIntro3">
+                <StudioIntro3 />
               </Route>
 
               <Route path="*">

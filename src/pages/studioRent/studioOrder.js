@@ -96,21 +96,22 @@ function studioOrder() {
           </div>
         </div>
       </div>
-
-      <div class="container">
-        <div class="col-lg-12 col-md-6 col-sm-4">
-          <div class="celiacardBig d-flex w-100">
-            <div class="cardBigImg2"></div>
-            <div class="clcardText">
-              <p class="studioIntro">
-                無經驗新手也能輕鬆做出甜點！Funsiamo 玩美烘焙體驗，透過 iPad
-                數位教學，搭配現場服務人員的親切協助，每個走進店裡的人都能帶走精美
-              </p>
-              <button class="btn claddCart">加入購物車</button>
+      <Link to="/studioRent/studioIntro2">
+        <div class="container">
+          <div class="col-lg-12 col-md-6 col-sm-4">
+            <div class="celiacardBig d-flex w-100">
+              <div class="cardBigImg2"></div>
+              <div class="clcardText">
+                <p class="studioIntro">
+                  無經驗新手也能輕鬆做出甜點！Funsiamo 玩美烘焙體驗，透過 iPad
+                  數位教學，搭配現場服務人員的親切協助，每個走進店裡的人都能帶走精美
+                </p>
+                <button class="btn claddCart">加入購物車</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </Link>
       <div className="decor">
         <img
           src="http://localhost:3000/climage/goldenRing.png"
@@ -129,21 +130,23 @@ function studioOrder() {
           </div>
         </div>
       </div>
-
-      <div class="container">
-        <div class="col-lg-12 col-md-6 col-sm-4">
-          <div class="celiacardBig d-flex w-100">
-            <div class="cardBigImg3"></div>
-            <div class="clcardText">
-              <p class="studioIntro">
-                無經驗新手也能輕鬆做出甜點！Funsiamo 玩美烘焙體驗，透過 iPad
-                數位教學，搭配現場服務人員的親切協助，每個走進店裡的人都能帶走精美
-              </p>
-              <button class="btn claddCart">加入購物車</button>
+      <Link to="/studioRent/studioIntro3">
+        <div class="container">
+          <div class="col-lg-12 col-md-6 col-sm-4">
+            <div class="celiacardBig d-flex w-100">
+              <div class="cardBigImg3"></div>
+              <div class="clcardText">
+                <p class="studioIntro">
+                  無經驗新手也能輕鬆做出甜點！Funsiamo 玩美烘焙體驗，透過 iPad
+                  數位教學，搭配現場服務人員的親切協助，每個走進店裡的人都能帶走精美
+                </p>
+                <button class="btn claddCart">加入購物車</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </Link>
+
       <div className="decor">
         <img
           src="http://localhost:3000/climage/goldenRing.png"
