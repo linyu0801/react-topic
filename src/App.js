@@ -9,8 +9,8 @@ import OrderProduct from './pages/member/OrderProduct'
 import OrderActive from './pages/member/OrderActive'
 import OrderClass from './pages/member/OrderClass'
 import Login from './pages/member/Login'
-import Forget from './pages/member/forget'
-import Register from './pages/member/register'
+import Forget from './pages/member/Forget'
+import Register from './pages/member/Register'
 import FavProduct from './pages/member/FavProduct'
 import FavActive from './pages/member/FavActive'
 import Cart from './pages/cart/Cart'
@@ -105,7 +105,6 @@ function App() {
               <Route path="/studioRent/studioOrder">
                 <StudioIntro />
               </Route>
-
 
               <Route path="*">
                 <NotFoundPage />
