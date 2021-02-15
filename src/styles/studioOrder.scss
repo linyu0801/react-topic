@@ -1,0 +1,262 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.clsection {
+  height: 800px;
+  width: 100%;
+  background-image: url('http://localhost:3000/climage/1/class1-2.jpg');
+  background-size: cover;
+  border-radius: 0 !important;
+  opacity: 0.7;
+  background-position: center center;
+}
+
+ 
+
+.clheromsg {
+  font-size: 48px;
+
+  background: linear-gradient(to right, #250404, #c7ab8e);
+  opacity: 0.8;
+}
+
+.cl-searchbtn {
+  border-radius: 0 !important;
+  color: white !important;
+  background-color: hsl(29, 40%, 67%) !important;
+  border-color: #cdaa8a !important;
+  font-family: 'Noto Serif TC', serif !important;
+  font-size: 12px !important;
+  width: 20% !important;
+  height: 60px !important;
+  margin-top: 250px !important;
+}
+
+.clsearchbar {
+  border-style: none;
+  color: #1a1e23;
+  font-size: 14px;
+  font-family: 'Noto Serif TC', serif;
+  height: 60px;
+  border-radius: 0;
+  margin-top: 250px;
+  width: 40%;
+  padding-left: 15px;
+}
+
+.clbread {
+  font-size: 14px;
+  color: #cdaa8a;
+  font-family: 'Noto Sans TC';
+  letter-spacing: 1.8px;
+  text-decoration: none;
+  padding: 0px;
+}
+
+.clspan {
+  color: #250404;
+}
+
+.clbread:hover {
+  color: #250404;
+}
+
+.breadbox {
+  height: 50px;
+  margin-top: 20px;
+}
+
+h1 {
+  font-size: 76px;
+  font-family: 'Noto Serif TC';
+}
+
+h2 {
+  font-size: 48px;
+  color: #cdaa8a;
+  font-family: 'Noto Serif TC';
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+}
+
+h3 {
+  font-size: 36px;
+  color: #250404;
+  font-family: 'Noto Serif TC';
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+}
+
+h4 {
+  font-size: 24px;
+  font-family: 'Noto Serif TC';
+  letter-spacing: 0.1rem;
+  line-height: 20px;
+}
+
+h5 {
+  font-family: 'Noto Serif TC';
+  font-size: 16px;
+  letter-spacing: 0.1rem;
+  margin-bottom: 0px;
+  font-weight: bold;
+}
+
+p {
+  font-family: 'Noto Serif TC';
+  font-size: 14px;
+  color: #250404;
+  line-height: 20px;
+  letter-spacing: 0.1rem;
+}
+
+a {
+  font-family: 'Noto Sans TC';
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1rem;
+}
+
+.stars {
+  font-size: 14px;
+  color: #cdaa8a;
+  letter-spacing: 1px;
+}
+
+.celiacardBig {
+  height: 380px;
+  /* width: 1189.54px; */
+  background-color: #ffeed3;
+  margin-bottom: 30px;
+  transition-duration: 0.5s;
+  cursor: pointer;
+}
+
+.celiacardBig:hover {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 16%);
+  transition-duration: 0.5s;
+}
+
+.cardBigImg1 {
+  background-image: url('http://localhost:3000/climage/1/class1-1.jpg');
+  width: 40%;
+  background-size: cover;
+  overflow: hidden;
+  background-position: center center;
+}
+
+.cardBigImg2 {
+  background-image: url('http://localhost:3000/climage/1/class1-2.jpg');
+  width: 40%;
+  background-size: cover;
+  overflow: hidden;
+  background-position: center center;
+}
+
+.cardBigImg3 {
+  background-image: url('http://localhost:3000/climage/1/class1-2.jpg');
+  width: 40%;
+  background-size: cover;
+  overflow: hidden;
+  background-position: center center;
+}
+
+.clcardText {
+  width: 60%;
+  padding: 30px;
+}
+
+.celiacardBigTag {
+  width: 70px;
+  height: 20px;
+  background-color: #d67b76;
+  margin-bottom: 10px;
+  font-family: 'Noto Sans TC';
+  font-size: 10px;
+  text-align: center;
+  color: white;
+  font-weight: lighter;
+  letter-spacing: 0.075rem;
+}
+
+.clcardText {
+  position: relative;
+}
+
+.clcardText > p {
+  font-family: 'Noto Serif TC';
+  color: #250404;
+  font-size: 12px;
+  letter-spacing: 0.075rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.clcardText > .location {
+  margin-bottom: 8px;
+  font-family: 'Noto Sans TC';
+  font-weight: lighter;
+  letter-spacing: 0.15rem;
+}
+
+.studioClass {
+  margin-left: 120px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.rightLine {
+  margin-top: 40px;
+}
+
+.claddCart {
+  position: absolute;
+  width: 261px;
+  height: 50px;
+  background-color: #cdaa8a;
+  right: 30px;
+  bottom: 30px;
+  color: white;
+  border-radius: 0;
+}
+
+.studioIntro {
+  margin-top: 150px;
+}
+
+.clfooter {
+  margin-top: 150px;
+  height: 200px;
+  background-color: #250404;
+}
+
+@media (max-width: 415px), print {
+  .studioClass {
+    font-size: 24px;
+    font-family: sans-serif;
+    width: 100%;
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 415px), print {
+  .rightLine {
+    display: none;
+  }
+}
+
+@media (max-width: 415px), print {
+  .claddCart {
+    width: 390px;
+    right: 0;
+    bottom: -50px;
+  }
+}
+
+@media (max-width: 415px), print {
+  .clsection {
+    height: 450px;
+  }
+}

@@ -19,6 +19,7 @@ import MainProductDetail from './pages/mainProduct/MainProductDetail'
 import NotFoundPage from './pages/NotFoundPage'
 import CampaignIndex from './pages/campaign/CampaignIndex'
 import CampaignProductInfo from './pages/campaign/CampaignProductInfo'
+import StudioIntro from './pages/studioRent/studioOrder'
 
 // 組合用元件
 
@@ -101,6 +102,10 @@ function App() {
               <Route path="/cart">
                 <Cart />
               </Route>
+              <Route path="/studioRent/studioOrder">
+                <StudioIntro />
+              </Route>
+
 
               <Route path="*">
                 <NotFoundPage />

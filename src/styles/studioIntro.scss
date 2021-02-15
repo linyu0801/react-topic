@@ -1,0 +1,324 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+h1 {
+  font-size: 76px;
+  color: #cdaa8a;
+  font-family: 'Noto Serif TC';
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 48px;
+  color: #cdaa8a;
+  letter-spacing: 0.1rem;
+  font-family: 'Noto Serif TC';
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 36px;
+  color: #250404;
+  font-family: 'Noto Serif TC';
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+h4 {
+  font-size: 24px;
+  font-family: 'Noto Serif TC';
+  letter-spacing: 0.1rem;
+  line-height: 20px;
+}
+
+h5 {
+  font-family: 'Noto Serif TC';
+  font-size: 16px;
+  letter-spacing: 3px;
+  margin-bottom: 0px;
+  font-weight: bold;
+}
+
+p {
+  font-family: 'Noto Serif TC';
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1rem;
+}
+
+a {
+  font-family: 'Noto Sans TC';
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1rem;
+}
+
+.cldirection-prev,
+.cldirection-next {
+  position: absolute;
+  width: 67px !important;
+  height: 67px !important;
+  border-radius: 50%;
+  background-color: #c7ab8e;
+  opacity: 1 !important;
+  margin: auto -51px;
+}
+
+.cldirection-prev:hover,
+.cldirection-next:hover {
+  opacity: 0.5 !important;
+  transition: opacity 0.2s ease;
+}
+
+.clcarous {
+  position: relative;
+}
+
+.clbread {
+  font-size: 14px;
+  color: #cdaa8a;
+  font-family: 'Noto Sans TC';
+  letter-spacing: 1.8px;
+  text-decoration: none;
+  padding: 0px;
+}
+
+.clspan {
+  color: #250404;
+}
+
+.clbread:hover {
+  color: #250404;
+}
+
+.clbreadbox {
+  height: 50px;
+  margin-top: 20px;
+}
+
+.studioClass {
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+.rightLine {
+  margin: 90px 0;
+  padding: 0;
+  background-color: #cdaa8a;
+}
+
+.clpub-form {
+  border: solid 2px #cdaa8a;
+  margin: 0px 15px;
+}
+
+.clclpub-form {
+  border: solid 2px #cdaa8a;
+  margin: 0px 15px;
+  background-color: #fff8ea;
+  list-style-type: none;
+}
+
+.clpub-form:hover {
+  box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+.clclpub-form:hover {
+  box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+.IntroTitle {
+  margin: 20px 0;
+}
+
+.IntroTitleSmall {
+  color: #cdaa8a;
+  margin: 20px;
+}
+
+.equiment {
+  color: #cdaa8a;
+  font-size: 16px;
+}
+
+.clpub-form label,
+input,
+button,
+small {
+  font-family: 'Noto Sans TC', 'Noto serif TC', 'Times New Roman', Times, serif;
+  font-weight: 300;
+}
+
+.clfa-exclamation-triangle {
+  color: #d67b76;
+}
+
+.clpub-form small {
+  color: #d67b76;
+  font-size: 10px;
+  display: block;
+  text-align: right;
+  height: 26px;
+  margin-top: 4px;
+}
+
+.clpub-input {
+  border: solid 1px #cdaa8a;
+  height: 46px;
+  padding-left: 15px;
+}
+
+.clpub-form label {
+  font-size: 16px;
+  color: #250404;
+}
+
+.clbutton {
+  background: #000;
+  color: white;
+  text-align: center;
+  width: 260px;
+  height: 50px;
+  font-size: 14px;
+  display: block;
+  margin-top: 80px;
+}
+
+.clbutton {
+  margin-bottom: 100px;
+}
+
+.orderWrap {
+  margin: 50px 0;
+}
+
+.clorder {
+  margin-right: 50px;
+}
+
+.orderHr {
+  width: 100%;
+  height: 0.5px;
+  background: #cdaa8a;
+  margin-top: 50px;
+}
+
+.orderNumber,
+.orderDate,
+.orderTime {
+  font-family: 'Noto Sans TC', 'Noto serif TC', 'Times New Roman', Times, serif;
+  font-weight: 300;
+  color: #cdaa8a;
+  margin: 20px 0;
+}
+
+.clintroForm {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 415px), print {
+  h1,
+  h2 {
+    font-size: 24px;
+  }
+
+  .cldirection-prev,
+  .cldirection-next {
+    display: none;
+  }
+
+  .clintroForm {
+    display: initial;
+  }
+
+  .clpub-form {
+    margin-bottom: 20px;
+  }
+}
+
+.mapBox {
+  margin-top: 20px;
+  height: 426px;
+  width: 100%;
+}
+
+.studioMap {
+  width: 100%;
+  height: 426px;
+}
+
+.decor {
+  height: 90px;
+  width: 100%;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.decroBall {
+  position: absolute;
+  width: 350px;
+  bottom: -100px;
+  z-index: -1;
+}
+
+.decroBall2 {
+  position: absolute;
+  width: 300px;
+  right: 50px;
+  top: -150px;
+  z-index: -1;
+}
+
+.decroBall3 {
+  position: absolute;
+  width: 250px;
+  top: -250px;
+  z-index: -1;
+}
+
+.clatention {
+  list-style-type: none;
+  margin: 0px;
+}
+
+.equiment {
+  color: #250404;
+  letter-spacing: 0.1rem;
+}
+
+.atention {
+  color: #250404;
+  letter-spacing: 0.1rem;
+  margin-left: 0;
+}
+
+.wrapatention {
+  width: 80%;
+  margin-left: -15px;
+}
+
+.clcount {
+  color: #250404;
+}
+
+@media (max-width: 415px), print {
+  .decroBall {
+    width: 150px;
+    right: 10px;
+  }
+
+  .decroBall2 {
+    width: 160px;
+    right: 0px;
+    top: -55px;
+  }
+
+  .decroBall3 {
+    width: 100px;
+    left: 0px;
+    top: -55px;
+  }
+}
