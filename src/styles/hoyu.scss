@@ -2,6 +2,30 @@
   outline: 1px red solid;
 } */
 
+.hoyu-mt {
+  margin: 30px 0;
+}
+
+.page-link.hoyu-page-link {
+  border: none;
+  font-family: 'Noto Serif TC';
+  color: #bebebe;
+  font-size: 24px;
+  /* padding: 0 8px; */
+}
+
+.page-link.hoyu-page-link:hover {
+  color: #cdaa8a;
+  background: none;
+  border: none;
+}
+
+.hoyu-page-arrow {
+  font-size: 12px;
+  line-height: 30px;
+  /* padding: 0 14px; */
+}
+
 .hy-table {
   font-family: 'Noto Serif TC';
   font-size: 16px;
