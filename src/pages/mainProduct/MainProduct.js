@@ -1,5 +1,9 @@
 import '../../styles/MainProduct.scss'
 import '../../styles/font.scss'
+import { MdSearch } from 'react-icons/md'
+import { Link } from 'react-router-dom'
+import { MdKeyboardArrowRight } from 'react-icons/md'
+import { MdKeyboardArrowLeft } from 'react-icons/md'
 
 function MainProduct() {
   return (
@@ -40,7 +44,7 @@ function MainProduct() {
                   className="btn btn-outline-success product-search-btn my-2 my-sm-0"
                   type="submit"
                 >
-                  <i className="fas fa-search"></i>
+                  <MdSearch />
                 </button>
               </form>
             </div>
@@ -263,59 +267,60 @@ function MainProduct() {
           >
             <ul className="pagination justify-content-center">
               <li className="page-item">
-                <a
+                <Link
                   className="page-link hoyu-page-link hoyu-page-arrow"
-                  href="#"
+                  to="#"
                   aria-label="Previous"
                 >
                   <span aria-hidden="true">
-                    <i className="fas fa-chevron-left "></i>
+                    <MdKeyboardArrowLeft />
                   </span>
-                </a>
+                </Link>
               </li>
               <li className="page-item">
-                <a className="page-link hoyu-page-link" href="#">
+                <Link className="page-link hoyu-page-link" to="#">
                   1
-                </a>
+                </Link>
               </li>
               <li className="page-item">
-                <a className="page-link hoyu-page-link" href="#">
+                <Link className="page-link hoyu-page-link" to="#">
                   2
-                </a>
+                </Link>
               </li>
               <li className="page-item">
-                <a className="page-link hoyu-page-link" href="#">
+                <Link className="page-link hoyu-page-link" to="#">
                   3
-                </a>
+                </Link>
               </li>
               <li className="page-item">
-                <a className="page-link hoyu-page-link" href="#">
+                <Link className="page-link hoyu-page-link" to="#">
                   4
-                </a>
+                </Link>
               </li>
               <li className="page-item">
-                <a className="page-link hoyu-page-link" href="#">
+                <Link className="page-link hoyu-page-link" to="#">
                   5
-                </a>
+                </Link>
               </li>
               <li className="page-item">
-                <a
+                <Link
                   className="page-link hoyu-page-link hoyu-page-arrow"
-                  href="#"
+                  to="#"
                   aria-label="Next"
                 >
                   <span aria-hidden="true">
-                    <i className="fas fa-chevron-right "></i>
+                    <MdKeyboardArrowRight />
                   </span>
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
+
           <div className="k-golden-design"></div>
         </div>
       </div>
 
-      <div id="footer" className="temp-footer"></div>
+      {/* <div id="footer" className="temp-footer"></div> */}
     </>
   )
 }
