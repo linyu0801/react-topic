@@ -16,35 +16,30 @@ function Login(props) {
     const newData = { account, password }
 
     // 連接的伺服器資料網址
-    const url = 'http://localhost:4000/dcake/login'
+    const url = 'http://localhost:4000/login-jwt'
     // const url = 'http://localhost:6005/users/'
 
     // 注意資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify(newData),
+      credentials: 'include',
       headers: new Headers({
         Accept: 'application/json',
         'Content-Type': 'application/json',
       }),
     })
-
-    console.log(JSON.stringify(newData))
+    console.log('送出的body : ' + JSON.stringify(newData))
 
     const response = await fetch(request)
     const data = await response.json()
     console.log('伺服器回傳的json資料123', data)
     setLogindata(data)
-
+    sessionStorage.setItem('mid', data.token)
     if (data.success === true) {
       props.history.push('/')
     }
   }
-  // let b = JSON.parse(logindata)
-  // console.log('logindata : ' + b)
-  // else {
-  //   props.history.push('/member/login')
-  // }
 
   return (
     <>
