@@ -4,6 +4,7 @@ import { MdRemove } from 'react-icons/md'
 import { MdAdd } from 'react-icons/md'
 import { MdFavoriteBorder } from 'react-icons/md'
 import ProductCarousel from '../../components/ProductCarousel'
+import ProductAccordion from '../../components/ProductAccordion'
 
 function MainProductDetail() {
   return (
@@ -32,6 +33,7 @@ function MainProductDetail() {
         <div className="row k-mp-lower">
           <div className="col-lg-6 k-left-col">
             <ProductCarousel />
+
             {/* <div className="carousel-box">
               <div
                 id="carouselExampleIndicators"
@@ -118,8 +120,11 @@ function MainProductDetail() {
             </h5>
           </div>
         </div>
+        <div className="accordion">
+          <ProductAccordion />
+        </div>
 
-        <div className="temp-accordion">
+        {/* <div className="temp-accordion">
           <div className="display-one">
             <div className="info-head d-flex justify-content-between d-flex align-items-center">
               <h5 className="k-note">產品資訊</h5>
@@ -245,12 +250,12 @@ function MainProductDetail() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="more-info">
         <h4 className="more container">更多蛋糕</h4>
       </div>
-      <div id="footer" className="temp-footer"></div>
+      {/* <div id="footer" className="temp-footer"></div> */}
     </>
   )
 }
