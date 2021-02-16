@@ -29,6 +29,18 @@
   border-color: #cdaa8a;
 }
 
+/*K：客製化商品carousel*/
+
+ol.carousel-indicators li{
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-right: 8px;
+  background-color: #cdaa8a;
+}
+
+
 .carouselFinn {
   height: 600px;
   margin-bottom: 60px;

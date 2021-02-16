@@ -19,9 +19,29 @@
 }
 
 /*carousel 輪播圖*/
-.k-carousel-indicators {
-  position: static;
+/*覆寫react bs carousel套件部分*/
+.carousel-control-prev>.carousel-control-prev-icon,
+.carousel-control-next>.carousel-control-next-icon{
+  display: none;
 }
+
+// .k-carousel-indicators {
+//   position: static;
+// }
+
+
+// .k-carousel-indicators > li.dot-bar {
+//   display: block;
+//   width: 16px;
+//   height: 16px;
+//   border-radius: 50%;
+//   margin-right: 8px;
+//   background-color: #cdaa8a;
+// }
+
+
+
+//----以上為不適用的舊的carousel設定，新設定在custom.scss
 
 .p-carousel-box {
   width: 552px;
@@ -33,13 +53,10 @@
   height: auto;
 }
 
-.k-carousel-indicators > li.dot-bar {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  margin-right: 8px;
-  background-color: #cdaa8a;
-}
+
+
+
+
 
 /*col-lg-6 right-col 輪播圖右側文字區*/
 .k-product-name {
