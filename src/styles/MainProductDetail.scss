@@ -4,7 +4,7 @@
 .clbread {
   font-size: 14px;
   color: #cdaa8a;
-  font-family: "Noto Sans TC", sans-serif;
+  font-family: 'Noto Sans TC', sans-serif;
   letter-spacing: 1.8px;
   transition: 0.6s;
 }
@@ -20,15 +20,14 @@
 
 /*carousel 輪播圖*/
 /*覆寫react bs carousel套件部分*/
-.carousel-control-prev>.carousel-control-prev-icon,
-.carousel-control-next>.carousel-control-next-icon{
+.carousel-control-prev > .carousel-control-prev-icon,
+.carousel-control-next > .carousel-control-next-icon {
   display: none;
 }
 
 // .k-carousel-indicators {
 //   position: static;
 // }
-
 
 // .k-carousel-indicators > li.dot-bar {
 //   display: block;
@@ -38,8 +37,6 @@
 //   margin-right: 8px;
 //   background-color: #cdaa8a;
 // }
-
-
 
 //----以上為不適用的舊的carousel設定，新設定在custom.scss
 
@@ -52,11 +49,6 @@
   width: 100%;
   height: auto;
 }
-
-
-
-
-
 
 /*col-lg-6 right-col 輪播圖右側文字區*/
 .k-product-name {
@@ -83,7 +75,17 @@
 /*計數器 & 加入購物車按鈕*/
 .k-counter {
   text-align: center;
+  font-size: 24px;
+  line-height: 24px;
 }
+
+.counterBtn {
+  border: none;
+  background: none;
+  padding: 10px;
+}
+
+
 
 .k-counter > .fas {
   font-weight: 300;
@@ -114,7 +116,7 @@
   padding: 15px;
   color: #250404;
   font-size: 14px;
-  font-family: "Noto Sans TC";
+  font-family: 'Noto Sans TC';
   letter-spacing: 0.2em;
   font-weight: lighter;
   cursor: pointer;
@@ -137,37 +139,38 @@ h5.product-description-text {
 
 /*temp-accordion 下拉式手風琴資訊*/
 /*info-head*/
-.temp-accordion {
-  margin-top: 20px;
-}
-
-.temp-accordion > .fas,
-.plus-icon {
-  font-weight: 300;
+.info-head {
+  border-bottom: 1px solid #bebebe;
 }
 
 h5.k-note {
+  font-family: 'Noto Serif TC';
+  color: #3d434a;
   margin-bottom: 0;
   padding: 28px 0;
   font-size: 16px;
+  font-weight: 300;
   line-height: 20px;
   letter-spacing: 0.1rem;
 }
 
 /*info-body*/
 .info-body {
-  padding: 45px 86px;
+  padding: 45px 61px;
+  color: #3d434a;
 }
 
-.info-body> .k-commons{
-  border-top: 1px solid #cdaa8a;
+.info-body > .k-commons {
+  // border-top: 1px solid #cdaa8a;
   border-bottom: 1px solid #cdaa8a;
   margin-bottom: 30px;
 }
 
-h5.info-body-text{
+h5.info-body-text {
+  color: #3d434a;
   line-height: 30px;
   font-size: 16px;
+  font-weight: 300;
   line-height: 20px;
   letter-spacing: 0.1rem;
 }
@@ -191,27 +194,26 @@ h5.info-body-text{
   list-style: none;
 }
 
-
-.k-ul-note .note-list{
-  font-family: "Noto Serif TC";
+.k-ul-note .note-list {
+  font-family: 'Noto Serif TC';
   font-size: 16px;
   line-height: 30px;
   text-indent: -32px;
   letter-spacing: 0.1rem;
 }
 
-.note-list:before{
-  content: "";
+.note-list:before {
+  content: '';
   display: inline-block;
-  margin-right:16px;
+  margin-right: 16px;
   width: 16px;
   height: 16px;
   border-radius: 50%;
   border: 1px solid #707070;
 }
 
-.member-common{
-  font-family: "Noto Serif TC";
+.member-common {
+  font-family: 'Noto Serif TC';
   font-size: 16px;
   line-height: 30px;
   letter-spacing: 0.1rem;
@@ -219,13 +221,21 @@ h5.info-body-text{
 }
 
 /*common form*/
-form .add-common{
+form .add-common {
   font-weight: 600;
 }
 
+h5.form-title {
+  font-family: 'Noto Serif TC';
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1rem;
+  margin-bottom: 40px;
+}
 
 .pub-form small {
-  font-family: "Noto Serif TC";
+  font-family: 'Noto Serif TC';
   color: #d67b76;
   font-size: 12px;
   display: block;
@@ -234,9 +244,8 @@ form .add-common{
   margin-top: 6px;
 }
 
-
 .pub-input {
-  font-family: "Noto Serif TC";
+  font-family: 'Noto Serif TC';
   letter-spacing: 0.1rem;
   line-height: 20px;
   border: solid 1px #cdaa8a;
@@ -244,43 +253,42 @@ form .add-common{
   padding-left: 15px;
 }
 
-
 .pub-form label {
-  font-family: "Noto Serif TC";
+  font-family: 'Noto Serif TC';
   letter-spacing: 0.1rem;
   line-height: 20px;
   font-size: 16px;
   color: #cdaa8a;
 }
 
-.pub-textarea{
-  font-family: "Noto Serif TC";
+.form-control.pub-textarea {
+  font-family: 'Noto Serif TC';
   letter-spacing: 0.1rem;
   line-height: 20px;
   border: solid 1px #cdaa8a;
   padding-left: 15px;
   resize: none;
-  
 }
 
-.form-control.pub-textarea:focus, input:focus, .uneditable-input:focus {   
-  border-color: #FFF8EA;
-  box-shadow: 0 1px 1px rgba(255, 248, 234, 0.75) inset, 0 0 4px rgba(205,170,138, 0.9);
+.form-control.pub-textarea:focus,
+input:focus,
+.uneditable-input:focus {
+  border-color: #fff8ea;
+  box-shadow: 0 1px 1px rgba(255, 248, 234, 0.75) inset,
+    0 0 4px rgba(205, 170, 138, 0.9);
   outline: 0 none;
 }
 
-
-
-.form-control.pub-textarea{
+.form-control.pub-textarea {
   border-radius: 0px;
 }
 
 .k-pub-button {
-  border:none;
-  font-family: "Noto Sans TC";
+  border: none;
+  font-family: 'Noto Sans TC';
   letter-spacing: 0.1rem;
   line-height: 20px;
-  background-color: #C7AB8E;
+  background-color: #c7ab8e;
   color: white;
   text-align: center;
   width: 260px;
@@ -290,36 +298,33 @@ form .add-common{
   margin-top: 24px;
 }
 
-.k-pub-button:focus{
+.k-pub-button:focus {
   outline: none;
 }
-
 
 .pub-mb-100 {
   margin-bottom: 100px;
 }
 
-
 /*之後要插入react owl carousel*/
-.more-info{
+.more-info {
   margin-top: 50px;
   padding: 100px 0;
   height: 692px;
   background-color: #ffeed3;
 }
 
-.more{
-  color: #CDAA8A;
+.more {
+  color: #cdaa8a;
   font-size: 24px;
   letter-spacing: 0.1rem;
   line-height: 20px;
 }
 
-.more:after{
-content:">>";
-display: inline-block;
+.more:after {
+  content: '>>';
+  display: inline-block;
 }
-
 
 /*temp-footer*/
 .temp-footer {
