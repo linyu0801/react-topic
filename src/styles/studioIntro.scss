@@ -220,6 +220,12 @@ small {
   justify-content: center;
 }
 
+.react-slideshow-container button.default-nav {
+  background: #cdaa8a;
+  height: 60px;
+  width: 60px;
+}
+
 @media (max-width: 415px), print {
   .studioClassA,
   .IntroTitle {
