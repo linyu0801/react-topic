@@ -83,7 +83,7 @@ function studioIntro() {
                   <br />
                   <input
                     className="w-100 clpub-input"
-                    type="text"
+                    type="date"
                     name="acoount"
                     id="account"
                   />
@@ -93,7 +93,7 @@ function studioIntro() {
                   <br />
                   <input
                     className="w-100 clpub-input"
-                    type="text"
+                    type="number"
                     name="password"
                     id="password"
                   />
@@ -101,12 +101,11 @@ function studioIntro() {
 
                   <label for="timerange">時段</label>
                   <br />
-                  <input
-                    className="w-100 clpub-input"
-                    type="text"
-                    name="tel"
-                    id="tel"
-                  />
+                  <select className="w-100">
+                    <option>請選擇時段</option>
+                    <option>09:00-12:00AM</option>
+                    <option>14:00-17:00PM</option>
+                  </select>
                   <div className="orderWrap ">
                     <ul className=" orderDate d-flex justify-content-between">
                       <li className="clcount">日期:</li>
