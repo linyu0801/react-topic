@@ -64,7 +64,7 @@ function studioOrder() {
                   無經驗新手也能輕鬆做出甜點！Funsiamo 玩美烘焙體驗，透過 iPad
                   數位教學，搭配現場服務人員的親切協助，每個走進店裡的人都能帶走精美
                 </p>
-                <button class="btn claddCart">加入購物車</button>
+                <button class="btn claddCart">立即預定</button>
               </div>
             </div>
           </div>
@@ -106,7 +106,7 @@ function studioOrder() {
                   無經驗新手也能輕鬆做出甜點！Funsiamo 玩美烘焙體驗，透過 iPad
                   數位教學，搭配現場服務人員的親切協助，每個走進店裡的人都能帶走精美
                 </p>
-                <button class="btn claddCart">加入購物車</button>
+                <button class="btn claddCart">立即預定</button>
               </div>
             </div>
           </div>
@@ -140,7 +140,7 @@ function studioOrder() {
                   無經驗新手也能輕鬆做出甜點！Funsiamo 玩美烘焙體驗，透過 iPad
                   數位教學，搭配現場服務人員的親切協助，每個走進店裡的人都能帶走精美
                 </p>
-                <button class="btn claddCart">加入購物車</button>
+                <button class="btn claddCart">立即預定</button>
               </div>
             </div>
           </div>
