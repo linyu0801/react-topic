@@ -96,13 +96,15 @@ function studioIntro() {
                     type="number"
                     name="password"
                     id="password"
+                    max="20"
+                    min="1"
                   />
                   <small>最多限定20人</small>
 
                   <label for="timerange">時段</label>
                   <br />
-                  <select className="w-100">
-                    <option>請選擇時段</option>
+                  <select className="timeperiod w-100">
+                    <option> 請選擇時段</option>
                     <option>09:00-12:00AM</option>
                     <option>14:00-17:00PM</option>
                   </select>
