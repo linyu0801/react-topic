@@ -13,8 +13,8 @@
 }
 
 /*K：客製化小搜尋按鈕外觀*/
-.btn.btn-outline-success.product-search-btn{
-  font-family: "Noto Sans TC", sans-serif;
+.btn.btn-outline-success.product-search-btn {
+  font-family: 'Noto Sans TC', sans-serif;
   border: none;
   border-radius: 10%;
   background-color: #bebebe;
@@ -31,7 +31,7 @@
 
 /*K：客製化商品carousel*/
 
-ol.carousel-indicators li{
+ol.carousel-indicators li {
   display: block;
   width: 16px;
   height: 16px;
@@ -40,6 +40,16 @@ ol.carousel-indicators li{
   background-color: #cdaa8a;
 }
 
+/*K：客製化手風琴元件*/
+.accordion > .card{
+  border: none;
+  
+}
+.accordion > .card > .card-header {
+  padding: 0;
+  background-color: white;
+  border-bottom: 1px solid #cdaa8a;
+}
 
 .carouselFinn {
   height: 600px;
