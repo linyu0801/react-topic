@@ -40,10 +40,7 @@ function studioOrder() {
           <Link to="#" className="clbread">
             首頁 <span className="clspan">{'>'}</span>
           </Link>
-          <Link to="/studioRent/studioOrder" className="clbread">
-            {' '}
-            教室租借{' '}
-          </Link>
+          <Link className="clbread"> 教室租借 </Link>
         </div>
       </div>
       <div className="container">
