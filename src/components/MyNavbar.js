@@ -25,7 +25,6 @@ function MyNavbar(props) {
     })
     const response = await fetch(request)
     const rows = await response.json()
-    console.log('伺服器回傳', rows)
     if (rows.logout === true) {
       sessionStorage.removeItem('mid')
 
