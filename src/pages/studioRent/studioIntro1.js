@@ -3,137 +3,50 @@ import { React } from 'react'
 import '../../styles/studioIntro.scss'
 
 import '../../styles/font.scss'
+import 'react-slideshow-image/dist/styles.css'
+import { Slide } from 'react-slideshow-image'
+import { Link, withRouter, Redirect } from 'react-router-dom'
 
 function studioIntro() {
   return (
     <>
       <div className="container">
         <div className="clbreadbox col-lg-12 col-sm-12">
-          <a className="clbread" href="">
+          <Link to="/localhost:3000" className="clbread">
             首頁 <span className="clspan">{'>'}</span>
-          </a>
-          <a className="clbread" href="">
+          </Link>
+          <Link to="/studioRent/studioIntro1" className="clbread">
             {' '}
             教室租借{' '}
-          </a>
+          </Link>
         </div>
       </div>
-      <div className="container clcarous">
-        <div
-          id="carouselExampleControls"
-          className="carousel slide"
-          data-ride="carousel"
-        >
-          <ol className="carousel-indicators">
-            <li
-              data-target="#carouselExampleIndicators"
-              data-slide-to="0"
-              className="active"
-            ></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-          <div className="carousel-inner">
-            <div className="carousel-item active">
-              <img
-                src="http://localhost:3000/climage/1/class1-2.jpg"
-                className="d-block w-100"
-                alt="..."
-              />
-            </div>
-            <div className="carousel-item active">
-              <img
-                src="http://localhost:3000/climage/1/class1-3.jpg"
-                className="d-block w-100"
-                alt="..."
-              />
-            </div>
-            <div className="carousel-item active">
-              <img
-                src="http://localhost:3000/climage/1/class1-4.jpg"
-                className="d-block w-100"
-                alt="..."
-              />
-            </div>
+      <div className="container">
+        <Slide easing="ease">
+          <div className="each-slide">
+            <img
+              src="http://localhost:3000/climage/1/class1-2.jpg"
+              className="d-block w-100"
+              alt="..."
+            />
           </div>
-        </div>
-        <a
-          className=" cldirection-next carousel-control-next"
-          href="#carouselExampleControls"
-          role="button"
-          data-slide="next"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="13.41"
-            height="19.929"
-            viewBox="0 0 13.41 19.929"
-          >
-            <g
-              id="Group_89"
-              data-name="Group 89"
-              transform="translate(-1056.6 -2864.328)"
-            >
-              <path
-                id="Path_20"
-                data-name="Path 20"
-                d="M4250.567,2996.582s2.47,9.421,12.443,9.421"
-                transform="translate(-3193 -132)"
-                fill="none"
-                stroke="#fff"
-                stroke-width="2"
-              />
-              <path
-                id="Path_21"
-                data-name="Path 21"
-                d="M4250.567,3006s2.47-9.421,12.443-9.421"
-                transform="translate(-3193 -122)"
-                fill="none"
-                stroke="#fff"
-                stroke-width="2"
-              />
-            </g>
-          </svg>
-        </a>
-        <a
-          className=" cldirection-prev  cldirection-prev carousel-control-prev"
-          href="#carouselExampleControls"
-          role="button"
-          data-slide="prev"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="13.41"
-            height="19.929"
-            viewBox="0 0 13.41 19.929"
-          >
-            <g
-              id="Group_89"
-              data-name="Group 89"
-              transform="translate(0 0.254)"
-            >
-              <path
-                id="Path_20"
-                data-name="Path 20"
-                d="M4263.009,2996.582s-2.47,9.421-12.443,9.421"
-                transform="translate(-4250.566 -2996.582)"
-                fill="none"
-                stroke="#fff"
-                stroke-width="2"
-              />
-              <path
-                id="Path_21"
-                data-name="Path 21"
-                d="M4263.009,3006s-2.47-9.421-12.443-9.421"
-                transform="translate(-4250.566 -2986.582)"
-                fill="none"
-                stroke="#fff"
-                stroke-width="2"
-              />
-            </g>
-          </svg>
-        </a>
+          <div className="each-slide">
+            <img
+              src="http://localhost:3000/climage/1/class1-3.jpg"
+              className="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div className="each-slide">
+            <img
+              src="http://localhost:3000/climage/1/class1-4.jpg"
+              className="d-block w-100"
+              alt="..."
+            />
+          </div>
+        </Slide>
       </div>
+
       <div className="decor">
         <img
           src="http://localhost:3000/climage/goldenRing.png"
@@ -170,7 +83,7 @@ function studioIntro() {
                   <br />
                   <input
                     className="w-100 clpub-input"
-                    type="text"
+                    type="date"
                     name="acoount"
                     id="account"
                   />
@@ -180,20 +93,21 @@ function studioIntro() {
                   <br />
                   <input
                     className="w-100 clpub-input"
-                    type="text"
+                    type="number"
                     name="password"
                     id="password"
+                    max="20"
+                    min="1"
                   />
                   <small>最多限定20人</small>
 
                   <label for="timerange">時段</label>
                   <br />
-                  <input
-                    className="w-100 clpub-input"
-                    type="text"
-                    name="tel"
-                    id="tel"
-                  />
+                  <select className="timeperiod w-100">
+                    <option> 請選擇時段</option>
+                    <option>09:00-12:00AM</option>
+                    <option>14:00-17:00PM</option>
+                  </select>
                   <div className="orderWrap ">
                     <ul className=" orderDate d-flex justify-content-between">
                       <li className="clcount">日期:</li>
@@ -231,7 +145,8 @@ function studioIntro() {
               </form>
 
               <form action="" className="clclpub-form col-lg-6 col-12 ">
-                <h2 className="IntroTitle">教室介紹</h2>
+                <h2 className="IntroTitle">教室介紹 </h2>
+                <div className="wine"></div>
                 <h3 className="IntroTitleSmall">配備/費用</h3>
                 <ul className="equimentfee">
                   <li className="equiment">7組專業烤箱</li>
@@ -251,16 +166,16 @@ function studioIntro() {
                 <div className="wrapatention">
                   <ul className="clatention">
                     {' '}
-                    <i className="fas clfa-exclamation-triangle"></i>
+                    <div className="clwarning"></div>
                     <li className="atention">
                       借用收費以單位時段三小時為計算單位，借用未足一單位時段者，以一單位時段計算。
                     </li>
-                    <i className=" fas clfa-exclamation-triangle"></i>
+                    <div className="clwarning"></div>
                     <li className="atention">
                       與教室確認登記租借日期及時段後，需先預付租借總費用 1/2
-                      的金額以作訂金（繳費匯款方式在與教
+                      的金額以作訂金。。
                     </li>
-                    <i className="fas clfa-exclamation-triangle"></i>
+                    <div className="clwarning"></div>
                     <li className="atention">
                       當天活動開始前繳付押金3000
                       元予教室現場工作人員，待歸還檢查無誤後方可全額退還。
@@ -291,6 +206,16 @@ function studioIntro() {
         <h2>位置</h2>
         <h5>台北市中山區</h5>
       </div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28921.748837063966!2d121.52633635186135!3d25.026654349312864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd97fd43ab8f8df12!2zTWFyb2NvX-mmrOi3r-WPo-eDmOeEmeWwj-iIlg!5e0!3m2!1szh-TW!2stw!4v1613531489632!5m2!1szh-TW!2stw"
+        height={450}
+        frameBorder={0}
+        style={{ border: 0 }}
+        allowFullScreen
+        aria-hidden="false"
+        tabIndex={0}
+        className="w-100"
+      />
     </>
   )
 }
