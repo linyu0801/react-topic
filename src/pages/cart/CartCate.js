@@ -15,7 +15,7 @@ function CartCate(props) {
         >
           <Link
             className={'hoyu-a w-100 d-block p-2'}
-            to="/carttry"
+            to="/cart"
             onClick={() => {
               setCartCate('cart1')
               setCartStep('step1')
@@ -32,7 +32,7 @@ function CartCate(props) {
         >
           <Link
             className="hoyu-a w-100 d-block p-2"
-            to="/carttry"
+            to="/cart"
             onClick={() => {
               setCartCate('cart2')
               setCartStep('step1')
@@ -49,7 +49,7 @@ function CartCate(props) {
         >
           <Link
             className="hoyu-a w-100 d-block p-2"
-            to="/carttry"
+            to="/cart"
             onClick={() => {
               setCartCate('cart3')
               setCartStep('step1')
