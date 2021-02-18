@@ -1,15 +1,14 @@
 import 'react-datepicker/dist/react-datepicker.css'
-import '../../styles/fish.scss'
 import '../../styles/font.scss'
 import React, { useEffect, useState } from 'react'
 import FishAside from '../../components/FishAside'
 import { Link, withRouter } from 'react-router-dom'
 import DatePicker from 'react-datepicker'
 import $ from 'jquery'
-import moment from 'moment'
 import { registerLocale, setDefaultLocale } from 'react-datepicker'
-
 import { zhTW } from 'date-fns/esm/locale'
+import '../../styles/fish.scss'
+
 registerLocale('zh-TW', zhTW)
 function MemberEdit(props) {
   const [birthDate, setBirthDate] = useState(new Date())
@@ -56,7 +55,8 @@ function MemberEdit(props) {
   const onChangeForField = (fieldName) => (event) => {
     setInputs((state) => ({ ...state, [fieldName]: event.target.value }))
   }
-  const newData = { birthDate, ...inputs }
+  const token = sessionStorage.getItem('mid')
+  const newData = { token, ...inputs }
   console.log(newData)
 
   async function EditToServer() {

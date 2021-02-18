@@ -2,19 +2,17 @@ import '../../styles/fish.scss'
 import '../../styles/font.scss'
 import { Link, withRouter } from 'react-router-dom'
 import React, { useState } from 'react'
-// const [dataLoading, setDataLoading] = useState(false)
-
+import $ from 'jquery'
 function Login(props) {
   const [account, setAccount] = useState('')
   const [password, setPassword] = useState('')
 
   async function LoginToSever() {
-    // 開啟載入指示
-    // setDataLoading(true)
+    $('#account').next().text('')
+    $('#password').next().text('')
+
     const newData = { account, password }
     const url = 'http://localhost:4000/login'
-
-    // 注意資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify(newData),
@@ -25,7 +23,6 @@ function Login(props) {
       }),
     })
     console.log('送出的body : ' + JSON.stringify(newData))
-
     const response = await fetch(request)
     const data = await response.json()
     console.log('伺服器回傳的json資料', data)
@@ -33,8 +30,13 @@ function Login(props) {
       sessionStorage.setItem('mid', data.token)
       props.history.push('/')
     }
+    if (data.code === 0) {
+      $('#account').next().text('帳號錯誤或不存在')
+    }
+    if (data.code === 1) {
+      $('#password').next().text('密碼錯誤')
+    }
   }
-
   return (
     <>
       <div className="fish-login-bg">
@@ -54,9 +56,8 @@ function Login(props) {
                     setAccount(event.target.value)
                   }}
                 />
-                <br />
-                <small>帳號錯誤或不存在</small>
 
+                <small></small>
                 <label htmlFor="password">請輸入密碼</label>
                 <br />
                 <input
@@ -68,7 +69,7 @@ function Login(props) {
                     setPassword(event.target.value)
                   }}
                 />
-                <small>密碼輸入錯誤</small>
+                <small></small>
                 <button
                   type="button"
                   className="pub-button mx-auto"

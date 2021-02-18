@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 
 // 頁面用元件
 import MemberEdit from './pages/member/MemberEdit'
-import MemberForget from './pages/member/MemberForget'
+import Mpassword from './pages/member/Mpassword'
 import OrderProduct from './pages/member/OrderProduct'
 import OrderActive from './pages/member/OrderActive'
 import OrderClass from './pages/member/OrderClass'
@@ -77,7 +77,7 @@ function App() {
                 <MemberEdit />
               </Route>
               <Route path="/member/editpassword">
-                <MemberForget />
+                <Mpassword />
               </Route>
               <Route path="/member/login">
                 <Login />
