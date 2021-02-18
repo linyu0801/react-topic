@@ -15,7 +15,7 @@ function forget(props) {
                   <h6>請輸入註冊時所使用的E-amil信箱地址，</h6>
                   <h6>我們將會產生一組新的密碼並寄至信箱，讓您重新登入。</h6>
                 </div>
-                <label for="account ">請輸入電子郵件</label>
+                <label htmlFor="account ">請輸入電子郵件</label>
                 <br />
                 <input
                   className="w-100 member-input"

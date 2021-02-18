@@ -43,7 +43,7 @@ function Login(props) {
             <div className="fish-mask d-flex justify-content-center col-xl-6 col-lg-8 col-md-10 col-sm-12">
               <form action="" className="pub-form w-80">
                 <h3>會員登入</h3>
-                <label for="account ">請輸入帳號</label>
+                <label htmlFor="account ">請輸入帳號</label>
                 <br />
                 <input
                   className="w-100 member-input"
@@ -57,7 +57,7 @@ function Login(props) {
                 <br />
                 <small>帳號錯誤或不存在</small>
 
-                <label for="password">請輸入密碼</label>
+                <label htmlFor="password">請輸入密碼</label>
                 <br />
                 <input
                   className="w-100 member-input"
