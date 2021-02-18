@@ -4,8 +4,22 @@ import { MdSearch } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 import { MdKeyboardArrowRight } from 'react-icons/md'
 import { MdKeyboardArrowLeft } from 'react-icons/md'
+import React, { useEffect, useState } from 'react'
 
 function MainProduct() {
+  useEffect(() => {
+    const FetchData = async () => {
+      const url = 'http://localhost:4000/mainproduct'
+      const request = new Request(url, {
+        method: 'GET',
+      })
+      const response = await fetch(request)
+      const rows = await response.json()
+      console.log('伺服器回傳', rows)
+    }
+
+    FetchData()
+  }, [])
   return (
     <>
       <div className="content">
@@ -20,17 +34,17 @@ function MainProduct() {
         <div className="k-main container">
           <div className="row k-upper">
             <div className="col-lg-6 col-sm-12 k-breadcrumbs">
-              <a className="clbread" href="">
+              <Link className="clbread" to="">
                 首頁{'  '}
                 <span className="clspan">{'>'}</span>
-              </a>
-              <a className="clbread" href="">
+              </Link>
+              <Link className="clbread" to="">
                 商品{'  '}
                 <span className="clspan">{'>'}</span>
-              </a>
-              <a className="clbread" href="">
+              </Link>
+              <Link className="clbread" to="">
                 全部商品
-              </a>
+              </Link>
             </div>
             <div className="col-lg-6 col-sm-12 search-input">
               <form className="form-inline my-2 d-flex justify-content-end">
@@ -52,19 +66,19 @@ function MainProduct() {
           <div className="k-product-category">
             <ul className="k-ul d-flex justify-content-between">
               <li className="k-category">
-                <a href="">全部商品</a>
+                <Link to="">全部商品</Link>
               </li>
               <li className="k-category">
-                <a href="">紅酒風味</a>
+                <Link to="">紅酒風味</Link>
               </li>
               <li className="k-category">
-                <a href="">白酒風味</a>
+                <Link to="">白酒風味</Link>
               </li>
               <li className="k-category">
-                <a href="">烈酒風味</a>
+                <Link to="">烈酒風味</Link>
               </li>
               <li className="k-category">
-                <a href="">利口酒風味</a>
+                <Link to="">利口酒風味</Link>
               </li>
             </ul>
           </div>
@@ -72,13 +86,13 @@ function MainProduct() {
           <ul className="k-main-products row">
             <li className="col-lg-4 col-sm-12 k-product-card card">
               <div className="k-img-box">
-                <a href="#">
+                <Link to="#">
                   <img
                     src="http://localhost:3000/k-images/1.jpeg"
                     className="card-img-top product-img"
                     alt="cake29"
                   />
-                </a>
+                </Link>
               </div>
 
               <div className="card-body">
@@ -93,13 +107,13 @@ function MainProduct() {
             </li>
             <li className="col-lg-4 col-sm-12 k-product-card card">
               <div className="k-img-box">
-                <a href="#">
+                <Link to="#">
                   <img
                     src="/images/2.jpeg"
                     className="card-img-top product-img"
                     alt="cake29"
                   />
-                </a>
+                </Link>
               </div>
 
               <div className="card-body">
@@ -114,13 +128,13 @@ function MainProduct() {
             </li>
             <li className="col-lg-4 col-sm-12 k-product-card card">
               <div className="k-img-box">
-                <a href="#">
+                <Link to="#">
                   <img
                     src="#"
                     className="card-img-top product-img"
                     alt="cake29"
                   />
-                </a>
+                </Link>
               </div>
 
               <div className="card-body">
@@ -135,13 +149,13 @@ function MainProduct() {
             </li>
             <li className="col-lg-4 col-sm-12 k-product-card card">
               <div className="k-img-box">
-                <a href="#">
+                <Link to="#">
                   <img
                     src="asset 29.jpeg"
                     className="card-img-top product-img"
                     alt="cake29"
                   />
-                </a>
+                </Link>
               </div>
 
               <div className="card-body">
@@ -156,13 +170,13 @@ function MainProduct() {
             </li>
             <li className="col-lg-4 col-sm-12 k-product-card card">
               <div className="k-img-box">
-                <a href="#">
+                <Link to="#">
                   <img
                     src="asset 29.jpeg"
                     className="card-img-top product-img"
                     alt="cake29"
                   />
-                </a>
+                </Link>
               </div>
 
               <div className="card-body">
@@ -177,13 +191,13 @@ function MainProduct() {
             </li>
             <li className="col-lg-4 col-sm-12 k-product-card card">
               <div className="k-img-box">
-                <a href="#">
+                <Link to="#">
                   <img
                     src="asset 29.jpeg"
                     className="card-img-top product-img"
                     alt="cake29"
                   />
-                </a>
+                </Link>
               </div>
 
               <div className="card-body">
@@ -198,13 +212,13 @@ function MainProduct() {
             </li>
             <li className="col-lg-4 col-sm-12 k-product-card card">
               <div className="k-img-box">
-                <a href="#">
+                <Link to="#">
                   <img
                     src="asset 29.jpeg"
                     className="card-img-top product-img"
                     alt="cake29"
                   />
-                </a>
+                </Link>
               </div>
 
               <div className="card-body">
@@ -219,13 +233,13 @@ function MainProduct() {
             </li>
             <li className="col-lg-4 col-sm-12 k-product-card card">
               <div className="k-img-box">
-                <a href="#">
+                <Link to="#">
                   <img
                     src="asset 29.jpeg"
                     className="card-img-top product-img"
                     alt="cake29"
                   />
-                </a>
+                </Link>
               </div>
 
               <div className="card-body">
@@ -240,13 +254,13 @@ function MainProduct() {
             </li>
             <li className="col-lg-4 col-sm-12 k-product-card card">
               <div className="k-img-box">
-                <a href="#">
+                <Link to="#">
                   <img
                     src="asset 29.jpeg"
                     className="card-img-top product-img"
                     alt="cake29"
                   />
-                </a>
+                </Link>
               </div>
 
               <div className="card-body">

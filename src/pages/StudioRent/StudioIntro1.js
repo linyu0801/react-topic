@@ -1,20 +1,49 @@
-import { React } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import '../../styles/studioIntro.scss'
 
 import '../../styles/font.scss'
 import 'react-slideshow-image/dist/styles.css'
 import { Slide } from 'react-slideshow-image'
-import { Link, withRouter, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import $ from 'jquery'
+function StudioIntro1() {
+  const [textNumber, setTextNumber] = useState('')
+  const [selectedTime, setSeletedTime] = useState('')
+  const [selectedDate, setSeletedDate] = useState('')
+  useEffect(() => {
+    if (selectedTime === '09:00-12:00AM') {
+      $('#cost').text('6000')
+    }
+    if (selectedTime === '14:00-17:00PM') {
+      {
+        $('#cost').text('8000')
+      }
+    }
+    if (selectedTime === '全天') {
+      {
+        $('#cost').text('10000')
+      }
+    }
+    if (selectedTime === ' ') {
+      {
+        $('#cost').text('0')
+      }
+    }
+  }, [selectedTime])
 
-function studioIntro1() {
-  async function studioIntro1() {
-    const url = 'http://localhost:4000/studioIntro1'
-    const request = new Request(url)
-    const response = await fetch(request)
-    const data = await response.json()
-    console.log(' 回傳的資料', data)
-  }
+  // async function fetchdata() {
+  //   const url = 'http://localhost:4000/studioIntro1'
+  //   const request = new Request(url)
+  //   const response = await fetch(request)
+  //   const data = await response.json()
+  //   setData1([...data])
+  //   console.log(' 回傳的資料', data)
+  // }
+
+  // useEffect(() => {
+  //   fetchdata()
+  // }, [])
   return (
     <>
       <div className="container">
@@ -22,7 +51,7 @@ function studioIntro1() {
           <Link to="/localhost:3000" className="clbread">
             首頁 <span className="clspan">{'>'}</span>
           </Link>
-          <Link to="/studioRent/studioIntro1" className="clbread">
+          <Link to="/StudioRent/StudioIntro1" className="clbread">
             {' '}
             教室租借{' '}
           </Link>
@@ -91,8 +120,10 @@ function studioIntro1() {
                   <input
                     className="w-100 clpub-input"
                     type="date"
-                    name="acoount"
-                    id="account"
+                    value={selectedDate}
+                    onChange={(e) => {
+                      setSeletedDate(e.target.value)
+                    }}
                   />
                   <br />
                   <small></small>
@@ -101,43 +132,55 @@ function studioIntro1() {
                   <input
                     className="w-100 clpub-input"
                     type="number"
-                    name="password"
-                    id="password"
                     max="20"
                     min="1"
+                    value={textNumber}
+                    onChange={(e) => {
+                      setTextNumber(e.target.value)
+                    }}
                   />
                   <small>最多限定20人</small>
 
                   <label for="timerange">時段</label>
                   <br />
-                  <select className="timeperiod w-100">
-                    <option> 請選擇時段</option>
-                    <option>09:00-12:00AM</option>
-                    <option>14:00-17:00PM</option>
+                  <select
+                    id="selecttime"
+                    className="timeperiod w-100"
+                    value={selectedTime}
+                    onChange={(e) => {
+                      setSeletedTime(e.target.value)
+                    }}
+                  >
+                    <option value=" "> 請選擇時段</option>
+                    <option value="09:00-12:00AM">09:00-12:00AM</option>
+                    <option value="14:00-17:00PM">14:00-17:00PM</option>
+                    <option value="全天">全天</option>
                   </select>
+
                   <div className="orderWrap ">
                     <ul className=" orderDate d-flex justify-content-between">
                       <li className="clcount">日期:</li>
                       <span className="clorder">
-                        <i className="fas fa-dollar-sign"></i> 222222
+                        <i className="fas fa-dollar-sign"></i>
+                        {selectedDate}
                       </span>
                     </ul>
                     <ul className=" orderNumber d-flex justify-content-between">
                       <li className="clcount">人數:</li>
-                      <span className="clorder"> 222222</span>
+                      <span className="clorder"> {textNumber}</span>
                     </ul>
                     <ul className=" orderTime d-flex justify-content-between">
                       <li className="clcount">時段:</li>
                       <span className="clorder">
-                        <i className="fas fa-dollar-sign"></i> 222222
+                        <i className="fas fa-dollar-sign"></i> {selectedTime}
                       </span>
                     </ul>
                     <hr className="orderHr" />
 
                     <ul className=" orderTime d-flex justify-content-between">
                       <li className="clcount">金額 :</li>
-                      <span className="clorder">
-                        <i className="fas fa-dollar-sign"></i> 222222
+                      <span className="clorder" id="cost" type="text">
+                        <i className="fas fa-dollar-sign"></i>
                       </span>
                     </ul>
                   </div>
@@ -227,4 +270,4 @@ function studioIntro1() {
   )
 }
 
-export default studioIntro1
+export default StudioIntro1
