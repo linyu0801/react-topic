@@ -58,8 +58,8 @@ body {
 }
 .member-input:focus {
   border: none;
-  background: rgba(255, 255, 255, 0.2);
-  border: 0.5px solid #cdaa8a62;
+  background: rgba(255, 255, 255, 0.23);
+  // border: 0.5px solid #cdaa8a10;
   box-shadow: none !important;
 }
 .pub-input {
@@ -70,7 +70,9 @@ body {
   height: 46px;
   padding-left: 15px;
 }
-.pub-input :focus {
+.form-control.pub-textarea:focus,
+input:focus,
+.pub-input:focus {
   box-shadow: none;
   border-color: #cdaa8a !important;
 }

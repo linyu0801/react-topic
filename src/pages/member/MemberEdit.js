@@ -2,7 +2,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 import '../../styles/font.scss'
 import React, { useEffect, useState } from 'react'
 import FishAside from '../../components/FishAside'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import DatePicker from 'react-datepicker'
 import $ from 'jquery'
 import { registerLocale, setDefaultLocale } from 'react-datepicker'
@@ -60,22 +60,31 @@ function MemberEdit(props) {
   console.log(newData)
 
   async function EditToServer() {
-    // const editform = new FormData(document.editform)
+    const regextel = /^\(?\d{2}\)?[\s\-]?\d{4}\-?\d{4}$/
+    const regexemail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+    if (inputs.email.match(regexemail)) {
+      $('#email').next().text('')
+      if (inputs.tel.match(regextel)) {
+        $('#tel').next().text('')
+        const url = 'http://localhost:4000/edit'
+        const request = new Request(url, {
+          method: 'PUT',
+          body: JSON.stringify(newData),
 
-    const url = 'http://localhost:4000/edit'
-    const request = new Request(url, {
-      method: 'PUT',
-      // body: editform,
-      body: JSON.stringify(newData),
-
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      }),
-    })
-    const response = await fetch(request)
-    const data = await response.json()
-    console.log(' 回傳的資料', data)
+          headers: new Headers({
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          }),
+        })
+        const response = await fetch(request)
+        const data = await response.json()
+        console.log(' 回傳的資料', data)
+      } else {
+        $('#tel').next().text('手機格式錯誤')
+      }
+    } else {
+      $('#email').next().text('請輸入正確的電子郵件格式')
+    }
   }
 
   return (
@@ -140,7 +149,7 @@ function MemberEdit(props) {
                   value={inputs.email}
                   onChange={onChangeForField('email')}
                 />
-                <small>請輸入正確的電子郵件格式</small>
+                <small></small>
 
                 <label htmlFor="birthday">生日</label>
                 <br />

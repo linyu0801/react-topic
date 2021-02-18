@@ -2,6 +2,8 @@ import '../../styles/fish.scss'
 import '../../styles/font.scss'
 import { Link, withRouter } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
+import $ from 'jquery'
+
 function Register(props) {
   const [inputs, setInputs] = useState({
     username: '',
@@ -13,19 +15,37 @@ function Register(props) {
     setInputs((state) => ({ ...state, [fieldName]: event.target.value }))
   }
   async function RegisterToSever() {
-    const url = 'http://localhost:4000/register'
-    const registerform = new FormData(document.querySelector('#registerform'))
-    const request = new Request(url, {
-      method: 'POST',
-      body: registerform,
-    })
-    const response = await fetch(request)
-    const data = await response.json()
-    console.log('伺服器回傳的json資料', data)
+    if (
+      inputs.email.match(
+        /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+      )
+    ) {
+      $('#email').next().text('')
+      $('#account').next().text('')
+      $('#password').next().text('')
+      const url = 'http://localhost:4000/register'
+      const registerform = new FormData(document.querySelector('#registerform'))
+      const request = new Request(url, {
+        method: 'POST',
+        body: registerform,
+      })
+      const response = await fetch(request)
+      const data = await response.json()
+      console.log('伺服器回傳的json資料', data)
+      if (data.code === 1) {
+        $('#account').next().text('帳號重複')
+      }
+      if (data.code === 2) {
+        $('#email').next().text('電子郵件重複')
+      }
+      if (data.code === 3) {
+        $('#password').next().text('密碼不足六位數')
+      }
+    } else {
+      $('#email').next().text('請輸入正確電子郵件格式')
+    }
   }
-  useEffect(() => {
-    console.log(inputs)
-  }, [inputs])
+
   return (
     <>
       <div className="fish-registerbg">
@@ -45,7 +65,7 @@ function Register(props) {
                   onChange={onChangeForField('account')}
                 />
                 <br />
-                <small>帳號重複</small>
+                <small></small>
 
                 <label htmlFor="password">請輸入密碼</label>
                 <br />
@@ -81,7 +101,7 @@ function Register(props) {
                   value={inputs.email}
                   onChange={onChangeForField('email')}
                 />
-                <small>請輸入正確電子郵件格式</small>
+                <small></small>
                 <div className="form-border w-100"></div>
                 <button
                   type="button"
