@@ -6,6 +6,7 @@ import FishAside from '../../components/FishAside'
 import { Link, withRouter } from 'react-router-dom'
 import DatePicker from 'react-datepicker'
 import $ from 'jquery'
+import moment from 'moment'
 // import { registerLocale, setDefaultLocale } from 'react-datepicker'
 
 // import { zhTW } from 'date-fns/esm/locale'
@@ -45,6 +46,13 @@ function MemberEdit(props) {
     FetchData()
   }, [])
 
+  useEffect(() => {
+    $('#datetimepicker1').on('dp.change', function (e) {
+      var selectedDate = $('#datetimepicker1').find('input').val()
+      selectedDate = moment(selectedDate, 'MM-DD-YYYY')
+      $('.temp').text(moment(selectedDate).toISOString())
+    })
+  }, [])
   const onChangeForField = (fieldName) => (event) => {
     setInputs((state) => ({ ...state, [fieldName]: event.target.value }))
   }
@@ -138,6 +146,7 @@ function MemberEdit(props) {
                 <br />
                 <DatePicker
                   className="pub-input w-100"
+                  id="datepicker"
                   selected={birthDate}
                   dateFormat="yyyy-MM-dd"
                   locale="zh-TW"
