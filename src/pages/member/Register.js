@@ -1,7 +1,7 @@
 import '../../styles/fish.scss'
 import '../../styles/font.scss'
 import { Link, withRouter } from 'react-router-dom'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 function Register(props) {
   const [inputs, setInputs] = useState({
     username: '',
@@ -14,39 +14,32 @@ function Register(props) {
   }
   async function RegisterToSever() {
     const url = 'http://localhost:4000/register'
-    const registerform = new FormData(document.registerform)
-    // const editform = new FormData(document.editform)
-
+    const registerform = new FormData(document.querySelector('#registerform'))
     const request = new Request(url, {
       method: 'POST',
       body: registerform,
-      // body: JSON.stringify(newData),
-      // credentials: 'include',
-      // headers: new Headers({
-      //   Accept: 'application/json',
-      //   'Content-Type': 'application/json',
-      // }),
     })
-    // console.log('送出的body : ' + JSON.stringify(newData))
-
     const response = await fetch(request)
     const data = await response.json()
     console.log('伺服器回傳的json資料', data)
   }
+  useEffect(() => {
+    console.log(inputs)
+  }, [inputs])
   return (
     <>
       <div className="fish-registerbg">
         <div className="container h-100">
           <div className="row justify-content-center">
             <div className="fish-mask d-flex justify-content-center col-xl-6 col-lg-8 col-md-10 col-sm-12">
-              <form action="" className="pub-form w-80" name="registerform">
+              <form action="" className="pub-form w-80" id="registerform">
                 <h3>會員註冊</h3>
                 <label htmlFor="account ">請輸入帳號</label>
                 <br />
                 <input
                   className="w-100 member-input"
                   type="text"
-                  name="acoount"
+                  name="account"
                   id="account"
                   value={inputs.account}
                   onChange={onChangeForField('account')}
