@@ -23,6 +23,7 @@ import StudioOrder from './pages/studioRent/studioOrder'
 import StudioIntro1 from './pages/studioRent/studioIntro1'
 import StudioIntro2 from './pages/studioRent/studioIntro2'
 import StudioIntro3 from './pages/studioRent/studioIntro3'
+import HomePage from './pages/homePage/HomePage'
 
 // 組合用元件
 
@@ -60,6 +61,9 @@ function App() {
             {/* <ThemeContext.Provider value={themeNow}> */}
 
             <Switch>
+              <Route path="/homepage">
+                <HomePage />
+              </Route>
               <Route path="/mainproduct">
                 <MainProduct />
               </Route>

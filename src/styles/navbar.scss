@@ -3,7 +3,7 @@
 .navbar {
   background-color: #250404;
   border-bottom: 1px solid #cdaa8a;
-  height: 75px;
+  height: 100px;
 }
 
 .navbar a {
@@ -72,4 +72,14 @@
 .dropdown-divider {
   border-top: 1px solid #cdaa8a !important;
   margin-bottom: 0px;
+}
+.alex-padding{
+  padding:15px!important;
+}
+.alex-navbarHeight{
+  height: 100px !important;
+  padding: 25px 8px !important;
+}
+.show{
+  background-color: #250404;
 }
