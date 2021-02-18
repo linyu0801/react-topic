@@ -6,7 +6,7 @@ import '../../styles/font.scss'
 import 'react-slideshow-image/dist/styles.css'
 import { Slide } from 'react-slideshow-image'
 
-function studioIntro() {
+function StudioIntro3() {
   return (
     <>
       <div className="container">
@@ -217,4 +217,4 @@ function studioIntro() {
   )
 }
 
-export default studioIntro
+export default StudioIntro3

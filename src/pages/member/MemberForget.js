@@ -42,7 +42,7 @@ function MemberForget(props) {
                 action=""
                 className="pub-form col-xl-7 col-lg-8 col-md-10 col-sm-12"
               >
-                <label for="passowrd">請輸入舊密碼</label>
+                <label htmlFor="passowrd">請輸入舊密碼</label>
                 <br />
                 <input
                   className="w-100 pub-input"
@@ -52,7 +52,7 @@ function MemberForget(props) {
                 />
                 <br />
                 <small></small>
-                <label for="newpassword">請輸入新密碼</label>
+                <label htmlFor="newpassword">請輸入新密碼</label>
                 <br />
                 <input
                   className="w-100 pub-input"
@@ -62,7 +62,7 @@ function MemberForget(props) {
                 />
                 <small>密碼需大於六位數</small>
 
-                <label for="newpassowrd2">請再次輸入密碼</label>
+                <label htmlFor="newpassowrd2">請再次輸入密碼</label>
                 <br />
                 <input
                   className="w-100 pub-input"

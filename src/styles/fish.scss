@@ -71,8 +71,8 @@ body {
   padding-left: 15px;
 }
 .pub-input :focus {
-  box-shadow: none !important;
-  border-color: #cdaa8a;
+  box-shadow: none;
+  border-color: #cdaa8a !important;
 }
 .pub-form label {
   font-family: 'Noto Serif TC';
