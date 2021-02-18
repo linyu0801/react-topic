@@ -4,7 +4,6 @@ import { MdRemove } from 'react-icons/md'
 import { useState, Link } from 'react'
 import { MdAdd } from 'react-icons/md'
 import { MdFavoriteBorder } from 'react-icons/md'
-import ProductCarousel from '../../components/ProductCarousel'
 import ProductAccordion from '../../components/ProductAccordion'
 
 function MainProductDetailTest2(props) {
@@ -35,21 +34,21 @@ function MainProductDetailTest2(props) {
       <div className="content container">
         <div className="row k-mp-upper">
           <div className="col breadcrumbs">
-            <a className="clbread" href="">
+            <Link className="clbread" to="*">
               首頁{'  '}
               <span className="clspan">{'>'}</span>
-            </a>
-            <a className="clbread" href="">
+            </Link>
+            <Link className="clbread" to="*">
               商品{'  '}
               <span className="clspan">{'>'}</span>
-            </a>
-            <a className="clbread" href="">
+            </Link>
+            <Link className="clbread" to="*">
               全部商品{'  '}
               <span className="clspan">{'>'}</span>
-            </a>
-            <a className="clbread" href="">
+            </Link>
+            <Link className="clbread" to="*">
               烈酒風味
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -59,11 +58,11 @@ function MainProductDetailTest2(props) {
           <div className="col-lg-6 right-col">
             <div className="d-flex justify-content-between align-items-center">
               <h3 className="k-product-name">微醺森林</h3>
-              <a href="" className="a-right-style">
+              <Link to="*" className="a-right-style">
                 <i className="k-collection far fa-heart">
                   <MdFavoriteBorder />
                 </i>
-              </a>
+              </Link>
             </div>
 
             <h4 className="k-mp-product-price">$ 450</h4>

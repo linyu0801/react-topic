@@ -18,7 +18,7 @@ function Cart1Content2(props) {
   //   receiver: '',
   //   receiverMobile: '',
   //   address: '',
-  //   desiganted_date: '',
+  //   designated_date: '',
   //   designated_period: '',
   //   payment_type: '',
   //   pan_no1: '',
@@ -152,15 +152,15 @@ function Cart1Content2(props) {
                 onChange={onChangeForField('address')}
               />
               <small></small>
-              <label htmlFor="desiganted_date">收件日期</label>
+              <label htmlFor="designated_date">收件日期</label>
               <br />
               <input
                 className="w-100 pub-input"
                 type="date"
-                name="desiganted_date"
-                id="desiganted_date"
-                value={inputs.desiganted_date}
-                onChange={onChangeForField('desiganted_date')}
+                name="designated_date"
+                id="designated_date"
+                value={inputs.designated_date}
+                onChange={onChangeForField('designated_date')}
               />
               <small></small>
               <label htmlFor="designated_period">可收件時段</label>

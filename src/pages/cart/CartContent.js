@@ -15,7 +15,7 @@ function CartContent(props) {
     receiver: '',
     receiverMobile: '',
     address: '',
-    desiganted_date: '',
+    designated_date: '',
     designated_period: '',
     payment_type: '',
     pan_no1: '',

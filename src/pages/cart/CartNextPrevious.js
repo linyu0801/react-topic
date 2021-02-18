@@ -12,7 +12,7 @@ function CartNextPrevious(props) {
     seletedOptionCardYear,
   } = props
 
-  console.log(form1)
+  console.log(JSON.stringify(form1))
 
   return (
     <>
