@@ -176,14 +176,17 @@ function Cart1Content1(props) {
                       <td className="hy-rwd-d-none">
                         {+item.quantity * +item.p_price}
                       </td>
-                      <td className="hy-rwd-d-none">
-                        <FaRegTimesCircle
-                          className="hy-color-gold"
-                          onClick={() => {
-                            deleteItem(item.p_sid)
-                          }}
-                        />
-                      </td>
+
+                      {cartStep === 'step1' && (
+                        <td className="hy-rwd-d-none">
+                          <FaRegTimesCircle
+                            className="hy-color-gold"
+                            onClick={() => {
+                              deleteItem(item.p_sid)
+                            }}
+                          />
+                        </td>
+                      )}
                     </tr>
                   )
                 })}
