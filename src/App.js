@@ -14,6 +14,7 @@ import Register from './pages/member/Register'
 import FavProduct from './pages/member/FavProduct'
 import FavActive from './pages/member/FavActive'
 import Cart from './pages/cart/Cart'
+import MainProductDetailTest2 from './pages/cart/MainProductDetailTest2'
 import MainProduct from './pages/mainProduct/MainProduct'
 import MainProductDetail from './pages/mainProduct/MainProductDetail'
 import NotFoundPage from './pages/NotFoundPage'
@@ -104,6 +105,9 @@ function App() {
               </Route>
               <Route path="/cart">
                 <Cart />
+              </Route>
+              <Route path="/mainproductdetailtest2">
+                <MainProductDetailTest2 />
               </Route>
               <Route path="/studioRent/studioOrder">
                 <StudioOrder />
