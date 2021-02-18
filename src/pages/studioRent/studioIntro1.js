@@ -45,7 +45,7 @@ function StudioIntro1() {
           <Link to="/localhost:3000" className="clbread">
             首頁 <span className="clspan">{'>'}</span>
           </Link>
-          <Link to="/studioRent/studioIntro1" className="clbread">
+          <Link to="/StudioRent/StudioIntro1" className="clbread">
             {' '}
             教室租借{' '}
           </Link>
