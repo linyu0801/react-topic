@@ -7,7 +7,14 @@ import 'react-slideshow-image/dist/styles.css'
 import { Slide } from 'react-slideshow-image'
 import { Link, withRouter, Redirect } from 'react-router-dom'
 
-function studioIntro() {
+function studioIntro1() {
+  async function studioIntro1() {
+    const url = 'http://localhost:4000/studioIntro1'
+    const request = new Request(url)
+    const response = await fetch(request)
+    const data = await response.json()
+    console.log(' 回傳的資料', data)
+  }
   return (
     <>
       <div className="container">
@@ -220,4 +227,4 @@ function studioIntro() {
   )
 }
 
-export default studioIntro
+export default studioIntro1
