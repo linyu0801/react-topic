@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 
 // 頁面用元件
 import MemberEdit from './pages/member/MemberEdit'
-import MemberForget from './pages/member/MemberForget'
+import Mpassword from './pages/member/Mpassword'
 import OrderProduct from './pages/member/OrderProduct'
 import OrderActive from './pages/member/OrderActive'
 import OrderClass from './pages/member/OrderClass'
@@ -14,6 +14,7 @@ import Register from './pages/member/Register'
 import FavProduct from './pages/member/FavProduct'
 import FavActive from './pages/member/FavActive'
 import Cart from './pages/cart/Cart'
+import MainProductDetailTest2 from './pages/cart/MainProductDetailTest2'
 import MainProduct from './pages/mainProduct/MainProduct'
 import MainProductDetail from './pages/mainProduct/MainProductDetail'
 import NotFoundPage from './pages/NotFoundPage'
@@ -24,6 +25,7 @@ import StudioIntro1 from './pages/studioRent/studioIntro1'
 import StudioIntro2 from './pages/studioRent/studioIntro2'
 import StudioIntro3 from './pages/studioRent/studioIntro3'
 import HomePage from './pages/homePage/HomePage'
+
 
 // 組合用元件
 
@@ -80,7 +82,7 @@ function App() {
                 <MemberEdit />
               </Route>
               <Route path="/member/editpassword">
-                <MemberForget />
+                <Mpassword />
               </Route>
               <Route path="/member/login">
                 <Login />
@@ -109,16 +111,19 @@ function App() {
               <Route path="/cart">
                 <Cart />
               </Route>
-              <Route path="/studioRent/studioOrder">
+              <Route path="/mainproductdetailtest2">
+                <MainProductDetailTest2 />
+              </Route>
+              <Route path="/StudioRent/StudioOrder">
                 <StudioOrder />
               </Route>
-              <Route path="/studioRent/studioIntro1">
+              <Route path="/StudioRent/StudioIntro1">
                 <StudioIntro1 />
               </Route>
-              <Route path="/studioRent/studioIntro2">
+              <Route path="/StudioRent/StudioIntro2">
                 <StudioIntro2 />
               </Route>
-              <Route path="/studioRent/studioIntro3">
+              <Route path="/StudioRent/StudioIntro3">
                 <StudioIntro3 />
               </Route>
 

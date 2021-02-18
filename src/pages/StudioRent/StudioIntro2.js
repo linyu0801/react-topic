@@ -5,19 +5,20 @@ import '../../styles/studioIntro.scss'
 import '../../styles/font.scss'
 import 'react-slideshow-image/dist/styles.css'
 import { Slide } from 'react-slideshow-image'
+import { Link } from 'react-router-dom'
 
-function studioIntro() {
+function StudioIntro2() {
   return (
     <>
       <div className="container">
         <div className="clbreadbox col-lg-12 col-sm-12">
-          <a className="clbread" href="">
+          <Link className="clbread" href="">
             首頁 <span className="clspan">{'>'}</span>
-          </a>
-          <a className="clbread" href="">
+          </Link>
+          <Link className="clbread" href="">
             {' '}
             教室租借{' '}
-          </a>
+          </Link>
         </div>
       </div>
       <div className="container">
@@ -216,4 +217,4 @@ function studioIntro() {
   )
 }
 
-export default studioIntro
+export default StudioIntro2

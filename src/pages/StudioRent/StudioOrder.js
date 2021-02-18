@@ -5,7 +5,7 @@ import '../../styles/studioOrder.scss'
 import '../../styles/font.scss'
 import { Link, withRouter, Redirect } from 'react-router-dom'
 
-function studioOrder() {
+function StudioOrder() {
   return (
     <>
       <div className="clsection jumbotron text-white col-lg-12 col-md-6 col-sm-4 container-fluid ">
@@ -19,6 +19,7 @@ function studioOrder() {
           <div className="row col-lg-8 col-sm-12 mx-auto d-flex justify-content-center">
             <form className="d-flex justify-content-center">
               <input className="clsearchbar" type="date" placeholder="日期:" />
+
               <input
                 className="clsearchbar"
                 type="number"
@@ -53,7 +54,7 @@ function studioOrder() {
           </div>
         </div>
       </div>
-      <Link to="/studioRent/studioIntro1">
+      <Link to="/StudioRent/StudioIntro1">
         <div className="container">
           <div className="col-lg-12 col-md-6 col-sm-4">
             <div className="celiacardBig d-flex w-100">
@@ -95,7 +96,7 @@ function studioOrder() {
           </div>
         </div>
       </div>
-      <Link to="/studioRent/studioIntro2">
+      <Link to="/StudioRent/StudioIntro2">
         <div className="container">
           <div className="col-lg-12 col-md-6 col-sm-4">
             <div className="celiacardBig d-flex w-100">
@@ -129,7 +130,7 @@ function studioOrder() {
           </div>
         </div>
       </div>
-      <Link to="/studioRent/studioIntro3">
+      <Link to="/StudioRent/StudioIntro3">
         <div className="container">
           <div className="col-lg-12 col-md-6 col-sm-4">
             <div className="celiacardBig d-flex w-100">
@@ -157,4 +158,4 @@ function studioOrder() {
   )
 }
 
-export default studioOrder
+export default StudioOrder

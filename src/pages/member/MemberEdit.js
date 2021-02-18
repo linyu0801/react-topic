@@ -1,21 +1,21 @@
 import 'react-datepicker/dist/react-datepicker.css'
-import '../../styles/fish.scss'
 import '../../styles/font.scss'
 import React, { useEffect, useState } from 'react'
 import FishAside from '../../components/FishAside'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import DatePicker from 'react-datepicker'
 import $ from 'jquery'
-// import { registerLocale, setDefaultLocale } from 'react-datepicker'
+import { registerLocale, setDefaultLocale } from 'react-datepicker'
+import { zhTW } from 'date-fns/esm/locale'
+import '../../styles/fish.scss'
 
-// import { zhTW } from 'date-fns/esm/locale'
-// registerLocale('zh-TW', zhTW)
+registerLocale('zh-TW', zhTW)
 function MemberEdit(props) {
   const [birthDate, setBirthDate] = useState(new Date())
-  const [data, setData] = useState('')
   const [inputs, setInputs] = useState({
     username: '',
     email: '',
+    birthday: '',
     tel: '',
     address: '',
   })
@@ -24,18 +24,19 @@ function MemberEdit(props) {
     const FetchData = async () => {
       const url = 'http://localhost:4000/loginverify'
       const request = new Request(url, {
-        method: 'POST',
+        method: 'GET',
         credentials: 'include',
       })
       const response = await fetch(request)
       const rows = await response.json()
       console.log('伺服器回傳', rows)
-      setData(rows)
+      setBirthDate(new Date(rows.body.birthday))
       setInputs({
         username: rows.body.username,
         email: rows.body.email,
-        tel: rows.body.address,
-        address: rows.body.tel,
+        tel: rows.body.tel,
+        birthday: rows.body.birthday,
+        address: rows.body.address,
       })
     }
     if (sessionStorage.getItem('mid') === null) {
@@ -45,29 +46,45 @@ function MemberEdit(props) {
     FetchData()
   }, [])
 
+  useEffect(() => {
+    let selectedDate = $('#datepicker').val()
+    console.log('selectedDate : ' + selectedDate)
+    setInputs((state) => ({ ...state, birthday: selectedDate }))
+  }, [birthDate])
+
   const onChangeForField = (fieldName) => (event) => {
     setInputs((state) => ({ ...state, [fieldName]: event.target.value }))
   }
-  // const newData = { birthDate, ...inputs }
-  // console.log(newData)
+  const token = sessionStorage.getItem('mid')
+  const newData = { token, ...inputs }
+  console.log(newData)
 
   async function EditToServer() {
-    const editform = new FormData(document.editform)
+    const regextel = /^\(?\d{2}\)?[\s\-]?\d{4}\-?\d{4}$/
+    const regexemail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+    if (inputs.email.match(regexemail)) {
+      $('#email').next().text('')
+      if (inputs.tel.match(regextel)) {
+        $('#tel').next().text('')
+        const url = 'http://localhost:4000/edit'
+        const request = new Request(url, {
+          method: 'PUT',
+          body: JSON.stringify(newData),
 
-    const url = 'http://localhost:4000/edit'
-    const request = new Request(url, {
-      method: 'PUT',
-      body: editform,
-      // body: JSON.stringify(newData),
-
-      // headers: new Headers({
-      //   Accept: 'application/json',
-      //   'Content-Type': 'application/json',
-      // }),
-    })
-    const response = await fetch(request)
-    const data = await response.json()
-    console.log(' 回傳的資料', data)
+          headers: new Headers({
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          }),
+        })
+        const response = await fetch(request)
+        const data = await response.json()
+        console.log(' 回傳的資料', data)
+      } else {
+        $('#tel').next().text('手機格式錯誤')
+      }
+    } else {
+      $('#email').next().text('請輸入正確的電子郵件格式')
+    }
   }
 
   return (
@@ -109,7 +126,7 @@ function MemberEdit(props) {
                 className="pub-form col-xl-7 col-lg-8 col-md-10 col-sm-12"
                 name="editform"
               >
-                <label for="username ">使用者名稱</label>
+                <label htmlFor="username ">使用者名稱</label>
                 <br />
                 <input
                   className="w-100 pub-input"
@@ -122,7 +139,7 @@ function MemberEdit(props) {
                 <br />
                 <small></small>
 
-                <label for="email">電子郵件</label>
+                <label htmlFor="email">電子郵件</label>
                 <br />
                 <input
                   className="w-100 pub-input"
@@ -132,30 +149,32 @@ function MemberEdit(props) {
                   value={inputs.email}
                   onChange={onChangeForField('email')}
                 />
-                <small>請輸入正確的電子郵件格式</small>
+                <small></small>
 
-                <label for="birthday">生日</label>
+                <label htmlFor="birthday">生日</label>
                 <br />
                 <DatePicker
                   className="pub-input w-100"
+                  id="datepicker"
                   selected={birthDate}
                   dateFormat="yyyy-MM-dd"
                   locale="zh-TW"
                   showYearDropdown
                   onChange={(date) => setBirthDate(date)}
                 />
-                {/* <input
-                    className="w-100 pub-input"
-                    type="text"
-                    name="birthday"
-                    id="birthday"
-                    value={inputs.birthday}
-                    onChange={onChangeForField('birthday')}
-                  /> */}
+
+                <input
+                  className="w-100 pub-input d-none"
+                  type="text"
+                  name="birthday"
+                  id="birthday"
+                  value={inputs.birthday}
+                  onChange={onChangeForField('birthday')}
+                />
                 <br />
                 <small></small>
 
-                <label for="tel">手機</label>
+                <label htmlFor="tel">手機</label>
                 <br />
                 <input
                   className="w-100 pub-input"
@@ -167,7 +186,7 @@ function MemberEdit(props) {
                 />
                 <small>請輸入正確的手機格式</small>
 
-                <label for="address">地址</label>
+                <label htmlFor="address">地址</label>
                 <br />
                 <input
                   className="w-100 pub-input"

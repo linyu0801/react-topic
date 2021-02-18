@@ -1,13 +1,51 @@
-import { React } from 'react'
-
+import React, { useEffect, useState } from 'react'
 import '../../styles/studioIntro.scss'
+import Iframe from 'react-iframe'
 
 import '../../styles/font.scss'
 import 'react-slideshow-image/dist/styles.css'
 import { Slide } from 'react-slideshow-image'
-import { Link, withRouter, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import $ from 'jquery'
 
-function studioIntro() {
+function StudioIntro1() {
+  const [textNumber, setTextNumber] = useState('')
+  const [selectedTime, setSeletedTime] = useState('')
+  const [selectedDate, setSeletedDate] = useState('')
+  useEffect(() => {
+    if (selectedTime === '09:00-12:00AM') {
+      $('#cost').text('6000')
+    }
+    if (selectedTime === '14:00-17:00PM') {
+      {
+        $('#cost').text('8000')
+      }
+    }
+    if (selectedTime === '全天') {
+      {
+        $('#cost').text('10000')
+      }
+    }
+    if (selectedTime === ' ') {
+      {
+        $('#cost').text('0')
+      }
+    }
+  }, [selectedTime])
+
+  // async function fetchdata() {
+  //   const url = 'http://localhost:4000/studioIntro1'
+  //   const request = new Request(url)
+  //   const response = await fetch(request)
+  //   const data = await response.json()
+  //   setData1([...data])
+  //   console.log(' 回傳的資料', data)
+  // }
+
+  // useEffect(() => {
+  //   fetchdata()
+  // }, [])
+  //{data[].product}
   return (
     <>
       <div className="container">
@@ -15,7 +53,7 @@ function studioIntro() {
           <Link to="/localhost:3000" className="clbread">
             首頁 <span className="clspan">{'>'}</span>
           </Link>
-          <Link to="/studioRent/studioIntro1" className="clbread">
+          <Link to="/StudioRent/StudioIntro1" className="clbread">
             {' '}
             教室租借{' '}
           </Link>
@@ -84,8 +122,10 @@ function studioIntro() {
                   <input
                     className="w-100 clpub-input"
                     type="date"
-                    name="acoount"
-                    id="account"
+                    value={selectedDate}
+                    onChange={(e) => {
+                      setSeletedDate(e.target.value)
+                    }}
                   />
                   <br />
                   <small></small>
@@ -94,43 +134,55 @@ function studioIntro() {
                   <input
                     className="w-100 clpub-input"
                     type="number"
-                    name="password"
-                    id="password"
                     max="20"
                     min="1"
+                    value={textNumber}
+                    onChange={(e) => {
+                      setTextNumber(e.target.value)
+                    }}
                   />
                   <small>最多限定20人</small>
 
                   <label for="timerange">時段</label>
                   <br />
-                  <select className="timeperiod w-100">
-                    <option> 請選擇時段</option>
-                    <option>09:00-12:00AM</option>
-                    <option>14:00-17:00PM</option>
+                  <select
+                    id="selecttime"
+                    className="timeperiod w-100"
+                    value={selectedTime}
+                    onChange={(e) => {
+                      setSeletedTime(e.target.value)
+                    }}
+                  >
+                    <option value=" "> 請選擇時段</option>
+                    <option value="09:00-12:00AM">09:00-12:00AM</option>
+                    <option value="14:00-17:00PM">14:00-17:00PM</option>
+                    <option value="全天">全天</option>
                   </select>
+
                   <div className="orderWrap ">
                     <ul className=" orderDate d-flex justify-content-between">
                       <li className="clcount">日期:</li>
                       <span className="clorder">
-                        <i className="fas fa-dollar-sign"></i> 222222
+                        <i className="fas fa-dollar-sign"></i>
+                        {selectedDate}
                       </span>
                     </ul>
                     <ul className=" orderNumber d-flex justify-content-between">
                       <li className="clcount">人數:</li>
-                      <span className="clorder"> 222222</span>
+                      <span className="clorder"> {textNumber}</span>
                     </ul>
                     <ul className=" orderTime d-flex justify-content-between">
                       <li className="clcount">時段:</li>
                       <span className="clorder">
-                        <i className="fas fa-dollar-sign"></i> 222222
+                        <i className="fas fa-dollar-sign"></i> {selectedTime}
                       </span>
                     </ul>
                     <hr className="orderHr" />
 
                     <ul className=" orderTime d-flex justify-content-between">
                       <li className="clcount">金額 :</li>
-                      <span className="clorder">
-                        <i className="fas fa-dollar-sign"></i> 222222
+                      <span className="clorder" id="cost" type="text">
+                        <i className="fas fa-dollar-sign"></i>
                       </span>
                     </ul>
                   </div>
@@ -206,8 +258,8 @@ function studioIntro() {
         <h2>位置</h2>
         <h5>台北市中山區</h5>
       </div>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28921.748837063966!2d121.52633635186135!3d25.026654349312864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd97fd43ab8f8df12!2zTWFyb2NvX-mmrOi3r-WPo-eDmOeEmeWwj-iIlg!5e0!3m2!1szh-TW!2stw!4v1613531489632!5m2!1szh-TW!2stw"
+      <Iframe
+        url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28921.748837063966!2d121.52633635186135!3d25.026654349312864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd97fd43ab8f8df12!2zTWFyb2NvX-mmrOi3r-WPo-eDmOeEmeWwj-iIlg!5e0!3m2!1szh-TW!2stw!4v1613531489632!5m2!1szh-TW!2stw"
         height={450}
         frameBorder={0}
         style={{ border: 0 }}
@@ -220,4 +272,4 @@ function studioIntro() {
   )
 }
 
-export default studioIntro
+export default StudioIntro1

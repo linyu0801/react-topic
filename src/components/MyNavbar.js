@@ -36,7 +36,7 @@ function MyNavbar(props) {
     const FetchData = async () => {
       const url = 'http://localhost:4000/verify'
       const request = new Request(url, {
-        method: 'POST',
+        method: 'GET',
         credentials: 'include',
       })
       const response = await fetch(request)

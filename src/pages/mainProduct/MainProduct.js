@@ -4,8 +4,53 @@ import { MdSearch } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 import { MdKeyboardArrowRight } from 'react-icons/md'
 import { MdKeyboardArrowLeft } from 'react-icons/md'
+import React, { useEffect, useState } from 'react'
 
 function MainProduct() {
+  const [product, setProduct] = useState([])
+
+  useEffect(() => {
+    const FetchData = async () => {
+      const url = 'http://localhost:4000/mainproduct' //讀取寫在node中的app.get('/mainproduct')
+      const request = new Request(url, {
+        method: 'GET',
+      })
+      const response = await fetch(request)
+      const rows = await response.json() //這邊的rows會得到所有資料庫中的資料
+      console.log('伺服器回傳', rows) //先在這邊console.log出rows得到的資料
+
+      setProduct(rows) //rows的東西會傳到product中
+    }
+
+    FetchData()
+  }, [])
+
+  const productDisplay = (
+    <>
+      <ul className="k-main-products row">
+        {product.map((v, i) => (
+          <li key={i} className="col-lg-4 col-sm-12 k-product-card card">
+            <div className="k-img-box">
+              <Link to="#">
+                <img
+                  src={`http://localhost:3000/k-images/` + v.p_img}
+                  className="card-img-top product-img"
+                  alt="cake29"
+                />
+              </Link>
+            </div>
+
+            <div className="card-body">
+              <h5 className="card-title">{v.p_name}</h5>
+              <p className="card-text">{v.p_intro}</p>
+              <hr className="product-hr" />
+              <div className="k-product-price">$ {v.p_price}</div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </>
+  )
   return (
     <>
       <div className="content">
@@ -20,17 +65,17 @@ function MainProduct() {
         <div className="k-main container">
           <div className="row k-upper">
             <div className="col-lg-6 col-sm-12 k-breadcrumbs">
-              <a className="clbread" href="">
+              <Link className="clbread" to="">
                 首頁{'  '}
                 <span className="clspan">{'>'}</span>
-              </a>
-              <a className="clbread" href="">
+              </Link>
+              <Link className="clbread" to="">
                 商品{'  '}
                 <span className="clspan">{'>'}</span>
-              </a>
-              <a className="clbread" href="">
+              </Link>
+              <Link className="clbread" to="">
                 全部商品
-              </a>
+              </Link>
             </div>
             <div className="col-lg-6 col-sm-12 search-input">
               <form className="form-inline my-2 d-flex justify-content-end">
@@ -52,37 +97,38 @@ function MainProduct() {
           <div className="k-product-category">
             <ul className="k-ul d-flex justify-content-between">
               <li className="k-category">
-                <a href="">全部商品</a>
+                <Link to="">全部商品</Link>
               </li>
               <li className="k-category">
-                <a href="">紅酒風味</a>
+                <Link to="">紅酒風味</Link>
               </li>
               <li className="k-category">
-                <a href="">白酒風味</a>
+                <Link to="">白酒風味</Link>
               </li>
               <li className="k-category">
-                <a href="">烈酒風味</a>
+                <Link to="">烈酒風味</Link>
               </li>
               <li className="k-category">
-                <a href="">利口酒風味</a>
+                <Link to="">利口酒風味</Link>
               </li>
             </ul>
           </div>
-
-          <ul className="k-main-products row">
+          {productDisplay}
+          {/* <ul className="k-main-products row">  留一組li作範本
             <li className="col-lg-4 col-sm-12 k-product-card card">
               <div className="k-img-box">
-                <a href="#">
+                <Link to="#">
                   <img
                     src="http://localhost:3000/k-images/1.jpeg"
                     className="card-img-top product-img"
                     alt="cake29"
                   />
-                </a>
+                </Link>
               </div>
 
               <div className="card-body">
                 <h5 className="card-title">微醺森林</h5>
+                
                 <p className="card-text">
                   以德式黑森林蛋糕為基礎，加入蘭姆酒烘托出成熟的味道,
                   鮮奶油與酒漬櫻桃的巧妙搭配讓整體風味更溫柔、更迷人
@@ -91,175 +137,8 @@ function MainProduct() {
                 <div className="k-product-price">$ 450</div>
               </div>
             </li>
-            <li className="col-lg-4 col-sm-12 k-product-card card">
-              <div className="k-img-box">
-                <a href="#">
-                  <img
-                    src="/images/2.jpeg"
-                    className="card-img-top product-img"
-                    alt="cake29"
-                  />
-                </a>
-              </div>
-
-              <div className="card-body">
-                <h5 className="card-title">微醺森林</h5>
-                <p className="card-text">
-                  以德式黑森林蛋糕為基礎，加入蘭姆酒烘托出成熟的味道,
-                  鮮奶油與酒漬櫻桃的巧妙搭配讓整體風味更溫柔、更迷人
-                </p>
-                <hr className="product-hr" />
-                <div className="k-product-price">$ 450</div>
-              </div>
-            </li>
-            <li className="col-lg-4 col-sm-12 k-product-card card">
-              <div className="k-img-box">
-                <a href="#">
-                  <img
-                    src="#"
-                    className="card-img-top product-img"
-                    alt="cake29"
-                  />
-                </a>
-              </div>
-
-              <div className="card-body">
-                <h5 className="card-title">微醺森林</h5>
-                <p className="card-text">
-                  以德式黑森林蛋糕為基礎，加入蘭姆酒烘托出成熟的味道,
-                  鮮奶油與酒漬櫻桃的巧妙搭配讓整體風味更溫柔、更迷人
-                </p>
-                <hr className="product-hr" />
-                <div className="k-product-price">$ 450</div>
-              </div>
-            </li>
-            <li className="col-lg-4 col-sm-12 k-product-card card">
-              <div className="k-img-box">
-                <a href="#">
-                  <img
-                    src="asset 29.jpeg"
-                    className="card-img-top product-img"
-                    alt="cake29"
-                  />
-                </a>
-              </div>
-
-              <div className="card-body">
-                <h5 className="card-title">微醺森林</h5>
-                <p className="card-text">
-                  以德式黑森林蛋糕為基礎，加入蘭姆酒烘托出成熟的味道,
-                  鮮奶油與酒漬櫻桃的巧妙搭配讓整體風味更溫柔、更迷人
-                </p>
-                <hr className="product-hr" />
-                <div className="k-product-price">$ 450</div>
-              </div>
-            </li>
-            <li className="col-lg-4 col-sm-12 k-product-card card">
-              <div className="k-img-box">
-                <a href="#">
-                  <img
-                    src="asset 29.jpeg"
-                    className="card-img-top product-img"
-                    alt="cake29"
-                  />
-                </a>
-              </div>
-
-              <div className="card-body">
-                <h5 className="card-title">微醺森林</h5>
-                <p className="card-text">
-                  以德式黑森林蛋糕為基礎，加入蘭姆酒烘托出成熟的味道,
-                  鮮奶油與酒漬櫻桃的巧妙搭配讓整體風味更溫柔、更迷人
-                </p>
-                <hr className="product-hr" />
-                <div className="k-product-price">$ 450</div>
-              </div>
-            </li>
-            <li className="col-lg-4 col-sm-12 k-product-card card">
-              <div className="k-img-box">
-                <a href="#">
-                  <img
-                    src="asset 29.jpeg"
-                    className="card-img-top product-img"
-                    alt="cake29"
-                  />
-                </a>
-              </div>
-
-              <div className="card-body">
-                <h5 className="card-title">微醺森林</h5>
-                <p className="card-text">
-                  以德式黑森林蛋糕為基礎，加入蘭姆酒烘托出成熟的味道,
-                  鮮奶油與酒漬櫻桃的巧妙搭配讓整體風味更溫柔、更迷人
-                </p>
-                <hr className="product-hr" />
-                <div className="k-product-price">$ 450</div>
-              </div>
-            </li>
-            <li className="col-lg-4 col-sm-12 k-product-card card">
-              <div className="k-img-box">
-                <a href="#">
-                  <img
-                    src="asset 29.jpeg"
-                    className="card-img-top product-img"
-                    alt="cake29"
-                  />
-                </a>
-              </div>
-
-              <div className="card-body">
-                <h5 className="card-title">微醺森林</h5>
-                <p className="card-text">
-                  以德式黑森林蛋糕為基礎，加入蘭姆酒烘托出成熟的味道,
-                  鮮奶油與酒漬櫻桃的巧妙搭配讓整體風味更溫柔、更迷人
-                </p>
-                <hr className="product-hr" />
-                <div className="k-product-price">$ 450</div>
-              </div>
-            </li>
-            <li className="col-lg-4 col-sm-12 k-product-card card">
-              <div className="k-img-box">
-                <a href="#">
-                  <img
-                    src="asset 29.jpeg"
-                    className="card-img-top product-img"
-                    alt="cake29"
-                  />
-                </a>
-              </div>
-
-              <div className="card-body">
-                <h5 className="card-title">微醺森林</h5>
-                <p className="card-text">
-                  以德式黑森林蛋糕為基礎，加入蘭姆酒烘托出成熟的味道,
-                  鮮奶油與酒漬櫻桃的巧妙搭配讓整體風味更溫柔、更迷人
-                </p>
-                <hr className="product-hr" />
-                <div className="k-product-price">$ 450</div>
-              </div>
-            </li>
-            <li className="col-lg-4 col-sm-12 k-product-card card">
-              <div className="k-img-box">
-                <a href="#">
-                  <img
-                    src="asset 29.jpeg"
-                    className="card-img-top product-img"
-                    alt="cake29"
-                  />
-                </a>
-              </div>
-
-              <div className="card-body">
-                <h5 className="card-title">微醺森林</h5>
-                <p className="card-text">
-                  以德式黑森林蛋糕為基礎，加入蘭姆酒烘托出成熟的味道,
-                  鮮奶油與酒漬櫻桃的巧妙搭配讓整體風味更溫柔、更迷人
-                </p>
-                <hr className="product-hr" />
-                <div className="k-product-price">$ 450</div>
-              </div>
-            </li>
-          </ul>
+            
+          </ul> */}
 
           <nav
             aria-label="Page navigation example"

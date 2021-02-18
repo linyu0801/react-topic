@@ -1,50 +1,113 @@
 import { FaRegTimesCircle } from 'react-icons/fa'
+import { useEffect, useState } from 'react'
+import { MdRemove } from 'react-icons/md'
+import { MdAdd } from 'react-icons/md'
 
 function Cart1Content1(props) {
   const { cartStep, setCartStep, cartCate, setCartCate } = props
-  //   const [cartItems, setcartItems] = useState([]);
-  //   const [payload, setPayloader] = useState({})
-  //   const [hasError, setError] = useState(false)
-  //   取得購物車內的資料
-  //   async function fetchCart() {
-  //     const res = await fetch('http://localhost:4000/cart')
-  //     res
-  //       .json()
-  //       .then((res) => {
-  //         console.log(res.data.items)
-  //         setCarts(res.data.items)
-  //         setPayloader(res.data)
-  //       })
-  //       .catch((error) => {
-  //         setError(error)
-  //       })
-  //     useEffect(() => {
-  //       fetchCart()
-  //     }, [])
+  // 取得購物車內的資料
+  const [cartItems, setCartItems] = useState([])
+  const [payload, setPayloader] = useState({})
+  const [hasError, setError] = useState(false)
+  async function fetchCart() {
+    const res = await fetch('http://localhost:4000/cart1items')
+    res
+      .json()
+      .then((res) => {
+        setCartItems(res)
+        // setPayloader(res.data)
+      })
+      .catch((error) => {
+        setError(error)
+      })
+  }
+  useEffect(() => {
+    fetchCart()
+  }, [])
 
-  //   }
+  async function increaseQty(p_sid) {
+    try {
+      const res = await fetch(
+        'http://localhost:4000/Cart1Content1IncreaseQty',
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            p_sid: p_sid,
+            quantity: 1,
+          }),
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        }
+      )
+      console.log(res)
+      fetchCart()
+      // alert('Item increamented')
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  async function deleteItem(p_sid) {
+    try {
+      const res = await fetch('http://localhost:4000/cart1items', {
+        method: 'DELETE',
+        body: JSON.stringify({
+          p_sid: p_sid,
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
+      console.log(res)
+      fetchCart()
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  async function decreaseQty(p_sid) {
+    try {
+      const res = await fetch(
+        'http://localhost:4000/Cart1Content1IncreaseQty',
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            p_sid: p_sid,
+            quantity: -1,
+          }),
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        }
+      )
+      console.log(res)
+      fetchCart()
+      // alert('Item increamented')
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   // 先用這個測試
-  const cartItems = [
-    {
-      img: 'http://localhost:3000/images/pd1.jpeg',
-      id: 1,
-      name: '最多五個字',
-      size: '30cm',
-      price: 999,
-      qty: 10,
-      subtotal: 4000,
-    },
-    {
-      img: 'http://localhost:3000/images/login.jpg',
-      id: 1,
-      name: '最多五個字',
-      size: '30cm',
-      price: 666,
-      qty: 10,
-      subtotal: 4000,
-    },
-  ]
+  // const cartItems = [
+  //   {
+  //     img: 'http://localhost:3000/images/pd1.jpeg',
+  //     id: 1,
+  //     name: '最多五個字',
+  //     size: '30cm',
+  //     price: 999,
+  //     qty: 10,
+  //     subtotal: 4000,
+  //   },
+  //   {
+  //     img: 'http://localhost:3000/images/login.jpg',
+  //     id: 1,
+  //     name: '最多五個字',
+  //     size: '30cm',
+  //     price: 666,
+  //     qty: 50,
+  //     subtotal: 4000,
+  //   },
+  // ]
   return (
     <>
       <div className="row">
@@ -81,30 +144,49 @@ function Cart1Content1(props) {
                           <img src={item.img} alt="" />
                         </div>
                       </td>
-                      <td className="hy-rwd-d-none">{item.name}</td>
-                      <td className="hy-rwd-d-none">{item.size}</td>
-                      <td className="hy-rwd-d-none">{item.price}</td>
+                      <td className="hy-rwd-d-none">{item.p_name}</td>
+                      <td className="hy-rwd-d-none">{item.p_size}</td>
+                      <td className="hy-rwd-d-none">{item.p_price}</td>
                       {cartStep === 'step1' && (
                         <td className="hy-rwd-d-none">
-                          <select name="" id="">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                          </select>
+                          <i className="fas fa-minus k-left-icon">
+                            <MdRemove
+                              onClick={() => {
+                                decreaseQty(item.p_sid)
+                              }}
+                            />
+                          </i>
+                          <span className="k-number">{item.quantity}</span>
+                          <i className="fas fa-plus k-right-icon">
+                            <MdAdd
+                              onClick={() => {
+                                increaseQty(item.p_sid)
+                              }}
+                            />
+                          </i>
                         </td>
                       )}
                       {cartStep === 'step2' && (
-                        <td className="hy-rwd-d-none">數量</td>
+                        <td className="hy-rwd-d-none">{item.quantity}</td>
                       )}
                       {cartStep === 'step3' && (
-                        <td className="hy-rwd-d-none">數量</td>
+                        <td className="hy-rwd-d-none">{item.quantity}</td>
                       )}
 
-                      <td className="hy-rwd-d-none">400</td>
                       <td className="hy-rwd-d-none">
-                        <FaRegTimesCircle className="hy-color-gold" />
+                        {+item.quantity * +item.p_price}
                       </td>
+
+                      {cartStep === 'step1' && (
+                        <td className="hy-rwd-d-none">
+                          <FaRegTimesCircle
+                            className="hy-color-gold"
+                            onClick={() => {
+                              deleteItem(item.p_sid)
+                            }}
+                          />
+                        </td>
+                      )}
                     </tr>
                   )
                 })}

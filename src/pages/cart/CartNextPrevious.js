@@ -1,6 +1,18 @@
 import { withRouter } from 'react-router-dom'
 function CartNextPrevious(props) {
-  const { cartStep, setCartStep, cartCate, setCartCate } = props
+  const {
+    form1,
+    cartStep,
+    setCartStep,
+    cartCate,
+    setCartCate,
+    inputs,
+    seletedOption,
+    seletedOptionCardMonth,
+    seletedOptionCardYear,
+  } = props
+
+  console.log(JSON.stringify(form1))
 
   return (
     <>
@@ -58,9 +70,23 @@ function CartNextPrevious(props) {
                 onClick={() => {
                   window.scrollTo(0, 0)
                   setCartStep('step3')
+                  fetch('http://localhost:4000/Cart1Content2', {
+                    method: 'POST',
+                    body: JSON.stringify(form1),
+                    headers: {
+                      'Content-type': 'application/json; charset=UTF-8',
+                    },
+                  })
+                    .then((r) => r.json())
+                    .then((obj) => {
+                      console.log(obj)
+                      if (obj.success) {
+                      } else {
+                      }
+                    })
                 }}
               >
-                確定結帳 &gt;{' '}
+                確定結帳 &gt;
               </button>
             </div>
             <div className="col-1"></div>

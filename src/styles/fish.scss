@@ -56,6 +56,12 @@ body {
   padding-left: 15px;
   background: rgba(255, 255, 255, 0.3);
 }
+.member-input:focus {
+  border: none;
+  background: rgba(255, 255, 255, 0.23);
+  // border: 0.5px solid #cdaa8a10;
+  box-shadow: none !important;
+}
 .pub-input {
   font-family: 'Noto Serif TC';
   letter-spacing: 0.1rem;
@@ -63,6 +69,12 @@ body {
   border: solid 1px #cdaa8a;
   height: 46px;
   padding-left: 15px;
+}
+.form-control.pub-textarea:focus,
+input:focus,
+.pub-input:focus {
+  box-shadow: none;
+  border-color: #cdaa8a !important;
 }
 .pub-form label {
   font-family: 'Noto Serif TC';
