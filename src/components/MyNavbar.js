@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Navbar,
   Nav,
@@ -12,24 +12,37 @@ import { FaSearch } from 'react-icons/fa'
 import { FaUserAlt } from 'react-icons/fa'
 import { FaShoppingCart } from 'react-icons/fa'
 import { NavLink, Link, withRouter } from 'react-router-dom'
-import $ from 'jquery'
 import '../styles/navbar.scss'
 function MyNavbar(props) {
-  const { logindata, setLogindata } = props
-  function logout() {
-    console.log('logout')
-    sessionStorage.removeItem('mid')
-    setLogindata('')
-    props.history.push('/member/login')
+  const [logindata, setLoginData] = useState('')
+  const { login, setLogin } = props
+
+  async function logout() {
+    const url = 'http://localhost:4000/logout'
+    const request = new Request(url, {
+      method: 'POST',
+      credentials: 'include',
+    })
+    const response = await fetch(request)
+    const rows = await response.json()
+    if (rows.logout === true) {
+      sessionStorage.removeItem('mid')
+
+      props.history.push('/member/login')
+    }
   }
-  // useEffect(() => {
-  //   $('#logout').on('click', () => {
-  //     console.log('logout')
-  //     sessionStorage.removeItem('mid')
-  //     setLogindata('')
-  //     props.history.push('/member/login')
-  //   })
-  // }, [logindata])
+  useEffect(() => {
+    const FetchData = async () => {
+      const url = 'http://localhost:4000/verify'
+      const request = new Request(url, {
+        method: 'GET',
+        credentials: 'include',
+      })
+      const response = await fetch(request)
+      const rows = await response.json()
+    }
+    FetchData()
+  }, [])
   return (
     <>
       <Navbar

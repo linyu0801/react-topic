@@ -14,15 +14,16 @@ import Register from './pages/member/Register'
 import FavProduct from './pages/member/FavProduct'
 import FavActive from './pages/member/FavActive'
 import Cart from './pages/cart/Cart'
+import MainProductDetailTest2 from './pages/cart/MainProductDetailTest2'
 import MainProduct from './pages/mainProduct/MainProduct'
 import MainProductDetail from './pages/mainProduct/MainProductDetail'
 import NotFoundPage from './pages/NotFoundPage'
 import CampaignIndex from './pages/campaign/CampaignIndex'
 import CampaignProductInfo from './pages/campaign/CampaignProductInfo'
-import StudioOrder from './pages/studioRent/studioOrder'
-import StudioIntro1 from './pages/studioRent/studioIntro1'
-import StudioIntro2 from './pages/studioRent/studioIntro2'
-import StudioIntro3 from './pages/studioRent/studioIntro3'
+import StudioOrder from './pages/StudioRent/StudioOrder'
+import StudioIntro1 from './pages/StudioRent/StudioIntro1'
+import StudioIntro2 from './pages/StudioRent/StudioIntro2'
+import StudioIntro3 from './pages/StudioRent/StudioIntro3'
 
 // 組合用元件
 
@@ -47,13 +48,13 @@ const themes = {
 export const ThemeContext = React.createContext(themes.light)
 
 function App() {
-  const [logindata, setLogindata] = useState('')
+  // const [login, setLogin] = useState(false)
   // const [themeNow, setThemeNow] = useState(themes.light)
 
   return (
     <Router>
       <>
-        <MyNavbar logindata={logindata} setLogindata={setLogindata} />
+        <MyNavbar />
         <MainContent>
           <ScrollToTop>
             {/* 套用全站樣式 */}
@@ -73,13 +74,13 @@ function App() {
                 <CampaignIndex />
               </Route>
               <Route path="/member/edit">
-                <MemberEdit logindata={logindata} />
+                <MemberEdit />
               </Route>
               <Route path="/member/editpassword">
                 <MemberForget />
               </Route>
               <Route path="/member/login">
-                <Login logindata={logindata} setLogindata={setLogindata} />
+                <Login />
               </Route>
               <Route path="/member/forget">
                 <Forget />
@@ -105,16 +106,19 @@ function App() {
               <Route path="/cart">
                 <Cart />
               </Route>
-              <Route path="/studioRent/studioOrder">
+              <Route path="/mainproductdetailtest2">
+                <MainProductDetailTest2 />
+              </Route>
+              <Route path="/StudioRent/StudioOrder">
                 <StudioOrder />
               </Route>
-              <Route path="/studioRent/studioIntro1">
+              <Route path="/StudioRent/StudioIntro1">
                 <StudioIntro1 />
               </Route>
-              <Route path="/studioRent/studioIntro2">
+              <Route path="/StudioRent/StudioIntro2">
                 <StudioIntro2 />
               </Route>
-              <Route path="/studioRent/studioIntro3">
+              <Route path="/StudioRent/StudioIntro3">
                 <StudioIntro3 />
               </Route>
 

@@ -9,8 +9,8 @@ function Cart1Content2(props) {
       let sameAsAccount = $('#sameAsAccount').prop('checked')
       console.log(sameAsAccount)
       if (sameAsAccount === true) {
-        $('#receiver').val($('#account').val())
-        $('#receiverMobile').val($('#mobile').val())
+        $('#receiver').val($('#username').val())
+        $('#receiverMobile').val($('#tel').val())
       }
       if (sameAsAccount === false) {
         $('#receiver').val('')
@@ -48,23 +48,23 @@ function Cart1Content2(props) {
               action=""
               className="pub-form col-xl-7 col-lg-8 col-md-10 col-sm-12"
             >
-              <label htmlFor="account">訂購人姓名</label>
+              <label htmlFor="username">訂購人姓名</label>
               <br />
               <input
                 className="w-100 pub-input"
                 type="text"
-                name="acoount"
-                id="account"
+                name="username"
+                id="username"
               />
               <br />
               <small></small>
-              <label htmlFor="mobile">訂購人手機</label>
+              <label htmlFor="tel">訂購人手機</label>
               <br />
               <input
                 className="w-100 pub-input"
                 type="text"
-                name="mobile"
-                id="mobile"
+                name="tel"
+                id="tel"
               />
               <br />
               <small></small>
