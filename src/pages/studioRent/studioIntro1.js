@@ -6,11 +6,25 @@ import '../../styles/font.scss'
 import 'react-slideshow-image/dist/styles.css'
 import { Slide } from 'react-slideshow-image'
 import { Link, withRouter, Redirect } from 'react-router-dom'
-
+import $ from 'jquery'
 function StudioIntro1() {
   const [textNumber, setTextNumber] = useState('')
   const [selectedTime, setSeletedTime] = useState('')
   const [selectedDate, setSeletedDate] = useState('')
+  useEffect(() => {
+    if ($('#selecttime').val('09:00-12:00AM')) {
+      $('#cost').text('6000')
+    }
+    if ($('#selecttime').val('14:00-12:00AM')) {
+      $('#cost').text('6000')
+    }
+    if ($('#selecttime').val('全天')) {
+      $('#cost').text('1000')
+    }
+    if ($('#selecttime').val('0')) {
+      $('#cost').text('0')
+    }
+  }, [setSeletedTime])
 
   // async function fetchdata() {
   //   const url = 'http://localhost:4000/studioIntro1'
@@ -124,15 +138,17 @@ function StudioIntro1() {
                   <label for="timerange">時段</label>
                   <br />
                   <select
+                    id="selecttime"
                     className="timeperiod w-100"
                     value={selectedTime}
                     onChange={(e) => {
                       setSeletedTime(e.target.value)
                     }}
                   >
-                    <option value=""> 請選擇時段</option>
+                    <option value="0"> 請選擇時段</option>
                     <option value="09:00-12:00AM">09:00-12:00AM</option>
                     <option value="14:00-17:00PM">14:00-17:00PM</option>
+                    <option value="全天">全天</option>
                   </select>
 
                   <div className="orderWrap ">
@@ -157,7 +173,7 @@ function StudioIntro1() {
 
                     <ul className=" orderTime d-flex justify-content-between">
                       <li className="clcount">金額 :</li>
-                      <span className="clorder">
+                      <span className="clorder" id="cost">
                         <i className="fas fa-dollar-sign"></i> 222222
                       </span>
                     </ul>
