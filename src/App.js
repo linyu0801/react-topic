@@ -21,7 +21,7 @@ import NotFoundPage from './pages/NotFoundPage'
 import CampaignIndex from './pages/campaign/CampaignIndex'
 import CampaignProductInfo from './pages/campaign/CampaignProductInfo'
 import StudioOrder from './pages/studioRent/studioOrder'
-import StudioIntro1 from './pages/studioRent/studioIntro1'
+import StudioIntro1 from './pages/studioRent/StudioIntro1'
 import StudioIntro2 from './pages/studioRent/studioIntro2'
 import StudioIntro3 from './pages/studioRent/studioIntro3'
 
