@@ -5,26 +5,32 @@ import '../../styles/studioIntro.scss'
 import '../../styles/font.scss'
 import 'react-slideshow-image/dist/styles.css'
 import { Slide } from 'react-slideshow-image'
-import { Link, withRouter, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import $ from 'jquery'
 function StudioIntro1() {
   const [textNumber, setTextNumber] = useState('')
   const [selectedTime, setSeletedTime] = useState('')
   const [selectedDate, setSeletedDate] = useState('')
   useEffect(() => {
-    if ($('#selecttime').val('09:00-12:00AM')) {
+    if (selectedTime === '09:00-12:00AM') {
       $('#cost').text('6000')
     }
-    if ($('#selecttime').val('14:00-12:00AM')) {
-      $('#cost').text('6000')
+    if (selectedTime === '14:00-17:00PM') {
+      {
+        $('#cost').text('8000')
+      }
     }
-    if ($('#selecttime').val('全天')) {
-      $('#cost').text('1000')
+    if (selectedTime === '全天') {
+      {
+        $('#cost').text('10000')
+      }
     }
-    if ($('#selecttime').val('0')) {
-      $('#cost').text('0')
+    if (selectedTime === ' ') {
+      {
+        $('#cost').text('0')
+      }
     }
-  }, [setSeletedTime])
+  }, [selectedTime])
 
   // async function fetchdata() {
   //   const url = 'http://localhost:4000/studioIntro1'
@@ -145,7 +151,7 @@ function StudioIntro1() {
                       setSeletedTime(e.target.value)
                     }}
                   >
-                    <option value="0"> 請選擇時段</option>
+                    <option value=" "> 請選擇時段</option>
                     <option value="09:00-12:00AM">09:00-12:00AM</option>
                     <option value="14:00-17:00PM">14:00-17:00PM</option>
                     <option value="全天">全天</option>
@@ -173,8 +179,8 @@ function StudioIntro1() {
 
                     <ul className=" orderTime d-flex justify-content-between">
                       <li className="clcount">金額 :</li>
-                      <span className="clorder" id="cost">
-                        <i className="fas fa-dollar-sign"></i> 222222
+                      <span className="clorder" id="cost" type="text">
+                        <i className="fas fa-dollar-sign"></i>
                       </span>
                     </ul>
                   </div>

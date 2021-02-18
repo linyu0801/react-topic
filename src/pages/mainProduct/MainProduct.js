@@ -4,9 +4,22 @@ import { MdSearch } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 import { MdKeyboardArrowRight } from 'react-icons/md'
 import { MdKeyboardArrowLeft } from 'react-icons/md'
-// import { Link, withRouter } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
 
 function MainProduct() {
+  useEffect(() => {
+    const FetchData = async () => {
+      const url = 'http://localhost:4000/mainproduct'
+      const request = new Request(url, {
+        method: 'GET',
+      })
+      const response = await fetch(request)
+      const rows = await response.json()
+      console.log('伺服器回傳', rows)
+    }
+
+    FetchData()
+  }, [])
   return (
     <>
       <div className="content">
