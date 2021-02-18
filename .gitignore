@@ -26,3 +26,4 @@ yarn-error.log*
 .eslintcache
 .gitignore
 .vscode
+package-lock.json
