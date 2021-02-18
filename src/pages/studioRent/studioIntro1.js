@@ -19,10 +19,7 @@ function StudioIntro1() {
       $('#cost').text('6000')
     }
     if ($('#selecttime').val('全天')) {
-      $('#cost').text('1000')
-    }
-    if ($('#selecttime').val('0')) {
-      $('#cost').text('0')
+      $('#cost').text('10000')
     }
   }, [setSeletedTime])
 
@@ -45,7 +42,7 @@ function StudioIntro1() {
           <Link to="/localhost:3000" className="clbread">
             首頁 <span className="clspan">{'>'}</span>
           </Link>
-          <Link to="/studioRent/studioIntro1" className="clbread">
+          <Link to="/StudioRent/StudioIntro1" className="clbread">
             {' '}
             教室租借{' '}
           </Link>
@@ -145,7 +142,7 @@ function StudioIntro1() {
                       setSeletedTime(e.target.value)
                     }}
                   >
-                    <option value="0"> 請選擇時段</option>
+                    <option value=" "> 請選擇時段</option>
                     <option value="09:00-12:00AM">09:00-12:00AM</option>
                     <option value="14:00-17:00PM">14:00-17:00PM</option>
                     <option value="全天">全天</option>
@@ -174,7 +171,7 @@ function StudioIntro1() {
                     <ul className=" orderTime d-flex justify-content-between">
                       <li className="clcount">金額 :</li>
                       <span className="clorder" id="cost">
-                        <i className="fas fa-dollar-sign"></i> 222222
+                        <i className="fas fa-dollar-sign"></i>
                       </span>
                     </ul>
                   </div>
