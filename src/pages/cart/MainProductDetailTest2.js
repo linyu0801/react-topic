@@ -7,7 +7,8 @@ import { MdFavoriteBorder } from 'react-icons/md'
 import ProductCarousel from '../../components/ProductCarousel'
 import ProductAccordion from '../../components/ProductAccordion'
 
-function MainProductDetailTest2() {
+function MainProductDetailTest2(props) {
+  const { inputs } = props
   const [cartQuantity, setCartQuantity] = useState(1)
   const addToCart = async (id, quantity) => {
     try {
