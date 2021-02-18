@@ -48,13 +48,13 @@ const themes = {
 export const ThemeContext = React.createContext(themes.light)
 
 function App() {
-  const [logindata, setLogindata] = useState('')
+  // const [login, setLogin] = useState(false)
   // const [themeNow, setThemeNow] = useState(themes.light)
 
   return (
     <Router>
       <>
-        <MyNavbar logindata={logindata} setLogindata={setLogindata} />
+        <MyNavbar />
         <MainContent>
           <ScrollToTop>
             {/* 套用全站樣式 */}
@@ -64,7 +64,7 @@ function App() {
               <Route path="/mainproduct">
                 <MainProduct />
               </Route>
-              <Route path="/mainproductdetail">
+              <Route path="/mainproductdetail/products/:id?">
                 <MainProductDetail />
               </Route>
               <Route path="/campaign/products/:id?">
@@ -74,13 +74,13 @@ function App() {
                 <CampaignIndex />
               </Route>
               <Route path="/member/edit">
-                <MemberEdit logindata={logindata} />
+                <MemberEdit />
               </Route>
               <Route path="/member/editpassword">
                 <MemberForget />
               </Route>
               <Route path="/member/login">
-                <Login logindata={logindata} setLogindata={setLogindata} />
+                <Login />
               </Route>
               <Route path="/member/forget">
                 <Forget />

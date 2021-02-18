@@ -130,6 +130,7 @@ a {
 
 .IntroTitle {
   margin: 20px 0;
+  width: 150px;
 }
 
 .IntroTitleSmall {
@@ -140,6 +141,7 @@ a {
 .equiment {
   color: #cdaa8a;
   font-size: 16px;
+  margin-top: 5px;
 }
 
 .clpub-form label,
@@ -218,6 +220,16 @@ small {
   justify-content: center;
 }
 
+.react-slideshow-container button.default-nav {
+  background: #cdaa8a;
+  height: 60px;
+  width: 60px;
+}
+.timeperiod {
+  border: #cdaa8a solid 1px;
+  height: 42px;
+}
+
 @media (max-width: 415px), print {
   .studioClassA,
   .IntroTitle {
@@ -242,6 +254,21 @@ small {
   margin-top: 20px;
   height: 426px;
   width: 100%;
+}
+
+.clwarning {
+  background: url('http://localhost:3000/climage/clicon/clwarning.svg')
+    no-repeat center center;
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+}
+.wine {
+  background: url('http://localhost:3000/climage/clicon/wine.svg') no-repeat
+    center center;
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
 }
 
 .studioMap {
@@ -310,6 +337,14 @@ small {
 
 .clcount {
   color: #250404;
+}
+
+.each-slide > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  height: 350px;
 }
 
 @media (max-width: 415px), print {

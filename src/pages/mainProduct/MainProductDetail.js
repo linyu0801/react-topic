@@ -1,12 +1,13 @@
 import '../../styles/MainProductDetail.scss'
 import '../../styles/font.scss'
-import { MdRemove } from 'react-icons/md'
-import { MdAdd } from 'react-icons/md'
+
 import { MdFavoriteBorder } from 'react-icons/md'
 import ProductCarousel from '../../components/ProductCarousel'
 import ProductAccordion from '../../components/ProductAccordion'
+import { useState } from 'react'
 
 function MainProductDetail() {
+  const [total, setTotal] = useState(0)
   return (
     <>
       <div className="content container">
@@ -98,14 +99,24 @@ function MainProductDetail() {
 
             <div className="row shopping-zone">
               <div className="col-lg-6">
-                <div className="k-counter my-3">
-                  <i className="fas fa-minus k-left-icon">
-                    <MdRemove />
-                  </i>
-                  <span className="k-number">1</span>
-                  <i className="fas fa-plus k-right-icon">
-                    <MdAdd />
-                  </i>
+                <div className="k-counter d-flex justify-content-between my-3">
+                  <button
+                    className="counterBtn"
+                    onClick={() => {
+                      setTotal(total - 1)
+                    }}
+                  >
+                    <span>-</span>
+                  </button>
+                  <span className="k-number">{total}</span>
+                  <button
+                    className="counterBtn"
+                    onClick={() => {
+                      setTotal(total + 1)
+                    }}
+                  >
+                    <span>+</span>
+                  </button>
                 </div>
               </div>
               <div className="col-lg-6 my-2">
@@ -120,9 +131,8 @@ function MainProductDetail() {
             </h5>
           </div>
         </div>
-        <div className="accordion">
-          <ProductAccordion />
-        </div>
+
+        <ProductAccordion />
 
         {/* <div className="temp-accordion">
           <div className="display-one">

@@ -1,4 +1,10 @@
 @import '~bootstrap/scss/bootstrap.scss';
+.react-datepicker-wrapper {
+  width: 100%;
+}
+.react-datepicker__input-container {
+  width: 100%;
+}
 .fontwhite {
   color: white;
   // margin: 0px;
@@ -107,7 +113,7 @@ body {
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.2);
   background-blend-mode: multiply;
-  background-position: center -170px;
+  background-position: center;
 }
 .fish-registerbg {
   background: url('http://localhost:3000/images/register.jpg') no-repeat center
@@ -562,9 +568,9 @@ input[type='date']::-webkit-calendar-picker-indicator {
     background-color: transparent;
     border: none;
   }
-  .fish-login-bg {
-    background-position: none;
-  }
+  // .fish-login-bg {
+  //   background-position: none;
+  // }
 }
 @media screen and (max-width: 992px) {
   .bgdown-img {

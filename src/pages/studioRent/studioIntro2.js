@@ -3,6 +3,8 @@ import { React } from 'react'
 import '../../styles/studioIntro.scss'
 
 import '../../styles/font.scss'
+import 'react-slideshow-image/dist/styles.css'
+import { Slide } from 'react-slideshow-image'
 
 function studioIntro() {
   return (
@@ -18,121 +20,30 @@ function studioIntro() {
           </a>
         </div>
       </div>
-      <div className="container clcarous">
-        <div
-          id="carouselExampleControls"
-          className="carousel slide"
-          data-ride="carousel"
-        >
-          <ol className="carousel-indicators">
-            <li
-              data-target="#carouselExampleIndicators"
-              data-slide-to="0"
-              className="active"
-            ></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-          <div className="carousel-inner">
-            <div className="carousel-item active">
-              <img
-                src="http://localhost:3000/climage/2/class2-2.jpeg"
-                className="d-block w-100"
-                alt="..."
-              />
-            </div>
-            <div className="carousel-item active">
-              <img
-                src="http://localhost:3000/climage/2/class2-3.jpeg"
-                className="d-block w-100"
-                alt="..."
-              />
-            </div>
-            <div className="carousel-item active">
-              <img
-                src="http://localhost:3000/climage/2/class2-4.jpeg"
-                className="d-block w-100"
-                alt="..."
-              />
-            </div>
+      <div className="container">
+        <Slide easing="ease">
+          <div className="each-slide">
+            <img
+              src="http://localhost:3000/climage/2/class2-2.jpeg"
+              className="d-block w-100"
+              alt="..."
+            />
           </div>
-        </div>
-        <a
-          className=" cldirection-next carousel-control-next"
-          href="#carouselExampleControls"
-          role="button"
-          data-slide="next"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="13.41"
-            height="19.929"
-            viewBox="0 0 13.41 19.929"
-          >
-            <g
-              id="Group_89"
-              data-name="Group 89"
-              transform="translate(-1056.6 -2864.328)"
-            >
-              <path
-                id="Path_20"
-                data-name="Path 20"
-                d="M4250.567,2996.582s2.47,9.421,12.443,9.421"
-                transform="translate(-3193 -132)"
-                fill="none"
-                stroke="#fff"
-                stroke-width="2"
-              />
-              <path
-                id="Path_21"
-                data-name="Path 21"
-                d="M4250.567,3006s2.47-9.421,12.443-9.421"
-                transform="translate(-3193 -122)"
-                fill="none"
-                stroke="#fff"
-                stroke-width="2"
-              />
-            </g>
-          </svg>
-        </a>
-        <a
-          className=" cldirection-prev  cldirection-prev carousel-control-prev"
-          href="#carouselExampleControls"
-          role="button"
-          data-slide="prev"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="13.41"
-            height="19.929"
-            viewBox="0 0 13.41 19.929"
-          >
-            <g
-              id="Group_89"
-              data-name="Group 89"
-              transform="translate(0 0.254)"
-            >
-              <path
-                id="Path_20"
-                data-name="Path 20"
-                d="M4263.009,2996.582s-2.47,9.421-12.443,9.421"
-                transform="translate(-4250.566 -2996.582)"
-                fill="none"
-                stroke="#fff"
-                stroke-width="2"
-              />
-              <path
-                id="Path_21"
-                data-name="Path 21"
-                d="M4263.009,3006s-2.47-9.421-12.443-9.421"
-                transform="translate(-4250.566 -2986.582)"
-                fill="none"
-                stroke="#fff"
-                stroke-width="2"
-              />
-            </g>
-          </svg>
-        </a>
+          <div className="each-slide">
+            <img
+              src="http://localhost:3000/climage/2/class2-3.jpeg"
+              className="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div className="each-slide">
+            <img
+              src="http://localhost:3000/climage/2/class2-4.jpeg"
+              className="d-block w-100"
+              alt="..."
+            />
+          </div>
+        </Slide>
       </div>
       <div className="decor">
         <img
@@ -291,6 +202,16 @@ function studioIntro() {
         <h2>位置</h2>
         <h5>台北市中山區</h5>
       </div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28921.73099184542!2d121.52633634645645!3d25.02673007086659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xffa32aee39ad1fdc!2zSmVsbHlKZWxseSDmhaLlt6Xng5jnhJk!5e0!3m2!1szh-TW!2stw!4v1613531628440!5m2!1szh-TW!2stw"
+        height={450}
+        frameBorder={0}
+        style={{ border: 0 }}
+        allowFullScreen
+        aria-hidden="false"
+        tabIndex={0}
+        className="w-100"
+      />
     </>
   )
 }
