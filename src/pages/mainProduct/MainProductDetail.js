@@ -1,10 +1,13 @@
 import '../../styles/MainProductDetail.scss'
 import '../../styles/font.scss'
-
 import { MdFavoriteBorder } from 'react-icons/md'
+import { MdRemove } from 'react-icons/md'
+import { MdAdd } from 'react-icons/md'
 import ProductCarousel from '../../components/ProductCarousel'
 import ProductAccordion from '../../components/ProductAccordion'
 import { useState } from 'react'
+import CarouselShow from '../../components/CarouselShow'
+import { Link, withRouter } from 'react-router-dom'
 
 function MainProductDetail() {
   const [total, setTotal] = useState(0)
@@ -13,21 +16,21 @@ function MainProductDetail() {
       <div className="content container">
         <div className="row k-mp-upper">
           <div className="col breadcrumbs">
-            <a className="clbread" href="">
+            <Link className="clbread" to="">
               首頁{'  '}
               <span className="clspan">{'>'}</span>
-            </a>
-            <a className="clbread" href="">
+            </Link>
+            <Link className="clbread" to="">
               商品{'  '}
               <span className="clspan">{'>'}</span>
-            </a>
-            <a className="clbread" href="">
+            </Link>
+            <Link className="clbread" to="">
               全部商品{'  '}
               <span className="clspan">{'>'}</span>
-            </a>
-            <a className="clbread" href="">
+            </Link>
+            <Link className="clbread" to="">
               烈酒風味
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -88,25 +91,25 @@ function MainProductDetail() {
           <div className="col-lg-6 right-col">
             <div className="d-flex justify-content-between align-items-center">
               <h3 className="k-product-name">微醺森林</h3>
-              <a href="" className="a-right-style">
+              <Link to="" className="a-right-style">
                 <i className="k-collection far fa-heart">
                   <MdFavoriteBorder />
                 </i>
-              </a>
+              </Link>
             </div>
 
             <h4 className="k-mp-product-price">$ 450</h4>
 
             <div className="row shopping-zone">
               <div className="col-lg-6">
-                <div className="k-counter d-flex justify-content-between my-3">
+                <div className="k-counter d-flex justify-content-between align-items-center my-3">
                   <button
                     className="counterBtn"
                     onClick={() => {
                       setTotal(total - 1)
                     }}
                   >
-                    <span>-</span>
+                    <MdRemove />
                   </button>
                   <span className="k-number">{total}</span>
                   <button
@@ -115,7 +118,7 @@ function MainProductDetail() {
                       setTotal(total + 1)
                     }}
                   >
-                    <span>+</span>
+                    <MdAdd />
                   </button>
                 </div>
               </div>
@@ -264,10 +267,11 @@ function MainProductDetail() {
       </div>
       <div className="more-info">
         <h4 className="more container">更多蛋糕</h4>
+        <CarouselShow />
       </div>
       {/* <div id="footer" className="temp-footer"></div> */}
     </>
   )
 }
 
-export default MainProductDetail
+export default withRouter(MainProductDetail)
