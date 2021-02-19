@@ -17,19 +17,13 @@ function StudioIntro1() {
       $('#cost').text('6000')
     }
     if (selectedTime === '14:00-17:00PM') {
-      {
-        $('#cost').text('8000')
-      }
+      $('#cost').text('8000')
     }
     if (selectedTime === '全天') {
-      {
-        $('#cost').text('10000')
-      }
+      $('#cost').text('10000')
     }
     if (selectedTime === ' ') {
-      {
-        $('#cost').text('0')
-      }
+      $('#cost').text('0')
     }
   }, [selectedTime])
 
