@@ -24,7 +24,11 @@ import StudioOrder from './pages/StudioRent/StudioOrder'
 import StudioIntro1 from './pages/StudioRent/StudioIntro1'
 import StudioIntro2 from './pages/StudioRent/StudioIntro2'
 import StudioIntro3 from './pages/StudioRent/StudioIntro3'
+<<<<<<< HEAD
 import HomePage from './pages/homePage/homePage'
+=======
+import HomePage from './pages/homePage/HomePage'
+>>>>>>> d258ddc38a08c24c74e6d7be9b28d2cf4c140d27
 
 // 組合用元件
 
