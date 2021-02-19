@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
-
 import '../../styles/studioIntro.scss'
+import Iframe from 'react-iframe'
 
 import '../../styles/font.scss'
 import 'react-slideshow-image/dist/styles.css'
 import { Slide } from 'react-slideshow-image'
 import { Link } from 'react-router-dom'
 import $ from 'jquery'
+
 function StudioIntro1() {
   const [textNumber, setTextNumber] = useState('')
   const [selectedTime, setSeletedTime] = useState('')
@@ -44,6 +45,7 @@ function StudioIntro1() {
   // useEffect(() => {
   //   fetchdata()
   // }, [])
+  //{data[].product}
   return (
     <>
       <div className="container">
@@ -256,8 +258,8 @@ function StudioIntro1() {
         <h2>位置</h2>
         <h5>台北市中山區</h5>
       </div>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28921.748837063966!2d121.52633635186135!3d25.026654349312864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd97fd43ab8f8df12!2zTWFyb2NvX-mmrOi3r-WPo-eDmOeEmeWwj-iIlg!5e0!3m2!1szh-TW!2stw!4v1613531489632!5m2!1szh-TW!2stw"
+      <Iframe
+        url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28921.748837063966!2d121.52633635186135!3d25.026654349312864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd97fd43ab8f8df12!2zTWFyb2NvX-mmrOi3r-WPo-eDmOeEmeWwj-iIlg!5e0!3m2!1szh-TW!2stw!4v1613531489632!5m2!1szh-TW!2stw"
         height={450}
         frameBorder={0}
         style={{ border: 0 }}
