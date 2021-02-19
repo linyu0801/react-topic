@@ -1,24 +1,21 @@
 import '../../styles/fish.scss'
 import '../../styles/font.scss'
-// import { Link, withRouter } from 'react-router-dom'
 import $ from 'jquery'
 import React, { useState } from 'react'
 
 function Forget(props) {
   const [email, setEmail] = useState('')
-  const forgetform = new FormData(document.forgetform)
   async function ForgetToSever() {
     $('#email').next().text('')
     const url = 'http://localhost:4000/forget'
     const request = new Request(url, {
       method: 'POST',
-      body: forgetform,
-      // body: JSON.stringify(email),
-      // credentials: 'include',
-      // headers: new Headers({
-      //   Accept: 'application/json',
-      //   'Content-Type': 'application/json',
-      // }),
+      body: JSON.stringify({ email }),
+      credentials: 'include',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
     })
     // console.log('送出的body : ' + JSON.stringify(email))
     const response = await fetch(request, { mode: 'cors' })
@@ -35,12 +32,7 @@ function Forget(props) {
         <div className="container h-100">
           <div className="row justify-content-center">
             <div className="fish-mask d-flex justify-content-center col-xl-6 col-lg-8 col-md-10 col-sm-12">
-              <form
-                action=""
-                className="pub-form w-80"
-                name="forgetform"
-                id="forgetform"
-              >
+              <form action="" className="pub-form w-80">
                 <h3>忘記密碼</h3>
                 <div className="forget-text">
                   <h6>請輸入註冊時所使用的E-amil信箱地址，</h6>
