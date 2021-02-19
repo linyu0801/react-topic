@@ -1,7 +1,7 @@
 import '../../styles/fish.scss'
 import '../../styles/font.scss'
-import { Link, withRouter } from 'react-router-dom'
-import React, { useState, useEffect } from 'react'
+import { withRouter } from 'react-router-dom'
+import React, { useState } from 'react'
 import $ from 'jquery'
 
 function Register(props) {
