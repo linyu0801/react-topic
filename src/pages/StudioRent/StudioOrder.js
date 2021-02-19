@@ -4,7 +4,7 @@ import '../../styles/studioOrder.scss'
 
 import '../../styles/font.scss'
 
-import { Link } from 'react-router-dom'
+import { Link, withRouter, Redirect } from 'react-router-dom'
 
 function StudioOrder() {
   return (
@@ -17,12 +17,8 @@ function StudioOrder() {
         </div>
 
         <div className="container justify-content-center">
-          <div className="row col-lg-12 col-sm-12 mx-auto d-flex justify-content-center">
-            <input
-              className="clsearchbar d-flex justify-content-center"
-              type="date"
-              placeholder="日期:"
-            />
+          <div className="row col-lg-8 col-sm-12 mx-auto d-flex justify-content-center">
+            <input className="clsearchbar" type="date" placeholder="日期:" />
 
             <button
               className="cl-searchbtn btn search-btn-outline-success"
