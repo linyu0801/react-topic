@@ -20,12 +20,11 @@ import MainProductDetail from './pages/mainProduct/MainProductDetail'
 import NotFoundPage from './pages/NotFoundPage'
 import CampaignIndex from './pages/campaign/CampaignIndex'
 import CampaignProductInfo from './pages/campaign/CampaignProductInfo'
-import StudioOrder from './pages/studioRent/studioOrder'
-import StudioIntro1 from './pages/studioRent/studioIntro1'
-import StudioIntro2 from './pages/studioRent/studioIntro2'
-import StudioIntro3 from './pages/studioRent/studioIntro3'
-import HomePage from './pages/homePage/HomePage'
-
+import StudioOrder from './pages/StudioRent/StudioOrder'
+import StudioIntro1 from './pages/StudioRent/StudioIntro1'
+import StudioIntro2 from './pages/StudioRent/StudioIntro2'
+import StudioIntro3 from './pages/StudioRent/StudioIntro3'
+import HomePage from './pages/homePage/homePage'
 
 // 組合用元件
 
@@ -64,7 +63,7 @@ function App() {
 
             <Switch>
               <Route path="/homepage">
-                <HomePage />
+                <homePage />
               </Route>
               <Route path="/mainproduct">
                 <MainProduct />
