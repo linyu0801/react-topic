@@ -10,7 +10,9 @@ function Cart1Content1(props) {
   const [payload, setPayloader] = useState({})
   const [hasError, setError] = useState(false)
   async function fetchCart() {
-    const res = await fetch('http://localhost:4000/cart1items')
+    const res = await fetch('http://localhost:4000/cart1items', {
+      credentials: 'include',
+    })
     res
       .json()
       .then((res) => {
