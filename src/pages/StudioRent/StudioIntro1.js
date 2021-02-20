@@ -26,6 +26,7 @@ function StudioIntro1() {
       $('#cost').text('0')
     }
   }, [selectedTime])
+  // const[data1,setData1]=useState([])
 
   // async function fetchdata() {
   //   const url = 'http://localhost:4000/studioIntro1'
@@ -39,7 +40,9 @@ function StudioIntro1() {
   // useEffect(() => {
   //   fetchdata()
   // }, [])
-  //{data[].product}
+
+
+  // {data[].product}用法
   return (
     <>
       <div className="container">

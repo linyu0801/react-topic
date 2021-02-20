@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import '../../styles/studioOrder.scss'
 
@@ -15,8 +15,16 @@ function StudioOrder() {
     '東門館教室',
     '西門館教室',
   ])
+
+  const [isClassOrdered, setIsClassOrdered] = useState([0, 0, 0])
+
   const [textInput, setTextInput] = useState([])
 
+  useEffect(() => {
+    console.log('isClassOrdered', isClassOrdered)
+  }, [isClassOrdered])
+  //設定教室狀態為0(都還沒被預訂)
+  //console.log教室index[i]
   return (
     <>
       <div className="clsection jumbotron text-white col-lg-12 col-md-6 col-sm-4 container-fluid ">
@@ -50,11 +58,27 @@ function StudioOrder() {
                     'Content-type': 'application/json; charset=UTF-8',
                   },
                 })
+                  //obj.lengh>0  長度大於0代表有值
+                  // console.log(textSearch.indexOf(obj[0].classroom))
+                  //用for迴圈來抓取textSearch三間教室的index[i]跟上方indexOf效果一樣
+                  //k為obj檢查
+
                   .then((r) => r.json())
                   .then((obj) => {
                     console.log(obj)
-                    if (obj.success) {
+                    if (obj.length > 0) {
+                      for (let k = 0; k < obj.length; k++) {
+                        for (let i = 0; i < textSearch.length; i++) {
+                          if (textSearch[i] === obj[k].classroom) {
+                            console.log('now i = ', i)
+                            let tempArray = isClassOrdered
+                            tempArray[i] = 1
+                            setIsClassOrdered([...tempArray])
+                          }
+                        }
+                      }
                     } else {
+                      setIsClassOrdered([0, 0, 0])
                     }
                   })
                 console.log(textInput)
@@ -73,7 +97,7 @@ function StudioOrder() {
           <Link className="clbread"> 教室租借 </Link>
         </div>
       </div>
-      <DaanStudio1 textSearch={textSearch} />
+      {!isClassOrdered[0] ? <DaanStudio1 textSearch={textSearch} /> : ''}
 
       <div className="decor">
         <img
@@ -89,7 +113,7 @@ function StudioOrder() {
           alt="..."
         />
       </div>
-      <DonmenStudio2 textSearch={textSearch} />
+      {!isClassOrdered[1] ? <DonmenStudio2 textSearch={textSearch} /> : ''}
 
       <div className="decor">
         <img
@@ -98,8 +122,7 @@ function StudioOrder() {
           alt="..."
         />
       </div>
-
-      <WestStudio3 textSearch={textSearch} />
+      {!isClassOrdered[2] ? <WestStudio3 textSearch={textSearch} /> : ''}
 
       <div className="decor">
         <img
