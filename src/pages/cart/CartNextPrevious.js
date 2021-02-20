@@ -68,11 +68,13 @@ function CartNextPrevious(props) {
               <button
                 className="addToCartBtn"
                 onClick={() => {
+                  // const newObj ={...inputs}
                   window.scrollTo(0, 0)
                   setCartStep('step3')
                   fetch('http://localhost:4000/Cart1Content2', {
                     method: 'POST',
-                    body: JSON.stringify(form1),
+                    body: JSON.stringify(inputs),
+                    credentials: 'include',
                     headers: {
                       'Content-type': 'application/json; charset=UTF-8',
                     },
@@ -80,9 +82,12 @@ function CartNextPrevious(props) {
                     .then((r) => r.json())
                     .then((obj) => {
                       console.log(obj)
-                      if (obj.success) {
-                      } else {
-                      }
+
+                      // if (obj.success) {
+                      //   console.log('success')
+                      // } else {
+                      //   console.log('error')
+                      // }
                     })
                 }}
               >
