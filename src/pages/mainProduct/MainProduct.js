@@ -5,21 +5,48 @@ import { Link } from 'react-router-dom'
 import { MdKeyboardArrowRight } from 'react-icons/md'
 import { MdKeyboardArrowLeft } from 'react-icons/md'
 import React, { useEffect, useState } from 'react'
+import { withRouter } from 'react-router-dom'
 
-function MainProduct() {
+function MainProduct(props) {
   const [product, setProduct] = useState([])
 
+  //分類用onClick function：按了li啟動onClick後呼叫這支function，使代入的參數p_cate做改變
+  // const doCate = async (p_cate, nowPage) => {
+  const doCate = async (p_cate) => {
+    //再set一筆抓到的p_cate
+    const url = 'http://localhost:4000/mainproductcate'
+    const request = new Request(url, {
+      method: 'POST',
+      body: JSON.stringify({ productCate: p_cate }),
+      // body: JSON.stringify({ productCate: p_cate, page: nowPage }),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+    const response = await fetch(request)
+    const data = await response.json()
+    console.log('回傳資料 : ', data)
+    setProduct(data)
+  }
+
+  //和node串連取得資料庫資料：生命周期概念
   useEffect(() => {
     const FetchData = async () => {
-      const url = 'http://localhost:4000/mainproduct' //讀取寫在node中的app.get('/mainproduct')
+      const url = 'http://localhost:4000/mainproductcate' //讀取寫在node中的app.get('/mainproduct')
       const request = new Request(url, {
-        method: 'GET',
+        method: 'POST',
+        body: JSON.stringify({ productCate: 1 }), //設定一進來畫面為全部商品的畫面
+        headers: new Headers({
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        }),
       })
       const response = await fetch(request)
       const rows = await response.json() //這邊的rows會得到所有資料庫中的資料
       console.log('伺服器回傳', rows) //先在這邊console.log出rows得到的資料
 
-      setProduct(rows) //rows的東西會傳到product中
+      setProduct(rows) //rows的東西會傳到product中，用setXXX的方式啟動整個畫面的更新
     }
 
     FetchData()
@@ -31,7 +58,7 @@ function MainProduct() {
         {product.map((v, i) => (
           <li key={i} className="col-lg-4 col-sm-12 k-product-card card">
             <div className="k-img-box">
-              <Link to="#">
+              <Link to={`/mainproductdetail/products/` + v.p_sid}>
                 <img
                   src={`http://localhost:3000/k-images/` + v.p_img}
                   className="card-img-top product-img"
@@ -96,20 +123,46 @@ function MainProduct() {
           </div>
           <div className="k-product-category">
             <ul className="k-ul d-flex justify-content-between">
-              <li className="k-category">
-                <Link to="">全部商品</Link>
+              <li
+                className="k-category"
+                onClick={() => {
+                  doCate(1)
+                  // console.log('kll')
+                }}
+              >
+                <span>全部商品</span>
               </li>
-              <li className="k-category">
-                <Link to="">紅酒風味</Link>
+              <li
+                className="k-category"
+                onClick={() => {
+                  doCate(2, 1)
+                }}
+              >
+                <span>紅酒風味</span>
               </li>
-              <li className="k-category">
-                <Link to="">白酒風味</Link>
+              <li
+                className="k-category"
+                onClick={() => {
+                  doCate(3, 1)
+                }}
+              >
+                <span>白酒風味</span>
               </li>
-              <li className="k-category">
-                <Link to="">烈酒風味</Link>
+              <li
+                className="k-category"
+                onClick={() => {
+                  doCate(4, 1)
+                }}
+              >
+                <span>烈酒風味</span>
               </li>
-              <li className="k-category">
-                <Link to="">利口酒風味</Link>
+              <li
+                className="k-category"
+                onClick={() => {
+                  doCate(5, 1)
+                }}
+              >
+                <span>利口酒風味</span>
               </li>
             </ul>
           </div>
@@ -156,7 +209,7 @@ function MainProduct() {
                   </span>
                 </Link>
               </li>
-              <li className="page-item">
+              <li className="page-item" onClick={() => {}}>
                 <Link className="page-link hoyu-page-link" to="#">
                   1
                 </Link>
@@ -204,4 +257,4 @@ function MainProduct() {
   )
 }
 
-export default MainProduct
+export default withRouter(MainProduct)
