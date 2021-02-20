@@ -184,7 +184,7 @@ function MemberEdit(props) {
                   value={inputs.tel}
                   onChange={onChangeForField('tel')}
                 />
-                <small>請輸入正確的手機格式</small>
+                <small></small>
 
                 <label htmlFor="address">地址</label>
                 <br />

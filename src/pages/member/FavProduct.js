@@ -1,10 +1,86 @@
 import '../../styles/fish.scss'
 import '../../styles/font.scss'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { FaRegTimesCircle } from 'react-icons/fa'
 import FishAside from '../../components/FishAside'
 function FavProduct(props) {
+  const [rows, setRows] = useState([])
+  const [display, setDisplay] = useState(<h1>尚未收藏商品</h1>)
+
+  const deletefavproduct = async (p_sid) => {
+    const url = 'http://localhost:4000/deletefavproduct'
+    const request = new Request(url, {
+      method: 'DELETE',
+      body: JSON.stringify({ p_sid: p_sid }),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+    const response = await fetch(request)
+    const data = await response.json()
+    console.log('刪除', data)
+    if (data.code === 1) {
+      FetchData()
+    }
+  }
+
+  const FetchData = async () => {
+    const url = 'http://localhost:4000/getfavproduct'
+    const request = new Request(url, {
+      method: 'GET',
+    })
+    const response = await fetch(request)
+    const data = await response.json()
+    console.log('伺服器回傳', data)
+    if (data.fav !== 'none') {
+      setRows(data)
+    }
+  }
+  useEffect(() => {
+    FetchData()
+  }, [])
+  useEffect(() => {
+    const productDisplay = (
+      <>
+        {rows.map((value, i) => (
+          <div key={i} className="col-xl-4 col-lg-5 col-md-6">
+            {/* {value.p_name} */}
+            <div className="product  fish-card w-100 position-relative">
+              <div className="fish-img-box w-100">
+                {/* <Link to="#123"> */}
+                <i>
+                  <FaRegTimesCircle
+                    onClick={() => {
+                      deletefavproduct(value.p_sid)
+                    }}
+                  />
+                </i>
+                {/* </Link> */}
+                <Link to="#456">
+                  <img
+                    src={`http://localhost:3000/k-images/` + value.p_img}
+                    className="fish-product-img"
+                    alt={`cake` + value.p_img}
+                  />
+                </Link>
+              </div>
+              <div className="fish-card-body w-100">
+                <h5 className="fish-card-title">{value.p_name}</h5>
+                <p className="fish-card-text">{value.p_desc}</p>
+                <hr className="fish-product-hr" />
+                <div className="fish-product-price mb-1">{value.p_price}</div>
+                <button className="addToCartBtn">加入購物車</button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </>
+    )
+    setDisplay(productDisplay)
+  }, [rows])
+
   return (
     <>
       <div className="container h-100">
@@ -37,7 +113,9 @@ function FavProduct(props) {
         <div className="row justify-content-center">
           <FishAside />
           <div className="col-9 d-flex flex-wrap">
-            <div className="col-xl-4 col-lg-5 col-md-6">
+            {display}
+
+            {/* <div className="col-xl-4 col-lg-5 col-md-6">
               <div className="product  fish-card w-100 position-relative">
                 <div className="fish-img-box w-100">
                   <Link to="#123">
@@ -64,8 +142,8 @@ function FavProduct(props) {
                   <button className="addToCartBtn">加入購物車</button>
                 </div>
               </div>
-            </div>
-
+            </div> */}
+            {/* 
             <nav
               aria-label="Page navigation example"
               className="fish-fav-mt w-100"
@@ -119,9 +197,13 @@ function FavProduct(props) {
                   </a>
                 </li>
               </ul>
-            </nav>
+            </nav> */}
           </div>
         </div>
+      </div>
+      <div className="row justify-content-center">
+        <div className="col-2 fish-bottom"></div>
+        <div className="col-9"></div>
       </div>
       <div className="bgup-img"></div>
       <div className="bgdown-img"></div>
