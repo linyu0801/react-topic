@@ -38,6 +38,8 @@
     "redux-thunk": "^2.3.0",
     "sass": "^1.32.5",
     "styled-components": "^5.2.1",
+    "sweetalert2": "^10.15.5",
+    "sweetalert2-react-content": "^3.3.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

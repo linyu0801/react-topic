@@ -3,6 +3,7 @@ import '../../styles/font.scss'
 import { withRouter } from 'react-router-dom'
 import React, { useState } from 'react'
 import $ from 'jquery'
+import Swal from 'sweetalert2'
 
 function Register(props) {
   const [inputs, setInputs] = useState({
@@ -32,6 +33,14 @@ function Register(props) {
       const response = await fetch(request)
       const data = await response.json()
       console.log('伺服器回傳的json資料', data)
+      if (data.register === true) {
+        Swal.fire({
+          title: '註冊成功',
+          icon: 'success',
+          type: '註冊成功',
+          text: '已註冊完成.',
+        })
+      }
       if (data.code === 1) {
         $('#account').next().text('帳號重複')
       }
@@ -64,7 +73,7 @@ function Register(props) {
                   value={inputs.account}
                   onChange={onChangeForField('account')}
                 />
-                <br />
+
                 <small></small>
 
                 <label htmlFor="password">請輸入密碼</label>

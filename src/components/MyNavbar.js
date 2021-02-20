@@ -1,23 +1,13 @@
-import React, { useEffect, useState, Component } from 'react'
-import {
-  Navbar,
-  Nav,
-  Form,
-  FormControl,
-  Button,
-  NavDropdown,
-} from 'react-bootstrap'
+import React, { useEffect } from 'react'
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 // 要使用能有active css效果的NavLink元件
 import { FaSearch } from 'react-icons/fa'
 import { FaUserAlt } from 'react-icons/fa'
 import { FaShoppingCart } from 'react-icons/fa'
-import { NavLink, Link, withRouter } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import '../styles/navbar.scss'
 // alex edit
 function MyNavbar(props) {
-  const [logindata, setLoginData] = useState('')
-  const { login, setLogin } = props
-
   async function logout() {
     const url = 'http://localhost:4000/logout'
     const request = new Request(url, {
@@ -32,18 +22,7 @@ function MyNavbar(props) {
       props.history.push('/member/login')
     }
   }
-  useEffect(() => {
-    const FetchData = async () => {
-      const url = 'http://localhost:4000/verify'
-      const request = new Request(url, {
-        method: 'GET',
-        credentials: 'include',
-      })
-      const response = await fetch(request)
-      const rows = await response.json()
-    }
-    FetchData()
-  }, [])
+
   return (
     <>
       <Navbar
@@ -71,7 +50,11 @@ function MyNavbar(props) {
               體驗
             </Nav.Link>
 
-            <Nav.Link className="alex-padding" as={NavLink} to="/studioRent/studioOrder">
+            <Nav.Link
+              className="alex-padding"
+              as={NavLink}
+              to="/studioRent/studioOrder"
+            >
               場地租借
             </Nav.Link>
             <Nav.Link className="alex-padding" as={NavLink} to="#">
