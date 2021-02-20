@@ -22,18 +22,7 @@ function MyNavbar(props) {
       props.history.push('/member/login')
     }
   }
-  useEffect(() => {
-    const FetchData = async () => {
-      const url = 'http://localhost:4000/verify'
-      const request = new Request(url, {
-        method: 'GET',
-        credentials: 'include',
-      })
-      const response = await fetch(request)
-      const rows = await response.json()
-    }
-    FetchData()
-  }, [])
+
   return (
     <>
       <Navbar

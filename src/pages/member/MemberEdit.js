@@ -8,7 +8,7 @@ import $ from 'jquery'
 import { registerLocale, setDefaultLocale } from 'react-datepicker'
 import { zhTW } from 'date-fns/esm/locale'
 import '../../styles/fish.scss'
-
+import Swal from 'sweetalert2'
 registerLocale('zh-TW', zhTW)
 function MemberEdit(props) {
   const [birthDate, setBirthDate] = useState(new Date())
@@ -19,17 +19,25 @@ function MemberEdit(props) {
     tel: '',
     address: '',
   })
-
   useEffect(() => {
-    const FetchData = async () => {
+    const FetchData = async (mid) => {
+      console.log('mid : ' + mid)
       const url = 'http://localhost:4000/loginverify'
       const request = new Request(url, {
-        method: 'GET',
+        method: 'POST',
         credentials: 'include',
+        body: JSON.stringify({ mid }),
+        headers: new Headers({
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        }),
       })
+      console.log('送出 : ' + JSON.stringify({ mid }))
+
       const response = await fetch(request)
       const rows = await response.json()
       console.log('伺服器回傳', rows)
+      // let bir = '1970-1-1'
       setBirthDate(new Date(rows.body.birthday))
       setInputs({
         username: rows.body.username,
@@ -42,13 +50,14 @@ function MemberEdit(props) {
     if (sessionStorage.getItem('mid') === null) {
       props.history.push('/member/login')
     }
+    let mid = sessionStorage.getItem('mid')
 
-    FetchData()
+    FetchData(mid)
   }, [])
 
   useEffect(() => {
     let selectedDate = $('#datepicker').val()
-    console.log('selectedDate : ' + selectedDate)
+    // console.log('selectedDate : ' + selectedDate)
     setInputs((state) => ({ ...state, birthday: selectedDate }))
   }, [birthDate])
 
@@ -57,7 +66,7 @@ function MemberEdit(props) {
   }
   const token = sessionStorage.getItem('mid')
   const newData = { token, ...inputs }
-  console.log(newData)
+  // console.log(newData)
 
   async function EditToServer() {
     const regextel = /^\(?\d{2}\)?[\s\-]?\d{4}\-?\d{4}$/
@@ -79,6 +88,22 @@ function MemberEdit(props) {
         const response = await fetch(request)
         const data = await response.json()
         console.log(' 回傳的資料', data)
+        if (data.success === true) {
+          Swal.fire({
+            title: '修改成功',
+            icon: 'success',
+            type: '修改成功',
+            text: '您的修改已被儲存.',
+          })
+        } else {
+          Swal.fire({
+            title: '修改失敗',
+            icon: 'info',
+            type: '修改失敗',
+            text: '您未變更內容',
+            className: 'swl-font',
+          })
+        }
       } else {
         $('#tel').next().text('手機格式錯誤')
       }
