@@ -1,22 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import {
-  Navbar,
-  Nav,
-  Form,
-  FormControl,
-  Button,
-  NavDropdown,
-} from 'react-bootstrap'
+import React, { useEffect } from 'react'
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 // 要使用能有active css效果的NavLink元件
 import { FaSearch } from 'react-icons/fa'
 import { FaUserAlt } from 'react-icons/fa'
 import { FaShoppingCart } from 'react-icons/fa'
-import { NavLink, Link, withRouter } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import '../styles/navbar.scss'
+// alex edit
 function MyNavbar(props) {
-  const [logindata, setLoginData] = useState('')
-  const { login, setLogin } = props
-
   async function logout() {
     const url = 'http://localhost:4000/logout'
     const request = new Request(url, {
@@ -31,22 +22,11 @@ function MyNavbar(props) {
       props.history.push('/member/login')
     }
   }
-  useEffect(() => {
-    const FetchData = async () => {
-      const url = 'http://localhost:4000/verify'
-      const request = new Request(url, {
-        method: 'GET',
-        credentials: 'include',
-      })
-      const response = await fetch(request)
-      const rows = await response.json()
-    }
-    FetchData()
-  }, [])
+
   return (
     <>
       <Navbar
-        className=" justify-content-between"
+        className=" justify-content-between alex-navbarHeight"
         collapseOnSelect
         expand="lg"
         variant="dark"
@@ -60,23 +40,27 @@ function MyNavbar(props) {
           <Nav className="mr-auto nav-between">
             {/* 利用as屬性來作選單link的整合 */}
             {/* 參考：https://react-bootstrap.github.io/components/navs/#nav-link-props */}
-            <Nav.Link as={NavLink} to="#">
+            <Nav.Link className="alex-padding" as={NavLink} to="/homepage">
               首頁
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/mainproduct">
+            <Nav.Link className="alex-padding" as={NavLink} to="/mainproduct">
               商品
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/campaign">
+            <Nav.Link className="alex-padding" as={NavLink} to="/campaign">
               體驗
             </Nav.Link>
 
-            <Nav.Link as={NavLink} to="/studioRent/studioOrder">
+            <Nav.Link
+              className="alex-padding"
+              as={NavLink}
+              to="/studioRent/studioOrder"
+            >
               場地租借
             </Nav.Link>
-            <Nav.Link as={NavLink} to="#">
+            <Nav.Link className="alex-padding" as={NavLink} to="#">
               部落格
             </Nav.Link>
-            <Nav.Link as={NavLink} to="#">
+            <Nav.Link className="alex-padding" as={NavLink} to="#">
               關於我們
             </Nav.Link>
           </Nav>

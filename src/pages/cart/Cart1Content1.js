@@ -4,18 +4,34 @@ import { MdRemove } from 'react-icons/md'
 import { MdAdd } from 'react-icons/md'
 
 function Cart1Content1(props) {
-  const { cartStep, setCartStep, cartCate, setCartCate } = props
+  const {
+    cartStep,
+    setCartStep,
+    cartCate,
+    setCartCate,
+    cartTotal,
+    setCartTotal,
+  } = props
   // 取得購物車內的資料
   const [cartItems, setCartItems] = useState([])
-  const [payload, setPayloader] = useState({})
+  // const [priceTotal, setPriceTotal] = useState(0)
   const [hasError, setError] = useState(false)
   async function fetchCart() {
-    const res = await fetch('http://localhost:4000/cart1items')
+    const res = await fetch('http://localhost:4000/cart1items', {
+      credentials: 'include',
+    })
     res
       .json()
       .then((res) => {
         setCartItems(res)
         // setPayloader(res.data)
+        let newPrice = 0
+        res.map((item, i) => {
+          newPrice += +item.p_price * +item.quantity
+        })
+        setCartTotal(newPrice)
+        // setPriceTotal(newPrice)
+        console.log(newPrice)
       })
       .catch((error) => {
         setError(error)
@@ -40,7 +56,6 @@ function Cart1Content1(props) {
           },
         }
       )
-      console.log(res)
       fetchCart()
       // alert('Item increamented')
     } catch (err) {
@@ -79,7 +94,6 @@ function Cart1Content1(props) {
           },
         }
       )
-      console.log(res)
       fetchCart()
       // alert('Item increamented')
     } catch (err) {
@@ -87,27 +101,10 @@ function Cart1Content1(props) {
     }
   }
 
-  // 先用這個測試
-  // const cartItems = [
-  //   {
-  //     img: 'http://localhost:3000/images/pd1.jpeg',
-  //     id: 1,
-  //     name: '最多五個字',
-  //     size: '30cm',
-  //     price: 999,
-  //     qty: 10,
-  //     subtotal: 4000,
-  //   },
-  //   {
-  //     img: 'http://localhost:3000/images/login.jpg',
-  //     id: 1,
-  //     name: '最多五個字',
-  //     size: '30cm',
-  //     price: 666,
-  //     qty: 50,
-  //     subtotal: 4000,
-  //   },
-  // ]
+  // useEffect(() => {
+  //   setCartTotal(priceTotal)
+  //   console.log(priceTotal)
+  // }, [priceTotal])
   return (
     <>
       <div className="row">
@@ -204,7 +201,7 @@ function Cart1Content1(props) {
                   <td colSpan="2" className="hy-py-48">
                     購物清單小計
                   </td>
-                  <td>800</td>
+                  <td>{cartTotal}</td>
                   <td></td>
                   <td></td>
                   <td></td>

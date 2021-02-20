@@ -1,6 +1,6 @@
 // 使用套件
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
-import React, { useState } from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import React from 'react'
 
 // 頁面用元件
 import MemberEdit from './pages/member/MemberEdit'
@@ -24,6 +24,7 @@ import StudioOrder from './pages/StudioRent/StudioOrder'
 import StudioIntro1 from './pages/StudioRent/StudioIntro1'
 import StudioIntro2 from './pages/StudioRent/StudioIntro2'
 import StudioIntro3 from './pages/StudioRent/StudioIntro3'
+import HomePage from './pages/homePage/homePage'
 
 // 組合用元件
 
@@ -61,6 +62,9 @@ function App() {
             {/* <ThemeContext.Provider value={themeNow}> */}
 
             <Switch>
+              <Route path="/homepage">
+                <HomePage />
+              </Route>
               <Route path="/mainproduct">
                 <MainProduct />
               </Route>

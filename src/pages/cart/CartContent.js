@@ -9,9 +9,11 @@ import { useState, useEffect } from 'react'
 function CartContent(props) {
   const { cartStep, setCartStep, cartCate, setCartCate } = props
   const [form1, setForm1] = useState('')
+  const [cartTotal, setCartTotal] = useState(0)
   const [inputs, setInputs] = useState({
     username: '',
     tel: '',
+    amount: '',
     receiver: '',
     receiverMobile: '',
     address: '',
@@ -43,6 +45,8 @@ function CartContent(props) {
             setCartCate={setCartCate}
             cartStep={cartStep}
             setCartStep={setCartStep}
+            cartTotal={cartTotal}
+            setCartTotal={setCartTotal}
           />
           <CartNextPrevious
             cartCate={cartCate}
@@ -59,8 +63,11 @@ function CartContent(props) {
             setCartCate={setCartCate}
             cartStep={cartStep}
             setCartStep={setCartStep}
+            cartTotal={cartTotal}
+            setCartTotal={setCartTotal}
           />
           <Cart1Content2
+            cartTotal={cartTotal}
             cartCate={cartCate}
             setCartCate={setCartCate}
             cartStep={cartStep}
@@ -92,6 +99,7 @@ function CartContent(props) {
             setCartCate={setCartCate}
             cartStep={cartStep}
             setCartStep={setCartStep}
+            setCartTotal={setCartTotal}
           />
           <Cart1Content3
             cartCate={cartCate}

@@ -1,11 +1,30 @@
-import { React } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import '../../styles/studioOrder.scss'
 
 import '../../styles/font.scss'
+
 import { Link, withRouter, Redirect } from 'react-router-dom'
 
+import DaanStudio1 from '../../components/DaanStudio1'
+import DonmenStudio2 from '../../components/DonmenStudio2'
+import WestStudio3 from '../../components/WestStudio3'
 function StudioOrder() {
+  const [textSearch, setTextSearch] = useState([
+    '大安館教室',
+    '東門館教室',
+    '西門館教室',
+  ])
+
+  const [isClassOrdered, setIsClassOrdered] = useState([0, 0, 0])
+
+  const [textInput, setTextInput] = useState([])
+
+  useEffect(() => {
+    console.log('isClassOrdered', isClassOrdered)
+  }, [isClassOrdered])
+  //設定教室狀態為0(都還沒被預訂)
+  //console.log教室index[i]
   return (
     <>
       <div className="clsection jumbotron text-white col-lg-12 col-md-6 col-sm-4 container-fluid ">
@@ -17,22 +36,56 @@ function StudioOrder() {
 
         <div className="container justify-content-center">
           <div className="row col-lg-8 col-sm-12 mx-auto d-flex justify-content-center">
-            <form className="d-flex justify-content-center">
-              <input className="clsearchbar" type="date" placeholder="日期:" />
+            <input
+              className="clsearchbar"
+              id="dateChose"
+              type="date"
+              placeholder="日期:"
+              value={textInput}
+              onChange={(e) => {
+                setTextInput(e.target.value)
+              }}
+            />
 
-              <input
-                className="clsearchbar"
-                type="number"
-                min="1"
-                placeholder="人數:"
-              />
-              <button
-                className="cl-searchbtn btn search-btn-outline-success"
-                type="submit"
-              >
-                <i className="fas fa-search"></i> <span> </span>搜尋
-              </button>
-            </form>
+            <button
+              className="cl-searchbtn btn search-btn-outline-success"
+              type="submit"
+              onClick={() => {
+                fetch('http://localhost:4000/studiorent', {
+                  method: 'POST',
+                  body: JSON.stringify({ textInput }),
+                  headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                  },
+                })
+                  //obj.lengh>0  長度大於0代表有值
+                  // console.log(textSearch.indexOf(obj[0].classroom))
+                  //用for迴圈來抓取textSearch三間教室的index[i]跟上方indexOf效果一樣
+                  //k為obj檢查
+
+                  .then((r) => r.json())
+                  .then((obj) => {
+                    console.log(obj)
+                    if (obj.length > 0) {
+                      for (let k = 0; k < obj.length; k++) {
+                        for (let i = 0; i < textSearch.length; i++) {
+                          if (textSearch[i] === obj[k].classroom) {
+                            console.log('now i = ', i)
+                            let tempArray = isClassOrdered
+                            tempArray[i] = 1
+                            setIsClassOrdered([...tempArray])
+                          }
+                        }
+                      }
+                    } else {
+                      setIsClassOrdered([0, 0, 0])
+                    }
+                  })
+                console.log(textInput)
+              }}
+            >
+              <i className="fas fa-search"></i> <span> </span>搜尋
+            </button>
           </div>
         </div>
       </div>
@@ -44,32 +97,7 @@ function StudioOrder() {
           <Link className="clbread"> 教室租借 </Link>
         </div>
       </div>
-      <div className="container">
-        <div className="row">
-          <div className="col-5">
-            <h2 className="studioClass">大安館教室</h2>
-          </div>
-          <div className="col-7">
-            <hr className="rightLine w-50" />
-          </div>
-        </div>
-      </div>
-      <Link to="/StudioRent/StudioIntro1">
-        <div className="container">
-          <div className="col-lg-12 col-md-6 col-sm-4">
-            <div className="celiacardBig d-flex w-100">
-              <div className="cardBigImg1"></div>
-              <div className="clcardText">
-                <p className="studioIntro">
-                  無經驗新手也能輕鬆做出甜點！Funsiamo 玩美烘焙體驗，透過 iPad
-                  數位教學，搭配現場服務人員的親切協助，每個走進店裡的人都能帶走精美
-                </p>
-                <button class="btn claddCart">立即預定</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Link>
+      {!isClassOrdered[0] ? <DaanStudio1 textSearch={textSearch} /> : ''}
 
       <div className="decor">
         <img
@@ -85,33 +113,8 @@ function StudioOrder() {
           alt="..."
         />
       </div>
+      {!isClassOrdered[1] ? <DonmenStudio2 textSearch={textSearch} /> : ''}
 
-      <div className="container">
-        <div className="row">
-          <div className="col-5">
-            <h2 className="studioClass">東門館教室</h2>
-          </div>
-          <div className="col-7">
-            <hr className="rightLine w-50" />
-          </div>
-        </div>
-      </div>
-      <Link to="/StudioRent/StudioIntro2">
-        <div className="container">
-          <div className="col-lg-12 col-md-6 col-sm-4">
-            <div className="celiacardBig d-flex w-100">
-              <div className="cardBigImg2"></div>
-              <div className="clcardText">
-                <p className="studioIntro">
-                  無經驗新手也能輕鬆做出甜點！Funsiamo 玩美烘焙體驗，透過 iPad
-                  數位教學，搭配現場服務人員的親切協助，每個走進店裡的人都能帶走精美
-                </p>
-                <button className="btn claddCart">立即預定</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Link>
       <div className="decor">
         <img
           src="http://localhost:3000/climage/goldenRing.png"
@@ -119,33 +122,7 @@ function StudioOrder() {
           alt="..."
         />
       </div>
-
-      <div className="container">
-        <div className="row">
-          <div className="col-5">
-            <h2 className="studioClass">西門館教室</h2>
-          </div>
-          <div className="col-7">
-            <hr className="rightLine w-50" />
-          </div>
-        </div>
-      </div>
-      <Link to="/StudioRent/StudioIntro3">
-        <div className="container">
-          <div className="col-lg-12 col-md-6 col-sm-4">
-            <div className="celiacardBig d-flex w-100">
-              <div className="cardBigImg3"></div>
-              <div className="clcardText">
-                <p className="studioIntro">
-                  無經驗新手也能輕鬆做出甜點！Funsiamo 玩美烘焙體驗，透過 iPad
-                  數位教學，搭配現場服務人員的親切協助，每個走進店裡的人都能帶走精美
-                </p>
-                <button className="btn claddCart">立即預定</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Link>
+      {!isClassOrdered[2] ? <WestStudio3 textSearch={textSearch} /> : ''}
 
       <div className="decor">
         <img

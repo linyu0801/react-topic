@@ -1,8 +1,31 @@
 import '../../styles/fish.scss'
 import '../../styles/font.scss'
-import { Link, withRouter } from 'react-router-dom'
+import $ from 'jquery'
+import React, { useState } from 'react'
 
-function forget(props) {
+function Forget(props) {
+  const [email, setEmail] = useState('')
+  async function ForgetToSever() {
+    $('#email').next().text('')
+    const url = 'http://localhost:4000/forget'
+    const request = new Request(url, {
+      method: 'POST',
+      body: JSON.stringify({ email }),
+      credentials: 'include',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+    // console.log('送出的body : ' + JSON.stringify(email))
+    const response = await fetch(request, { mode: 'cors' })
+    const data = await response.json()
+    console.log('伺服器回傳的json資料', data)
+    if (data.code === 0) {
+      $('#email').next().text(data.update)
+    }
+  }
+
   return (
     <>
       <div className="fish-forgetbg">
@@ -15,19 +38,29 @@ function forget(props) {
                   <h6>請輸入註冊時所使用的E-amil信箱地址，</h6>
                   <h6>我們將會產生一組新的密碼並寄至信箱，讓您重新登入。</h6>
                 </div>
-                <label htmlFor="account ">請輸入電子郵件</label>
+                <label htmlFor="email ">請輸入電子郵件</label>
                 <br />
                 <input
                   className="w-100 member-input"
                   type="text"
-                  name="acoount"
-                  id="account"
+                  name="email"
+                  id="email"
+                  value={email}
+                  onChange={(event) => {
+                    setEmail(event.target.value)
+                  }}
                 />
                 <br />
-                <small>電子郵件格式錯誤</small>
+                <small></small>
                 <div className="form-border w-100"></div>
 
-                <button type="button" className="pub-button mx-auto">
+                <button
+                  type="button"
+                  className="pub-button mx-auto"
+                  onClick={() => {
+                    ForgetToSever()
+                  }}
+                >
                   傳送新密碼
                 </button>
               </form>
@@ -38,4 +71,4 @@ function forget(props) {
     </>
   )
 }
-export default forget
+export default Forget
