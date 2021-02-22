@@ -83,10 +83,10 @@ function MyNavbar(props) {
                 </NavDropdown.Item>
                 <NavDropdown.Item
                   as={NavLink}
-                  to="/member/forget"
+                  to="/member/editpassword"
                   className="nav-ul"
                 >
-                  忘記密碼
+                  更改密碼
                 </NavDropdown.Item>
               </NavDropdown>
               <NavDropdown title="收藏清單" id="nav-member">
