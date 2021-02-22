@@ -26,14 +26,14 @@ function MyNavbar(props) {
   return (
     <>
       <Navbar
-        className=" justify-content-between alex-navbarHeight"
+        className="  alex-navbarHeight"
         collapseOnSelect
         expand="lg"
         variant="dark"
         // fixed="top"
       >
         <Navbar.Brand href="#home" className="nav-left">
-          Icons
+          <img src="../icons/icons-row.svg" alt="" className="nav-icons" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -64,7 +64,6 @@ function MyNavbar(props) {
               關於我們
             </Nav.Link>
           </Nav>
-
           <Nav className="nav-right">
             <Nav.Link href="#deets">
               <FaSearch />
