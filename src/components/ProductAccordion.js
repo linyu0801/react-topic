@@ -6,7 +6,7 @@ import { MdAdd } from 'react-icons/md'
 function ProductAccordion() {
   return (
     <>
-      <Accordion defaultActiveKey="0">
+      {/* <Accordion defaultActiveKey="0">
         <Card>
           <Accordion.Toggle as={Card.Header} eventKey="0">
             <div className="info-head d-flex justify-content-between d-flex align-items-center">
@@ -150,7 +150,7 @@ function ProductAccordion() {
             </Card.Body>
           </Accordion.Collapse>
         </Card>
-      </Accordion>
+      </Accordion> */}
     </>
   )
 }

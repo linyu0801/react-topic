@@ -9,8 +9,13 @@ import { registerLocale, setDefaultLocale } from 'react-datepicker'
 import { zhTW } from 'date-fns/esm/locale'
 import '../../styles/fish.scss'
 import Swal from 'sweetalert2'
+import moment from 'moment'
 registerLocale('zh-TW', zhTW)
+// moment.locale('zh-tw')
+
 function MemberEdit(props) {
+  let mid = sessionStorage.getItem('mid')
+
   const [birthDate, setBirthDate] = useState(new Date())
   const [inputs, setInputs] = useState({
     username: '',
@@ -19,46 +24,49 @@ function MemberEdit(props) {
     tel: '',
     address: '',
   })
-  useEffect(() => {
-    const FetchData = async (mid) => {
-      console.log('mid : ' + mid)
-      const url = 'http://localhost:4000/loginverify'
-      const request = new Request(url, {
-        method: 'POST',
-        credentials: 'include',
-        body: JSON.stringify({ mid }),
-        headers: new Headers({
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        }),
-      })
-      console.log('送出 : ' + JSON.stringify({ mid }))
+  const FetchData = async (mid) => {
+    console.log('mid : ' + mid)
+    const url = 'http://localhost:4000/loginverify'
+    const request = new Request(url, {
+      method: 'POST',
+      credentials: 'include',
+      body: JSON.stringify({ mid }),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+    console.log('送出 : ' + JSON.stringify({ mid }))
 
-      const response = await fetch(request)
-      const rows = await response.json()
-      console.log('伺服器回傳', rows)
-      // let bir = '1970-1-1'
-      setBirthDate(new Date(rows.body.birthday))
-      setInputs({
-        username: rows.body.username,
-        email: rows.body.email,
-        tel: rows.body.tel,
-        birthday: rows.body.birthday,
-        address: rows.body.address,
-      })
-    }
+    const response = await fetch(request)
+    const rows = await response.json()
+    console.log('伺服器回傳', rows)
+    // let bir = '1970-1-1'
+    setBirthDate(new Date(rows.body.birthday))
+    setInputs({
+      username: rows.body.username,
+      email: rows.body.email,
+      tel: rows.body.tel,
+      birthday: rows.body.birthday,
+      address: rows.body.address,
+    })
+  }
+  useEffect(() => {
     if (sessionStorage.getItem('mid') === null) {
       props.history.push('/member/login')
+    } else {
+      FetchData(mid)
     }
-    let mid = sessionStorage.getItem('mid')
-
-    FetchData(mid)
   }, [])
 
   useEffect(() => {
     let selectedDate = $('#datepicker').val()
-    // console.log('selectedDate : ' + selectedDate)
-    setInputs((state) => ({ ...state, birthday: selectedDate }))
+    console.log('selectedDate : ' + selectedDate)
+    // console.log('selectedDate : ' + birthDate)
+    setInputs((state) => ({
+      ...state,
+      birthday: moment(selectedDate).format(),
+    }))
   }, [birthDate])
 
   const onChangeForField = (fieldName) => (event) => {
@@ -69,6 +77,8 @@ function MemberEdit(props) {
   // console.log(newData)
 
   async function EditToServer() {
+    // console.log('inputs.birthday' + inputs.birthday)
+    // console.log(moment.utc(inputs.birthday).local().format('YYYY-MM-DD'))
     const regextel = /^\(?\d{2}\)?[\s\-]?\d{4}\-?\d{4}$/
     const regexemail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
     if (inputs.email.match(regexemail)) {
@@ -87,6 +97,7 @@ function MemberEdit(props) {
         })
         const response = await fetch(request)
         const data = await response.json()
+        console.log(' 送出的資料', newData)
         console.log(' 回傳的資料', data)
         if (data.success === true) {
           Swal.fire({

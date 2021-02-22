@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import $ from 'jquery'
 function Cart1Content2(props) {
   const {
+    cartTotal,
     setForm1,
     inputs,
     onChangeForField,
@@ -12,35 +13,9 @@ function Cart1Content2(props) {
     seletedOptionCardYear,
     setSeletedOptionCardYear,
   } = props
-  // const [inputs, setInputs] = useState({
-  //   username: '',
-  //   tel: '',
-  //   receiver: '',
-  //   receiverMobile: '',
-  //   address: '',
-  //   designated_date: '',
-  //   designated_period: '',
-  //   payment_type: '',
-  //   pan_no1: '',
-  //   pan_no2: '',
-  //   pan_no3: '',
-  //   pan_no4: '',
-  //   creditCardExpireMonth: '',
-  //   creditCardExpireYear: '',
-  //   creditCardBack: '',
-  // })
-  // const [seletedOption, setSeletedOption] = useState('both')
-  // const [seletedOptionCardMonth, setSeletedOptionCardMonth] = useState('0')
-  // const [seletedOptionCardYear, setSeletedOptionCardYear] = useState('2021')
-  // const onChangeForField = (fieldName) => (event) => {
-  //   setInputs((state) => ({ ...state, [fieldName]: event.target.value }))
-  // }
 
   useEffect(() => {
     $('#sameAsAccount').on('click', () => {
-      // $('#sameAsAccount').prop('checked') &&
-      //   $('#receiver').val($('#account').val())
-      // $('#receiverMobile').val($('#mobile').val())
       let sameAsAccount = $('#sameAsAccount').prop('checked')
       console.log(sameAsAccount)
       if (sameAsAccount === true) {
@@ -54,9 +29,9 @@ function Cart1Content2(props) {
     })
   }, [])
 
-  useEffect(() => {
-    console.log(inputs)
-  }, [inputs])
+  // useEffect(() => {
+  //   console.log(inputs)
+  // }, [inputs])
 
   useEffect(() => {
     setForm1(inputs)
@@ -91,6 +66,7 @@ function Cart1Content2(props) {
               name="deliever"
               className="pub-form col-xl-7 col-lg-8 col-md-10 col-sm-12"
             >
+              <input type="hidden" name="amount" value={cartTotal} />
               <label htmlFor="username">訂購人姓名</label>
               <br />
               <input
@@ -273,18 +249,18 @@ function Cart1Content2(props) {
                   setSeletedOptionCardMonth(e.target.value)
                 }}
               >
-                <option value="0">1</option>
-                <option value="1">2</option>
-                <option value="2">3</option>
-                <option value="3">4</option>
-                <option value="4">5</option>
-                <option value="5">6</option>
-                <option value="6">7</option>
-                <option value="7">8</option>
-                <option value="8">9</option>
-                <option value="9">10</option>
-                <option value="10">11</option>
-                <option value="11">12</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
               </select>
               &nbsp; 月
               <select

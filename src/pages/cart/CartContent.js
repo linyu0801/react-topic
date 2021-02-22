@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react'
 function CartContent(props) {
   const { cartStep, setCartStep, cartCate, setCartCate } = props
   const [form1, setForm1] = useState('')
+  const [cartTotal, setCartTotal] = useState(0)
   const [inputs, setInputs] = useState({
     username: '',
     tel: '',
@@ -16,18 +17,16 @@ function CartContent(props) {
     receiverMobile: '',
     address: '',
     designated_date: '',
-    designated_period: '',
-    payment_type: '',
     pan_no1: '',
     pan_no2: '',
     pan_no3: '',
     pan_no4: '',
-    creditCardExpireMonth: '',
-    creditCardExpireYear: '',
     creditCardBack: '',
+    amount: '',
   })
 
   const [seletedOption, setSeletedOption] = useState('both')
+  const [seletedPaymentType, setSeletedPaymentType] = useState('CreditCard')
   const [seletedOptionCardMonth, setSeletedOptionCardMonth] = useState('0')
   const [seletedOptionCardYear, setSeletedOptionCardYear] = useState('2021')
   const onChangeForField = (fieldName) => (event) => {
@@ -43,6 +42,8 @@ function CartContent(props) {
             setCartCate={setCartCate}
             cartStep={cartStep}
             setCartStep={setCartStep}
+            cartTotal={cartTotal}
+            setCartTotal={setCartTotal}
           />
           <CartNextPrevious
             cartCate={cartCate}
@@ -59,8 +60,11 @@ function CartContent(props) {
             setCartCate={setCartCate}
             cartStep={cartStep}
             setCartStep={setCartStep}
+            cartTotal={cartTotal}
+            setCartTotal={setCartTotal}
           />
           <Cart1Content2
+            cartTotal={cartTotal}
             cartCate={cartCate}
             setCartCate={setCartCate}
             cartStep={cartStep}
@@ -70,6 +74,8 @@ function CartContent(props) {
             setInputs={setInputs}
             seletedOption={seletedOption}
             setSeletedOption={setSeletedOption}
+            seletedPaymentType={seletedPaymentType}
+            setTeletedPaymentType={setSeletedPaymentType}
             seletedOptionCardMonth={seletedOptionCardMonth}
             setSeletedOptionCardMonth={setSeletedOptionCardMonth}
             seletedOptionCardYear={seletedOptionCardYear}
@@ -78,6 +84,17 @@ function CartContent(props) {
           />
           <CartNextPrevious
             form1={form1}
+            inputs={inputs}
+            setInputs={setInputs}
+            seletedOption={seletedOption}
+            setSeletedOption={setSeletedOption}
+            seletedPaymentType={seletedPaymentType}
+            setTeletedPaymentType={setSeletedPaymentType}
+            seletedOptionCardMonth={seletedOptionCardMonth}
+            setSeletedOptionCardMonth={setSeletedOptionCardMonth}
+            seletedOptionCardYear={seletedOptionCardYear}
+            setSeletedOptionCardYear={setSeletedOptionCardYear}
+            onChangeForField={onChangeForField}
             cartCate={cartCate}
             setCartCate={setCartCate}
             cartStep={cartStep}
@@ -92,6 +109,7 @@ function CartContent(props) {
             setCartCate={setCartCate}
             cartStep={cartStep}
             setCartStep={setCartStep}
+            setCartTotal={setCartTotal}
           />
           <Cart1Content3
             cartCate={cartCate}
