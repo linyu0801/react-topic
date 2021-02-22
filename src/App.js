@@ -1,6 +1,6 @@
 // 使用套件
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import React from 'react'
+import React, { useState } from 'react'
 
 // 頁面用元件
 import MemberEdit from './pages/member/MemberEdit'
@@ -19,6 +19,7 @@ import MainProduct from './pages/mainProduct/MainProduct'
 import MainProductDetail from './pages/mainProduct/MainProductDetail'
 import NotFoundPage from './pages/NotFoundPage'
 import CampaignIndex from './pages/campaign/CampaignIndex'
+import CampaignProducts from './pages/campaign/CampaignProducts'
 import CampaignProductInfo from './pages/campaign/CampaignProductInfo'
 import StudioOrder from './pages/StudioRent/StudioOrder'
 import StudioIntro1 from './pages/StudioRent/StudioIntro1'
@@ -51,6 +52,13 @@ export const ThemeContext = React.createContext(themes.light)
 function App() {
   // const [login, setLogin] = useState(false)
   // const [themeNow, setThemeNow] = useState(themes.light)
+  const [searchCampaign, setSearchCampaign] = useState('')
+  const [categoryActiveObj, setCategoryActiveObj] = useState({
+    categoryBtn1: false,
+    categoryBtn2: false,
+    categoryBtn3: false,
+    categoryBtn4: true,
+  })
 
   return (
     <Router>
@@ -71,11 +79,22 @@ function App() {
               <Route path="/mainproductdetail/products/:id?">
                 <MainProductDetail />
               </Route>
-              <Route path="/campaign/products/:id?">
+              <Route path="/campaign/products/:id">
                 <CampaignProductInfo />
               </Route>
+              <Route path="/campaign/searchProducts">
+                <CampaignProducts
+                  searchCampaign={searchCampaign}
+                  categoryActiveObj={categoryActiveObj}
+                />
+              </Route>
               <Route path="/campaign">
-                <CampaignIndex />
+                <CampaignIndex
+                  searchCampaign={searchCampaign}
+                  setSearchCampaign={setSearchCampaign}
+                  categoryActiveObj={categoryActiveObj}
+                  setCategoryActiveObj={setCategoryActiveObj}
+                />
               </Route>
               <Route path="/member/edit">
                 <MemberEdit />
