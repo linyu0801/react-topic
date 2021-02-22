@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 // 要使用能有active css效果的NavLink元件
 import { FaSearch } from 'react-icons/fa'
 import { FaUserAlt } from 'react-icons/fa'
 import { FaShoppingCart } from 'react-icons/fa'
-import { NavLink, withRouter } from 'react-router-dom'
+import { NavLink, withRouter, Link } from 'react-router-dom'
 import '../styles/navbar.scss'
-// alex edit
+import { Collapse } from 'reactstrap'
 function MyNavbar(props) {
+  const [test, setTest] = useState(false)
   async function logout() {
     const url = 'http://localhost:4000/logout'
     const request = new Request(url, {
@@ -35,6 +36,14 @@ function MyNavbar(props) {
         <Navbar.Brand href="#home" className="nav-left">
           <img src="../icons/icons-row.svg" alt="" className="nav-icons" />
         </Navbar.Brand>
+        <di className="nav-right-icons  ">
+          <Nav.Link href="#deets">
+            <FaSearch />
+          </Nav.Link>
+          <Nav.Link eventKey={2} as={NavLink} to="/cart">
+            <FaShoppingCart />
+          </Nav.Link>
+        </di>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto nav-between">
@@ -63,7 +72,65 @@ function MyNavbar(props) {
             <Nav.Link className="alex-padding" as={NavLink} to="#">
               關於我們
             </Nav.Link>
+            <Nav className="nav-between nav-member alex-padding">
+              <NavDropdown title="個人資訊" id="nav-member">
+                <NavDropdown.Item
+                  as={NavLink}
+                  to="/member/edit"
+                  className="nav-ul"
+                >
+                  編輯個人資訊
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  as={NavLink}
+                  to="/member/forget"
+                  className="nav-ul"
+                >
+                  忘記密碼
+                </NavDropdown.Item>
+              </NavDropdown>
+              <NavDropdown title="收藏清單" id="nav-member">
+                <NavDropdown.Item
+                  as={NavLink}
+                  to="/member/fav-product"
+                  className="nav-ul"
+                >
+                  商品收藏
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  as={NavLink}
+                  to="/member/fav-active"
+                  className="nav-ul"
+                >
+                  活動收藏
+                </NavDropdown.Item>
+              </NavDropdown>
+              <NavDropdown title="訂單資訊" id="nav-member">
+                <NavDropdown.Item
+                  as={NavLink}
+                  to="/member/order-product"
+                  className="nav-ul"
+                >
+                  商品訂單
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  as={NavLink}
+                  to="/member/order-active"
+                  className="nav-ul"
+                >
+                  活動訂單
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  as={NavLink}
+                  to="/member/order-class"
+                  className="nav-ul"
+                >
+                  租借訂單
+                </NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
           </Nav>
+
           <Nav className="nav-right">
             <Nav.Link href="#deets">
               <FaSearch />
