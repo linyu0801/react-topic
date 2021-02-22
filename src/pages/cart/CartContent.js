@@ -13,23 +13,20 @@ function CartContent(props) {
   const [inputs, setInputs] = useState({
     username: '',
     tel: '',
-    amount: '',
     receiver: '',
     receiverMobile: '',
     address: '',
     designated_date: '',
-    designated_period: '',
-    payment_type: '',
     pan_no1: '',
     pan_no2: '',
     pan_no3: '',
     pan_no4: '',
-    creditCardExpireMonth: '',
-    creditCardExpireYear: '',
     creditCardBack: '',
+    amount: '',
   })
 
   const [seletedOption, setSeletedOption] = useState('both')
+  const [seletedPaymentType, setSeletedPaymentType] = useState('CreditCard')
   const [seletedOptionCardMonth, setSeletedOptionCardMonth] = useState('0')
   const [seletedOptionCardYear, setSeletedOptionCardYear] = useState('2021')
   const onChangeForField = (fieldName) => (event) => {
@@ -77,6 +74,8 @@ function CartContent(props) {
             setInputs={setInputs}
             seletedOption={seletedOption}
             setSeletedOption={setSeletedOption}
+            seletedPaymentType={seletedPaymentType}
+            setTeletedPaymentType={setSeletedPaymentType}
             seletedOptionCardMonth={seletedOptionCardMonth}
             setSeletedOptionCardMonth={setSeletedOptionCardMonth}
             seletedOptionCardYear={seletedOptionCardYear}
@@ -85,6 +84,17 @@ function CartContent(props) {
           />
           <CartNextPrevious
             form1={form1}
+            inputs={inputs}
+            setInputs={setInputs}
+            seletedOption={seletedOption}
+            setSeletedOption={setSeletedOption}
+            seletedPaymentType={seletedPaymentType}
+            setTeletedPaymentType={setSeletedPaymentType}
+            seletedOptionCardMonth={seletedOptionCardMonth}
+            setSeletedOptionCardMonth={setSeletedOptionCardMonth}
+            seletedOptionCardYear={seletedOptionCardYear}
+            setSeletedOptionCardYear={setSeletedOptionCardYear}
+            onChangeForField={onChangeForField}
             cartCate={cartCate}
             setCartCate={setCartCate}
             cartStep={cartStep}
