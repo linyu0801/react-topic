@@ -113,9 +113,11 @@
   }
 }
 @media screen and (max-width: 992px) {
+  #nav-member {
+    padding-bottom: 15px;
+  }
   .nav-member {
     margin: 0 auto;
-
     display: block;
     color: white;
   }
