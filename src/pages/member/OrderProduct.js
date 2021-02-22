@@ -1,10 +1,31 @@
 import '../../styles/fish.scss'
 import '../../styles/font.scss'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import FishAside from '../../components/FishAside'
 import { Link, withRouter } from 'react-router-dom'
 
 function OrderProduct(props) {
+  const [rows, setRows] = useState([])
+
+  const FetchData = async () => {
+    const url = 'http://localhost:4000/getfavproduct'
+    const request = new Request(url, {
+      method: 'GET',
+    })
+    const response = await fetch(request)
+    const data = await response.json()
+    console.log('伺服器回傳', data)
+    if (data.fav !== 'none') {
+      setRows(data)
+    }
+  }
+  useEffect(() => {
+    FetchData()
+  }, [])
+  const productDisplay = <>{/* {rows.map((value, i) => (
+        
+      ))} */}</>
+
   return (
     <>
       {' '}
@@ -45,54 +66,22 @@ function OrderProduct(props) {
                   {' '}
                   <h6 className="fish-order-text">123456</h6>{' '}
                 </a>
-                <a href="*">
-                  {' '}
-                  <h6 className="fish-order-text">123456</h6>{' '}
-                </a>
-                <a href="*">
-                  {' '}
-                  <h6 className="fish-order-text">123456</h6>{' '}
-                </a>
-                <a href="*">
-                  {' '}
-                  <h6 className="fish-order-text">123456</h6>{' '}
-                </a>
-                <a href="*">
-                  {' '}
-                  <h6 className="fish-order-text">123456</h6>{' '}
-                </a>
               </div>
               <div className="col-3">
                 <h6>訂購日期</h6>
-                <h6 className="fish-order-text">2020/12/15</h6>
-                <h6 className="fish-order-text">2020/12/15</h6>
-                <h6 className="fish-order-text">2020/12/15</h6>
-                <h6 className="fish-order-text">2020/12/15</h6>
                 <h6 className="fish-order-text">2020/12/15</h6>
               </div>
               <div className="col-2">
                 <h6>訂單金額</h6>
                 <h6 className="fish-order-text">500</h6>
-                <h6 className="fish-order-text">1500</h6>
-                <h6 className="fish-order-text">1800</h6>
-                <h6 className="fish-order-text">180</h6>
-                <h6 className="fish-order-text">180</h6>
               </div>
               <div className="col-2">
                 <h6>付款方式</h6>
                 <h6 className="fish-order-text">信用卡</h6>
-                <h6 className="fish-order-text">信用卡</h6>
-                <h6 className="fish-order-text">銀行轉帳</h6>
-                <h6 className="fish-order-text">銀行轉帳</h6>
-                <h6 className="fish-order-text">銀行轉帳</h6>
               </div>
               <div className="col-2">
                 <h6>訂單狀態</h6>
                 <h6 className="fish-order-text">已送達</h6>
-                <h6 className="fish-order-text">已取貨</h6>
-                <h6 className="fish-order-text">已取貨</h6>
-                <h6 className="fish-order-text">已送達</h6>
-                <h6 className="fish-order-text">已取貨</h6>
               </div>
             </div>
             <nav aria-label="Page navigation example" className="fish-order-mt">
