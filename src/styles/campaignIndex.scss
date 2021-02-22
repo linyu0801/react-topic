@@ -3,6 +3,13 @@
 
 .container-fluid {
   padding: 0;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-bottom: 50px;
+}
+
+.container {
+  margin-bottom: 50px;
 }
 
 h2 {
@@ -71,10 +78,14 @@ button:focus {
   font-weight: lighter;
 }
 
+.searchTitleText {
+  font-size: 48px;
+}
+
 #campaignSearch {
   width: 75%;
   border: 0 none;
-  font-size: 12px;
+  font-size: 16px;
   color: #bebebe;
   padding: 20px 30px;
   letter-spacing: 1px;
@@ -107,12 +118,16 @@ button:focus {
 }
 
 .hit {
+  font-size: 48px !important;
   margin-bottom: 30px;
+}
+
+.hitTitle {
+  font-size: 48px;
 }
 
 .campaignCard {
   background-color: #ffeed3;
-  height: 400px;
   transition-duration: 0.5s;
   cursor: pointer;
 }
@@ -122,15 +137,19 @@ button:focus {
   transition-duration: 0.5s;
 }
 
+.cardTitle {
+  font-size: 24px;
+}
+
 .bgImg::before {
   content: ' ';
   width: 100%;
-  height: 800px;
+  height: 1200px;
   background-image: url(http://localhost:3000/img/illustration/goldenTriangle.png);
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
-  bottom: -1000px;
+  top: 600px;
   opacity: 25%;
 }
 
@@ -192,7 +211,14 @@ button:focus {
 .stars {
   font-size: 14px;
   color: #cdaa8a;
-  letter-spacing: 1px;
+  letter-spacing: 5px;
+  margin-bottom: 0px;
+}
+
+svg.star {
+  font-size: 16px;
+  margin-right: 0.3em;
+  margin-bottom: 0px;
 }
 
 .price {
@@ -204,12 +230,16 @@ button:focus {
   border-left: 5px solid #cdaa8a;
   padding-left: 12px;
   text-align: right;
+  margin-bottom: 0px;
 }
 
 .tastingBg {
-  margin-top: 60px;
   height: 700px;
   background-color: #ffeed3;
+}
+
+.tastingTitle {
+  font-size: 48px;
 }
 
 .tastingText {
@@ -225,26 +255,34 @@ button:focus {
   background-size: cover;
   height: 500px;
   right: 0px;
-  top: 220px;
+  top: 100px;
 }
 
 .experientBg {
-  margin-top: 60px;
   height: 700px;
   background-color: #ffeed3;
   right: 0px;
 }
 
 .experientImg {
-  background-image: url(http://localhost:3000/img/TastingImg.jpg);
+  background-image: url(http://localhost:3000/img/HandmadeImg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 500px;
   left: 0px;
-  top: 220px;
+  top: 100px;
 }
 
-.k_btn {
+.workshoptImg {
+  background-image: url(http://localhost:3000/img/WorkshopImg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+  right: 0px;
+  top: 100px;
+}
+
+p.k_btn {
   position: relative;
   padding: 0 24px 12px;
   border: none;
@@ -254,7 +292,7 @@ button:focus {
   margin-top: 30px;
 }
 
-.k_btn:hover .btn-style {
+p.k_btn:hover .btn-style {
   top: 30px;
   left: 50%;
   transform: translateX(-50%);
@@ -272,13 +310,14 @@ button:focus {
   transition: 0.7s ease;
 }
 
-a.k_btn {
+p.k_btn {
   font-weight: 300;
   letter-spacing: 1.8px;
   color: #250404;
   text-decoration: none;
   font-size: 14px;
   line-height: 17px;
+  font-family: 'Noto Sans TC';
 }
 
 html,
@@ -299,6 +338,26 @@ body {
 }
 
 @media screen and (max-width: 575.98px) {
+  .container {
+    margin-bottom: 15px;
+  }
+
+  .searchTitleText {
+    font-size: 30px;
+    color: #cdaa8a;
+    font-family: 'Noto Serif TC';
+    font-weight: bold;
+    letter-spacing: 0.1em;
+  }
+
+  .hitTitle {
+    font-size: 30px;
+    color: #cdaa8a;
+    font-family: 'Noto Serif TC';
+    font-weight: bold;
+    letter-spacing: 0.1em;
+  }
+
   h2 {
     font-size: 30px;
     color: #cdaa8a;
