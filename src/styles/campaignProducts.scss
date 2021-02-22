@@ -1,24 +1,33 @@
-
+a {
+  color: none;
+  text-decoration: none;
+}
 
 .btnText {
-  font-family: "Noto Sans TC";
+  font-family: 'Noto Sans TC';
   font-size: 14px;
   font-weight: lighter;
   letter-spacing: 3px;
 }
 
+.breadcrumbFinn {
+  margin-bottom: 0px;
+}
+
 .breadcrumb {
   background: none;
+  background-color: white !important;
   margin: 30px 0px;
-  padding: 0px;
+  padding: 0px !important;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
   display: inline-block;
   padding-right: 0.5rem;
   padding-left: 0.5rem;
+  margin-top: 8px;
   color: #636c72;
-  content: "＞";
+  content: '＞';
   font-size: 12px;
 }
 
@@ -30,24 +39,24 @@ li.breadcrumb-item a {
   font-size: 12px;
   text-decoration: none;
   color: #cdaa8a;
-  font-family: "Noto Sans TC";
+  font-family: 'Noto Sans TC';
   letter-spacing: 3px;
 }
 li.breadcrumb-item span {
-  font-family: "Noto Sans TC";
+  font-family: 'Noto Sans TC';
   letter-spacing: 3px;
   font-size: 12px;
 }
 
-.searchResultText{
+.searchResultText {
   margin-bottom: 30px;
 }
 
-.searchResult{
+.searchResult {
   color: #cdaa8a;
 }
 
-.searchResult::before{
+.searchResult::before {
   margin-right: 0.25em;
   display: inline-block;
   color: #250404;
@@ -56,7 +65,7 @@ li.breadcrumb-item span {
   content: '“';
 }
 
-.searchResult::after{
+.searchResult::after {
   margin-left: 0.25em;
   display: inline-block;
   color: #250404;
@@ -65,9 +74,8 @@ li.breadcrumb-item span {
   content: '”';
 }
 
-.countResult{
+.countResult {
   color: #cdaa8a;
-  
 }
 
 .categoryGroup {
@@ -77,18 +85,23 @@ li.breadcrumb-item span {
   color: #250404;
 }
 
-.categoryHeading{
+.btn:focus {
+  outline: 0px;
+}
+
+.btn.categoryHeading {
   padding: 0;
   color: #250404;
 }
-.btn-link>h5{
+.btn-link > h5 {
   color: #250404;
 }
 
-.btn-link:hover{
+.btn.btn-link:hover {
   color: #250404;
 }
 .categoryTitle {
+  font-size: 16px;
   font-weight: bold;
   margin-bottom: 20px;
   padding: 0px 30px;
@@ -99,11 +112,16 @@ li.breadcrumb-item span {
   background-color: #ffeed3;
   border: 0px;
   text-align: left;
-  font-family: "Noto Sans TC";
+  font-family: 'Noto Sans TC';
   font-size: 14px;
   font-weight: lighter;
   letter-spacing: 3px;
   cursor: pointer;
+}
+
+.categoryBtn:focus {
+  background-color: #cdaa8a;
+  font-weight: bold;
 }
 
 .categoryBtn:hover {
@@ -116,6 +134,10 @@ li.breadcrumb-item span {
   font-weight: bold;
 }
 
+.collapseFinn.show {
+  background-color: #ffeed3;
+}
+
 .categoryRange {
   color: #250404;
   background-color: #ffeed3;
@@ -123,52 +145,54 @@ li.breadcrumb-item span {
 }
 
 .categoryRange form h5 {
+  font-size: 16px;
   margin-bottom: 6px;
-
 }
 
-#priceRangeMin {
+input#priceRangeMin {
   width: 40%;
   height: 46px;
   border-radius: 0;
   border: 1px solid #250404;
   padding-left: 15px;
   background: none;
-  font-family: "Noto Serif TC";
+  font-family: 'Noto Serif TC';
   font-size: 14px;
   letter-spacing: 0.05rem;
 }
 
-
-#priceRangeMin:focus{
+#priceRangeMin:focus {
   outline: 0px;
 }
 
-#priceRangeMax{
+#priceRangeMax {
   width: 40%;
   height: 46px;
   border-radius: 0;
   border: 1px solid #250404;
   padding-left: 15px;
   background: none;
-  font-family: "Noto Serif TC";
+  font-family: 'Noto Serif TC';
   font-size: 14px;
   letter-spacing: 0.05rem;
 }
-#priceRangeMax:focus{
+#priceRangeMax:focus {
   outline: 0px;
 }
 
-.before::after{
+.before::after {
   display: inline-block;
   padding-right: 0.5rem;
   padding-left: 0.5rem;
   color: #250404;
-  content: "～";
+  content: '～';
   font-size: 16px;
   font-weight: bold;
   padding-top: 10px;
+}
 
+.rangeBtn {
+  background-color: #250404;
 }
 
 .sortBar {
@@ -196,7 +220,7 @@ li.breadcrumb-item span {
 .sortBar ol li a {
   text-decoration: none;
   color: #250404;
-  font-family: "Noto Sans TC";
+  font-family: 'Noto Sans TC';
   font-size: 14px;
   font-weight: lighter;
   letter-spacing: 3px;
@@ -205,7 +229,7 @@ li.breadcrumb-item span {
 .sortBar ol li a:hover {
   text-decoration: none;
   color: #cdaa8a;
-  font-family: "Noto Sans TC";
+  font-family: 'Noto Sans TC';
   font-size: 14px;
   font-weight: lighter;
   letter-spacing: 3px;
@@ -214,7 +238,7 @@ li.breadcrumb-item span {
 .sortBar ol li.active a {
   text-decoration: none;
   color: #250404;
-  font-family: "Noto Sans TC";
+  font-family: 'Noto Sans TC';
   font-size: 14px;
   font-weight: bold;
   letter-spacing: 3px;
@@ -225,7 +249,37 @@ li.breadcrumb-item span {
   padding-right: 0.8rem;
   padding-left: 0.8rem;
   color: #250404;
-  content: "|";
+  content: '|';
+}
+
+.sortItem > h5 {
+  font-size: 16px;
+}
+
+.sortItem {
+  font-size: 14px;
+  font-family: 'Noto Sans TC';
+  color: #250404;
+  font-weight: lighter;
+  cursor: pointer;
+  letter-spacing: 0.2em;
+}
+
+.sortItem:hover {
+  font-size: 14px;
+  font-family: 'Noto Sans TC';
+  color: #cdaa8a;
+  font-weight: lighter;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+}
+
+.sortItem.active {
+  color: #250404;
+  font-family: 'Noto Sans TC';
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.2em;
 }
 
 .campaignCardBig {
@@ -241,13 +295,11 @@ li.breadcrumb-item span {
 }
 
 .cardBigImg {
-  background-image: url("../img/CardBigImg.png");
+  background-image: url(http://localhost:3000/img/CardBigImg.png);
   background-position: center center;
   background-repeat: no-repeat;
   width: 40%;
   background-size: cover;
-  
-
 }
 
 .cardBigText {
@@ -255,30 +307,49 @@ li.breadcrumb-item span {
   padding: 30px;
 }
 
-.heart{
-  top: 0;
-  right: 0;
+.heart {
+  top: 10px;
+  right: 15px;
   padding-right: 15px;
   padding-top: 15px;
   color: #636c72;
-
 }
 
-.heart:hover{
-  top: 0;
-  right: 0;
+.heart:hover {
+  top: 10px;
+  right: 15px;
   padding-right: 15px;
   padding-top: 15px;
   color: #d67b76;
-
 }
 
 .cardBigTag {
   width: 70px;
   height: 20px;
+  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.cardBigTag1 {
+  width: 70px;
+  height: 20px;
   background-color: #d67b76;
   margin-bottom: 10px;
-  font-family: "Noto Sans TC";
+  font-family: 'Noto Sans TC';
+  font-size: 10px;
+  text-align: center;
+  color: white;
+  font-weight: lighter;
+  letter-spacing: 0.075rem;
+  margin-right: 10px;
+}
+
+.cardBigTag2 {
+  width: 70px;
+  height: 20px;
+  background-color: #cdaa8a;
+  margin-bottom: 10px;
+  font-family: 'Noto Sans TC';
   font-size: 10px;
   text-align: center;
   color: white;
@@ -291,7 +362,7 @@ li.breadcrumb-item span {
 }
 
 .cardBigContent > p {
-  font-family: "Noto Serif TC";
+  font-family: 'Noto Serif TC';
   color: #636c72;
   font-size: 12px;
   letter-spacing: 0.075rem;
@@ -304,46 +375,66 @@ li.breadcrumb-item span {
 
 .cardBigContent > .location {
   margin-bottom: 8px;
-  font-family: "Noto Sans TC";
+  font-family: 'Noto Sans TC';
   font-weight: lighter;
   letter-spacing: 0.15rem;
 }
 
 .cardBigContent > .calendar {
   margin-bottom: 8px;
-  font-family: "Noto Sans TC";
+  font-family: 'Noto Sans TC';
   font-weight: lighter;
   letter-spacing: 0.15rem;
 }
 
-.cardBigContent > .stars {
+.starsFinn {
   font-size: 14px;
   color: #cdaa8a;
-  letter-spacing: 1px;
 }
 
-@media screen and (max-width: 575.98px) { 
-  
+.starsFinn > svg {
+  margin-right: 0.2em;
+}
 
-  .breadcrumb{
+.starsFinn > span {
+  font-size: 14px;
+  color: #250404;
+  letter-spacing: 0.1em;
+}
+
+.starsFinn > span::before {
+  display: inline-block;
+  content: '(';
+  color: #250404;
+  font-size: 14px;
+  margin-right: 0.2em;
+}
+
+.starsFinn > span::after {
+  display: inline-block;
+  content: ')';
+  color: #250404;
+  font-size: 14px;
+  margin-left: 0.2em;
+}
+
+@media screen and (max-width: 575.98px) {
+  .breadcrumb {
     margin: 5px 0;
   }
 
-  .searchBar{
+  .searchBar {
     margin-bottom: 15px;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 16%) ; 
-    font-family: "Noto Serif TC";
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 16%);
+    font-family: 'Noto Serif TC';
   }
 
-  .categoryGroup{
+  .categoryGroup {
     margin-bottom: 15px;
-  } 
+  }
 
-  
-
-  
-  .categoryBtn{
-    background-color:rgba(199, 171, 142, 15%) ;
+  .categoryBtn {
+    background-color: rgba(199, 171, 142, 15%);
     width: 30%;
     text-align: center;
     font-size: 12px;
@@ -351,29 +442,29 @@ li.breadcrumb-item span {
     padding: 10px 20px;
     transition: 0.5s;
   }
- 
-  .categoryRange{
+
+  .categoryRange {
     margin-bottom: 15px;
   }
 
-  .sortBarPhoneBtn{
+  .sortBarPhoneBtn {
     color: #250404;
     font-size: 12px;
-    font-family: "Noto Serif TC";
+    font-family: 'Noto Serif TC';
     font-weight: bold;
     background: none;
     border: none;
     margin-bottom: 5px;
   }
 
-  .sortBarPhoneBtn:focus{
+  .sortBarPhoneBtn:focus {
     outline: none;
     box-shadow: none;
     background-color: #ffeed3;
     border-radius: 0px;
   }
 
-  .sortBarPhoneMenu{
+  .sortBarPhoneMenu {
     transform: translate3d(179px, 33px, 0px) !important;
     min-width: 166px;
     padding: 0;
@@ -381,53 +472,51 @@ li.breadcrumb-item span {
     border-radius: 0px;
     border: 0px;
     background-color: #ffeed3;
-    font-family: "Noto Noto TC";
+    font-family: 'Noto Noto TC';
     font-size: 12px;
     font-weight: lighter;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 16%) ; 
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 16%);
   }
 
-  .dropdown-toggle::after{
+  .dropdown-toggle::after {
     color: #250404;
-
   }
 
-  .sortBarPhoneItem{
-    padding: 8px ;
+  .sortBarPhoneItem {
+    padding: 8px;
     color: #250404;
     letter-spacing: 0.2em;
     font-weight: lighter;
   }
 
-  .sortBarPhoneItem.active{
+  .sortBarPhoneItem.active {
     background-color: #cdaa8a;
     border-radius: 0px;
     color: #250404;
     font-weight: bold;
   }
 
-  .sortBarPhoneItem:focus{
+  .sortBarPhoneItem:focus {
     background-color: #cdaa8a;
     border-radius: 0px;
     color: #250404;
     font-weight: bold;
   }
 
-  .cardBigImg{
+  .cardBigImg {
     background-position: center -10px;
     height: 180px;
   }
 
-  .heart{
+  .heart {
     padding: 5px;
   }
 
-  .heart:hover{
+  .heart:hover {
     padding: 5px;
-    
   }
 
-  .cardBigText{
+  .cardBigText {
     padding: 20px;
   }
 }

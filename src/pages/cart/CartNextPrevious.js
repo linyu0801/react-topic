@@ -2,17 +2,26 @@ import { withRouter } from 'react-router-dom'
 function CartNextPrevious(props) {
   const {
     form1,
+    inputs,
+    seletedOption,
+    seletedPaymentType,
+    seletedOptionCardMonth,
+    seletedOptionCardYear,
     cartStep,
     setCartStep,
     cartCate,
     setCartCate,
-    inputs,
-    seletedOption,
-    seletedOptionCardMonth,
-    seletedOptionCardYear,
   } = props
 
-  console.log(JSON.stringify(form1))
+  const data = {
+    ...form1,
+    payment_type: seletedPaymentType,
+    designated_period: seletedOption,
+    creditCardExpireMonth: seletedOptionCardMonth,
+    creditCardExpireYear: seletedOptionCardYear,
+  }
+
+  console.log(JSON.stringify(data.username))
 
   return (
     <>
@@ -73,12 +82,13 @@ function CartNextPrevious(props) {
                   setCartStep('step3')
                   fetch('http://localhost:4000/Cart1Content2', {
                     method: 'POST',
-                    body: JSON.stringify(inputs),
+                    body: JSON.stringify(data),
                     credentials: 'include',
                     headers: {
                       'Content-type': 'application/json; charset=UTF-8',
                     },
                   })
+                    .then(console.log('送出' + JSON.stringify(data)))
                     .then((r) => r.json())
                     .then((obj) => {
                       console.log(obj)

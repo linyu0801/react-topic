@@ -1,275 +1,267 @@
-.wrapper-navbar{
- height: 100px;
+.wrapper-navbar {
+  height: 100px;
 }
 
-
-.carousel{
-    margin-bottom: 60px;
+.carousel-inner {
+  height: 600px;
 }
 
-.carousel-inner{
-    height: 600px;
+.carousel-item {
+  height: 100%;
 }
 
-.carousel-item{
-    height: 100%;
+.carousel-item > img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
 }
 
-.carousel-item>img{
-    height: 100%;
-    object-fit:cover;
-    object-position: center center;
+.productTitle {
+  margin-bottom: 20px;
 }
 
-.productInfoContent{
-    margin-bottom: 90px;
-}
-             
-.productTitle{
-    margin-bottom: 20px;
+.productReviews {
+  font-size: 16px;
 }
 
-.productReviews{
+.reviewsNum {
+  color: #cdaa8a;
+}
+
+.heart {
+  padding: 0;
+  font-size: 24px;
+}
+
+.heart:hover {
+  padding: 0;
+  font-size: 24px;
+}
+
+.productTimeLocation {
+  margin-bottom: 30px;
+}
+
+.productTimeLocation > p {
+  padding: 20px 0;
+  font-family: 'Noto Sans TC';
+  font-size: 14px;
+  font-weight: lighter;
+  letter-spacing: 0.1em;
+  border-top: 1px solid #cdaa8a;
+  border-bottom: 1px solid #cdaa8a;
+}
+
+.porductContent {
+  border-bottom: 1px solid #cdaa8a;
+}
+
+.porductContent > h4 {
+  border-left: 5px solid #cdaa8a;
+  padding-left: 15px;
+  margin-bottom: 15px;
+}
+
+.noticed {
+  background-color: #ffeed3;
+  padding: 15px 30px;
+}
+
+.locationContent {
+  background-color: #ffeed3;
+  padding: 15px 30px;
+  margin-bottom: 15px;
+}
+
+.locationContent > h5 {
+  margin-bottom: 7.5px;
+}
+
+.caption {
+  color: #bebebe;
+  font-size: 12px;
+}
+
+.sticky-top {
+  top: 130px;
+}
+
+.addToCartCard {
+  background-color: #ffeed3;
+  padding: 20px 30px;
+  margin-bottom: 30px;
+}
+
+.addToCartCard > p {
+  font-size: 14px;
+  color: #707070;
+  margin-bottom: 15px;
+  letter-spacing: 0.1em;
+}
+
+.addToCartCard > h5 {
+  margin-bottom: 18px;
+}
+
+.calendar {
+  font-family: 'Noto Sans TC';
+}
+
+.addToCartBtn {
+  width: 100%;
+  border: none;
+  background-color: #cdaa8a;
+  padding: 15px;
+  color: #250404;
+  font-size: 14px;
+  font-family: 'Noto Sans TC';
+  letter-spacing: 0.2em;
+  font-weight: lighter;
+  cursor: pointer;
+  transition: 0.5s;
+  margin-top: 5px;
+}
+
+.addToCartBtn:hover {
+  background-color: #250404;
+  color: white;
+}
+
+.porductContentList.list-group {
+  background-color: #ffeed3;
+  border-radius: 0px;
+}
+
+.porductContentListItem.list-group-item {
+  font-size: 14px;
+  font-family: 'Noto Sans TC';
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: #250404;
+  background-color: #ffeed3;
+  border: 0px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.porductContentListItem.list-group-item:hover {
+  font-weight: bold;
+  color: #250404;
+  border-radius: 0px;
+  background-color: #cdaa8a;
+  border: 0px;
+  border-left: 10px solid #250404;
+  padding-left: 15px;
+}
+.porductContentListItem:focus {
+  font-weight: bold;
+  color: #250404;
+  border-radius: 0px;
+  background-color: #cdaa8a;
+  border: 0px;
+  border-left: 10px solid #250404;
+  padding-left: 15px;
+}
+
+.porductContentListItem.active {
+  font-weight: bold;
+  color: #250404;
+  border-radius: 0px;
+  background-color: #cdaa8a;
+  border: 0px;
+  border-left: 10px solid #250404;
+  padding-left: 15px;
+}
+
+.more_finn {
+  color: #cdaa8a;
+  font-weight: bold;
+}
+
+svg.star {
+  font-size: 14px;
+  margin-right: 0.3em;
+  margin-bottom: 0px;
+}
+
+@media screen and (max-width: 575.98px) {
+  h4 {
     font-size: 16px;
-}
+  }
 
-.reviewsNum{
-    color: #cdaa8a;
-}
+  p {
+    margin-bottom: 15px;
+  }
 
-.heart{
+  .wrapper-navbar {
+    height: 70px;
+  }
+
+  .carouselRow {
     padding: 0;
-    font-size: 24px;
-}
+  }
 
-.heart:hover{
-    padding: 0;
-    font-size: 24px;
-}
+  .carousel-inner {
+    height: 250px;
+  }
 
-.productTimeLocation{
-    margin-bottom: 30px;
-}
-
-.productTimeLocation>p{
-    padding: 20px 0;
-    font-family: "Noto Sans TC";
-    font-size: 14px;
-    font-weight: lighter;
-    letter-spacing: 0.1em;
-    border-top: 1px solid #cdaa8a;
-    border-bottom: 1px solid #cdaa8a;
-}
-
-.porductContent{
-    border-bottom: 1px solid #cdaa8a;
-}
-
-.porductContent>h4{
-    border-left: 5px solid #cdaa8a;
-    padding-left: 15px;
+  .carousel {
     margin-bottom: 15px;
-}
+  }
 
-.noticed{
-    background-color: #ffeed3;
-    padding: 15px 30px;
-}
+  .productReviews {
+    margin-bottom: 10px;
+  }
 
-.locationContent{
-    background-color: #ffeed3;
-    padding: 15px 30px;
-    margin-bottom: 15px;
-}
-
-
-.locationContent>h5{
-    margin-bottom: 7.5px;
-}
-
-.caption{
-    color: #BEBEBE;
-    font-size: 12px;
-}
-
-.sticky-top{
-    top: 130px;
-}
-
-.addToCartCard{
-    background-color: #ffeed3;
-    padding: 20px 30px ;
-    margin-bottom: 30px;
-}
-
-.addToCartCard>p{
-    font-size: 14px;
-    color: #707070;
-    margin-bottom: 15px;
-    letter-spacing: 0.1em;
-}
-
-.addToCartCard>h5{
-    margin-bottom: 18px;
-}
-
-.calendar{
-    font-family: "Noto Sans TC";
-}
-
-.addToCartBtn{
-    width: 100%;
-    border: none;
-    background-color: #cdaa8a;
-    padding: 15px;
-    color: #250404;
-    font-size: 14px;
-    font-family: "Noto Sans TC";
-    letter-spacing: 0.2em;
-    font-weight: lighter;
-    cursor: pointer;
-    transition: 0.5s;
-    margin-top: 5px;
-}
-
-.addToCartBtn:hover{
-    background-color: #250404;
-    color: white;
-}
-
-
-.porductContentList{
-    background-color: #ffeed3;
-    
-}
-
-.porductContentListItem{
-    font-size: 14px;
-    font-family: "Noto Sans TC";
-    font-weight: 300;
-    letter-spacing: 0.1em;
-    color: #250404;
-    background-color: #ffeed3;
-    border: 0px;
-    padding-top: 15px ;
-    padding-bottom: 15px;
-    text-align: center;
-}
-
-.porductContentListItem:hover{
-    font-weight: bold;
-    color: #250404;
-    border-radius: 0px;
-    background-color: #cdaa8a;
-    border: 0px;
-    border-left: 10px solid #250404;
-    padding-left: 15px;
-    
-    
-}
-.porductContentListItem:focus{
-    font-weight: bold;
-    color: #250404;
-    border-radius: 0px;
-    background-color: #cdaa8a;
-    border: 0px;
-    border-left: 10px solid #250404;
-    padding-left: 15px;
-    
-}
-
-.porductContentListItem.active{
-    font-weight: bold;
-    color: #250404;
-    border-radius: 0px;
-    background-color: #cdaa8a;
-    border: 0px;
-    border-left: 10px solid #250404;
-    padding-left: 15px;
-}
-
-.more{
+  .stars {
     color: #cdaa8a;
+    margin-bottom: 20px;
+  }
+
+  .productTimeLocation > p {
+    padding: 15px 0px;
+  }
+
+  iframe {
+    height: 350px;
+  }
+
+  .productInfoContent {
     margin-bottom: 30px;
-}
+  }
 
-@media screen and (max-width: 575.98px) { 
-    h4{
-        font-size: 16px;
-    }
+  .addToCartCardPhone {
+    background-color: #ffeed3;
+    padding: 15px 20px;
+    opacity: 85%;
+  }
 
-    p{
-        margin-bottom: 15px;
-    }
+  .addToCartCardPhone > .d-flex > p {
+    margin-bottom: 0px;
+  }
 
-    .wrapper-navbar{
-        height: 70px;
-    }
+  .addToCartCardPhone > .d-flex > h4 {
+    margin-bottom: 0;
+  }
 
-    .carouselRow{
-        padding: 0;
-    }
+  .addToCartCardPhone > .d-flex > h4::before {
+    display: inline-block;
+    margin: 0 10px;
+    content: '$';
+    font-family: 'Noto Serif TC';
+  }
 
-    .carousel-inner{
-        height: 250px;
-    }
-    
-    .carousel{
-        margin-bottom: 15px;
-    }
+  .addToCartCardPhone > .d-flex > .calendar {
+    font-size: 14px;
+  }
 
-    .productReviews{
-        margin-bottom: 10px;
-    }
+  .addToCartBtn {
+    margin-top: 0px;
+  }
 
-    .productReviews>p{
-        margin-bottom: 0px;
-    }
-
-    .productTimeLocation>p{
-        padding: 15px 0px;
-    }
-
-    iframe{
-        height: 350px;
-    }
-
-    .productInfoContent{
-        margin-bottom: 30px;
-    }
-
-    .addToCartCardPhone{
-        background-color: #ffeed3;
-        padding: 15px 20px;
-        opacity: 85%;
-    }
-
-    .addToCartCardPhone>.d-flex>p{
-        margin-bottom: 0px;
-    }
-
-    .addToCartCardPhone>.d-flex>h4{
-        margin-bottom: 0;
-    }
-
-    .addToCartCardPhone>.d-flex>h4::before{
-        display: inline-block;
-        margin: 0 10px;
-        content: "$";
-        font-family: "Noto Serif TC";
-    }
-
-    .addToCartCardPhone>.d-flex>.calendar{
-        font-size: 14px;
-        
-    }
-
-    .addToCartBtn{
-        margin-top: 0px;
-    }
-
-    .wrapper-footer{
-        height: 102px;
-        margin: 0 auto -102px;
-    }
+  .wrapper-footer {
+    height: 102px;
+    margin: 0 auto -102px;
+  }
 }
