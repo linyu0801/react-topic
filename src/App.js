@@ -1,6 +1,6 @@
 // 使用套件
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import React from 'react'
+import React, { useState } from 'react'
 
 // 頁面用元件
 import MemberEdit from './pages/member/MemberEdit'
@@ -51,6 +51,7 @@ export const ThemeContext = React.createContext(themes.light)
 function App() {
   // const [login, setLogin] = useState(false)
   // const [themeNow, setThemeNow] = useState(themes.light)
+  const [textInput, setTextInput] = useState([])
 
   return (
     <Router>
@@ -114,16 +115,19 @@ function App() {
                 <MainProductDetailTest2 />
               </Route>
               <Route path="/StudioRent/StudioOrder">
-                <StudioOrder />
+                <StudioOrder
+                  textInput={textInput}
+                  setTextInput={setTextInput}
+                />
               </Route>
               <Route path="/StudioRent/StudioIntro1">
-                <StudioIntro1 />
+                <StudioIntro1 textInput={textInput} />
               </Route>
               <Route path="/StudioRent/StudioIntro2">
-                <StudioIntro2 />
+                <StudioIntro2 textInput={textInput} />
               </Route>
               <Route path="/StudioRent/StudioIntro3">
-                <StudioIntro3 />
+                <StudioIntro3 textInput={textInput} />
               </Route>
 
               <Route path="*">
