@@ -31,7 +31,7 @@ function Cart1Content1(props) {
         })
         setCartTotal(newPrice)
         // setPriceTotal(newPrice)
-        console.log(newPrice)
+        // console.log(newPrice)
       })
       .catch((error) => {
         setError(error)
@@ -73,7 +73,7 @@ function Cart1Content1(props) {
           'Content-type': 'application/json; charset=UTF-8',
         },
       })
-      console.log(res)
+      // console.log(res)
       fetchCart()
     } catch (err) {
       console.log(err)

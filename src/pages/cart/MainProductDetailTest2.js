@@ -4,10 +4,10 @@ import { MdRemove } from 'react-icons/md'
 import { useState, Link } from 'react'
 import { MdAdd } from 'react-icons/md'
 import { MdFavoriteBorder } from 'react-icons/md'
-import ProductAccordion from '../../components/ProductAccordion'
+// import ProductAccordion from '../../components/ProductAccordion'
 
 function MainProductDetailTest2(props) {
-  const { inputs } = props
+  // const { inputs } = props
   const [cartQuantity, setCartQuantity] = useState(1)
   const addToCart = async (id, quantity) => {
     try {
@@ -104,9 +104,9 @@ function MainProductDetailTest2(props) {
             </h5>
           </div>
         </div>
-        <div className="accordion">
+        {/* <div className="accordion">
           <ProductAccordion />
-        </div>
+        </div> */}
       </div>
       <div className="more-info">
         <h4 className="more container">更多蛋糕</h4>

@@ -1,4 +1,25 @@
+import { useState, useEffect } from 'react'
+
 function Cart1Content3(props) {
+  const [orders1, setOrders1] = useState('')
+  async function fetchOrder() {
+    const res = await fetch('http://localhost:4000/cart1Thanks', {
+      credentials: 'include',
+    })
+    res
+      .json()
+      .then((res) => {
+        setOrders1(res)
+
+        console.log(orders1)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+  useEffect(() => {
+    fetchOrder()
+  }, [])
   return (
     <>
       <div className="row">
@@ -11,7 +32,7 @@ function Cart1Content3(props) {
 
       <div className="row">
         <div className="col d-flex justify-content-center">
-          <table class="hy-table">
+          <table className="hy-table">
             <tr>
               <td className="text-right">訂購人姓名</td>
               <td className="pl-2">123</td>
@@ -52,7 +73,7 @@ function Cart1Content3(props) {
       </div>
       <div className="row">
         <div className="col d-flex justify-content-center">
-          <table class="hy-table">
+          <table className="hy-table">
             <tr>
               <td className="text-right">付款方式</td>
               <td className="pl-2">信用卡一次付清</td>
