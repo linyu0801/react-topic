@@ -3,7 +3,7 @@ import '../../styles/campaignIndex.scss'
 import '../../styles/campaignProducts.scss'
 import '../../styles/campaignProductInfo.scss'
 import '../../styles/font.scss'
-import { Carousel, Row, Col } from 'react-bootstrap'
+import { Carousel, Row, Col, ListGroupItem } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faMapMarkerAlt,
@@ -18,6 +18,8 @@ import Iframe from 'react-iframe'
 import { far } from '@fortawesome/free-regular-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { withRouter, Link } from 'react-router-dom'
+import Scrollspy from 'react-scrollspy'
+import { ListGroup } from 'reactstrap'
 
 function CampaignProductsInfo(props) {
   const [campaignProduct, setCampaignProduct] = useState([])
@@ -232,10 +234,12 @@ function CampaignProductsInfo(props) {
                 <div className="porductContent">
                   <h4 id="list-item-1">商品說明</h4>
                   <h4 id="list-item-2">行程介紹</h4>
-                  <h4 id="list-item-3">購買須知</h4>
-                  <p className="noticed">・{v.notice}</p>
-                  <h4 id="list-item-4">體驗地點</h4>
-                  <div className="locationContent">
+                  <h4>購買須知</h4>
+                  <p className="noticed" id="list-item-3">
+                    ・{v.notice}
+                  </p>
+                  <h4>體驗地點</h4>
+                  <div className="locationContent" id="list-item-4">
                     <h5>醉糕品味 大安店</h5>
                     <p>{v.address}</p>
                     <hr />
@@ -276,41 +280,58 @@ function CampaignProductsInfo(props) {
                     </p>
                     <button className="addToCartBtn">加入購物車</button>
                   </div>
-                  <div
-                    id="list-example"
+                  <Scrollspy
                     className=" porductContentList list-group d-none d-sm-block"
+                    items={[
+                      'list-item-1',
+                      'list-item-2',
+                      'list-item-3',
+                      'list-item-4',
+                      'list-item-5',
+                    ]}
+                    currentClassName="active"
                   >
-                    <a
-                      className="porductContentListItem list-group-item list-group-item-action"
-                      href="#list-item-1"
-                    >
-                      商品說明
-                    </a>
-                    <a
-                      className="porductContentListItem list-group-item list-group-item-action"
-                      href="#list-item-2"
-                    >
-                      行程介紹
-                    </a>
-                    <a
-                      className="porductContentListItem list-group-item list-group-item-action"
-                      href="#list-item-3"
-                    >
-                      購買須知
-                    </a>
-                    <a
-                      className="porductContentListItem list-group-item list-group-item-action"
-                      href="#list-item-4"
-                    >
-                      體驗地點
-                    </a>
-                    <a
-                      className="porductContentListItem list-group-item list-group-item-action"
-                      href="#list-item-5"
-                    >
-                      如何取消
-                    </a>
-                  </div>
+                    <li>
+                      <a
+                        className="porductContentListItem list-group-item list-group-item-action"
+                        href="#list-item-1"
+                      >
+                        商品說明
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="porductContentListItem list-group-item list-group-item-action"
+                        href="#list-item-2"
+                      >
+                        行程介紹
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="porductContentListItem list-group-item list-group-item-action"
+                        href="#list-item-3"
+                      >
+                        購買須知
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="porductContentListItem list-group-item list-group-item-action"
+                        href="#list-item-4"
+                      >
+                        體驗地點
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="porductContentListItem list-group-item list-group-item-action"
+                        href="#list-item-5"
+                      >
+                        如何取消
+                      </a>
+                    </li>
+                  </Scrollspy>
                 </div>
               </div>
             </div>

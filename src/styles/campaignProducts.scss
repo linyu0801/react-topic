@@ -144,7 +144,7 @@ li.breadcrumb-item span {
   padding: 20px 30px;
 }
 
-.categoryRange form h5 {
+.categoryRange h5 {
   font-size: 16px;
   margin-bottom: 6px;
 }
@@ -193,6 +193,16 @@ input#priceRangeMin {
 
 .rangeBtn {
   background-color: #250404;
+}
+
+.rangeBtnFinn {
+  margin-top: 10px;
+  background-color: #cdaa8a;
+  color: #250404;
+  border: none;
+  font-size: 14px;
+  padding: 10px 15px;
+  letter-spacing: 0.1em;
 }
 
 .sortBar {
