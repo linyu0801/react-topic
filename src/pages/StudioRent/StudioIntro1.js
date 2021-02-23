@@ -8,10 +8,12 @@ import { Slide } from 'react-slideshow-image'
 import { Link } from 'react-router-dom'
 import $ from 'jquery'
 
-function StudioIntro1() {
+function StudioIntro1(props) {
   const [textNumber, setTextNumber] = useState('')
   const [selectedTime, setSeletedTime] = useState('')
   const [selectedDate, setSeletedDate] = useState('')
+  const { textInput } = props
+
   useEffect(() => {
     if (selectedTime === '09:00-12:00AM') {
       $('#cost').text('6000')
@@ -41,8 +43,11 @@ function StudioIntro1() {
   //   fetchdata()
   // }, [])
 
-
   // {data[].product}用法
+  $('#decor').on('scroll', function () {
+    $('#decor').width(600)
+  })
+
   return (
     <>
       <div className="container">
@@ -119,7 +124,7 @@ function StudioIntro1() {
                   <input
                     className="w-100 clpub-input"
                     type="date"
-                    value={selectedDate}
+                    value={textInput}
                     onChange={(e) => {
                       setSeletedDate(e.target.value)
                     }}
@@ -161,7 +166,7 @@ function StudioIntro1() {
                       <li className="clcount">日期:</li>
                       <span className="clorder">
                         <i className="fas fa-dollar-sign"></i>
-                        {selectedDate}
+                        {textInput}
                       </span>
                     </ul>
                     <ul className=" orderNumber d-flex justify-content-between">
@@ -242,6 +247,11 @@ function StudioIntro1() {
           className="decroBall2"
           alt="..."
         />
+        <img
+          src="http://localhost:3000/climage/goldenRing.png"
+          className="decroBall5"
+          alt="..."
+        />
       </div>
       <div className="decor">
         <img
@@ -255,6 +265,7 @@ function StudioIntro1() {
         <h2>位置</h2>
         <h5>台北市中山區</h5>
       </div>
+
       <Iframe
         url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28921.748837063966!2d121.52633635186135!3d25.026654349312864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd97fd43ab8f8df12!2zTWFyb2NvX-mmrOi3r-WPo-eDmOeEmeWwj-iIlg!5e0!3m2!1szh-TW!2stw!4v1613531489632!5m2!1szh-TW!2stw"
         height={450}

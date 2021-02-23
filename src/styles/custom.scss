@@ -41,9 +41,8 @@ ol.carousel-indicators li {
 }
 
 /*K：客製化手風琴元件*/
-.accordion > .card{
+.accordion > .card {
   border: none;
-  
 }
 .accordion > .card > .card-header {
   padding: 0;
@@ -51,9 +50,14 @@ ol.carousel-indicators li {
   border-bottom: 1px solid #cdaa8a;
 }
 
+.accordion > .card >.collapse >.card-body{
+  background-color: white;
+}
+
+//------------------
+
 .carouselFinn {
   height: 600px;
-  margin-bottom: 60px;
 }
 
 .carousel-item-finn {

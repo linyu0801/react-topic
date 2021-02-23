@@ -73,61 +73,95 @@ function MyNavbar(props) {
               關於我們
             </Nav.Link>
             <Nav className="nav-between nav-member alex-padding">
-              <NavDropdown title="個人資訊" id="nav-member">
-                <NavDropdown.Item
-                  as={NavLink}
-                  to="/member/edit"
-                  className="nav-ul"
+              <NavDropdown.Divider />
+
+              <NavDropdown title="會員中心" id="nav-member">
+                <NavDropdown
+                  title="個人資訊"
+                  id="nav-member"
+                  className="nav-member-link"
                 >
-                  編輯個人資訊
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  as={NavLink}
-                  to="/member/editpassword"
-                  className="nav-ul"
+                  <NavDropdown.Item
+                    as={NavLink}
+                    to="/member/edit"
+                    className="nav-ul "
+                  >
+                    編輯個人資訊
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    as={NavLink}
+                    to="/member/editpassword"
+                    className="nav-ul"
+                  >
+                    更改密碼
+                  </NavDropdown.Item>
+                </NavDropdown>
+                <NavDropdown
+                  title="收藏清單"
+                  id="nav-member"
+                  className="nav-member-link"
                 >
-                  更改密碼
-                </NavDropdown.Item>
+                  <NavDropdown.Item
+                    as={NavLink}
+                    to="/member/fav-product"
+                    className="nav-ul"
+                  >
+                    商品收藏
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    as={NavLink}
+                    to="/member/fav-active"
+                    className="nav-ul"
+                  >
+                    活動收藏
+                  </NavDropdown.Item>
+                </NavDropdown>
+                <NavDropdown
+                  title="訂單資訊"
+                  id="nav-member"
+                  className="nav-member-link"
+                >
+                  <NavDropdown.Item
+                    as={NavLink}
+                    to="/member/order-product"
+                    className="nav-ul"
+                  >
+                    商品訂單
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    as={NavLink}
+                    to="/member/order-active"
+                    className="nav-ul"
+                  >
+                    活動訂單
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    as={NavLink}
+                    to="/member/order-class"
+                    className="nav-ul"
+                  >
+                    租借訂單
+                  </NavDropdown.Item>
+                </NavDropdown>
               </NavDropdown>
-              <NavDropdown title="收藏清單" id="nav-member">
+              {sessionStorage.getItem('mid') ? (
                 <NavDropdown.Item
-                  as={NavLink}
-                  to="/member/fav-product"
-                  className="nav-ul"
+                  id="logout"
+                  onClick={() => {
+                    logout()
+                  }}
                 >
-                  商品收藏
+                  <NavDropdown.Divider />
+
+                  <p>登出</p>
                 </NavDropdown.Item>
-                <NavDropdown.Item
-                  as={NavLink}
-                  to="/member/fav-active"
-                  className="nav-ul"
-                >
-                  活動收藏
+              ) : (
+                <NavDropdown.Item as={NavLink} to="/member/login">
+                  <NavDropdown.Divider />
+
+                  <p>登入</p>
                 </NavDropdown.Item>
-              </NavDropdown>
-              <NavDropdown title="訂單資訊" id="nav-member">
-                <NavDropdown.Item
-                  as={NavLink}
-                  to="/member/order-product"
-                  className="nav-ul"
-                >
-                  商品訂單
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  as={NavLink}
-                  to="/member/order-active"
-                  className="nav-ul"
-                >
-                  活動訂單
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  as={NavLink}
-                  to="/member/order-class"
-                  className="nav-ul"
-                >
-                  租借訂單
-                </NavDropdown.Item>
-              </NavDropdown>
+              )}
             </Nav>
           </Nav>
 
