@@ -312,11 +312,18 @@ input[type='date']::-webkit-calendar-picker-indicator {
   background-image: url('http://localhost:3000/icons/goldbg.svg');
   background-size: cover;
   position: absolute;
-  right: 0px;
-  top: 50px;
-  width: 276px;
-  height: 276px;
-  transform: rotate(230deg);
+  right: -120px;
+  top: -50px;
+  transform: rotate(30deg);
+  width: 400px;
+  height: 400px;
+  // right: 0px;
+  // top: 50px;
+  // transform: rotate(230deg);
+  // width: 276px;
+  // height: 276px;
+  z-index: -1;
+
   pointer-events: none;
 }
 
@@ -325,7 +332,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
   background-image: url('http://localhost:3000/icons/goldbg.svg');
   background-size: cover;
   position: absolute;
-  left: -130px;
+  left: -170px;
   top: 530px;
   width: 450px;
   height: 450px;

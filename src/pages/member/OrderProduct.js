@@ -74,32 +74,42 @@ function OrderProduct(props) {
                   <h6>訂單編號</h6>
                   {rows.map((value, i) => (
                     <Link to={`/member/order/order-details/${value.sid}?`}>
-                      <h6 className="fish-order-text">{value.sid}</h6>
+                      <h6 key={i} className="fish-order-text">
+                        {value.sid}
+                      </h6>
                     </Link>
                   ))}
                 </div>
                 <div className="col-3">
                   <h6>訂購日期</h6>
                   {rows.map((value, i) => (
-                    <h6 className="fish-order-text">{value.order_date}</h6>
+                    <h6 key={i} className="fish-order-text">
+                      {value.order_date}
+                    </h6>
                   ))}
                 </div>
                 <div className="col-2">
                   <h6>訂單金額</h6>
                   {rows.map((value, i) => (
-                    <h6 className="fish-order-text">{value.amount}</h6>
+                    <h6 key={i} className="fish-order-text">
+                      {value.amount}
+                    </h6>
                   ))}
                 </div>
                 <div className="col-3">
                   <h6>付款方式</h6>
                   {rows.map((value, i) => (
-                    <h6 className="fish-order-text">{value.payment_type}</h6>
+                    <h6 key={i} className="fish-order-text">
+                      {value.payment_type}
+                    </h6>
                   ))}
                 </div>
                 <div className="col-2">
                   <h6>訂單狀態</h6>
                   {rows.map((value, i) => (
-                    <h6 className="fish-order-text">{value.deliver_state}</h6>
+                    <h6 key={i} className="fish-order-text">
+                      {value.deliver_state}
+                    </h6>
                   ))}
                 </div>
               </div>
