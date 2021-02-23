@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import $ from 'jquery'
 function Cart1Content2(props) {
   const {
+    freightTotal,
     cartTotal,
     setForm1,
     inputs,

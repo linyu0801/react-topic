@@ -2,22 +2,31 @@ import '../../styles/fish.scss'
 import '../../styles/font.scss'
 import React, { useState, useEffect } from 'react'
 import FishAside from '../../components/FishAside'
+import moment from 'moment'
 import { Link, withRouter } from 'react-router-dom'
+moment.locale('zh-tw')
 
 function OrderProduct(props) {
   const [rows, setRows] = useState([])
-
+  const mid = sessionStorage.getItem('mid')
   const FetchData = async () => {
-    const url = 'http://localhost:4000/getfavproduct'
+    const url = 'http://localhost:4000/getorderproduct'
     const request = new Request(url, {
-      method: 'GET',
+      method: 'POST',
+      body: JSON.stringify({ mid }),
+
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
     })
     const response = await fetch(request)
     const data = await response.json()
     console.log('伺服器回傳', data)
-    if (data.fav !== 'none') {
-      setRows(data)
-    }
+    data.map((value, i) => {
+      data[i].order_date = moment(data[i].order_date).format('YYYY-MM-DD')
+    })
+    setRows(data)
   }
   useEffect(() => {
     FetchData()
@@ -60,28 +69,49 @@ function OrderProduct(props) {
           <FishAside />
           <div className="col-9 desk-order">
             <div className="w-100 fish-order fish-order-pd d-flex justify-content-between">
-              <div className="col-3">
-                <h6>訂單編號</h6>
-                <a href="*">
-                  {' '}
-                  <h6 className="fish-order-text">123456</h6>{' '}
-                </a>
-              </div>
-              <div className="col-3">
-                <h6>訂購日期</h6>
-                <h6 className="fish-order-text">2020/12/15</h6>
-              </div>
-              <div className="col-2">
-                <h6>訂單金額</h6>
-                <h6 className="fish-order-text">500</h6>
-              </div>
-              <div className="col-2">
-                <h6>付款方式</h6>
-                <h6 className="fish-order-text">信用卡</h6>
-              </div>
-              <div className="col-2">
-                <h6>訂單狀態</h6>
-                <h6 className="fish-order-text">已送達</h6>
+              <div className="d-flex justify-content-between w-100">
+                <div className="col-2">
+                  <h6>訂單編號</h6>
+                  {rows.map((value, i) => (
+                    <Link to={`/member/order/order-details/${value.sid}?`}>
+                      <h6 key={i} className="fish-order-text">
+                        {value.sid}
+                      </h6>
+                    </Link>
+                  ))}
+                </div>
+                <div className="col-3">
+                  <h6>訂購日期</h6>
+                  {rows.map((value, i) => (
+                    <h6 key={i} className="fish-order-text">
+                      {value.order_date}
+                    </h6>
+                  ))}
+                </div>
+                <div className="col-2">
+                  <h6>訂單金額</h6>
+                  {rows.map((value, i) => (
+                    <h6 key={i} className="fish-order-text">
+                      {value.amount}
+                    </h6>
+                  ))}
+                </div>
+                <div className="col-3">
+                  <h6>付款方式</h6>
+                  {rows.map((value, i) => (
+                    <h6 key={i} className="fish-order-text">
+                      {value.payment_type}
+                    </h6>
+                  ))}
+                </div>
+                <div className="col-2">
+                  <h6>訂單狀態</h6>
+                  {rows.map((value, i) => (
+                    <h6 key={i} className="fish-order-text">
+                      {value.deliver_state}
+                    </h6>
+                  ))}
+                </div>
               </div>
             </div>
             <nav aria-label="Page navigation example" className="fish-order-mt">

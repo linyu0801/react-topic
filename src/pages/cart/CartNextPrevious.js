@@ -2,6 +2,7 @@ import { withRouter } from 'react-router-dom'
 function CartNextPrevious(props) {
   const {
     form1,
+    freightTotal,
     inputs,
     seletedOption,
     seletedPaymentType,
@@ -16,6 +17,7 @@ function CartNextPrevious(props) {
 
   const data = {
     ...form1,
+    freight: freightTotal,
     delivery: seletedDelivery,
     payment_type: seletedPaymentType,
     designated_period: seletedOption,
