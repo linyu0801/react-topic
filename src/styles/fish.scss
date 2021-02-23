@@ -1,9 +1,13 @@
 @import '~bootstrap/scss/bootstrap.scss';
+
 .react-datepicker-wrapper {
   width: 100%;
 }
 .react-datepicker__input-container {
   width: 100%;
+}
+.member-mg {
+  margin-bottom: 0px !important;
 }
 .fontwhite {
   color: white;
@@ -88,6 +92,21 @@ input:focus,
   line-height: 20px;
   font-size: 16px;
   color: #cdaa8a;
+}
+
+.order-button {
+  font-family: 'Noto Sans TC';
+  letter-spacing: 0.1rem;
+  line-height: 20px;
+  background: #000;
+  color: white;
+  text-align: center;
+  width: 260px;
+  height: 50px;
+  font-size: 14px;
+  display: block;
+  margin-top: 70px;
+  border: none;
 }
 
 .pub-button {
