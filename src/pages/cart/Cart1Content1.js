@@ -138,7 +138,10 @@ function Cart1Content1(props) {
                       <td className="hy-rwd-d-none"></td>
                       <td className="py-4 hy-rwd-d-none">
                         <div className="hy-img d-flex justify-content-center">
-                          <img src={item.img} alt="" />
+                          <img
+                            src={`http://localhost:3000/k-images/` + item.p_img}
+                            alt=""
+                          />
                         </div>
                       </td>
                       <td className="hy-rwd-d-none">{item.p_name}</td>
@@ -218,12 +221,17 @@ function Cart1Content1(props) {
                     <div className="form-row hy-form-row justify-content-between mb-3">
                       <div className="form-col hy-form-col">
                         <div className="hy-img">
-                          <img src={item.img} alt="" />
+                          <img
+                            src={`http://localhost:3000/k-images/` + item.p_img}
+                            alt=""
+                          />
                         </div>
                       </div>
                       <div className="form-col hy-form-col d-flex flex-column justify-content-around">
-                        <p className="my-0">{item.name}</p>
-                        <p className="my-0">{item.size}</p>
+                        <p className="my-0 k-left-icon hy-left-icon">
+                          {item.p_name}
+                        </p>
+                        <p className="my-0">{item.p_size}</p>
                       </div>
                       <div className="form-col hy-form-col d-flex flex-column justify-content-center">
                         <FaRegTimesCircle className="hy-color-gold" />
@@ -234,7 +242,7 @@ function Cart1Content1(props) {
                         <p>單價</p>
                       </div>
                       <div className="form-col hy-form-col">
-                        <p className="hy-money">{item.price}</p>
+                        <p className="hy-money">{item.p_price}</p>
                       </div>
                     </div>
                     <div className="form-row hy-form-row justify-content-between">
@@ -242,12 +250,21 @@ function Cart1Content1(props) {
                         <p>數量</p>
                       </div>
                       <div className="form-col hy-form-col">
-                        <select name="" id="">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select>
+                        <i className="fas fa-minus k-left-icon hy-left-icon">
+                          <MdRemove
+                            onClick={() => {
+                              decreaseQty(item.p_sid)
+                            }}
+                          />
+                        </i>
+                        <span className="k-number">{item.quantity}</span>
+                        <i className="fas fa-plus k-right-icon hy-right-icon">
+                          <MdAdd
+                            onClick={() => {
+                              increaseQty(item.p_sid)
+                            }}
+                          />
+                        </i>
                       </div>
                     </div>
                     <div className="form-row hy-form-row justify-content-between mb-4">
@@ -255,7 +272,9 @@ function Cart1Content1(props) {
                         <p>小計</p>
                       </div>
                       <div className="form-col hy-form-col">
-                        <p className="hy-money">3400</p>
+                        <p className="hy-money">
+                          {+item.quantity * +item.p_price}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -280,12 +299,10 @@ function Cart1Content1(props) {
                   <p>購物清單小計</p>
                 </div>
                 <div className="form-col hy-form-col">
-                  <p className="hy-money">6800</p>
+                  <p className="hy-money">{cartTotal}</p>
                 </div>
               </div>
             </div>
-
-            <input type="hidden" name="subtotal" value="800" />
           </form>
         </div>
         <div className="col-1"></div>

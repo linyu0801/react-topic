@@ -25,9 +25,9 @@ function CartContent(props) {
     amount: '',
   })
 
-  const [seletedOption, setSeletedOption] = useState('both')
-  const [seletedPaymentType, setSeletedPaymentType] = useState('CreditCard')
-  const [seletedOptionCardMonth, setSeletedOptionCardMonth] = useState('0')
+  const [seletedOption, setSeletedOption] = useState('不指定')
+  const [seletedPaymentType, setSeletedPaymentType] = useState('信用卡一次付清')
+  const [seletedOptionCardMonth, setSeletedOptionCardMonth] = useState('1')
   const [seletedOptionCardYear, setSeletedOptionCardYear] = useState('2021')
   const onChangeForField = (fieldName) => (event) => {
     setInputs((state) => ({ ...state, [fieldName]: event.target.value }))
@@ -105,6 +105,7 @@ function CartContent(props) {
       {cartStep === 'step3' && (
         <>
           <Cart1Content1
+            cartTotal={cartTotal}
             cartCate={cartCate}
             setCartCate={setCartCate}
             cartStep={cartStep}

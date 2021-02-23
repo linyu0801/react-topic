@@ -26,6 +26,7 @@ import StudioIntro1 from './pages/StudioRent/StudioIntro1'
 import StudioIntro2 from './pages/StudioRent/StudioIntro2'
 import StudioIntro3 from './pages/StudioRent/StudioIntro3'
 import HomePage from './pages/homePage/homePage'
+import OrderDetail from './pages/member/OrderDetail'
 
 // 組合用元件
 
@@ -33,6 +34,7 @@ import MainContent from './components/MainContent'
 import MyNavbar from './components/MyNavbar'
 import MyFooter from './components/MyFooter'
 import ScrollToTop from './components/ScrollToTop'
+
 //import BreadCrumb from './components/BreadCrumb'
 // 定義樣式
 const themes = {
@@ -52,6 +54,8 @@ export const ThemeContext = React.createContext(themes.light)
 function App() {
   // const [login, setLogin] = useState(false)
   // const [themeNow, setThemeNow] = useState(themes.light)
+
+  const [textInput, setTextInput] = useState('')
   const [searchCampaign, setSearchCampaign] = useState('')
   const [categoryActiveObj, setCategoryActiveObj] = useState({
     categoryBtn1: false,
@@ -59,7 +63,6 @@ function App() {
     categoryBtn3: false,
     categoryBtn4: true,
   })
-
   return (
     <Router>
       <>
@@ -126,6 +129,9 @@ function App() {
               <Route path="/member/order-active">
                 <OrderActive />
               </Route>
+              <Route path="/member/order/order-details/:sid?">
+                <OrderDetail />
+              </Route>
               <Route path="/cart">
                 <Cart />
               </Route>
@@ -133,16 +139,19 @@ function App() {
                 <MainProductDetailTest2 />
               </Route>
               <Route path="/StudioRent/StudioOrder">
-                <StudioOrder />
+                <StudioOrder
+                  textInput={textInput}
+                  setTextInput={setTextInput}
+                />
               </Route>
               <Route path="/StudioRent/StudioIntro1">
-                <StudioIntro1 />
+                <StudioIntro1 textInput={textInput} />
               </Route>
               <Route path="/StudioRent/StudioIntro2">
-                <StudioIntro2 />
+                <StudioIntro2 textInput={textInput} />
               </Route>
               <Route path="/StudioRent/StudioIntro3">
-                <StudioIntro3 />
+                <StudioIntro3 textInput={textInput} />
               </Route>
 
               <Route path="*">
