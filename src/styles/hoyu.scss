@@ -2,6 +2,14 @@
   outline: 1px red solid;
 } */
 
+.k-left-icon.hy-left-icon {
+  margin-right: 25px;
+}
+
+.k-right-icon.hy-right-icon {
+  margin-left: 25px;
+}
+
 .hoyu-mt {
   margin: 30px 0;
 }
@@ -67,6 +75,7 @@
 
 .hy-img > img {
   height: 64px;
+  width: 64px;
   // max-width: 100%;
 }
 
