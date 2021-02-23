@@ -32,7 +32,8 @@ function CampaignProducts(props) {
     sortBtn4: false,
     sortBtn5: false,
   })
-  const [priceRange, setPriceRange] = useState('')
+  const [priceRangeMin, setPriceRangeMin] = useState('')
+  const [priceRangeMax, setPriceRangeMax] = useState('')
 
   const { searchCampaign } = props
   const { categoryActiveObj } = props
@@ -93,7 +94,11 @@ function CampaignProducts(props) {
 
   function doPriceRange() {
     const newProductData = productData.filter((v, i) => {
-      return v.price >= priceRange
+      if (priceRangeMax === '') {
+        return v.price >= priceRangeMin || v.price <= priceRangeMax
+      } else {
+        return v.price >= priceRangeMin && v.price <= priceRangeMax
+      }
     })
     setProductDataDisplay(newProductData)
   }
@@ -122,6 +127,13 @@ function CampaignProducts(props) {
   function doSeasonSort() {
     const newProductData = productData.filter((v, i) => {
       return v.season === 1
+    })
+    setProductDataDisplay(newProductData)
+  }
+
+  function doDateSort() {
+    const newProductData = productData.sort(function (a, b) {
+      return a.date > b.date ? 1 : -1
     })
     setProductDataDisplay(newProductData)
   }
@@ -364,47 +376,58 @@ function CampaignProducts(props) {
               </div>
             </div>
             <div className="categoryRange accordion " id="accordionExample">
-              <form action>
-                <button
-                  className="btn btn-link categoryHeading"
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#collapseOne"
-                  aria-expanded="true"
-                  aria-controls="collapseOne"
-                >
-                  <label htmlFor="priceRangeMin">
-                    <h5>價格篩選</h5>
-                  </label>
-                </button>
-                <div
-                  id="collapseOne"
-                  className="collapse show collapseFinn"
-                  aria-labelledby="categoryHeading"
-                  data-parent="#accordionExample"
-                >
-                  <div className="w-100 d-flex justify-content-between">
-                    <input
-                      type="number"
-                      id="priceRangeMin"
-                      name="priceRangeMin"
-                      placeholder="$"
-                      min="0"
-                      onChange={(event) => {
-                        setPriceRange(event.target.value)
-                      }}
-                    />
-                    <p className="before" />
-                    <input
-                      type="number"
-                      id="priceRangeMax"
-                      name="priceRangeMax"
-                      placeholder="$"
-                      min="0"
-                    />
-                  </div>
+              <button
+                className="btn btn-link categoryHeading"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                <label htmlFor="priceRangeMin">
+                  <h5>價格篩選</h5>
+                </label>
+              </button>
+              <div
+                id="collapseOne"
+                className="collapse show collapseFinn"
+                aria-labelledby="categoryHeading"
+                data-parent="#accordionExample"
+              >
+                <div className="w-100 d-flex justify-content-between">
+                  <input
+                    type="number"
+                    id="priceRangeMin"
+                    name="priceRangeMin"
+                    placeholder="$"
+                    min="0"
+                    onChange={(event) => {
+                      setPriceRangeMin(event.target.value)
+                    }}
+                  />
+                  <p className="before" />
+                  <input
+                    type="number"
+                    id="priceRangeMax"
+                    name="priceRangeMax"
+                    placeholder="$"
+                    min="0"
+                    onChange={(event) => {
+                      setPriceRangeMax(event.target.value)
+                    }}
+                    required="required"
+                  />
                 </div>
-              </form>
+                <button
+                  className="rangeBtnFinn"
+                  type="submit"
+                  onClick={() => {
+                    doPriceRange()
+                  }}
+                >
+                  篩選
+                </button>
+              </div>
             </div>
           </div>
           <div className="campaignCardBigPhone col-12 d-xl-none">
@@ -703,6 +726,7 @@ function CampaignProducts(props) {
                   className={`sortItem
             ${sortButtonActiveObj.sortBtn5 ? 'active' : ''}`}
                   onClick={() => {
+                    doDateSort()
                     setSortButtonActiveObj({
                       sortBtn1: false,
                       sortBtn2: false,

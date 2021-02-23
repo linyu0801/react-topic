@@ -7,6 +7,7 @@ function CartNextPrevious(props) {
     seletedPaymentType,
     seletedOptionCardMonth,
     seletedOptionCardYear,
+    seletedDelivery,
     cartStep,
     setCartStep,
     cartCate,
@@ -15,6 +16,7 @@ function CartNextPrevious(props) {
 
   const data = {
     ...form1,
+    delivery: seletedDelivery,
     payment_type: seletedPaymentType,
     designated_period: seletedOption,
     creditCardExpireMonth: seletedOptionCardMonth,
