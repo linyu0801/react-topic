@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react'
 import FishAside from '../../components/FishAside'
 import { Link, withRouter } from 'react-router-dom'
 import $ from 'jquery'
+import Swal from 'sweetalert2'
+
 function Mpassword(props) {
   const [password, setPassword] = useState('')
   const [newpassword, setNewPassword] = useState('')
@@ -39,6 +41,12 @@ function Mpassword(props) {
         }
         if (data.update === true) {
           $('#passwordsmall').text('')
+          Swal.fire({
+            title: '修改成功',
+            icon: 'success',
+            type: '修改成功',
+            text: '密碼已修改',
+          })
         }
         $('#newpassword2').next().text('')
       } else {

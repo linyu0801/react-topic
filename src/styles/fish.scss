@@ -94,19 +94,30 @@ input:focus,
   color: #cdaa8a;
 }
 
+.order-button:hover {
+  background-color: #250404;
+  color: white;
+}
+
 .order-button {
   font-family: 'Noto Sans TC';
-  letter-spacing: 0.1rem;
   line-height: 20px;
-  background: #000;
-  color: white;
+  // background: #000;
+  // color: white;
   text-align: center;
   width: 260px;
   height: 50px;
-  font-size: 14px;
   display: block;
   margin-top: 70px;
   border: none;
+  background-color: #cdaa8a;
+  padding: 15px;
+  color: #250404;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  font-weight: lighter;
+  cursor: pointer;
+  transition: 0.5s;
 }
 
 .pub-button {
@@ -122,6 +133,12 @@ input:focus,
   display: block;
   margin-top: 24px;
   border: none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.pub-button:hover {
+  background-color: #cdaa8a;
+  color: black;
 }
 .pub-mb-100 {
   margin-bottom: 100px;
