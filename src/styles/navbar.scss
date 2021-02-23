@@ -32,7 +32,7 @@
   width: 50%;
 }
 .nav-icons {
-  margin-left: 30px;
+  margin-left: 50px;
   width: 50%;
   object-position: 0px 12px;
 }
@@ -42,7 +42,7 @@
 
 .dropdown-menu {
   background-color: #250404 !important;
-  top: 150%;
+  top: 170%;
   padding: 0px;
 }
 
@@ -91,7 +91,7 @@
   padding: 15px !important;
 }
 .alex-navbarHeight {
-  height: 80px !important;
+  height: 90px !important;
   padding: 25px 8px !important;
 }
 .nav-right-icons {
@@ -104,26 +104,38 @@
   background-color: #250404;
 }
 @media screen and (max-width: 1200px) {
-  .nav-icons {
-    display: none;
-  }
   .alex-navbarHeight {
     height: auto !important;
     padding: 25px 8px !important;
   }
 }
 @media screen and (max-width: 992px) {
+  .nav-icons {
+    display: none;
+  }
+  .nav-between {
+    width: 70%;
+    margin: 0 auto;
+  }
   #nav-member {
     padding-bottom: 15px;
+    text-align: center;
+  }
+  .nav-member-link {
+    margin-left: 32px;
   }
   .nav-member {
+    // text-align: center;
     margin: 0 auto;
+    padding-left: 70%;
     display: block;
     color: white;
   }
   .nav-ul {
-    margin-left: 25px;
-    padding-left: 20px;
+    // margin-left: auto;
+    padding-left: 64px;
+    // display: block;
+    text-align: center;
   }
   .nav-right {
     display: none;

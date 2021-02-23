@@ -29,7 +29,7 @@ function Forget(props) {
   return (
     <>
       <div className="fish-forgetbg">
-        <div className="container h-100">
+        <div className="container h-100 member-mg">
           <div className="row justify-content-center">
             <div className="fish-mask d-flex justify-content-center col-xl-6 col-lg-8 col-md-10 col-sm-12">
               <form action="" className="pub-form w-80">

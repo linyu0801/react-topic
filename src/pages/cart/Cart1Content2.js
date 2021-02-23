@@ -150,9 +150,9 @@ function Cart1Content2(props) {
                   setSeletedOption(e.target.value)
                 }}
               >
-                <option value="both">不指定</option>
-                <option value="morning">8:00-12:00</option>
-                <option value="afternoon">13:00-17:00</option>
+                <option value="不指定">不指定</option>
+                <option value="8:00-12:00">8:00-12:00</option>
+                <option value="13:00-17:00">13:00-17:00</option>
               </select>
               <small></small>
             </form>
@@ -185,8 +185,8 @@ function Cart1Content2(props) {
                 name="payment_type"
                 id="payment_type"
               >
-                <option value="creditCard">信用卡一次付清</option>
-                <option value="ATM">ATM轉帳</option>
+                <option value="信用卡一次付清">信用卡一次付清</option>
+                <option value="ATM轉帳">ATM轉帳</option>
               </select>
               <small></small>
               <label htmlFor="creditCardNumber">信用卡卡號</label>

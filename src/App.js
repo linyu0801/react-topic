@@ -26,6 +26,7 @@ import StudioIntro1 from './pages/StudioRent/StudioIntro1'
 import StudioIntro2 from './pages/StudioRent/StudioIntro2'
 import StudioIntro3 from './pages/StudioRent/StudioIntro3'
 import HomePage from './pages/homePage/homePage'
+import OrderDetail from './pages/member/OrderDetail'
 
 // 組合用元件
 
@@ -53,7 +54,12 @@ export const ThemeContext = React.createContext(themes.light)
 function App() {
   // const [login, setLogin] = useState(false)
   // const [themeNow, setThemeNow] = useState(themes.light)
+<<<<<<< HEAD
   const [textInput, setTextInput] = useState([])
+=======
+
+  const [textInput, setTextInput] = useState('')
+>>>>>>> eb3f0bb5cc9e427782a05d97a7875547a22d2695
   const [searchCampaign, setSearchCampaign] = useState('')
   const [categoryActiveObj, setCategoryActiveObj] = useState({
     categoryBtn1: false,
@@ -61,7 +67,10 @@ function App() {
     categoryBtn3: false,
     categoryBtn4: true,
   })
+<<<<<<< HEAD
 
+=======
+>>>>>>> eb3f0bb5cc9e427782a05d97a7875547a22d2695
   return (
     <Router>
       <>
@@ -127,6 +136,9 @@ function App() {
               </Route>
               <Route path="/member/order-active">
                 <OrderActive />
+              </Route>
+              <Route path="/member/order/order-details/:sid?">
+                <OrderDetail />
               </Route>
               <Route path="/cart">
                 <Cart />

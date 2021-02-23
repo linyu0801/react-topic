@@ -21,8 +21,6 @@ function CartNextPrevious(props) {
     creditCardExpireYear: seletedOptionCardYear,
   }
 
-  console.log(JSON.stringify(data.username))
-
   return (
     <>
       {cartStep === 'step1' && (
@@ -79,7 +77,7 @@ function CartNextPrevious(props) {
                 onClick={() => {
                   // const newObj ={...inputs}
                   window.scrollTo(0, 0)
-                  setCartStep('step3')
+
                   fetch('http://localhost:4000/Cart1Content2', {
                     method: 'POST',
                     body: JSON.stringify(data),
@@ -88,11 +86,11 @@ function CartNextPrevious(props) {
                       'Content-type': 'application/json; charset=UTF-8',
                     },
                   })
-                    .then(console.log('送出' + JSON.stringify(data)))
+                    // .then(console.log('送出' + JSON.stringify(data)))
                     .then((r) => r.json())
                     .then((obj) => {
                       console.log(obj)
-
+                      setCartStep('step3')
                       // if (obj.success) {
                       //   console.log('success')
                       // } else {

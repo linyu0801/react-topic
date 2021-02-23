@@ -11,13 +11,17 @@ function Cart1Content3(props) {
       .then((res) => {
         setOrders1(res)
 
-        console.log(orders1)
+        console.log('伺服器回傳', res)
       })
       .catch((error) => {
         console.log(error)
       })
   }
   useEffect(() => {
+    // setTimeout(() => {
+    //   fetchOrder()
+    // }, 1000)
+
     fetchOrder()
   }, [])
   return (
@@ -30,36 +34,36 @@ function Cart1Content3(props) {
         <div className="col-1"></div>
       </div>
 
-      <div className="row">
+      <div className="row mt-5">
         <div className="col d-flex justify-content-center">
           <table className="hy-table">
             <tr>
               <td className="text-right">訂購人姓名</td>
-              <td className="pl-2">123</td>
+              <td className="pl-2">{orders1.username}</td>
             </tr>
             <tr>
               <td className="text-right">訂購人手機</td>
-              <td className="pl-2">123</td>
+              <td className="pl-2">{orders1.tel}</td>
             </tr>
             <tr>
               <td className="text-right">收貨人姓名</td>
-              <td className="pl-2">123</td>
+              <td className="pl-2">{orders1.receiver}</td>
             </tr>
             <tr>
               <td className="text-right">收貨人手機</td>
-              <td className="pl-2">123</td>
+              <td className="pl-2">{orders1.receiverMobile}</td>
             </tr>
             <tr>
               <td className="text-right">收件地址</td>
-              <td className="pl-2">123</td>
+              <td className="pl-2">{orders1.address}</td>
             </tr>
             <tr>
               <td className="text-right">收件日期</td>
-              <td className="pl-2">123</td>
+              <td className="pl-2">{orders1.designated_date}</td>
             </tr>
             <tr>
               <td className="text-right">可收件時段</td>
-              <td className="pl-2">123</td>
+              <td className="pl-2">{orders1.designated_period}</td>
             </tr>
           </table>
         </div>
@@ -71,12 +75,12 @@ function Cart1Content3(props) {
         </div>
         <div className="col-1"></div>
       </div>
-      <div className="row">
+      <div className="row  mt-5">
         <div className="col d-flex justify-content-center">
           <table className="hy-table">
             <tr>
               <td className="text-right">付款方式</td>
-              <td className="pl-2">信用卡一次付清</td>
+              <td className="pl-2">{orders1.payment_type}</td>
             </tr>
             <tr>
               <td className="text-right">發卡銀行</td>
