@@ -2,6 +2,7 @@ import '../../styles/fish.scss'
 import '../../styles/font.scss'
 import $ from 'jquery'
 import React, { useState } from 'react'
+import Swal from 'sweetalert2'
 
 function Forget(props) {
   const [email, setEmail] = useState('')
@@ -23,7 +24,13 @@ function Forget(props) {
     console.log('伺服器回傳的json資料', data)
     if (data.code === 0) {
       $('#email').next().text(data.update)
-    }
+    } else
+      Swal.fire({
+        title: '寄送電子郵件成功',
+        icon: 'success',
+        type: '寄送電子郵件成功',
+        text: '您的新密碼已寄送至電子郵件信箱.',
+      })
   }
 
   return (
