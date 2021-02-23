@@ -9,6 +9,7 @@ import { MdFavoriteBorder } from 'react-icons/md'
 function MainProductDetailTest2(props) {
   // const { inputs } = props
   const [cartQuantity, setCartQuantity] = useState(1)
+  const mid = sessionStorage.getItem('mid')
   const addToCart = async (id, quantity) => {
     try {
       const response = await fetch('http://localhost:4000/AddToCart1', {
@@ -16,6 +17,7 @@ function MainProductDetailTest2(props) {
         body: JSON.stringify({
           p_sid: id,
           quantity: quantity,
+          token: mid,
         }),
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
