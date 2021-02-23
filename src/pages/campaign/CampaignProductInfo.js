@@ -147,14 +147,14 @@ function CampaignProductsInfo(props) {
                 <Carousel className="carouselFinn">
                   <Carousel.Item className="carousel-item-finn">
                     <img
-                      src="http://liaoweifandembp.iiiedu.local:3000/img/CardBigImg.png"
+                      src="http://localhost:3000/img/CardBigImg.png"
                       className="d-block w-100"
                       alt="..."
                     />
                   </Carousel.Item>
                   <Carousel.Item className="carousel-item-finn">
                     <img
-                      src="http://liaoweifandembp.iiiedu.local:3000/img/HeroImg.jpg"
+                      src="http://localhost:3000/img/HeroImg.jpg"
                       className="d-block w-100"
                       alt="..."
                     />
