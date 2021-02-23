@@ -28,6 +28,7 @@ function StudioIntro1(props) {
       $('#cost').text('0')
     }
   }, [selectedTime])
+
   // const[data1,setData1]=useState([])
 
   // async function fetchdata() {
@@ -44,9 +45,6 @@ function StudioIntro1(props) {
   // }, [])
 
   // {data[].product}用法
-  $('#decor').on('scroll', function () {
-    $('#decor').width(600)
-  })
 
   return (
     <>

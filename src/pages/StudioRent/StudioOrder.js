@@ -26,6 +26,11 @@ function StudioOrder(props) {
     console.log('isClassOrdered', isClassOrdered)
   }, [isClassOrdered])
 
+
+  
+  
+
+
   //console.log教室index[i]
 
   return (
