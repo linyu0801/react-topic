@@ -29,6 +29,7 @@ function Cart1Content1(props) {
     res
       .json()
       .then((res) => {
+        console.log('購物車的', res)
         setCartItems(res)
         let newPrice = 0
         let newQuantity = 0
