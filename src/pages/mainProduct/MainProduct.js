@@ -6,28 +6,29 @@ import { MdKeyboardArrowRight } from 'react-icons/md'
 import { MdKeyboardArrowLeft } from 'react-icons/md'
 import React, { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
+import Pagination from 'react-bootstrap/Pagination'
 
 function MainProduct(props) {
   const [product, setProduct] = useState([])
 
   //分類用onClick function：按了li啟動onClick後呼叫這支function，使代入的參數p_cate做改變
-  // const doCate = async (p_cate, nowPage) => {
-  const doCate = async (p_cate) => {
+  // 原本只做分類的寫法：const doCate = async (p_cate) => {
+  const doCate = async (p_cate, nowPage) => {
     //再set一筆抓到的p_cate
-    const url = 'http://localhost:4000/mainproductcate'
+    const url = `http://localhost:4000/mainproductcate2?page=${nowPage}&productCate=${p_cate}`
     const request = new Request(url, {
-      method: 'POST',
-      body: JSON.stringify({ productCate: p_cate }),
+      method: 'GET',
+      //原本只做分類的寫法：body: JSON.stringify({ productCate: p_cate }),
       // body: JSON.stringify({ productCate: p_cate, page: nowPage }),
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      }),
+      // headers: new Headers({
+      //   Accept: 'application/json',
+      //   'Content-Type': 'application/json',
+      // }),
     })
     const response = await fetch(request)
     const data = await response.json()
-    console.log('回傳資料 : ', data)
-    setProduct(data)
+    // console.log('回傳資料 : ', data)
+    setProduct(data.rows)
   }
 
   //和node串連取得資料庫資料：生命周期概念
@@ -50,7 +51,7 @@ function MainProduct(props) {
     }
 
     FetchData()
-  }, [])
+  }, []) //空陣列表示只向資料庫要一次商品資料
 
   const productDisplay = (
     <>
@@ -78,6 +79,26 @@ function MainProduct(props) {
       </ul>
     </>
   )
+
+  //自己改寫分頁
+  //number <= { totalPages }
+  let active = 2
+  let items = []
+  for (let number = 1; number <= 5; number++) {
+    items.push(
+      <Pagination.Item key={number} active={number === active}>
+        {number}
+      </Pagination.Item>
+    )
+  }
+
+  const paginationBasic = (
+    <div>
+      <Pagination>{items}</Pagination>
+      <br />
+    </div>
+  )
+
   return (
     <>
       <div className="content">
@@ -126,7 +147,7 @@ function MainProduct(props) {
               <li
                 className="k-category"
                 onClick={() => {
-                  doCate(1)
+                  doCate(1, 1)
                   // console.log('kll')
                 }}
               >
@@ -192,7 +213,7 @@ function MainProduct(props) {
             </li>
             
           </ul> */}
-
+          {paginationBasic}
           <nav
             aria-label="Page navigation example"
             className="hoyu-mt d-flex justify-content-end"
@@ -209,6 +230,7 @@ function MainProduct(props) {
                   </span>
                 </Link>
               </li>
+
               <li className="page-item" onClick={() => {}}>
                 <Link className="page-link hoyu-page-link" to="#">
                   1
