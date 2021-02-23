@@ -9,8 +9,14 @@ function Cart1Content1(props) {
     setCartStep,
     cartCate,
     setCartCate,
+    seletedDelivery,
+    setSeletedDelivery,
+    freightTotal,
+    setFreightTotal,
     cartTotal,
     setCartTotal,
+    quantityTotal,
+    setQuantityTotal,
   } = props
   // 取得購物車內的資料
   const [cartItems, setCartItems] = useState([])
@@ -24,14 +30,16 @@ function Cart1Content1(props) {
       .json()
       .then((res) => {
         setCartItems(res)
-        // setPayloader(res.data)
         let newPrice = 0
+        let newQuantity = 0
         res.map((item, i) => {
+          newQuantity += +item.quantity
           newPrice += +item.p_price * +item.quantity
         })
         setCartTotal(newPrice)
-        // setPriceTotal(newPrice)
-        // console.log(newPrice)
+        setQuantityTotal(newQuantity)
+        console.log(newPrice)
+        console.log(newQuantity)
       })
       .catch((error) => {
         setError(error)
@@ -211,28 +219,62 @@ function Cart1Content1(props) {
                   <td></td>
                 </tr>
                 {cartStep === 'step2' && (
-                  <tr>
-                    <td className="py-4"></td>
-                    <td></td>
-                    <td>配送方式</td>
-                    <td>
-                      <select name="" id="">
-                        <option value="1000">1000</option>
-                        <option value="1000">1000</option>
-                        <option value="1000">1000</option>
-                        <option value="1000">1000</option>
-                      </select>
-                    </td>
+                  <>
+                    <tr>
+                      <td className="py-4"></td>
+                      <td></td>
+                      <td>配送方式</td>
+                      <td>
+                        <select
+                          className="w-100 pub-input pr-2 hoyu-select"
+                          name="delivery"
+                          id="delivery"
+                          value={seletedDelivery}
+                          onChange={(e) => {
+                            setSeletedDelivery(e.target.value)
+                          }}
+                        >
+                          <option value="快遞宅配">快遞宅配</option>
+                          <option value="門市取貨">門市取貨</option>
+                        </select>
+                      </td>
 
-                    <td colSpan="2" className="hy-py-48">
-                      運費
-                    </td>
-                    <td>1234</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
+                      <td colSpan="2" className="hy-py-48">
+                        運費
+                      </td>
+                      <td>
+                        {seletedDelivery === '快遞宅配'
+                          ? 200 * quantityTotal
+                          : '-'}
+                        {seletedDelivery === '快遞宅配' &&
+                          setFreightTotal(200 * quantityTotal)}
+                        {seletedDelivery === '快遞宅配' &&
+                          console.log(freightTotal)}
+                      </td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td className="py-4"></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td colSpan="2" className="hy-py-48">
+                        總計
+                      </td>
+                      <td>
+                        {seletedDelivery === '快遞宅配'
+                          ? cartTotal + 200 * quantityTotal
+                          : cartTotal}
+                      </td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </>
                 )}
               </tbody>
             </table>

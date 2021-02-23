@@ -10,6 +10,8 @@ function CartContent(props) {
   const { cartStep, setCartStep, cartCate, setCartCate } = props
   const [form1, setForm1] = useState('')
   const [cartTotal, setCartTotal] = useState(0)
+  const [freightTotal, setFreightTotal] = useState(0)
+  const [quantityTotal, setQuantityTotal] = useState(0)
   const [inputs, setInputs] = useState({
     username: '',
     tel: '',
@@ -29,7 +31,7 @@ function CartContent(props) {
   const [seletedPaymentType, setSeletedPaymentType] = useState('信用卡一次付清')
   const [seletedOptionCardMonth, setSeletedOptionCardMonth] = useState('1')
   const [seletedOptionCardYear, setSeletedOptionCardYear] = useState('2021')
-  const [seletedDelivery, setSeletedDelivery] = useState('宅配')
+  const [seletedDelivery, setSeletedDelivery] = useState('快遞宅配')
   const onChangeForField = (fieldName) => (event) => {
     setInputs((state) => ({ ...state, [fieldName]: event.target.value }))
   }
@@ -45,8 +47,8 @@ function CartContent(props) {
             setCartStep={setCartStep}
             cartTotal={cartTotal}
             setCartTotal={setCartTotal}
-            seletedDelivery={seletedDelivery}
-            setSeletedDelivery={setSeletedDelivery}
+            quantityTotal={quantityTotal}
+            setQuantityTotal={setQuantityTotal}
           />
           <CartNextPrevious
             cartCate={cartCate}
@@ -65,8 +67,15 @@ function CartContent(props) {
             setCartStep={setCartStep}
             cartTotal={cartTotal}
             setCartTotal={setCartTotal}
+            quantityTotal={quantityTotal}
+            setQuantityTotal={setQuantityTotal}
+            freightTotal={freightTotal}
+            setFreightTotal={setFreightTotal}
+            seletedDelivery={seletedDelivery}
+            setSeletedDelivery={setSeletedDelivery}
           />
           <Cart1Content2
+            freightTotal={freightTotal}
             cartTotal={cartTotal}
             cartCate={cartCate}
             setCartCate={setCartCate}
@@ -90,6 +99,7 @@ function CartContent(props) {
           <CartNextPrevious
             form1={form1}
             inputs={inputs}
+            freightTotal={freightTotal}
             setInputs={setInputs}
             seletedOption={seletedOption}
             setSeletedOption={setSeletedOption}
