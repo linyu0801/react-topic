@@ -203,6 +203,17 @@ input#priceRangeMin {
   font-size: 14px;
   padding: 10px 15px;
   letter-spacing: 0.1em;
+  transition: 0.5s;
+}
+
+.rangeBtnFinn:hover {
+  margin-top: 10px;
+  background-color: #250404;
+  color: white;
+  border: none;
+  font-size: 14px;
+  padding: 10px 15px;
+  letter-spacing: 0.1em;
 }
 
 .sortBar {

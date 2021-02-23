@@ -3,7 +3,7 @@ import '../../styles/campaignIndex.scss'
 import '../../styles/campaignProducts.scss'
 import '../../styles/campaignProductInfo.scss'
 import '../../styles/font.scss'
-import { Carousel, Row, Col, ListGroupItem } from 'react-bootstrap'
+import { Carousel, Row, Col, Container } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faMapMarkerAlt,
@@ -19,7 +19,7 @@ import { far } from '@fortawesome/free-regular-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { withRouter, Link } from 'react-router-dom'
 import Scrollspy from 'react-scrollspy'
-import { ListGroup } from 'reactstrap'
+import DisplayCampaignCards from '../../components/DisplayCampaignCards'
 
 function CampaignProductsInfo(props) {
   const [campaignProduct, setCampaignProduct] = useState([])
@@ -244,7 +244,7 @@ function CampaignProductsInfo(props) {
                     <p>{v.address}</p>
                     <hr />
                     <Iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.6617568553047!2d121.46449931474645!3d25.011606883982818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a81f3733fd9b%3A0x329a2ed272ee76d2!2zMjIw5paw5YyX5biC5p2_5qmL5Y2A5Lit5bGx6Lev5LiA5q61MTYw5LmLMTHomZ8!5e0!3m2!1szh-TW!2stw!4v1612585643413!5m2!1szh-TW!2stw"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.7974968723406!2d121.54369831437482!3d25.04094544416838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abd07c0f0709%3A0x6546de69c86a8bcf!2zMTA25Y-w5YyX5biC5aSn5a6J5Y2A5aSn5a6J6Lev5LiA5q61ODTlt7c06Jmf!5e0!3m2!1szh-TW!2stw!4v1614065363089!5m2!1szh-TW!2stw"
                       width={600}
                       height={450}
                       frameBorder={0}
@@ -343,11 +343,11 @@ function CampaignProductsInfo(props) {
               </div>
             </div>
           </div>
-          <div className="container d-none d-sm-block mb-5">
-            {displayCampaignCards}
+          <div className="container mb-5">
+            <DisplayCampaignCards />
           </div>
 
-          <div className="container-fluid d-xl-none fixed-bottom">
+          <Container fluid className=" d-xl-none fixed-bottom">
             <div className="row">
               <div className="col-12">
                 <div className="addToCartCardPhone ">
@@ -362,7 +362,7 @@ function CampaignProductsInfo(props) {
                 <button className="addToCartBtn">加入購物車</button>
               </div>
             </div>
-          </div>
+          </Container>
         </>
       ))}
     </>

@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react'
 import '../../styles/campaignIndex.scss'
 import { withRouter, Link } from 'react-router-dom'
 import { Container, Row, Col } from 'react-bootstrap'
-import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fas } from '@fortawesome/free-solid-svg-icons'
-import { far } from '@fortawesome/free-regular-svg-icons'
+import DisplayCampaignCards from '../../components/DisplayCampaignCards'
 
 function CampaignIndex(props) {
-  const [data, setData] = useState([])
   const { searchCampaign, setSearchCampaign } = props
   const { setCategoryActiveObj } = props
 
@@ -19,85 +17,6 @@ function CampaignIndex(props) {
   function search() {
     props.history.push('/campaign/searchProducts')
   }
-  useEffect(() => {
-    async function fetchdata() {
-      // const editform = new FormData(document.editform)
-
-      const url = 'http://localhost:4000/campaignlist'
-      const request = new Request(url, {
-        method: 'GET',
-      })
-      const response = await fetch(request)
-      const rows = await response.json()
-      setData(rows)
-    }
-    fetchdata()
-  }, [])
-  const displayCampaignCards = (
-    <>
-      <Row className="campaignCards">
-        {data.map((v, i) => (
-          <Col lg={4} xs={9}>
-            <Link
-              to={`/campaign/products/` + v.sid}
-              style={{ textDecoration: 'none' }}
-            >
-              <div className="campaignCard w-100">
-                <div className="cardImg w-100" />
-                <div className="cardText">
-                  <h4 className="cardTitle">{v.title}</h4>
-                  <p className="campaignSite my-2">
-                    <FontAwesomeIcon icon={fas.faMapMarkerAlt} />
-                    &ensp;{v.district}
-                  </p>
-                  <div className="d-flex justify-content-between align-items-center">
-                    <p className="starsFinn" style={{ marginBottom: '0px' }}>
-                      {v.rating === 5 ? (
-                        <>
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStar} />
-                        </>
-                      ) : (
-                        ''
-                      )}
-                      {v.rating > 4 && v.rating < 5 ? (
-                        <>
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStarHalfAlt} />
-                        </>
-                      ) : (
-                        ''
-                      )}
-
-                      {v.rating === 4 ? (
-                        <>
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={far.faStar} />
-                        </>
-                      ) : (
-                        ''
-                      )}
-                      <span>{v.rating}</span>
-                    </p>
-                    <p className="price">{v.price}</p>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </Col>
-        ))}
-      </Row>
-    </>
-  )
 
   return (
     <>
@@ -109,7 +28,7 @@ function CampaignIndex(props) {
             className="mx-auto  align-self-center searchTitle"
           >
             <h2 className="searchTitleText">最有質感的甜點活動</h2>
-            <p>品嚐獨一無二的精緻蛋糕</p>
+            <p>體驗獨一無二的活動體驗</p>
             <div
               className="searchBar w-100 d-flex
            justify-content-center "
@@ -156,7 +75,7 @@ function CampaignIndex(props) {
         </Row>
       </Container>
       <Container className="d-none d-sm-block">
-        {displayCampaignCards}
+        <DisplayCampaignCards />
       </Container>
 
       <Container fluid>
