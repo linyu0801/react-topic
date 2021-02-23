@@ -29,6 +29,7 @@ function CartContent(props) {
   const [seletedPaymentType, setSeletedPaymentType] = useState('信用卡一次付清')
   const [seletedOptionCardMonth, setSeletedOptionCardMonth] = useState('1')
   const [seletedOptionCardYear, setSeletedOptionCardYear] = useState('2021')
+  const [seletedDelivery, setSeletedDelivery] = useState('宅配')
   const onChangeForField = (fieldName) => (event) => {
     setInputs((state) => ({ ...state, [fieldName]: event.target.value }))
   }
@@ -44,6 +45,8 @@ function CartContent(props) {
             setCartStep={setCartStep}
             cartTotal={cartTotal}
             setCartTotal={setCartTotal}
+            seletedDelivery={seletedDelivery}
+            setSeletedDelivery={setSeletedDelivery}
           />
           <CartNextPrevious
             cartCate={cartCate}
@@ -80,6 +83,8 @@ function CartContent(props) {
             setSeletedOptionCardMonth={setSeletedOptionCardMonth}
             seletedOptionCardYear={seletedOptionCardYear}
             setSeletedOptionCardYear={setSeletedOptionCardYear}
+            seletedDelivery={seletedDelivery}
+            setSeletedDelivery={setSeletedDelivery}
             onChangeForField={onChangeForField}
           />
           <CartNextPrevious
@@ -94,6 +99,8 @@ function CartContent(props) {
             setSeletedOptionCardMonth={setSeletedOptionCardMonth}
             seletedOptionCardYear={seletedOptionCardYear}
             setSeletedOptionCardYear={setSeletedOptionCardYear}
+            seletedDelivery={seletedDelivery}
+            setSeletedDelivery={setSeletedDelivery}
             onChangeForField={onChangeForField}
             cartCate={cartCate}
             setCartCate={setCartCate}

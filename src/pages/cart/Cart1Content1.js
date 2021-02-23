@@ -210,6 +210,30 @@ function Cart1Content1(props) {
                   <td></td>
                   <td></td>
                 </tr>
+                {cartStep === 'step2' && (
+                  <tr>
+                    <td className="py-4"></td>
+                    <td></td>
+                    <td>配送方式</td>
+                    <td>
+                      <select name="" id="">
+                        <option value="1000">1000</option>
+                        <option value="1000">1000</option>
+                        <option value="1000">1000</option>
+                        <option value="1000">1000</option>
+                      </select>
+                    </td>
+
+                    <td colSpan="2" className="hy-py-48">
+                      運費
+                    </td>
+                    <td>1234</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                )}
               </tbody>
             </table>
             {/* M-版本 */}

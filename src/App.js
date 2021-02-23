@@ -54,8 +54,8 @@ export const ThemeContext = React.createContext(themes.light)
 function App() {
   // const [login, setLogin] = useState(false)
   // const [themeNow, setThemeNow] = useState(themes.light)
+  const [textInput, setTextInput] = useState([])
 
-  const [textInput, setTextInput] = useState('')
   const [searchCampaign, setSearchCampaign] = useState('')
   const [categoryActiveObj, setCategoryActiveObj] = useState({
     categoryBtn1: false,
@@ -63,6 +63,7 @@ function App() {
     categoryBtn3: false,
     categoryBtn4: true,
   })
+
   return (
     <Router>
       <>
