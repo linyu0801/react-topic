@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import '../../styles/campaignIndex.scss'
 import '../../styles/campaignProducts.scss'
 import '../../styles/font.scss'
@@ -14,17 +14,24 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 import { far } from '@fortawesome/free-regular-svg-icons'
+import { MdKeyboardArrowRight } from 'react-icons/md'
+import { MdKeyboardArrowLeft } from 'react-icons/md'
 
 function CampaignProducts(props) {
   const [productData, setProductData] = useState([])
   const [productDataDisplay, setProductDataDisplay] = useState([])
+  const [paginationDisplay, setPaginationDisplay] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+
+  //分類按鈕Active
   const [buttonActiveObj, setButtonActiveObj] = useState({
     categoryBtn1: false,
     categoryBtn2: false,
     categoryBtn3: false,
     categoryBtn4: true,
   })
+
+  //排序按鈕Active
   const [sortButtonActiveObj, setSortButtonActiveObj] = useState({
     sortBtn1: false,
     sortBtn2: false,
@@ -37,6 +44,24 @@ function CampaignProducts(props) {
 
   const { searchCampaign } = props
   const { categoryActiveObj } = props
+
+  useEffect(() => {
+    async function fetchdata() {
+      var formBody = new FormData()
+      formBody.set('searchCampaign', searchCampaign)
+      const url = 'http://localhost:4000/search'
+      const request = new Request(url, {
+        method: 'POST',
+        body: formBody,
+      })
+      const response = await fetch(request)
+      const rows = await response.json()
+      setProductData(rows)
+      setProductDataDisplay(rows)
+      console.log('回傳的資料', rows)
+    }
+    fetchdata()
+  }, [])
 
   useEffect(() => {
     // 先開起載入指示器
@@ -67,6 +92,18 @@ function CampaignProducts(props) {
       doCategoryWorkshop()
     }
   }, [productData, categoryActiveObj])
+
+  function pagination1() {
+    const newProductDataDisplay = productDataDisplay.slice(0, 5)
+
+    setPaginationDisplay(newProductDataDisplay)
+  }
+
+  function pagination2() {
+    const newProductDataDisplay = productDataDisplay.slice(5, 10)
+
+    setPaginationDisplay(newProductDataDisplay)
+  }
 
   function doAllCategory() {
     setProductDataDisplay(productData)
@@ -138,25 +175,6 @@ function CampaignProducts(props) {
     setProductDataDisplay(newProductData)
   }
 
-  useEffect(() => {
-    async function fetchdata() {
-      var formBody = new FormData()
-      formBody.set('searchCampaign', searchCampaign)
-
-      const url = 'http://localhost:4000/search'
-      const request = new Request(url, {
-        method: 'POST',
-        body: formBody,
-      })
-      const response = await fetch(request)
-      const rows = await response.json()
-      setProductData(rows)
-      setProductDataDisplay(rows)
-      console.log('回傳的資料', rows)
-    }
-    fetchdata()
-  }, [])
-
   const spinner = (
     <>
       <Spinner animation="border" variant="warning" />
@@ -165,7 +183,7 @@ function CampaignProducts(props) {
 
   const displayProductCards = (
     <>
-      {productDataDisplay.map((v, i) => (
+      {paginationDisplay.map((v, i) => (
         <Link
           to={`/campaign/products/` + v.sid}
           style={{ color: 'inherit', textDecoration: 'none' }}
@@ -741,6 +759,71 @@ function CampaignProducts(props) {
               </ol>
             </div>
             {isLoading ? spinner : displayProductCards}
+            <div>
+              <nav aria-label="Page navigation example" className="hoyu-mt">
+                <ul className="pagination justify-content-center">
+                  <li className="page-item">
+                    <Link
+                      className="page-link hoyu-page-link hoyu-page-arrow"
+                      to="#"
+                      aria-label="Previous"
+                    >
+                      <span aria-hidden="true">
+                        <MdKeyboardArrowLeft />
+                      </span>
+                    </Link>
+                  </li>
+                  <li className="page-item">
+                    <Link
+                      className="page-link hoyu-page-link"
+                      to={`/campaign/searchProducts?page=1`}
+                      onClick={() => {
+                        pagination1()
+                      }}
+                    >
+                      1
+                    </Link>
+                  </li>
+                  <li className="page-item">
+                    <Link
+                      className="page-link hoyu-page-link"
+                      to={`/campaign/searchProducts?page=2`}
+                      onClick={() => {
+                        pagination2()
+                      }}
+                    >
+                      2
+                    </Link>
+                  </li>
+                  <li className="page-item">
+                    <Link className="page-link hoyu-page-link" to="#">
+                      3
+                    </Link>
+                  </li>
+                  <li className="page-item">
+                    <Link className="page-link hoyu-page-link" to="#">
+                      4
+                    </Link>
+                  </li>
+                  <li className="page-item">
+                    <Link className="page-link hoyu-page-link" to="#">
+                      5
+                    </Link>
+                  </li>
+                  <li className="page-item">
+                    <Link
+                      className="page-link hoyu-page-link hoyu-page-arrow"
+                      to="#"
+                      aria-label="Next"
+                    >
+                      <span aria-hidden="true">
+                        <MdKeyboardArrowRight />
+                      </span>
+                    </Link>
+                  </li>
+                </ul>
+              </nav>
+            </div>
           </div>
         </div>
       </div>
@@ -748,4 +831,4 @@ function CampaignProducts(props) {
   )
 }
 
-export default CampaignProducts
+export default withRouter(CampaignProducts)

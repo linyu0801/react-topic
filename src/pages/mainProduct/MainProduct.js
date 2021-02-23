@@ -10,6 +10,8 @@ import Pagination from 'react-bootstrap/Pagination'
 
 function MainProduct(props) {
   const [product, setProduct] = useState([])
+  const [page, setPage] = useState([])
+  const [totalPages, setTotalPages] = useState([])
 
   //分類用onClick function：按了li啟動onClick後呼叫這支function，使代入的參數p_cate做改變
   // 原本只做分類的寫法：const doCate = async (p_cate) => {
@@ -29,6 +31,8 @@ function MainProduct(props) {
     const data = await response.json()
     // console.log('回傳資料 : ', data)
     setProduct(data.rows)
+    setTotalPages(data.totalPages)
+    setPage(nowPage)
   }
 
   //和node串連取得資料庫資料：生命周期概念
@@ -81,23 +85,14 @@ function MainProduct(props) {
   )
 
   //自己改寫分頁
+  // const doPagination = async (page, totalPages) => {
   //number <= { totalPages }
-  let active = 2
+  // let active = page
   let items = []
-  for (let number = 1; number <= 5; number++) {
-    items.push(
-      <Pagination.Item key={number} active={number === active}>
-        {number}
-      </Pagination.Item>
-    )
+  for (let number = page; number <= totalPages; number++) {
+    items.push(<Pagination.Item key={number}>{number}</Pagination.Item>)
+    // push後面的東西<Pagination.Item key={number} active={number === active}>{number}</Pagination.Item>會被塞到items[]裡
   }
-
-  const paginationBasic = (
-    <div>
-      <Pagination>{items}</Pagination>
-      <br />
-    </div>
-  )
 
   return (
     <>
@@ -156,7 +151,7 @@ function MainProduct(props) {
               <li
                 className="k-category"
                 onClick={() => {
-                  doCate(2, 1)
+                  doCate(2, 1) //分類2的第一頁
                 }}
               >
                 <span>紅酒風味</span>
@@ -213,8 +208,41 @@ function MainProduct(props) {
             </li>
             
           </ul> */}
-          {paginationBasic}
           <nav
+            aria-label="Page navigation example"
+            className="hoyu-mt d-flex justify-content-end"
+          >
+            <Pagination className="pagination justify-content-center">
+              {/* pagination就是ul */}
+              <li className="page-item">
+                <Link
+                  className="page-link hoyu-page-link hoyu-page-arrow"
+                  to="#"
+                  aria-label="Previous"
+                >
+                  <span aria-hidden="true">
+                    <MdKeyboardArrowLeft />
+                  </span>
+                </Link>
+              </li>
+
+              {items}
+
+              <li className="page-item">
+                <Link
+                  className="page-link hoyu-page-link hoyu-page-arrow"
+                  to="#"
+                  aria-label="Next"
+                >
+                  <span aria-hidden="true">
+                    <MdKeyboardArrowRight />
+                  </span>
+                </Link>
+              </li>
+            </Pagination>
+          </nav>
+
+          {/* <nav
             aria-label="Page navigation example"
             className="hoyu-mt d-flex justify-content-end"
           >
@@ -231,7 +259,7 @@ function MainProduct(props) {
                 </Link>
               </li>
 
-              <li className="page-item" onClick={() => {}}>
+              <li className="page-item">
                 <Link className="page-link hoyu-page-link" to="#">
                   1
                 </Link>
@@ -268,7 +296,7 @@ function MainProduct(props) {
                 </Link>
               </li>
             </ul>
-          </nav>
+          </nav> */}
 
           <div className="k-golden-design"></div>
         </div>

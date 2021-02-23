@@ -315,7 +315,7 @@ function OrderDetail(props) {
               props.history.push('/')
             }}
           >
-            儲存修改
+            返回首頁
           </button>
           {/* <button
             className="addToCartBtn"
@@ -327,6 +327,8 @@ function OrderDetail(props) {
             返回首頁
           </button> */}
         </div>
+        <div className="bgup-img"></div>
+        <div className="bgdown-img"></div>
       </div>
     </>
   )
