@@ -34,6 +34,7 @@ import MainContent from './components/MainContent'
 import MyNavbar from './components/MyNavbar'
 import MyFooter from './components/MyFooter'
 import ScrollToTop from './components/ScrollToTop'
+
 //import BreadCrumb from './components/BreadCrumb'
 // 定義樣式
 const themes = {
@@ -53,8 +54,8 @@ export const ThemeContext = React.createContext(themes.light)
 function App() {
   // const [login, setLogin] = useState(false)
   // const [themeNow, setThemeNow] = useState(themes.light)
+  const [textInput, setTextInput] = useState([])
 
-  const [textInput, setTextInput] = useState('')
   const [searchCampaign, setSearchCampaign] = useState('')
   const [categoryActiveObj, setCategoryActiveObj] = useState({
     categoryBtn1: false,
@@ -62,6 +63,7 @@ function App() {
     categoryBtn3: false,
     categoryBtn4: true,
   })
+
   return (
     <Router>
       <>
