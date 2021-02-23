@@ -50,9 +50,32 @@ ol.carousel-indicators li {
   border-bottom: 1px solid #cdaa8a;
 }
 
-.accordion > .card >.collapse >.card-body{
+.accordion > .card > .collapse > .card-body {
   background-color: white;
 }
+
+//K：重製pagination元件設定
+li.page-item > a.page-link {
+  border: none;
+  font-family: 'Noto Serif TC';
+  color: #bebebe;
+  font-size: 24px;
+  background: none;
+}
+
+li.page-item > a.page-link:hover {
+  color: #cdaa8a;
+  background: none;
+  border: none;
+}
+
+// li.page-item.active > span.page-link {
+//   font-family: 'Noto Serif TC';
+//   z-index: 0;
+//   color: #bebebe;
+//   background-color: white;
+//   border-color: white;
+// }
 
 //------------------
 
