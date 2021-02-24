@@ -2,6 +2,39 @@
   outline: 1px red solid;
 } */
 
+.hy-modal > .modal-footer > button {
+  background-color: #cdaa8a;
+  border: none;
+}
+
+.fade.modal.show {
+  background-color: transparent;
+}
+
+.hy-modal {
+  background-color: none;
+}
+.hy-modal > .modal-header {
+  border: none;
+  border-bottom: 1px solid #cdaa8a;
+  padding: 20px 30px;
+}
+
+.hy-modal > .modal-body {
+  border: none;
+  border-bottom: 1px solid #cdaa8a;
+  padding: 20px 30px;
+}
+
+.hy-modal > .modal-footer {
+  border: none;
+  padding: 20px 30px;
+}
+
+.modal-content.hy-modal {
+  border-radius: 0;
+}
+
 .k-left-icon.hy-left-icon {
   margin-right: 25px;
 }
