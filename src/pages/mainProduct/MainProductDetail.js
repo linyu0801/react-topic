@@ -79,7 +79,7 @@ function MainProductDetail(props) {
     if (cartresult === 'error') {
       alert('Something Went Wrong')
     } else {
-      alert('Item Added To Cart')
+      alert('商品已加入購物車')
     }
   }
   return (
