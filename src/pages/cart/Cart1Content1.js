@@ -33,19 +33,8 @@ function Cart1Content1(props) {
       .then((res) => {
         if (res.length === 0) {
           console.log('這是空的購物車', res)
-          setCartItems(res)
-          let newPrice = 0
-          let newQuantity = 0
-          res.map((item, i) => {
-            newQuantity += +item.quantity
-            newPrice += +item.p_price * +item.quantity
-          })
-          setCartTotal(newPrice)
-          setQuantityTotal(newQuantity)
-          console.log(newPrice)
-          console.log(newQuantity)
         } else {
-          // console.log('購物車的', res)
+          console.log('購物車的有進來嗎', res)
           setCartItems(res)
           let newPrice = 0
           let newQuantity = 0
@@ -169,19 +158,46 @@ function Cart1Content1(props) {
     </Modal>
   )
 
-  // useEffect(() => {
-  //   setCartTotal(priceTotal)
-  //   console.log(priceTotal)
-  // }, [priceTotal])
+  const messageModal2 = (
+    <Modal
+      contentClassName="hy-modal"
+      show={modalShow}
+      onHide={handleClose}
+      size="md"
+      aria-labelledby="contained-modal-title-vcenter"
+      keyboard={false}
+      backdrop="static"
+      centered
+      onClick={() => {
+        props.history.push('/member/login')
+      }}
+    >
+      <Modal.Header>
+        <Modal.Title id="contained-modal-title-vcenter">
+          <h5>提示訊息</h5>
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>購物車無商品</h4>
+        <p>您目前購物車內沒有商品，請至各商城頁面選購，謝謝!</p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button
+          onClick={() => {
+            props.history.push('/')
+          }}
+        >
+          返回首頁
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  )
   return (
     <>
-      {/* {sessionStorage.getItem('mid') === null && (
-        <Redirect to="/member/login" />
-      )} */}
       {sessionStorage.getItem('mid') === null && messageModal}
+      {(sessionStorage.getItem('mid') !== null) & (cartItems.length === 0) &&
+        messageModal2}
 
-      {/* {sessionStorage.getItem('mid') === null &&
-        props.history.push('/member/login')} */}
       <div className="row">
         <div className="col-1"></div>
         <div className="col-10">

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import React, { useState } from 'react'
 
 // 頁面用元件
+import MainPage from './pages/MainPage/MainPage'
 import MemberEdit from './pages/member/MemberEdit'
 import Mpassword from './pages/member/Mpassword'
 import OrderProduct from './pages/member/OrderProduct'
@@ -25,7 +26,7 @@ import StudioOrder from './pages/StudioRent/StudioOrder'
 import StudioIntro1 from './pages/StudioRent/StudioIntro1'
 import StudioIntro2 from './pages/StudioRent/StudioIntro2'
 import StudioIntro3 from './pages/StudioRent/StudioIntro3'
-import HomePage from './pages/homePage/homePage'
+
 import OrderDetail from './pages/member/OrderDetail'
 
 // 組合用元件
@@ -74,8 +75,8 @@ function App() {
             {/* <ThemeContext.Provider value={themeNow}> */}
 
             <Switch>
-              <Route path="/homepage">
-                <HomePage />
+              <Route path="/MainPage">
+                <MainPage />
               </Route>
               <Route path="/mainproduct">
                 <MainProduct />

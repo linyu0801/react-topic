@@ -1,7 +1,7 @@
 import '../../styles/fish.scss'
 import '../../styles/font.scss'
 import { Link, withRouter } from 'react-router-dom'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import $ from 'jquery'
 function Login(props) {
   const [account, setAccount] = useState('')
@@ -37,42 +37,65 @@ function Login(props) {
       $('#password').next().text('密碼錯誤')
     }
   }
+  useEffect(() => {
+    let curs = document.querySelector('.cursor')
+
+    document.addEventListener('mousemove', (e) => {
+      let x = e.pageX
+      let y = e.pageY
+      curs.style.left = x - 22 + 'px'
+      curs.style.top = y - 22 + 'px'
+      // console.log('123')
+    })
+
+    document.addEventListener('mouseleave', (e) => {
+      let x = e.pageX
+      let y = e.pageY
+      curs.style.left = x - 22 + 'px'
+      // curs.style.opacity = 0.5
+      curs.style.top = y - 22 + 'px'
+    })
+  }, [])
   return (
     <>
+      <div class="cursor"></div>
+
       <div className="fish-login-bg ">
         <div className="container h-100 member-mg">
           <div className="row justify-content-center">
             <div className="fish-mask d-flex justify-content-center col-xl-6 col-lg-8 col-md-10 col-sm-12">
               <form action="" className="pub-form w-80">
-                <h3>會員登入</h3>
-                <label htmlFor="account ">請輸入帳號</label>
-                <br />
-                <input
-                  className="w-100 member-input"
-                  type="text"
-                  name={account}
-                  id="account"
-                  onChange={(event) => {
-                    setAccount(event.target.value)
-                  }}
-                />
+                <div className="zindex">
+                  <h3>會員登入</h3>
+                  <label htmlFor="account ">請輸入帳號</label>
+                  <br />
+                  <input
+                    className="w-100 member-input"
+                    type="text"
+                    name={account}
+                    id="account"
+                    onChange={(event) => {
+                      setAccount(event.target.value)
+                    }}
+                  />
 
-                <small></small>
-                <label htmlFor="password">請輸入密碼</label>
-                <br />
-                <input
-                  className="w-100 member-input"
-                  type="text"
-                  name={password}
-                  id="password"
-                  onChange={(event) => {
-                    setPassword(event.target.value)
-                  }}
-                />
-                <small></small>
+                  <small></small>
+                  <label htmlFor="password">請輸入密碼</label>
+                  <br />
+                  <input
+                    className="w-100 member-input"
+                    type="text"
+                    name={password}
+                    id="password"
+                    onChange={(event) => {
+                      setPassword(event.target.value)
+                    }}
+                  />
+                  <small></small>
+                </div>
                 <button
                   type="button"
-                  className="pub-button mx-auto"
+                  className="member-button mx-auto"
                   onClick={() => {
                     LoginToSever()
                   }}

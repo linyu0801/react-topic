@@ -1,0 +1,399 @@
+h1 {
+  font-size: 76px;
+  color: #cdaa8a;
+  font-family: 'Noto Serif TC';
+  font-weight: bold;
+}
+h2 {
+  font-size: 48px;
+  color: #cdaa8a;
+  letter-spacing: 0.1rem;
+  font-family: 'Noto Serif TC';
+  font-weight: bold;
+}
+h3 {
+  font-size: 36px;
+  color: #250404;
+  font-family: 'Noto Serif TC';
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+h4 {
+  font-size: 24px;
+  font-family: 'Noto Serif TC';
+  letter-spacing: 0.1rem;
+  line-height: 20px;
+}
+h5 {
+  font-family: 'Noto Serif TC';
+  font-size: 16px;
+  letter-spacing: 3px;
+  margin-bottom: 0px;
+  font-weight: bold;
+}
+p {
+  font-family: 'Noto Serif TC';
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1rem;
+}
+a {
+  font-family: 'Noto Sans TC';
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1rem;
+}
+.masection {
+  position: relative;
+  background-image: url('http://localhost:3000/MainPage/image/main.jpg');
+  height: 800px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  opacity: 0.9;
+  margin: 0;
+  border-radius: 0%;
+}
+
+.masection.jumbotron {
+  border-radius: 0;
+}
+.maherosection {
+  position: absolute;
+  padding: 50px 0;
+  margin: auto;
+  left: 5%;
+  bottom: 150px;
+  width: 30%;
+  height: 30%;
+  color: #cdaa8a;
+  background: radial-gradient(circle farthest-side at center, gray, black);
+  opacity: 0.4;
+  border: none;
+}
+.masubtitle {
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: lighter;
+  margin-bottom: 0;
+  width: fit-content;
+  border-bottom: 1px solid #cdaa8a;
+}
+.matitle {
+  margin: 0.5rem 0;
+  font-weight: bold;
+}
+.mablock {
+  width: 100%;
+  height: 400px;
+  background-color: #250404;
+  margin: auto;
+  line-height: 200px;
+  text-align: center;
+}
+.mablockinner .mablockcontent {
+  display: inline-block;
+  height: auto;
+  line-height: 1;
+  margin-top: 147px;
+  background-color: #250404;
+  vertical-align: middle;
+}
+.mbtitle {
+  font-size: 36px;
+  color: #cdaa8a;
+  font-family: 'Noto Serif TC';
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+.mablockword {
+  color: #cdaa8a;
+}
+.lemoncakecontainer {
+  margin-top: 50px;
+}
+.lemoncontainer {
+  margin-top: 150px;
+  height: 800px;
+}
+.lemonsection {
+  position: relative;
+}
+.lemonimg {
+  background-image: url('http://localhost:3000/MainPage/image/lemoncake.jpg');
+  background-size: cover;
+  height: 552px;
+  width: 552px;
+  top: 220px;
+  position: absolute;
+  left: 0px;
+  top: 100px;
+  z-index: 100;
+  background-position: center;
+}
+.lemoncontent {
+  position: absolute;
+  right: 0px;
+  top: 0;
+  z-index: 80;
+  width: 652px;
+  height: 756px;
+  border: #cdaa8a 8px double;
+  padding-left: 194px;
+  padding-top: 104px;
+}
+.lemonhr {
+  background-color: #cdaa8a;
+  width: 60%;
+  margin-left: 1px;
+}
+.lemoncaketname {
+  color: #cdaa8a;
+  margin: 30px 0;
+}
+.lemoncakeprice {
+  color: #cdaa8a;
+  padding-left: 50px;
+}
+.maadd {
+  position: absolute;
+  width: 261px;
+  height: 50px;
+  background-color: #250404;
+  bottom: 269px;
+  color: white;
+  border-radius: 0;
+}
+.maadd:hover {
+  color: white;
+  background-color: #cdaa8a;
+}
+.macard {
+  display: none;
+}
+.popitemtitle {
+  margin-top: 150px;
+}
+.popitembigtitle {
+  margin-bottom: 50px;
+  padding-left: 40px;
+}
+.popitem {
+  height: 400px;
+  width: 100%;
+  margin: auto;
+}
+.popitem1 {
+  width: 300px;
+  height: 300px;
+  margin: auto;
+
+  overflow: hidden;
+}
+.popitemimg {
+  width: 100%;
+  transition: all 0.5s ease-out;
+}
+.popitemimg:hover {
+  transform: scale(1.2, 1.2);
+}
+.popitem2 {
+  width: 300px;
+  height: 300px;
+  margin: auto;
+}
+.popcard {
+  display: none;
+}
+
+.trrow {
+  margin-right: 0;
+  position: relative;
+}
+.trrow > .trybrown {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+.trytast {
+  position: relative;
+  margin-top: 150px;
+  width: 100%;
+  margin-bottom: 150px;
+  padding-right: 0;
+  overflow: hidden;
+}
+.trybrown {
+  background-color: #250404;
+  height: 800px;
+  padding: 150px;
+  z-index: 80;
+}
+.tryyellow {
+  background: -webkit-linear-gradient(#fce4cc, #cdaa8a);
+  background: -o-linear-gradient(#fce4cc, #cdaa8a);
+  background: -moz-linear-gradient(#fce4cc, #cdaa8a);
+  background: linear-gradient(#fce4cc, #cdaa8a);
+  /* background-color: #C7AB8E; */
+  padding: 0%;
+  z-index: 80;
+  height: 800px;
+  position: relative;
+}
+.trycontent {
+  color: #ffeed3;
+  word-wrap: Break-All;
+  margin-top: 35px;
+  padding-left: 10px;
+}
+.tryimg {
+  /* background-image: url("../image/TastingImg.jpg"); */
+  /* background-repeat: no-repeat; */
+  position: absolute;
+  width: 652px;
+  /* height: 756px; */
+  top: 200px;
+  right: 10%;
+  z-index: 100;
+}
+.tryimg > img {
+  width: 100%;
+}
+.mastudioimg {
+  background-image: url('http://localhost:3000/MainPage/image/makitchen.jpg');
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 700px;
+}
+
+.mastudiotitle {
+  margin-bottom: 35px;
+  color: #cdaa8a;
+  font-size: 24px;
+}
+.mastudiocontent {
+  width: 350px;
+  margin-top: 35px;
+}
+.mastudiotext {
+  padding-left: 50px;
+  padding-top: 106px;
+  border: double 8px #cdaa8a;
+}
+.maaddstudio {
+  width: 100%;
+  height: 10%;
+  background-color: #250404;
+  bottom: 269px;
+  color: white;
+  border-radius: 0;
+  margin-top: 150px;
+  padding-left: 0;
+}
+.maaddstudio:hover {
+  color: white;
+  background-color: #cdaa8a;
+}
+.lastpart {
+  margin-top: 198px;
+  margin-bottom: 50px;
+}
+.lastparttext {
+  text-align: center;
+  margin: auto;
+}
+.mareadmore {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 415px), print {
+  h5 {
+    font-size: 12px !important;
+  }
+  h2 {
+    font-size: 30px;
+  }
+  .masection {
+    height: 500px;
+  }
+  .maherosection {
+    width: 60%;
+    height: 30%;
+  }
+  .letsbuy {
+    display: none;
+  }
+  p {
+    font-size: 12px;
+  }
+  h3 {
+    font-size: 16px !important;
+  }
+  .lemoncontainer {
+    display: none;
+  }
+  .lemoncaketname {
+    font-size: 12px;
+  }
+  .macard {
+    display: block;
+    margin-top: 50px;
+    margin: auto;
+  }
+  .marcard-img-top {
+    margin-top: 15px;
+  }
+  .lemonhr {
+    width: 100%;
+  }
+  .gotocat {
+    font-size: 12px;
+    color: #cdaa8a;
+    text-decoration: underline 1px #cdaa8a;
+    text-align: right;
+  }
+  .popitemtitle {
+    display: none;
+  }
+  .popcard {
+    display: block;
+    margin-top: 50px;
+    margin: auto;
+  }
+  .marcard-img-top {
+    margin-top: 15px;
+  }
+  .mastudiotext {
+    padding-left: 10px;
+    padding-top: 106px;
+    padding-bottom: 106px;
+  }
+
+  .popprice {
+    font-size: 14px;
+    text-align: right;
+  }
+  .tryyellow {
+    display: none;
+  }
+  .trybrown {
+    height: 600px;
+  }
+  .tryimg {
+    display: none;
+  }
+  .trybrown {
+    padding: 50px;
+    height: 60%;
+  }
+  .mastudioimg {
+    background-position: center;
+    height: 500px;
+  }
+  .maaddstudio {
+    margin-top: 50px;
+    height: 20%;
+  }
+}
