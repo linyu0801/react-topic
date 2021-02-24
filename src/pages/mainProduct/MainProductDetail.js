@@ -3,8 +3,12 @@ import '../../styles/font.scss'
 import { MdFavoriteBorder } from 'react-icons/md'
 import { MdRemove } from 'react-icons/md'
 import { MdAdd } from 'react-icons/md'
-import ProductCarousel from '../../components/ProductCarousel'
-import ProductAccordion from '../../components/ProductAccordion'
+import { MdLocalBar } from 'react-icons/md'
+// import { RiCakeFill } from 'react-icons/ri'
+import { GiCakeSlice } from 'react-icons/gi'
+import { GiBerriesBowl } from 'react-icons/gi'
+// import ProductCarousel from '../../components/ProductCarousel'
+// import ProductAccordion from '../../components/ProductAccordion'
 import { useState, useEffect } from 'react'
 import CarouselShow from '../../components/CarouselShow'
 import { Link, withRouter } from 'react-router-dom'
@@ -83,15 +87,15 @@ function MainProductDetail(props) {
       <div className="content container">
         <div className="row k-mp-upper">
           <div className="col breadcrumbs">
-            <Link className="clbread" to="">
+            <Link className="clbread" to="/homepage">
               首頁{'  '}
               <span className="clspan">{'>'}</span>
             </Link>
-            <Link className="clbread" to="">
+            <Link className="clbread" to="/mainproduct">
               商品{'  '}
               <span className="clspan">{'>'}</span>
             </Link>
-            <Link className="clbread" to="">
+            <Link className="clbread" to="/mainproduct">
               全部商品{'  '}
               <span className="clspan">{'>'}</span>
             </Link>
@@ -189,9 +193,15 @@ function MainProductDetail(props) {
               <Card.Body>
                 <div className="info-body">
                   <div className="k-xd-icon d-flex justify-content-between">
-                    <span className="k-material-icons material-icons"></span>
-                    <span className="k-material-icons material-icons"></span>
-                    <span className="k-material-icons material-icons"></span>
+                    <span className="k-material-icons material-icons">
+                      <MdLocalBar />
+                    </span>
+                    <span className="k-material-icons material-icons">
+                      <GiBerriesBowl />
+                    </span>
+                    <span className="k-material-icons material-icons">
+                      <GiCakeSlice />
+                    </span>
                   </div>
                   {product.map((v, i) => (
                     <h5 key={i} className="info-body-text text-center">
@@ -246,7 +256,7 @@ function MainProductDetail(props) {
               </Card.Body>
             </Accordion.Collapse>
           </Card>
-          <Card>
+          {/* <Card>
             <Accordion.Toggle as={Card.Header} eventKey="2">
               <div className="info-head d-flex justify-content-between d-flex align-items-center">
                 <h5 className="k-note">評價</h5>
@@ -325,136 +335,8 @@ function MainProductDetail(props) {
                 </div>
               </Card.Body>
             </Accordion.Collapse>
-          </Card>
+          </Card> */}
         </Accordion>
-
-        {/* <div className="temp-accordion">
-          <div className="display-one">
-            <div className="info-head d-flex justify-content-between d-flex align-items-center">
-              <h5 className="k-note">產品資訊</h5>
-              <i className="plus-icon fas fa-plus"></i>
-            </div>
-            <div className="info-body">
-              <div className="k-xd-icon d-flex justify-content-between">
-                <span className="k-material-icons material-icons"></span>
-                <span className="k-material-icons material-icons"></span>
-                <span className="k-material-icons material-icons"></span>
-              </div>
-
-              <h5 className="info-body-text text-center">
-                酒精濃度：40% <br />
-                內容物：君度橙酒/龍眼蜜/檸檬皮/北海道鮮奶油
-                <br />
-                蛋糕體：千層蛋糕體
-                <br />
-                葷素：奶蛋素
-                <br />
-                規格：8吋
-                <br />
-                保存方式：冷藏
-                <br />
-                保存期限：冷藏1~2天內食用完畢，實際保存期限請見包裝標示
-              </h5>
-            </div>
-          </div>
-
-          <div className="display-two">
-            <div className="info-head d-flex justify-content-between d-flex align-items-center">
-              <h5 className="k-note">注意事項</h5>
-              <i className="plus-icon fas fa-plus"></i>
-            </div>
-            <div className="info-body">
-              <ul className="k-ul-note">
-                <li className="note-list">
-                  訂單運費$185元，滿$3,600元免運費。
-                </li>
-                <li className="note-list">
-                  商品圖片僅供實物參考，內容物組成以實物及商品規格為主。
-                </li>
-                <li className="note-list">
-                  如遇商品瑕疵需辦理退換貨者，請維持商品完整，保留原包裝，並於2日內辦理退換貨，逾期恕不受理。
-                </li>
-                <li className="note-list">
-                  販售的蛋糕產品，屬消保法定義之生鮮食品，因此商品出貨後，除非商品本身重大瑕疵，概不接受消費者無條件退貨。
-                </li>
-                <li className="note-list">
-                  訂購付款完成後，如因故需取消/變更訂單、或無法前往門市取貨，請在指定到貨日2天前於服務時間內來電通知客服人員取消或變更訂單。
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="display-three">
-            <div className="info-head d-flex justify-content-between d-flex align-items-center">
-              <h5 className="k-note">評價</h5>
-              <i className="plus-icon fas fa-plus"></i>
-            </div>
-            <div className="info-body">
-              <div className="k-commons">
-                <div className="member-common">
-                  <div className="member-name">林*文</div>
-                  <div className="common-text">
-                    君度橙酒的香氣和帶點酸氣的檸檬奶油讓人欲罷不能，一口接一口啊！
-                  </div>
-                </div>
-                <div className="member-common">
-                  <div className="member-name">林*文</div>
-                  <div className="common-text">
-                    君度橙酒的香氣和帶點酸氣的檸檬奶油讓人欲罷不能，一口接一口啊！
-                  </div>
-                </div>
-                <div className="member-common">
-                  <div className="member-name">林*文</div>
-                  <div className="common-text">
-                    君度橙酒的香氣和帶點酸氣的檸檬奶油讓人欲罷不能，一口接一口啊！
-                  </div>
-                </div>
-              </div>
-
-              <div className="add-common">
-                <form action="" className="pub-form">
-                  <label htmlFor="account ">使用者名稱</label>
-                  <br />
-                  <input
-                    className="w-100 pub-input"
-                    type="text"
-                    name="acoount"
-                    id="account"
-                  />
-                  <br />
-                  <small></small>
-
-                  <label htmlFor="password">電子郵件</label>
-                  <br />
-                  <input
-                    className="w-100 pub-input"
-                    type="text"
-                    name="password"
-                    id="password"
-                  />
-                  <small>請輸入正確的電子郵件格式</small>
-
-                  <div className="mb-3">
-                    <label htmlFor="validationTextarea">您的評價</label>
-                    <textarea
-                      className="form-control pub-textarea"
-                      id=""
-                      placeholder="請留下評價"
-                      required
-                    ></textarea>
-                    <div className="invalid-feedback">請留下評價後再送出</div>
-                  </div>
-
-                  <button
-                    type="button"
-                    className="k-pub-button pub-mb-100 mx-auto"
-                  >
-                    送出評價
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div> */}
       </div>
       <div className="more-info">
         <h4 className="more container">更多蛋糕</h4>
