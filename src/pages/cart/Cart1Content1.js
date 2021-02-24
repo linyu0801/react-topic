@@ -169,7 +169,7 @@ function Cart1Content1(props) {
       backdrop="static"
       centered
       onClick={() => {
-        props.history.push('/member/login')
+        props.history.push('/')
       }}
     >
       <Modal.Header>
