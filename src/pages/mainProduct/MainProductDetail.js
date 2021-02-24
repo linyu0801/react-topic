@@ -37,7 +37,7 @@ function MainProductDetail(props) {
     FetchData()
   }, [])
 
-  const [total, setTotal] = useState(0)
+  const [total, setTotal] = useState(1)
 
   //收藏功能
   const addfavproduct = async (p_sid) => {
