@@ -1,12 +1,12 @@
 import '../../styles/MainProductDetail.scss'
 import '../../styles/font.scss'
-import { MdRemove } from 'react-icons/md'
+// import { MdRemove } from 'react-icons/md'
 import { useState, Link } from 'react'
-import { MdAdd } from 'react-icons/md'
-import { MdFavoriteBorder } from 'react-icons/md'
+// import { MdAdd } from 'react-icons/md'
+// import { MdFavoriteBorder } from 'react-icons/md'
 // import ProductAccordion from '../../components/ProductAccordion'
 
-function MainProductDetailTest2(props) {
+function MainProductDetailTest2() {
   // const { inputs } = props
   const [cartQuantity, setCartQuantity] = useState(1)
   const mid = sessionStorage.getItem('mid')
@@ -62,7 +62,7 @@ function MainProductDetailTest2(props) {
               <h3 className="k-product-name">微醺森林</h3>
               <Link to="*" className="a-right-style">
                 <i className="k-collection far fa-heart">
-                  <MdFavoriteBorder />
+                  {/* <MdFavoriteBorder /> */}
                 </i>
               </Link>
             </div>
@@ -73,19 +73,19 @@ function MainProductDetailTest2(props) {
               <div className="col-lg-6">
                 <div className="k-counter my-3">
                   <i className="fas fa-minus k-left-icon">
-                    <MdRemove
+                    {/* <MdRemove
                       onClick={() => {
                         setCartQuantity(cartQuantity - 1)
                       }}
-                    />
+                    /> */}
                   </i>
                   <span className="k-number">{cartQuantity}</span>
                   <i className="fas fa-plus k-right-icon">
-                    <MdAdd
+                    {/* <MdAdd
                       onClick={() => {
                         setCartQuantity(cartQuantity + 1)
                       }}
-                    />
+                    /> */}
                   </i>
                 </div>
               </div>

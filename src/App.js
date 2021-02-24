@@ -89,7 +89,9 @@ function App() {
               <Route path="/campaign/searchProducts">
                 <CampaignProducts
                   searchCampaign={searchCampaign}
+                  setSearchCampaign={setSearchCampaign}
                   categoryActiveObj={categoryActiveObj}
+                  setCategoryActiveObj={setCategoryActiveObj}
                 />
               </Route>
               <Route path="/campaign">

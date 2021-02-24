@@ -121,14 +121,14 @@ function CartContent(props) {
       )}
       {cartStep === 'step3' && (
         <>
-          <Cart1Content1
+          {/* <Cart1Content1
             cartTotal={cartTotal}
             cartCate={cartCate}
             setCartCate={setCartCate}
             cartStep={cartStep}
             setCartStep={setCartStep}
             setCartTotal={setCartTotal}
-          />
+          /> */}
           <Cart1Content3
             cartCate={cartCate}
             setCartCate={setCartCate}

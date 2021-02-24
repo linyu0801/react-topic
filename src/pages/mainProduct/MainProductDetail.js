@@ -41,7 +41,7 @@ function MainProductDetail(props) {
     FetchData()
   }, [])
 
-  const [total, setTotal] = useState(0)
+  const [total, setTotal] = useState(1)
 
   //收藏功能
   const addfavproduct = async (p_sid) => {
@@ -60,7 +60,29 @@ function MainProductDetail(props) {
     const data = await response.json()
     console.log('回傳資料 : ', data)
   }
-
+  // 加入購物車
+  const mid = sessionStorage.getItem('mid')
+  const addToCart = async (id, quantity) => {
+    try {
+      const response = await fetch('http://localhost:4000/AddToCart1', {
+        method: 'POST',
+        body: JSON.stringify({
+          p_sid: id,
+          quantity: quantity,
+          token: mid,
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
+      let data = await response.json()
+      alert('Item Added To Cart')
+      console.log(data)
+    } catch (err) {
+      alert('Something Went Wrong')
+      console.log(err)
+    }
+  }
   return (
     <>
       <div className="content container">
@@ -144,7 +166,12 @@ function MainProductDetail(props) {
                   </div>
                 </div>
                 <div className="col-lg-6 my-2">
-                  <button className="k-style-addToCartBtn addToCartBtn">
+                  <button
+                    className="k-style-addToCartBtn addToCartBtn"
+                    onClick={() => {
+                      addToCart(v.p_sid, total)
+                    }}
+                  >
                     加入購物車
                   </button>
                 </div>

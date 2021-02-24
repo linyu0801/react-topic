@@ -79,7 +79,8 @@ function MemberEdit(props) {
   async function EditToServer() {
     // console.log('inputs.birthday' + inputs.birthday)
     // console.log(moment.utc(inputs.birthday).local().format('YYYY-MM-DD'))
-    const regextel = /^\(?\d{2}\)?[\s\-]?\d{4}\-?\d{4}$/
+    // const regextel = /^\(?\d{2}\)?[\s\-]?\d{4}\-?\d{4}$/
+    const regextel = /^09\d{2}-?\d{3}-?\d{3}$/
     const regexemail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
     if (inputs.email.match(regexemail)) {
       $('#email').next().text('')

@@ -8,6 +8,10 @@
 .navbar a {
   color: white !important;
   margin: 0px;
+  transition: 0.5s;
+}
+.navbar a:hover {
+  color: #cdaa8a !important;
 }
 
 .navbar-brand,
@@ -53,13 +57,22 @@
 }
 
 .dropdown-item p {
+  font-family: 'Noto Sans TC';
+  font-weight: 300;
+  // font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.1rem;
   color: white;
+  transition: 0.35s;
+  padding: 6px 0px;
 }
 .dropdown-menu :hover {
   background-color: #250404;
+  color: #cdaa8a;
 }
 .dropdown-item :hover {
   background-color: #250404;
+  color: #cdaa8a;
 }
 .dropdown-item {
   height: auto;
@@ -86,6 +99,7 @@
 
 .dropdown-divider {
   border-top: 1px solid #cdaa8a !important;
+  margin: 0px;
 }
 .alex-padding {
   padding: 15px !important;

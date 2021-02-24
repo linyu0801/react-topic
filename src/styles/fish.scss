@@ -215,6 +215,9 @@ input:focus,
   list-style: none;
   color: #250404;
 }
+.fish-aside li {
+  transition: 0.3s;
+}
 .fish-aside a :hover {
   color: #cdaa8a;
 }
@@ -485,9 +488,13 @@ input[type='date']::-webkit-calendar-picker-indicator {
 }
 .fish-order-pd a {
   color: #cdaa8a;
+  transition: 0.5s;
+}
+.fish-order-pd a:hover {
+  color: #250404;
 }
 .fish-order-text {
-  padding-top: 50px;
+  margin-top: 60px;
 }
 .hoyu-page-link {
   border: none;

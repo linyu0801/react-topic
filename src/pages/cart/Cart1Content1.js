@@ -2,6 +2,7 @@ import { FaRegTimesCircle } from 'react-icons/fa'
 import { useEffect, useState } from 'react'
 import { MdRemove } from 'react-icons/md'
 import { MdAdd } from 'react-icons/md'
+import { withRouter } from 'react-router-dom'
 
 function Cart1Content1(props) {
   const {
@@ -29,24 +30,44 @@ function Cart1Content1(props) {
     res
       .json()
       .then((res) => {
-        setCartItems(res)
-        let newPrice = 0
-        let newQuantity = 0
-        res.map((item, i) => {
-          newQuantity += +item.quantity
-          newPrice += +item.p_price * +item.quantity
-        })
-        setCartTotal(newPrice)
-        setQuantityTotal(newQuantity)
-        console.log(newPrice)
-        console.log(newQuantity)
+        if (res.length === 0) {
+          console.log('這是空的購物車', res)
+          setCartItems(res)
+          let newPrice = 0
+          let newQuantity = 0
+          res.map((item, i) => {
+            newQuantity += +item.quantity
+            newPrice += +item.p_price * +item.quantity
+          })
+          setCartTotal(newPrice)
+          setQuantityTotal(newQuantity)
+          console.log(newPrice)
+          console.log(newQuantity)
+        } else {
+          console.log('購物車的', res)
+          setCartItems(res)
+          let newPrice = 0
+          let newQuantity = 0
+          res.map((item, i) => {
+            newQuantity += +item.quantity
+            newPrice += +item.p_price * +item.quantity
+          })
+          setCartTotal(newPrice)
+          setQuantityTotal(newQuantity)
+          console.log(newPrice)
+          console.log(newQuantity)
+        }
       })
       .catch((error) => {
         setError(error)
       })
   }
   useEffect(() => {
-    fetchCart()
+    if (sessionStorage.getItem('mid') === null) {
+      props.history.push('/member/login')
+    } else {
+      fetchCart()
+    }
   }, [])
 
   async function increaseQty(p_sid) {
@@ -377,4 +398,4 @@ function Cart1Content1(props) {
   )
 }
 
-export default Cart1Content1
+export default withRouter(Cart1Content1)
