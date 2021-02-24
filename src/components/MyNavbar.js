@@ -49,7 +49,7 @@ function MyNavbar(props) {
           <Nav className="mr-auto nav-between">
             {/* 利用as屬性來作選單link的整合 */}
             {/* 參考：https://react-bootstrap.github.io/components/navs/#nav-link-props */}
-            <Nav.Link className="alex-padding" as={NavLink} to="/homepage">
+            <Nav.Link className="alex-padding" as={NavLink} to="/MainPage">
               首頁
             </Nav.Link>
             <Nav.Link className="alex-padding" as={NavLink} to="/mainproduct">

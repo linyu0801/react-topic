@@ -123,7 +123,7 @@ function MainProduct(props) {
         <div className="k-main container">
           <div className="row k-upper">
             <div className="col-lg-6 col-sm-12 k-breadcrumbs">
-              <Link className="clbread" to="/homepage">
+              <Link className="clbread" to="/MainPage">
                 首頁{'  '}
                 <span className="clspan">{'>'}</span>
               </Link>

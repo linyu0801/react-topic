@@ -87,7 +87,7 @@ function MainProductDetail(props) {
       <div className="content container">
         <div className="row k-mp-upper">
           <div className="col breadcrumbs">
-            <Link className="clbread" to="/homepage">
+            <Link className="clbread" to="/MainPage">
               首頁{'  '}
               <span className="clspan">{'>'}</span>
             </Link>

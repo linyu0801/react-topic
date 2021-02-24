@@ -63,7 +63,7 @@ function Forget(props) {
 
                 <button
                   type="button"
-                  className="pub-button mx-auto"
+                  className="member-button mx-auto"
                   onClick={() => {
                     ForgetToSever()
                   }}

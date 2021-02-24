@@ -1,7 +1,7 @@
 import '../../styles/fish.scss'
 import '../../styles/font.scss'
 import { withRouter } from 'react-router-dom'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import $ from 'jquery'
 import Swal from 'sweetalert2'
 
@@ -54,9 +54,28 @@ function Register(props) {
       $('#email').next().text('請輸入正確電子郵件格式')
     }
   }
+  useEffect(() => {
+    let curs = document.querySelector('.cursor')
 
+    document.addEventListener('mousemove', (e) => {
+      let x = e.pageX
+      let y = e.pageY
+      curs.style.left = x - 22 + 'px'
+      curs.style.top = y - 22 + 'px'
+      // console.log('123')
+    })
+
+    document.addEventListener('mouseleave', (e) => {
+      let x = e.pageX
+      let y = e.pageY
+      curs.style.left = x - 22 + 'px'
+      curs.style.top = y - 22 + 'px'
+    })
+  }, [])
   return (
     <>
+      <div class="cursor"></div>
+
       <div className="fish-registerbg">
         <div className="container h-100 member-mg">
           <div className="row justify-content-center">
@@ -114,7 +133,7 @@ function Register(props) {
                 <div className="form-border w-100"></div>
                 <button
                   type="button"
-                  className="pub-button mx-auto"
+                  className="member-button mx-auto"
                   onClick={() => {
                     RegisterToSever()
                   }}
