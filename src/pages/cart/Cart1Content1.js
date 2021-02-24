@@ -45,7 +45,7 @@ function Cart1Content1(props) {
           console.log(newPrice)
           console.log(newQuantity)
         } else {
-          console.log('購物車的', res)
+          // console.log('購物車的', res)
           setCartItems(res)
           let newPrice = 0
           let newQuantity = 0
@@ -55,8 +55,8 @@ function Cart1Content1(props) {
           })
           setCartTotal(newPrice)
           setQuantityTotal(newQuantity)
-          console.log(newPrice)
-          console.log(newQuantity)
+          // console.log(newPrice)
+          // console.log(newQuantity)
         }
       })
       .catch((error) => {

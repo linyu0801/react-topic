@@ -3,6 +3,8 @@ import { useState } from 'react'
 import CartCate from './CartCate'
 import CartStep from './CartStep'
 import CartContent from './CartContent'
+import CartContent2 from './CartContent2'
+import CartContent3 from './CartContent3'
 // import Cart2 from './Cart2'
 // import Cart3 from './Cart3'
 // import Step1 from './Step1'
@@ -42,6 +44,22 @@ function Cart() {
 
         {cartCate === 'cart1' && (
           <CartContent
+            cartCate={cartCate}
+            setCartCate={setCartCate}
+            cartStep={cartStep}
+            setCartStep={setCartStep}
+          />
+        )}
+        {cartCate === 'cart2' && (
+          <CartContent2
+            cartCate={cartCate}
+            setCartCate={setCartCate}
+            cartStep={cartStep}
+            setCartStep={setCartStep}
+          />
+        )}
+        {cartCate === 'cart3' && (
+          <CartContent3
             cartCate={cartCate}
             setCartCate={setCartCate}
             cartStep={cartStep}
