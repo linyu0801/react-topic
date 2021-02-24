@@ -63,24 +63,23 @@ function MainProductDetail(props) {
   // 加入購物車
   const mid = sessionStorage.getItem('mid')
   const addToCart = async (id, quantity) => {
-    try {
-      const response = await fetch('http://localhost:4000/AddToCart1', {
-        method: 'POST',
-        body: JSON.stringify({
-          p_sid: id,
-          quantity: quantity,
-          token: mid,
-        }),
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
-      })
-      let data = await response.json()
-      alert('Item Added To Cart')
-      console.log(data)
-    } catch (err) {
+    const response = await fetch('http://localhost:4000/AddToCart1', {
+      method: 'POST',
+      body: JSON.stringify({
+        p_sid: id,
+        quantity: quantity,
+        token: mid,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+    let cartresult = await response.json()
+    console.log('cartresult', cartresult)
+    if (cartresult === 'error') {
       alert('Something Went Wrong')
-      console.log(err)
+    } else {
+      alert('Item Added To Cart')
     }
   }
   return (

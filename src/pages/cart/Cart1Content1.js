@@ -2,7 +2,8 @@ import { FaRegTimesCircle } from 'react-icons/fa'
 import { useEffect, useState } from 'react'
 import { MdRemove } from 'react-icons/md'
 import { MdAdd } from 'react-icons/md'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
+import { Modal, Button } from 'react-bootstrap'
 
 function Cart1Content1(props) {
   const {
@@ -64,7 +65,8 @@ function Cart1Content1(props) {
   }
   useEffect(() => {
     if (sessionStorage.getItem('mid') === null) {
-      props.history.push('/member/login')
+      return messageModal
+      // props.history.push('/member/login')
     } else {
       fetchCart()
     }
@@ -129,6 +131,43 @@ function Cart1Content1(props) {
       console.log(err)
     }
   }
+  const [modalShow, setModalShow] = useState(true)
+  const handleClose = () => setModalShow(false)
+  const handleShow = () => setModalShow(true)
+  const messageModal = (
+    <Modal
+      contentClassName="hy-modal"
+      show={modalShow}
+      onHide={handleClose}
+      size="md"
+      aria-labelledby="contained-modal-title-vcenter"
+      keyboard={false}
+      backdrop="static"
+      centered
+      onClick={() => {
+        props.history.push('/member/login')
+      }}
+    >
+      <Modal.Header>
+        <Modal.Title id="contained-modal-title-vcenter">
+          <h5>提示訊息</h5>
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>請先登入帳戶</h4>
+        <p>為提供您更好的服務品質，請先登入會員，謝謝!</p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button
+          onClick={() => {
+            props.history.push('/member/login')
+          }}
+        >
+          登入
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  )
 
   // useEffect(() => {
   //   setCartTotal(priceTotal)
@@ -136,6 +175,13 @@ function Cart1Content1(props) {
   // }, [priceTotal])
   return (
     <>
+      {/* {sessionStorage.getItem('mid') === null && (
+        <Redirect to="/member/login" />
+      )} */}
+      {sessionStorage.getItem('mid') === null && messageModal}
+
+      {/* {sessionStorage.getItem('mid') === null &&
+        props.history.push('/member/login')} */}
       <div className="row">
         <div className="col-1"></div>
         <div className="col-10">
