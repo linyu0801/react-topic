@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import moment from 'moment'
 
 function Cart1Content3(props) {
   const [orders1, setOrders1] = useState({ 0: '' })
@@ -96,6 +97,39 @@ function Cart1Content3(props) {
                     購物清單小計
                   </td>
                   <td>{orders1[0].amount}</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td className="py-4"></td>
+                  <td></td>
+                  <td>配送方式</td>
+                  <td>{orders1[0].delivery}</td>
+
+                  <td colSpan="2" className="hy-py-48">
+                    運費
+                  </td>
+                  <td>
+                    {orders1[0].delivery === '快遞宅配'
+                      ? orders1[0].freight
+                      : '-'}
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td className="py-4"></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td colSpan="2" className="hy-py-48">
+                    總計
+                  </td>
+                  <td>{orders1[0].amount + orders1[0].freight}</td>
                   <td></td>
                   <td></td>
                   <td></td>
@@ -204,10 +238,6 @@ function Cart1Content3(props) {
         <div className="col-1"></div>
         <div className="col-10">
           <h4 className="mt-5 hy-color-gold">配送資訊</h4>
-
-          {/* {itemList.map((value, i) => (
-            <td key={i}>{value}</td>
-          ))} */}
         </div>
         <div className="col-1"></div>
       </div>
@@ -217,33 +247,36 @@ function Cart1Content3(props) {
           <table className="hy-table">
             <tr>
               <td className="text-right">訂購人姓名</td>
-              <td className="pl-2">{orders1[0].username}</td>
+              <td className="pl-2">
+                {/* {orders1 !== undefined && orders1[0].username} */}
+                {orders1[0].username}
+              </td>
             </tr>
             <tr>
               <td className="text-right">訂購人手機</td>
-              {/* <td className="pl-2">{orders1[0].tel}</td> */}
+              <td className="pl-2">{orders1[0].tel}</td>
             </tr>
             <tr>
               <td className="text-right">收貨人姓名</td>
-              {/* <td className="pl-2">{orders1[0].receiver}</td> */}
+              <td className="pl-2">{orders1[0].receiver}</td>
             </tr>
             <tr>
               <td className="text-right">收貨人手機</td>
-              {/* <td className="pl-2">{orders1[0].receiverMobile}</td> */}
+              <td className="pl-2">{orders1[0].receiverMobile}</td>
             </tr>
             <tr>
               <td className="text-right">收件地址</td>
-              {/* <td className="pl-2">{orders1[0].address}</td> */}
+              <td className="pl-2">{orders1[0].address}</td>
             </tr>
             <tr>
               <td className="text-right">收件日期</td>
               <td className="pl-2">
-                {/* {moment(orders1[0].designated_date).format('YYYY-MM-DD')} */}
+                {moment(orders1[0].designated_date).format('YYYY-MM-DD')}
               </td>
             </tr>
             <tr>
               <td className="text-right">可收件時段</td>
-              {/* <td className="pl-2">{orders1[0].designated_period}</td> */}
+              <td className="pl-2">{orders1[0].designated_period}</td>
             </tr>
           </table>
         </div>
@@ -260,7 +293,7 @@ function Cart1Content3(props) {
           <table className="hy-table">
             <tr>
               <td className="text-right">付款方式</td>
-              {/* <td className="pl-2">{orders1[0].payment_type}</td> */}
+              <td className="pl-2">{orders1[0].payment_type}</td>
             </tr>
             <tr>
               <td className="text-right">發卡銀行</td>

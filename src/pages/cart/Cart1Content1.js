@@ -2,6 +2,8 @@ import { FaRegTimesCircle } from 'react-icons/fa'
 import { useEffect, useState } from 'react'
 import { MdRemove } from 'react-icons/md'
 import { MdAdd } from 'react-icons/md'
+import { withRouter, Redirect } from 'react-router-dom'
+import { Modal, Button } from 'react-bootstrap'
 
 function Cart1Content1(props) {
   const {
@@ -29,25 +31,34 @@ function Cart1Content1(props) {
     res
       .json()
       .then((res) => {
-        console.log('購物車的', res)
-        setCartItems(res)
-        let newPrice = 0
-        let newQuantity = 0
-        res.map((item, i) => {
-          newQuantity += +item.quantity
-          newPrice += +item.p_price * +item.quantity
-        })
-        setCartTotal(newPrice)
-        setQuantityTotal(newQuantity)
-        console.log(newPrice)
-        console.log(newQuantity)
+        if (res.length === 0) {
+          console.log('這是空的購物車', res)
+        } else {
+          console.log('購物車的有進來嗎', res)
+          setCartItems(res)
+          let newPrice = 0
+          let newQuantity = 0
+          res.map((item, i) => {
+            newQuantity += +item.quantity
+            newPrice += +item.p_price * +item.quantity
+          })
+          setCartTotal(newPrice)
+          setQuantityTotal(newQuantity)
+          // console.log(newPrice)
+          // console.log(newQuantity)
+        }
       })
       .catch((error) => {
         setError(error)
       })
   }
   useEffect(() => {
-    fetchCart()
+    if (sessionStorage.getItem('mid') === null) {
+      return messageModal
+      // props.history.push('/member/login')
+    } else {
+      fetchCart()
+    }
   }, [])
 
   async function increaseQty(p_sid) {
@@ -109,13 +120,84 @@ function Cart1Content1(props) {
       console.log(err)
     }
   }
+  const [modalShow, setModalShow] = useState(true)
+  const handleClose = () => setModalShow(false)
+  const handleShow = () => setModalShow(true)
+  const messageModal = (
+    <Modal
+      contentClassName="hy-modal"
+      show={modalShow}
+      onHide={handleClose}
+      size="md"
+      aria-labelledby="contained-modal-title-vcenter"
+      keyboard={false}
+      backdrop="static"
+      centered
+      onClick={() => {
+        props.history.push('/member/login')
+      }}
+    >
+      <Modal.Header>
+        <Modal.Title id="contained-modal-title-vcenter">
+          <h5>提示訊息</h5>
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>請先登入帳戶</h4>
+        <p>為提供您更好的服務品質，請先登入會員，謝謝!</p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button
+          onClick={() => {
+            props.history.push('/member/login')
+          }}
+        >
+          登入
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  )
 
-  // useEffect(() => {
-  //   setCartTotal(priceTotal)
-  //   console.log(priceTotal)
-  // }, [priceTotal])
+  const messageModal2 = (
+    <Modal
+      contentClassName="hy-modal"
+      show={modalShow}
+      onHide={handleClose}
+      size="md"
+      aria-labelledby="contained-modal-title-vcenter"
+      keyboard={false}
+      backdrop="static"
+      centered
+      onClick={() => {
+        props.history.push('/member/login')
+      }}
+    >
+      <Modal.Header>
+        <Modal.Title id="contained-modal-title-vcenter">
+          <h5>提示訊息</h5>
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>購物車無商品</h4>
+        <p>您目前購物車內沒有商品，請至各商城頁面選購，謝謝!</p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button
+          onClick={() => {
+            props.history.push('/')
+          }}
+        >
+          返回首頁
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  )
   return (
     <>
+      {sessionStorage.getItem('mid') === null && messageModal}
+      {(sessionStorage.getItem('mid') !== null) & (cartItems.length === 0) &&
+        messageModal2}
+
       <div className="row">
         <div className="col-1"></div>
         <div className="col-10">
@@ -378,4 +460,4 @@ function Cart1Content1(props) {
   )
 }
 
-export default Cart1Content1
+export default withRouter(Cart1Content1)

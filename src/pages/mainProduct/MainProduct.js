@@ -12,9 +12,11 @@ function MainProduct(props) {
   const [product, setProduct] = useState([])
   const [page, setPage] = useState([])
   const [totalPages, setTotalPages] = useState([])
+  const [category, setCategory] = useState(null)
 
-  //分類用onClick function：按了li啟動onClick後呼叫這支function，使代入的參數p_cate做改變
-  // 原本只做分類的寫法：const doCate = async (p_cate) => {
+  // 分頁+分類
+  //用onClick function：按了li啟動onClick後呼叫這支function，使代入的參數p_cate、nowPage做改變
+  //原本只做分類的寫法：const doCate = async (p_cate) => {
   const doCate = async (p_cate, nowPage) => {
     //再set一筆抓到的p_cate
     const url = `http://localhost:4000/mainproductcate2?page=${nowPage}&productCate=${p_cate}`
@@ -33,6 +35,7 @@ function MainProduct(props) {
     setProduct(data.rows)
     setTotalPages(data.totalPages)
     setPage(nowPage)
+    setCategory(p_cate) //分類分頁連動寫法2：改以直接使用p_cate作為參數
   }
 
   //和node串連取得資料庫資料：生命周期概念
@@ -84,13 +87,25 @@ function MainProduct(props) {
     </>
   )
 
-  //自己改寫分頁
-  // const doPagination = async (page, totalPages) => {
-  //number <= { totalPages }
-  // let active = page
+  //分類的各分頁
+
   let items = []
   for (let number = page; number <= totalPages; number++) {
-    items.push(<Pagination.Item key={number}>{number}</Pagination.Item>)
+    items.push(
+      <li
+        onClick={() => {
+          doCate(category, number)
+          //category強制分類停留在指定分類，然後頁碼則隨number變動(等於走兩條路)，但維持在指定分類的狀態：已經有number了，但因為原本doCate()即設定了兩個參數，因此要想辦法抓到第一個「分類」的參數，故多設一個const [category, setCategory] = useState(null)
+        }}
+        className="page-item"
+      >
+        <Link className="page-link hoyu-page-link" to={`?page=${number}`}>
+          {number}
+        </Link>
+      </li>
+    )
+    // V1.原react bs的pagination寫法：items.push(<Pagination.Item key={number}>{number}</Pagination.Item>)
+    //V2.改用原生不以react bs的寫法：items.push(<li className="page-item"><Link className="page-link hoyu-page-link" to="#"}>{number}</Link></li>)
     // push後面的東西<Pagination.Item key={number} active={number === active}>{number}</Pagination.Item>會被塞到items[]裡
   }
 
@@ -108,20 +123,20 @@ function MainProduct(props) {
         <div className="k-main container">
           <div className="row k-upper">
             <div className="col-lg-6 col-sm-12 k-breadcrumbs">
-              <Link className="clbread" to="">
+              <Link className="clbread" to="/homepage">
                 首頁{'  '}
                 <span className="clspan">{'>'}</span>
               </Link>
-              <Link className="clbread" to="">
+              <Link className="clbread" to="/mainproduct">
                 商品{'  '}
                 <span className="clspan">{'>'}</span>
               </Link>
-              <Link className="clbread" to="">
+              <Link className="clbread" to="/mainproduct">
                 全部商品
               </Link>
             </div>
             <div className="col-lg-6 col-sm-12 search-input">
-              <form className="form-inline my-2 d-flex justify-content-end">
+              {/* <form className="form-inline my-2 d-flex justify-content-end">
                 <input
                   className="form-control"
                   type="search"
@@ -134,7 +149,7 @@ function MainProduct(props) {
                 >
                   <MdSearch />
                 </button>
-              </form>
+              </form> */}
             </div>
           </div>
           <div className="k-product-category">
@@ -143,6 +158,7 @@ function MainProduct(props) {
                 className="k-category"
                 onClick={() => {
                   doCate(1, 1)
+                  // setCategory(1)
                   // console.log('kll')
                 }}
               >
@@ -152,6 +168,7 @@ function MainProduct(props) {
                 className="k-category"
                 onClick={() => {
                   doCate(2, 1) //分類2的第一頁
+                  //分類分頁連動寫法1：setCategory(2)：強制分類停留在分類2，然後頁碼則隨number變動，但維持在分類2的狀態：數值2(分類2)會由setCategory設定給category，並會帶入有onClick呼叫doCate的li中
                 }}
               >
                 <span>紅酒風味</span>
@@ -182,6 +199,7 @@ function MainProduct(props) {
               </li>
             </ul>
           </div>
+
           {productDisplay}
           {/* <ul className="k-main-products row">  留一組li作範本
             <li className="col-lg-4 col-sm-12 k-product-card card">
@@ -212,8 +230,7 @@ function MainProduct(props) {
             aria-label="Page navigation example"
             className="hoyu-mt d-flex justify-content-end"
           >
-            <Pagination className="pagination justify-content-center">
-              {/* pagination就是ul */}
+            <ul className="pagination justify-content-center">
               <li className="page-item">
                 <Link
                   className="page-link hoyu-page-link hoyu-page-arrow"
@@ -239,7 +256,7 @@ function MainProduct(props) {
                   </span>
                 </Link>
               </li>
-            </Pagination>
+            </ul>
           </nav>
 
           {/* <nav
