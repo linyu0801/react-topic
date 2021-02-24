@@ -124,6 +124,30 @@ function CampaignProductsInfo(props) {
       </Row>
     </>
   )
+
+  // 加入購物車
+  const [total, setTotal] = useState(1)
+  const mid = sessionStorage.getItem('mid')
+  const addToCartActivity = async (id, quantity) => {
+    const response = await fetch('http://localhost:4000/AddToCartActivity', {
+      method: 'POST',
+      body: JSON.stringify({
+        p_sid: id,
+        quantity: quantity,
+        token: mid,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+    let cartresult = await response.json()
+    console.log('cartresult', cartresult)
+    if (cartresult === 'error') {
+      alert('Something Went Wrong')
+    } else {
+      alert('商品已加入購物車')
+    }
+  }
   return (
     <>
       <div className="container">
@@ -278,7 +302,14 @@ function CampaignProductsInfo(props) {
                       <FontAwesomeIcon icon={faCalendarCheck} />
                       &ensp;{v.date.slice(0, 10)}
                     </p>
-                    <button className="addToCartBtn">加入購物車</button>
+                    <button
+                      className="addToCartBtn"
+                      onClick={() => {
+                        addToCartActivity(v.sid, total)
+                      }}
+                    >
+                      加入購物車
+                    </button>
                   </div>
                   <Scrollspy
                     className=" porductContentList list-group d-none d-sm-block"

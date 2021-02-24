@@ -9,20 +9,50 @@ import { Link } from 'react-router-dom'
 import $ from 'jquery'
 
 function StudioIntro1(props) {
+  // function handleClick(e) {
+  //   e.preventDefault()
+  // }
+  const mid = sessionStorage.getItem('mid')
+  const addToCartStudio = async (studio_id, date, time_period, price) => {
+    const response = await fetch('http://localhost:4000/AddToCartStudio', {
+      method: 'POST',
+      body: JSON.stringify({
+        token: mid,
+        studio_id,
+        date,
+        time_period,
+        price,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+    let cartresult = await response.json()
+    console.log('cartresult', cartresult)
+    if (cartresult === 'error') {
+      alert('error')
+    } else {
+      alert('成功加入購物車')
+    }
+  }
   const [textNumber, setTextNumber] = useState('')
   const [selectedTime, setSeletedTime] = useState('')
   const [selectedDate, setSeletedDate] = useState('')
+  const [rent, setRent] = useState(0)
   const { textInput } = props
 
   useEffect(() => {
     if (selectedTime === '09:00-12:00AM') {
       $('#cost').text('6000')
+      setRent(6000)
     }
     if (selectedTime === '14:00-17:00PM') {
       $('#cost').text('8000')
+      setRent(8000)
     }
     if (selectedTime === '全天') {
       $('#cost').text('10000')
+      setRent(10000)
     }
     if (selectedTime === ' ') {
       $('#cost').text('0')
@@ -187,12 +217,20 @@ function StudioIntro1(props) {
                     </ul>
                   </div>
 
-                  <button
+                  {/* <button
                     type="submit"
                     className="clbutton pub-button pub-mb-100 mx-auto"
                   >
                     預定
-                  </button>
+                  </button> */}
+                  <div
+                    onClick={() => {
+                      addToCartStudio('A01', selectedDate, selectedTime, rent)
+                    }}
+                    className="clbutton pub-button pub-mb-100 mx-auto hy-btn-studio"
+                  >
+                    預定
+                  </div>
                 </div>
               </form>
 

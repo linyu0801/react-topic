@@ -3,60 +3,37 @@ import { useEffect, useState } from 'react'
 import { MdRemove } from 'react-icons/md'
 import { MdAdd } from 'react-icons/md'
 import { withRouter, Redirect } from 'react-router-dom'
-import { Modal, Button } from 'react-bootstrap'
+import moment from 'moment'
 
-function Cart1Content1(props) {
-  const {
-    cartStep,
-    setCartStep,
-    cartCate,
-    setCartCate,
-    seletedDelivery,
-    setSeletedDelivery,
-    freightTotal,
-    setFreightTotal,
-    cartTotal,
-    setCartTotal,
-    quantityTotal,
-    setQuantityTotal,
-  } = props
+function CartActivity(props) {
+  const { cartStep, cartActivityTotal, setCartActivityTotal } = props
   // 取得購物車內的資料
-  const [cartItems, setCartItems] = useState([])
-  // const [priceTotal, setPriceTotal] = useState(0)
-  const [dataIsReady, setDataIsReady] = useState(false)
-  const [hasError, setError] = useState(false)
+  const [cartActivity, setCartActivity] = useState([])
+  //   const [dataIsReady, setDataIsReady] = useState(false)
   async function fetchCart() {
-    const res = await fetch('http://localhost:4000/cart1items', {
+    const res = await fetch('http://localhost:4000/cartActivityItems', {
       credentials: 'include',
     })
-    res
-      .json()
-      .then((res) => {
-        if (res.length === 0) {
-          console.log('這是空的購物車', res)
-        } else {
-          console.log('購物車的有進來嗎', res)
-          setCartItems(res)
-          let newPrice = 0
-          let newQuantity = 0
-          res.map((item, i) => {
-            newQuantity += +item.quantity
-            newPrice += +item.p_price * +item.quantity
-          })
-          setCartTotal(newPrice)
-          setQuantityTotal(newQuantity)
-          // console.log(newPrice)
-          // console.log(newQuantity)
-        }
-      })
-      .catch((error) => {
-        setError(error)
-      })
+    res.json().then((res) => {
+      if (res.length === 0) {
+        console.log('這是空的購物車', res)
+      } else {
+        console.log('購物車的有進來嗎', res)
+        setCartActivity(res)
+        let newPrice = 0
+        let newQuantity = 0
+        res.map((item, i) => {
+          newQuantity += +item.quantity
+          newPrice += +item.price * +item.quantity
+        })
+        setCartActivityTotal(newPrice)
+        // console.log(newPrice)
+        // console.log(newQuantity)
+      }
+    })
   }
   useEffect(() => {
     if (sessionStorage.getItem('mid') === null) {
-      // return messageModal
-      // props.history.push('/member/login')
     } else {
       fetchCart()
     }
@@ -122,97 +99,9 @@ function Cart1Content1(props) {
       console.log(err)
     }
   }
-  const [modalShow, setModalShow] = useState(true)
-  const handleClose = () => setModalShow(false)
-  const handleShow = () => setModalShow(true)
-  const messageModal = (
-    <Modal
-      contentClassName="hy-modal"
-      show={modalShow}
-      onHide={handleClose}
-      size="md"
-      aria-labelledby="contained-modal-title-vcenter"
-      keyboard={false}
-      backdrop="static"
-      centered
-      onClick={() => {
-        props.history.push('/member/login')
-      }}
-    >
-      <Modal.Header>
-        <Modal.Title id="contained-modal-title-vcenter">
-          <h5>提示訊息</h5>
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <h4>請先登入帳戶</h4>
-        <p>為提供您更好的服務品質，請先登入會員，謝謝!</p>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button
-          onClick={() => {
-            props.history.push('/member/login')
-          }}
-        >
-          登入
-        </Button>
-      </Modal.Footer>
-    </Modal>
-  )
 
-  const messageModal2 = (
-    <Modal
-      contentClassName="hy-modal"
-      show={modalShow}
-      onHide={handleClose}
-      size="md"
-      aria-labelledby="contained-modal-title-vcenter"
-      keyboard={false}
-      backdrop="static"
-      centered
-      onClick={() => {
-        // props.history.push('/')
-        handleClose()
-      }}
-    >
-      <Modal.Header>
-        <Modal.Title id="contained-modal-title-vcenter">
-          <h5>提示訊息</h5>
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <h4>購物車無商品</h4>
-        <p>您目前購物車內沒有商品，請至各商城頁面選購，謝謝!</p>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button
-          onClick={() => {
-            // props.history.push('/')
-            handleClose()
-          }}
-        >
-          返回首頁
-        </Button>
-      </Modal.Footer>
-    </Modal>
-  )
   return (
     <>
-      {sessionStorage.getItem('mid') === null && messageModal}
-      {sessionStorage.getItem('mid') !== null &&
-        cartItems.length === 0 &&
-        messageModal2}
-      {/* {() => {
-        if (
-          // dataIsReady &&
-          sessionStorage.getItem('mid') !== null &&
-          cartItems.length === 0
-        ) {
-          console.log(1)
-          return messageModal2
-        }
-      }} */}
-
       <div className="row">
         <div className="col-1"></div>
         <div className="col-10">
@@ -229,8 +118,8 @@ function Cart1Content1(props) {
                 <tr className="w-100">
                   <th className=" hy-rwd-d-none"></th>
                   <th className=" hy-rwd-d-none"></th>
-                  <th className=" hy-rwd-d-none">商品</th>
-                  <th className=" hy-rwd-d-none">規格</th>
+                  <th className=" hy-rwd-d-none">活動名稱</th>
+                  <th className=" hy-rwd-d-none">日期</th>
                   <th className=" hy-rwd-d-none">價格</th>
                   <th className=" hy-rwd-d-none">數量</th>
                   <th className=" hy-rwd-d-none">小計</th>
@@ -238,21 +127,26 @@ function Cart1Content1(props) {
                 </tr>
               </thead>
               <tbody>
-                {cartItems.map((item, i) => {
+                {cartActivity.map((item, i) => {
                   return (
                     <tr key={i}>
                       <td className="hy-rwd-d-none"></td>
                       <td className="py-4 hy-rwd-d-none">
                         <div className="hy-img d-flex justify-content-center">
                           <img
-                            src={`http://localhost:3000/k-images/` + item.p_img}
+                            src={
+                              `http://localhost:3000/k-images/` +
+                              item.campaignCover
+                            }
                             alt=""
                           />
                         </div>
                       </td>
-                      <td className="hy-rwd-d-none">{item.p_name}</td>
-                      <td className="hy-rwd-d-none">{item.p_size}</td>
-                      <td className="hy-rwd-d-none">{item.p_price}</td>
+                      <td className="hy-rwd-d-none">{item.title}</td>
+                      <td className="hy-rwd-d-none">
+                        {moment(item.date).format('YYYY-MM-DD')}
+                      </td>
+                      <td className="hy-rwd-d-none">{item.price}</td>
                       {cartStep === 'step1' && (
                         <td className="hy-rwd-d-none">
                           <i className="fas fa-minus k-left-icon">
@@ -280,7 +174,7 @@ function Cart1Content1(props) {
                       )}
 
                       <td className="hy-rwd-d-none">
-                        {+item.quantity * +item.p_price}
+                        {+item.quantity * +item.price}
                       </td>
 
                       {cartStep === 'step1' && (
@@ -310,13 +204,13 @@ function Cart1Content1(props) {
                   <td colSpan="2" className="hy-py-48">
                     購物清單小計
                   </td>
-                  <td>{cartTotal}</td>
+                  <td>{cartActivityTotal}</td>
                   <td></td>
                   <td></td>
                   <td></td>
                   <td></td>
                 </tr>
-                {cartStep === 'step2' && (
+                {/* {cartStep === 'step2' && (
                   <>
                     <tr>
                       <td className="py-4"></td>
@@ -342,10 +236,10 @@ function Cart1Content1(props) {
                       </td>
                       <td>
                         {seletedDelivery === '快遞宅配'
-                          ? 200 * quantityTotal
+                          ? 200 * activityQuantityTotal
                           : '-'}
                         {seletedDelivery === '快遞宅配' &&
-                          setFreightTotal(200 * quantityTotal)}
+                          setFreightTotal(200 * activityQuantityTotal)}
                         {seletedDelivery === '快遞宅配' &&
                           console.log(freightTotal)}
                       </td>
@@ -364,8 +258,8 @@ function Cart1Content1(props) {
                       </td>
                       <td>
                         {seletedDelivery === '快遞宅配'
-                          ? cartTotal + 200 * quantityTotal
-                          : cartTotal}
+                          ? cartActivityTotal + 200 * activityQuantityTotal
+                          : cartActivityTotal}
                       </td>
                       <td></td>
                       <td></td>
@@ -373,12 +267,12 @@ function Cart1Content1(props) {
                       <td></td>
                     </tr>
                   </>
-                )}
+                )} */}
               </tbody>
             </table>
             {/* M-版本 */}
             {/* M-商品清單開始 */}
-            {cartItems.map((item, i) => {
+            {cartActivity.map((item, i) => {
               return (
                 <>
                   <div key={i} className="d-md-none d-block">
@@ -406,7 +300,7 @@ function Cart1Content1(props) {
                         <p>單價</p>
                       </div>
                       <div className="form-col hy-form-col">
-                        <p className="hy-money">{item.p_price}</p>
+                        <p className="hy-money">{item.price}</p>
                       </div>
                     </div>
                     <div className="form-row hy-form-row justify-content-between">
@@ -437,7 +331,7 @@ function Cart1Content1(props) {
                       </div>
                       <div className="form-col hy-form-col">
                         <p className="hy-money">
-                          {+item.quantity * +item.p_price}
+                          {+item.quantity * +item.price}
                         </p>
                       </div>
                     </div>
@@ -463,7 +357,7 @@ function Cart1Content1(props) {
                   <p>購物清單小計</p>
                 </div>
                 <div className="form-col hy-form-col">
-                  <p className="hy-money">{cartTotal}</p>
+                  <p className="hy-money">{cartActivityTotal}</p>
                 </div>
               </div>
             </div>
@@ -475,4 +369,4 @@ function Cart1Content1(props) {
   )
 }
 
-export default withRouter(Cart1Content1)
+export default withRouter(CartActivity)
