@@ -108,15 +108,15 @@ function MainProduct(props) {
         <div className="k-main container">
           <div className="row k-upper">
             <div className="col-lg-6 col-sm-12 k-breadcrumbs">
-              <Link className="clbread" to="">
+              <Link className="clbread" to="/homepage">
                 首頁{'  '}
                 <span className="clspan">{'>'}</span>
               </Link>
-              <Link className="clbread" to="">
+              <Link className="clbread" to="/mainproduct">
                 商品{'  '}
                 <span className="clspan">{'>'}</span>
               </Link>
-              <Link className="clbread" to="">
+              <Link className="clbread" to="/mainproduct">
                 全部商品
               </Link>
             </div>
