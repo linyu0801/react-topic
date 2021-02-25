@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import DisplayCampaignCards from '../../components/DisplayCampaignCards'
 import indexVideo from '../../styles/img/indexVideo.mp4'
+import { useEffect } from 'react'
 
 function CampaignIndex(props) {
   const { searchCampaign, setSearchCampaign } = props
@@ -18,8 +19,29 @@ function CampaignIndex(props) {
     props.history.push('/campaign/searchProducts')
   }
 
+  useEffect(() => {
+    let curs = document.querySelector('.cursorFinn')
+
+    document.addEventListener('mousemove', (e) => {
+      let x = e.pageX
+      let y = e.pageY
+      curs.style.left = x - 22 + 'px'
+      curs.style.top = y - 22 + 'px'
+      // console.log('123')
+    })
+
+    document.addEventListener('mouseleave', (e) => {
+      let x = e.pageX
+      let y = e.pageY
+      curs.style.left = x - 22 + 'px'
+      // curs.style.opacity = 0.5
+      curs.style.top = y - 22 + 'px'
+    })
+  }, [])
+
   return (
     <>
+      <div class="cursorFinn"></div>
       <Container fluid className="heroImg position-relative">
         <div className="box position-absolute">
           <video id="myVideo" autoPlay muted loop>

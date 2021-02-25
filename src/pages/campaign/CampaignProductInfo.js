@@ -94,8 +94,28 @@ function CampaignProductsInfo(props) {
       alert('商品已加入購物車')
     }
   }
+  useEffect(() => {
+    let curs = document.querySelector('.cursorFinn')
+
+    document.addEventListener('mousemove', (e) => {
+      let x = e.pageX
+      let y = e.pageY
+      curs.style.left = x - 22 + 'px'
+      curs.style.top = y - 22 + 'px'
+      // console.log('123')
+    })
+
+    document.addEventListener('mouseleave', (e) => {
+      let x = e.pageX
+      let y = e.pageY
+      curs.style.left = x - 22 + 'px'
+      // curs.style.opacity = 0.5
+      curs.style.top = y - 22 + 'px'
+    })
+  }, [])
   return (
     <>
+      <div class="cursorFinn"></div>
       {campaignProduct.map((v, i) => (
         <>
           <div className="container">
