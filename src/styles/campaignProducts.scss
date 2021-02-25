@@ -316,11 +316,9 @@ input#priceRangeMin {
 }
 
 .cardBigImg {
-  background-image: url(http://localhost:3000/img/CardBigImg.png);
-  background-position: center center;
-  background-repeat: no-repeat;
+  object-position: center center;
   width: 40%;
-  background-size: cover;
+  object-fit: cover;
 }
 
 .cardBigText {
@@ -452,6 +450,7 @@ input#priceRangeMin {
 
   .categoryGroup {
     margin-bottom: 15px;
+    top: 100px;
   }
 
   .categoryBtn {
