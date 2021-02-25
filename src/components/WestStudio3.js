@@ -5,6 +5,8 @@ import React, { useState } from 'react'
 import '../styles/studioOrder.scss'
 
 import '../styles/font.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 
 function WestStudio3(props) {
   const { textSearch } = props
@@ -15,6 +17,7 @@ function WestStudio3(props) {
           <div className="col-5">
             <h2 className="studioClass" id="west" value="west">
               {textSearch[2]}
+              <FontAwesomeIcon icon={fas.faGlassMartiniAlt} />
             </h2>
           </div>
           <div className="col-7">
