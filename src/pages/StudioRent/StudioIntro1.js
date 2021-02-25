@@ -21,7 +21,7 @@ function StudioIntro1(props) {
       body: JSON.stringify({
         token: mid,
         studio_id,
-        date,
+        date: textInput,
         time_period,
         price,
       }),
