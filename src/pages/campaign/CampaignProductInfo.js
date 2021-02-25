@@ -24,6 +24,7 @@ import DisplayCampaignCards from '../../components/DisplayCampaignCards'
 function CampaignProductsInfo(props) {
   const [campaignProduct, setCampaignProduct] = useState([])
   const [data, setData] = useState([])
+  const [carouselImg, setCarouselImg] = useState([])
 
   useEffect(() => {
     const FetchData = async () => {
@@ -39,6 +40,7 @@ function CampaignProductsInfo(props) {
       console.log('伺服器回傳', rows) //先在這邊console.log出rows得到的資料
 
       setCampaignProduct(rows) //rows的東西會傳到product中
+      setCarouselImg(rows[0].campaignImg.split(','))
     }
 
     FetchData()
@@ -59,70 +61,14 @@ function CampaignProductsInfo(props) {
     fetchdata()
   }, [])
 
-  const displayCampaignCards = (
-    <>
-      <Row className="campaignCards">
-        {data.map((v, i) => (
-          <Col lg={4} xs={9}>
-            <Link
-              to={`/campaign/products/` + v.sid}
-              style={{ textDecoration: 'none' }}
-            >
-              <div className="campaignCard w-100">
-                <div className="cardImg w-100" />
-                <div className="cardText">
-                  <h4 className="cardTitle">{v.title}</h4>
-                  <p className="campaignSite my-2">
-                    <FontAwesomeIcon icon={fas.faMapMarkerAlt} />
-                    &ensp;{v.district}
-                  </p>
-                  <div className="d-flex justify-content-between align-items-center">
-                    <p className="starsFinn" style={{ marginBottom: '0px' }}>
-                      {v.rating === 5 ? (
-                        <>
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStar} />
-                        </>
-                      ) : (
-                        ''
-                      )}
-                      {v.rating > 4 && v.rating < 5 ? (
-                        <>
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStarHalfAlt} />
-                        </>
-                      ) : (
-                        ''
-                      )}
-
-                      {v.rating === 4 ? (
-                        <>
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={far.faStar} />
-                        </>
-                      ) : (
-                        ''
-                      )}
-                      <span>{v.rating}</span>
-                    </p>
-                    <p className="price">{v.price}</p>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </Col>
-        ))}
-      </Row>
-    </>
+  const carouselFinn = (
+    <Carousel className="carouselFinn mb-4">
+      {carouselImg.map((v, i) => (
+        <Carousel.Item key={i} className="carousel-item-finn">
+          <img src={`/img/${v}`} className="d-block w-100" alt="..." />
+        </Carousel.Item>
+      ))}
+    </Carousel>
   )
 
   // 加入購物車
@@ -150,43 +96,26 @@ function CampaignProductsInfo(props) {
   }
   return (
     <>
-      <div className="container">
-        <nav aria-label="breadcrumb">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item">
-              <a href="*">首頁</a>
-            </li>
-            <li className="breadcrumb-item">
-              <a href="*">體驗</a>
-            </li>
-            <li className="breadcrumb-item active" aria-current="page">
-              <span>【戀戀草莓...</span>
-            </li>
-          </ol>
-        </nav>
-      </div>
       {campaignProduct.map((v, i) => (
         <>
           <div className="container">
+            <nav aria-label="breadcrumb">
+              <ol className="breadcrumb">
+                <li className="breadcrumb-item">
+                  <a href="*">首頁</a>
+                </li>
+                <li className="breadcrumb-item">
+                  <a href="*">體驗</a>
+                </li>
+                <li className="breadcrumb-item active" aria-current="page">
+                  <span>{v.title}</span>
+                </li>
+              </ol>
+            </nav>
+          </div>
+          <div className="container" key={i}>
             <div className="row">
-              <div className="carouselRow col-xl-12 col-12">
-                <Carousel className="carouselFinn">
-                  <Carousel.Item className="carousel-item-finn">
-                    <img
-                      src="http://localhost:3000/img/CardBigImg.png"
-                      className="d-block w-100"
-                      alt="..."
-                    />
-                  </Carousel.Item>
-                  <Carousel.Item className="carousel-item-finn">
-                    <img
-                      src="http://localhost:3000/img/HeroImg.jpg"
-                      className="d-block w-100"
-                      alt="..."
-                    />
-                  </Carousel.Item>
-                </Carousel>
-              </div>
+              <div className="carouselRow col-xl-12 col-12">{carouselFinn}</div>
             </div>
           </div>
           <div className="productInfoContent container">
@@ -257,7 +186,6 @@ function CampaignProductsInfo(props) {
                 </div>
                 <div className="porductContent">
                   <h4 id="list-item-1">商品說明</h4>
-                  <h4 id="list-item-2">行程介紹</h4>
                   <h4>購買須知</h4>
                   <p className="noticed" id="list-item-3">
                     ・{v.notice}
@@ -330,14 +258,7 @@ function CampaignProductsInfo(props) {
                         商品說明
                       </a>
                     </li>
-                    <li>
-                      <a
-                        className="porductContentListItem list-group-item list-group-item-action"
-                        href="#list-item-2"
-                      >
-                        行程介紹
-                      </a>
-                    </li>
+
                     <li>
                       <a
                         className="porductContentListItem list-group-item list-group-item-action"
@@ -367,7 +288,7 @@ function CampaignProductsInfo(props) {
               </div>
             </div>
           </div>
-          <div className="container">
+          <div className="container mt-5 mb-3">
             <div className="row ">
               <div className="col-lg-3 col-8 p-30">
                 <h3 className="more_finn">更多推薦活動</h3>

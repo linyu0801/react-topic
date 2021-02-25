@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react'
 import '../../styles/campaignIndex.scss'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { Container, Row, Col } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fas } from '@fortawesome/free-solid-svg-icons'
@@ -27,8 +26,13 @@ function CampaignIndex(props) {
             xs={12}
             className="mx-auto  align-self-center searchTitle"
           >
-            <h2 className="searchTitleText">最有質感的甜點活動</h2>
-            <p>體驗獨一無二的活動體驗</p>
+            <h2 className="searchTitleText animate__animated animate__fadeIn animate__slow">
+              最有質感的甜點活動
+            </h2>
+
+            <p className="animate__animated animate__fadeIn animate__slow">
+              體驗獨一無二的活動體驗
+            </p>
             <div
               className="searchBar w-100 d-flex
            justify-content-center "
@@ -78,7 +82,7 @@ function CampaignIndex(props) {
         <DisplayCampaignCards />
       </Container>
 
-      <Container fluid>
+      <Container fluid className="d-none d-sm-block">
         <Row>
           <Col lg={12}>
             <div className="bgImg"></div>
@@ -87,7 +91,7 @@ function CampaignIndex(props) {
       </Container>
       <Container
         fluid
-        className="tastingIntro d-none d-sm-block position-relative"
+        className="tastingIntro d-none d-sm-block position-relative mb-5"
       >
         <Row className="h-100">
           <Col lg={7} className="tastingBg d-flex align-items-center">
@@ -123,7 +127,7 @@ function CampaignIndex(props) {
 
       <Container
         fluid
-        className="experienceIntro d-none d-sm-block position-relative"
+        className="experienceIntro d-none d-sm-block position-relative mb-5"
       >
         <Row className="h-100">
           <Col lg={5}></Col>
@@ -163,7 +167,7 @@ function CampaignIndex(props) {
       </Container>
       <Container
         fluid
-        className="workshopIntro d-none d-sm-block position-relative"
+        className="workshopIntro d-none d-sm-block position-relative mb-5"
       >
         <Row className="h-100">
           <Col lg={7} className="tastingBg d-flex align-items-center">

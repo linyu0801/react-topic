@@ -75,7 +75,7 @@ function App() {
             {/* <ThemeContext.Provider value={themeNow}> */}
 
             <Switch>
-              <Route path="/MainPage">
+              <Route exact path="/">
                 <MainPage />
               </Route>
               <Route path="/mainproduct">

@@ -3,7 +3,7 @@ import { withRouter, Link } from 'react-router-dom'
 import '../../styles/campaignIndex.scss'
 import '../../styles/campaignProducts.scss'
 import '../../styles/font.scss'
-import { Dropdown, Spinner } from 'react-bootstrap'
+import { Dropdown, Spinner, Col } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faMapMarkerAlt,
@@ -14,13 +14,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 import { far } from '@fortawesome/free-regular-svg-icons'
-import { MdKeyboardArrowRight } from 'react-icons/md'
-import { MdKeyboardArrowLeft } from 'react-icons/md'
 
 function CampaignProducts(props) {
   const [productData, setProductData] = useState([])
   const [productDataDisplay, setProductDataDisplay] = useState([])
-  const [paginationDisplay, setPaginationDisplay] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
   //分類按鈕Active
@@ -92,18 +89,6 @@ function CampaignProducts(props) {
       doCategoryWorkshop()
     }
   }, [productData, categoryActiveObj])
-
-  function pagination1() {
-    const newProductDataDisplay = productDataDisplay.slice(0, 5)
-
-    setPaginationDisplay(newProductDataDisplay)
-  }
-
-  function pagination2() {
-    const newProductDataDisplay = productDataDisplay.slice(5, 10)
-
-    setPaginationDisplay(newProductDataDisplay)
-  }
 
   function doAllCategory() {
     setProductDataDisplay(productData)
@@ -183,13 +168,17 @@ function CampaignProducts(props) {
 
   const displayProductCards = (
     <>
-      {paginationDisplay.map((v, i) => (
+      {productDataDisplay.map((v, i) => (
         <Link
           to={`/campaign/products/` + v.sid}
           style={{ color: 'inherit', textDecoration: 'none' }}
         >
           <div className="campaignCardBig w-100 d-flex " key={i}>
-            <div className="cardBigImg" />
+            <img
+              className="cardBigImg"
+              src={`/img/` + v.campaignCover}
+              alt="campaignImg"
+            />
             <div className="cardBigText position-relative">
               <div className="heart position-absolute">
                 <FontAwesomeIcon icon={faHeart} />
@@ -266,7 +255,7 @@ function CampaignProducts(props) {
 
   return (
     <>
-      <div className="container breadcrumbFinn">
+      <div className="container breadcrumbFinn sticky-top">
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
@@ -276,7 +265,7 @@ function CampaignProducts(props) {
               <a href="*">體驗</a>
             </li>
             <li className="breadcrumb-item active" aria-current="page">
-              <span>手作</span>
+              <span>{searchCampaign}</span>
             </li>
           </ol>
         </nav>
@@ -287,15 +276,15 @@ function CampaignProducts(props) {
             <h3>
               搜尋結果<span className="searchResult">{searchCampaign}</span>{' '}
             </h3>
-            <h5>
+            <p>
               有 
               <span className="countResult">{productDataDisplay.length}</span>
                項體驗
-            </h5>
+            </p>
           </div>
         </div>
       </div>
-      <div className="container d-xl-none">
+      <div className="container d-xl-none ">
         <div className="row h-100">
           <div className="col-12">
             <div
@@ -313,141 +302,149 @@ function CampaignProducts(props) {
               </button>
             </div>
             <p>
-              有 <span className="countResult">100</span> 項體驗
+              有 
+              <span className="countResult">{productDataDisplay.length}</span>
+               項體驗
             </p>
           </div>
         </div>
       </div>
       <div className="container">
         <div className="row">
-          <div className="col-xl-3 col-12">
-            <div className="categoryGroup d-none d-sm-block">
-              <button
-                className={`categoryBtn w-100 categoryBtn1
-            ${buttonActiveObj.categoryBtn4 ? 'active' : ''}`}
-                onClick={() => {
-                  doAllCategory()
-                  setButtonActiveObj({
-                    categoryBtn1: false,
-                    categoryBtn2: false,
-                    categoryBtn3: false,
-                    categoryBtn4: true,
-                  })
-                }}
-              >
-                所有商品
-              </button>
-              <button
-                className={`categoryBtn w-100 categoryBtn1
-            ${buttonActiveObj.categoryBtn1 ? 'active' : ''}`}
-                onClick={() => {
-                  doCategoryTaste()
-                  setButtonActiveObj({
-                    categoryBtn1: true,
-                    categoryBtn2: false,
-                    categoryBtn3: false,
-                    categoryBtn4: false,
-                  })
-                }}
-              >
-                甜點品嚐
-              </button>
-              <button
-                className={`categoryBtn w-100 categoryBtn2
-            ${buttonActiveObj.categoryBtn2 ? 'active' : ''}`}
-                onClick={() => {
-                  doCategoryHandmade()
-                  setButtonActiveObj({
-                    categoryBtn1: false,
-                    categoryBtn2: true,
-                    categoryBtn3: false,
-                    categoryBtn4: false,
-                  })
-                }}
-              >
-                手作體驗
-              </button>
-              <button
-                className={`categoryBtn w-100 categoryBtn3
-            ${buttonActiveObj.categoryBtn3 ? 'active' : ''}`}
-                onClick={() => {
-                  doCategoryWorkshop()
-                  setButtonActiveObj({
-                    categoryBtn1: false,
-                    categoryBtn2: false,
-                    categoryBtn3: true,
-                    categoryBtn4: false,
-                  })
-                }}
-              >
-                職人講座
-              </button>
-            </div>
-            <div className="categoryGroup d-xl-none w-100">
-              <div className="categoryHead">
-                <h5 className="categoryTitle">所有商品分類</h5>
-              </div>
-              <div className="categoryBtns d-flex justify-content-center">
-                <div className="categoryBtn ">甜點品嚐</div>
-                <div className="categoryBtn ">手作體驗</div>
-                <div className="categoryBtn  active">職人講座</div>
-              </div>
-            </div>
-            <div className="categoryRange accordion " id="accordionExample">
-              <button
-                className="btn btn-link categoryHeading"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseOne"
-                aria-expanded="true"
-                aria-controls="collapseOne"
-              >
-                <label htmlFor="priceRangeMin">
-                  <h5>價格篩選</h5>
-                </label>
-              </button>
-              <div
-                id="collapseOne"
-                className="collapse show collapseFinn"
-                aria-labelledby="categoryHeading"
-                data-parent="#accordionExample"
-              >
-                <div className="w-100 d-flex justify-content-between">
-                  <input
-                    type="number"
-                    id="priceRangeMin"
-                    name="priceRangeMin"
-                    placeholder="$"
-                    min="0"
-                    onChange={(event) => {
-                      setPriceRangeMin(event.target.value)
-                    }}
-                  />
-                  <p className="before" />
-                  <input
-                    type="number"
-                    id="priceRangeMax"
-                    name="priceRangeMax"
-                    placeholder="$"
-                    min="0"
-                    onChange={(event) => {
-                      setPriceRangeMax(event.target.value)
-                    }}
-                    required="required"
-                  />
-                </div>
+          <Col lg={3} className="col-xl-3 col-12 sticky-top">
+            <div className="sticky-top">
+              <div className="categoryGroup d-none d-sm-block position-sticky">
                 <button
-                  className="rangeBtnFinn"
-                  type="submit"
+                  className={`categoryBtn w-100 categoryBtn1
+            ${buttonActiveObj.categoryBtn4 ? 'active' : ''}`}
                   onClick={() => {
-                    doPriceRange()
+                    doAllCategory()
+                    setButtonActiveObj({
+                      categoryBtn1: false,
+                      categoryBtn2: false,
+                      categoryBtn3: false,
+                      categoryBtn4: true,
+                    })
                   }}
                 >
-                  篩選
+                  所有商品
+                </button>
+                <button
+                  className={`categoryBtn w-100 categoryBtn1
+            ${buttonActiveObj.categoryBtn1 ? 'active' : ''}`}
+                  onClick={() => {
+                    doCategoryTaste()
+                    setButtonActiveObj({
+                      categoryBtn1: true,
+                      categoryBtn2: false,
+                      categoryBtn3: false,
+                      categoryBtn4: false,
+                    })
+                  }}
+                >
+                  甜點品嚐
+                </button>
+                <button
+                  className={`categoryBtn w-100 categoryBtn2
+            ${buttonActiveObj.categoryBtn2 ? 'active' : ''}`}
+                  onClick={() => {
+                    doCategoryHandmade()
+                    setButtonActiveObj({
+                      categoryBtn1: false,
+                      categoryBtn2: true,
+                      categoryBtn3: false,
+                      categoryBtn4: false,
+                    })
+                  }}
+                >
+                  手作體驗
+                </button>
+                <button
+                  className={`categoryBtn w-100 categoryBtn3
+            ${buttonActiveObj.categoryBtn3 ? 'active' : ''}`}
+                  onClick={() => {
+                    doCategoryWorkshop()
+                    setButtonActiveObj({
+                      categoryBtn1: false,
+                      categoryBtn2: false,
+                      categoryBtn3: true,
+                      categoryBtn4: false,
+                    })
+                  }}
+                >
+                  職人講座
                 </button>
               </div>
+              <div className="categoryGroup d-xl-none w-100">
+                <div className="categoryHead">
+                  <h5 className="categoryTitle">所有商品分類</h5>
+                </div>
+                <div className="categoryBtns d-flex justify-content-center">
+                  <div className="categoryBtn ">甜點品嚐</div>
+                  <div className="categoryBtn ">手作體驗</div>
+                  <div className="categoryBtn  active">職人講座</div>
+                </div>
+              </div>
+              <div
+                className="categoryRange accordion mb-5"
+                id="accordionExample"
+              >
+                <button
+                  className="btn btn-link categoryHeading"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  <label htmlFor="priceRangeMin">
+                    <h5>價格篩選</h5>
+                  </label>
+                </button>
+                <div
+                  id="collapseOne"
+                  className="collapse show collapseFinn"
+                  aria-labelledby="categoryHeading"
+                  data-parent="#accordionExample"
+                >
+                  <div className="w-100 d-flex justify-content-between">
+                    <input
+                      type="number"
+                      id="priceRangeMin"
+                      name="priceRangeMin"
+                      placeholder="$"
+                      min="0"
+                      onChange={(event) => {
+                        setPriceRangeMin(event.target.value)
+                      }}
+                    />
+                    <p className="before" />
+                    <input
+                      type="number"
+                      id="priceRangeMax"
+                      name="priceRangeMax"
+                      placeholder="$"
+                      min="0"
+                      onChange={(event) => {
+                        setPriceRangeMax(event.target.value)
+                      }}
+                      required="required"
+                    />
+                  </div>
+                  <button
+                    className="rangeBtnFinn"
+                    type="submit"
+                    onClick={() => {
+                      doPriceRange()
+                    }}
+                  >
+                    篩選
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
+          </Col>
+
           <div className="campaignCardBigPhone col-12 d-xl-none">
             <Dropdown className="sortBarPhone d-flex justify-content-end">
               <Dropdown.Toggle className="sortBarPhoneBtn btn ">
@@ -467,7 +464,7 @@ function CampaignProducts(props) {
                   className="sortBarPhoneItem dropdown-item"
                   href="*"
                 >
-                  熱門程度
+                  熱門活動
                 </Dropdown.Item>
                 <Dropdown.Item
                   className="sortBarPhoneItem dropdown-item"
@@ -671,7 +668,7 @@ function CampaignProducts(props) {
             </div>
           </div>
           <div className="campaignCardBigPC col-xl-9 col-12 d-none d-sm-block">
-            <div className="sortBar">
+            <div className="sortBar sticky-top">
               <ol className="sort">
                 <li className="sortItem">
                   <h5>排序：</h5>
@@ -706,7 +703,7 @@ function CampaignProducts(props) {
                     })
                   }}
                 >
-                  熱門程度
+                  熱門活動
                 </li>
                 <li
                   className={`sortItem
@@ -759,71 +756,6 @@ function CampaignProducts(props) {
               </ol>
             </div>
             {isLoading ? spinner : displayProductCards}
-            <div>
-              <nav aria-label="Page navigation example" className="hoyu-mt">
-                <ul className="pagination justify-content-center">
-                  <li className="page-item">
-                    <Link
-                      className="page-link hoyu-page-link hoyu-page-arrow"
-                      to="#"
-                      aria-label="Previous"
-                    >
-                      <span aria-hidden="true">
-                        <MdKeyboardArrowLeft />
-                      </span>
-                    </Link>
-                  </li>
-                  <li className="page-item">
-                    <Link
-                      className="page-link hoyu-page-link"
-                      to={`/campaign/searchProducts?page=1`}
-                      onClick={() => {
-                        pagination1()
-                      }}
-                    >
-                      1
-                    </Link>
-                  </li>
-                  <li className="page-item">
-                    <Link
-                      className="page-link hoyu-page-link"
-                      to={`/campaign/searchProducts?page=2`}
-                      onClick={() => {
-                        pagination2()
-                      }}
-                    >
-                      2
-                    </Link>
-                  </li>
-                  <li className="page-item">
-                    <Link className="page-link hoyu-page-link" to="#">
-                      3
-                    </Link>
-                  </li>
-                  <li className="page-item">
-                    <Link className="page-link hoyu-page-link" to="#">
-                      4
-                    </Link>
-                  </li>
-                  <li className="page-item">
-                    <Link className="page-link hoyu-page-link" to="#">
-                      5
-                    </Link>
-                  </li>
-                  <li className="page-item">
-                    <Link
-                      className="page-link hoyu-page-link hoyu-page-arrow"
-                      to="#"
-                      aria-label="Next"
-                    >
-                      <span aria-hidden="true">
-                        <MdKeyboardArrowRight />
-                      </span>
-                    </Link>
-                  </li>
-                </ul>
-              </nav>
-            </div>
           </div>
         </div>
       </div>

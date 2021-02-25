@@ -25,7 +25,7 @@ function DisplayCampaignCards(props) {
 
   return (
     <>
-      <Row className="campaignCards">
+      <Row className="campaignCards mb-5">
         <Carousel cols={3} rows={1} gap={30} loop>
           {data.map((v, i) => (
             <Carousel.Item>
@@ -34,7 +34,11 @@ function DisplayCampaignCards(props) {
                 style={{ textDecoration: 'none' }}
               >
                 <div className="campaignCard w-100">
-                  <div className="cardImg w-100" />
+                  <img
+                    className="cardImg w-100"
+                    src={`/img/` + v.campaignCover}
+                    alt="campaignImg"
+                  />
                   <div className="cardText">
                     <h4 className="cardTitle">{v.title}</h4>
                     <p className="campaignSite my-2">
