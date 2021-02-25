@@ -31,6 +31,7 @@ import OrderDetail from './pages/member/OrderDetail'
 
 // 組合用元件
 
+import Height from './components/Height'
 import MainContent from './components/MainContent'
 import MyNavbar from './components/MyNavbar'
 import MyFooter from './components/MyFooter'
@@ -70,6 +71,7 @@ function App() {
       <>
         <MyNavbar />
         <MainContent>
+          <Height />
           <ScrollToTop>
             {/* 套用全站樣式 */}
             {/* <ThemeContext.Provider value={themeNow}> */}

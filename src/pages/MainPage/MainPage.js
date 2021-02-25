@@ -5,10 +5,31 @@ import '../../styles/MainPage.scss'
 import '../../styles/font.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fas } from '@fortawesome/free-solid-svg-icons'
+import { useEffect } from 'react'
 
 function MainPage() {
+  useEffect(() => {
+    let curs = document.querySelector('.cursor2')
+
+    document.addEventListener('mousemove', (e) => {
+      let x = e.pageX
+      let y = e.pageY
+      curs.style.left = x - 22 + 'px'
+      curs.style.top = y - 22 + 'px'
+      // console.log('123')
+    })
+
+    document.addEventListener('mouseleave', (e) => {
+      let x = e.pageX
+      let y = e.pageY
+      curs.style.left = x - 22 + 'px'
+      // curs.style.opacity = 0.5
+      curs.style.top = y - 22 + 'px'
+    })
+  }, [])
   return (
     <>
+      <div className="cursor2"></div>
       <div className=" mb-0 masection jumbotron text-white  container-fluid">
         <div className="maherosection">
           <h5 className="masubtitle">甜蜜的幸福滋味</h5>
