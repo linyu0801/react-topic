@@ -5,6 +5,8 @@ import React, { useState } from 'react'
 import '../styles/studioOrder.scss'
 
 import '../styles/font.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 
 function DaanStudio1(props) {
   const { textSearch } = props
@@ -14,7 +16,7 @@ function DaanStudio1(props) {
         <div className="row">
           <div className="col-5">
             <h2 className="studioClass" id="daan" value="daan">
-              {textSearch[0]}
+              {textSearch[0]} <FontAwesomeIcon icon={fas.faGlassMartiniAlt} />
             </h2>
           </div>
           <div className="col-7">
@@ -25,7 +27,7 @@ function DaanStudio1(props) {
       <Link to="/StudioRent/StudioIntro1">
         <div className="container">
           <div className="col-lg-12 col-md-6 col-sm-4">
-            <div className="celiacardBig d-flex w-100">
+            <div className="celiacardBig celiatryhover d-flex w-100">
               <div className="cardBigImg1"></div>
               <div className="clcardText">
                 <p className="studioIntro">

@@ -33,7 +33,7 @@ function MyNavbar(props) {
         variant="dark"
         // fixed="top"
       >
-        <Navbar.Brand href="#home" className="nav-left">
+        <Navbar.Brand as={NavLink} to="/" className="nav-left">
           <img src="../icons/icons-row.svg" alt="" className="nav-icons" />
         </Navbar.Brand>
         <di className="nav-right-icons  ">

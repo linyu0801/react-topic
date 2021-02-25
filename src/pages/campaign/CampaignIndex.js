@@ -4,6 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import DisplayCampaignCards from '../../components/DisplayCampaignCards'
+import indexVideo from '../../styles/img/indexVideo.mp4'
 
 function CampaignIndex(props) {
   const { searchCampaign, setSearchCampaign } = props
@@ -19,7 +20,13 @@ function CampaignIndex(props) {
 
   return (
     <>
-      <Container fluid className="heroImg">
+      <Container fluid className="heroImg position-relative">
+        <div className="box position-absolute">
+          <video id="myVideo" autoPlay muted loop>
+            <source src={indexVideo} type="video/mp4" />
+          </video>
+        </div>
+        <div className="rowBg position-absolute"></div>
         <Row className="h-100">
           <Col
             lg={6}

@@ -1,6 +1,7 @@
 import '../../styles/MainProductDetail.scss'
 import '../../styles/font.scss'
 import { MdFavoriteBorder } from 'react-icons/md'
+import { MdFavorite } from 'react-icons/md'
 import { MdRemove } from 'react-icons/md'
 import { MdAdd } from 'react-icons/md'
 import { MdLocalBar } from 'react-icons/md'
@@ -14,25 +15,39 @@ import CarouselShow from '../../components/CarouselShow'
 import { Link, withRouter } from 'react-router-dom'
 import { Carousel } from 'react-bootstrap'
 import { Accordion, Card } from 'react-bootstrap' //有用到動態效果就要import react-bootstrap
-
+import $ from 'jquery'
 function MainProductDetail(props) {
   //測試有無拿到id：console.log('url', props.match.params.id)
   const [product, setProduct] = useState([])
   const [carouselImg, setCarouselImg] = useState([])
-
+  const mid = sessionStorage.getItem('mid')
+  const [favstate, setFavstate] = useState(false)
   useEffect(() => {
     const FetchData = async () => {
-      var formData = new FormData()
-      formData.set('productSid', props.match.params.id)
+      // var formData = new FormData()
+      // formData.set('productSid', props.match.params.id)
       const url = 'http://localhost:4000/mainproductdetail' //讀取寫在node中的app.get('/mainproduct')
       const request = new Request(url, {
         method: 'POST',
-        body: formData,
+        credentials: 'include',
+
+        // body: formData,
+        body: JSON.stringify({
+          productSid: props.match.params.id,
+          mid: 84,
+        }),
+        headers: new Headers({
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        }),
       })
       const response = await fetch(request)
       const rows = await response.json() //這邊的rows會得到所有資料庫中的資料
       console.log('伺服器回傳', rows) //先在這邊console.log出rows得到的資料
-
+      console.log('props.match.params.id', props.match.params.id) //先在這邊console.log出rows得到的資料
+      if (rows[0].fav_id === parseInt(props.match.params.id)) {
+        setFavstate(true)
+      }
       setProduct(rows) //rows的東西會傳到product中
       setCarouselImg(rows[0].p_carousel_img.split(','))
       //rows[0].p_carousel_img.split(',')的東西會回傳至carouselImg中，即可針對carouselImg進行map傾印資料
@@ -50,7 +65,7 @@ function MainProductDetail(props) {
     const url = 'http://localhost:4000/addfavproduct'
     const request = new Request(url, {
       method: 'POST',
-      body: JSON.stringify({ p_sid: p_sid }),
+      body: JSON.stringify({ p_sid: p_sid, mid: mid }),
       headers: new Headers({
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -59,9 +74,13 @@ function MainProductDetail(props) {
     const response = await fetch(request)
     const data = await response.json()
     console.log('回傳資料 : ', data)
+    if (data.fav === true) {
+      setFavstate(true)
+    } else {
+      setFavstate(false)
+    }
   }
   // 加入購物車
-  const mid = sessionStorage.getItem('mid')
   const addToCart = async (id, quantity) => {
     const response = await fetch('http://localhost:4000/AddToCart1', {
       method: 'POST',
@@ -135,7 +154,7 @@ function MainProductDetail(props) {
                     addfavproduct(v.p_sid)
                   }}
                 >
-                  <MdFavoriteBorder />
+                  {favstate ? <MdFavorite /> : <MdFavoriteBorder />}
                 </i>
                 {/* </Link> */}
               </div>

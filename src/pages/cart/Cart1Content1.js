@@ -8,9 +8,6 @@ import { Modal, Button } from 'react-bootstrap'
 function Cart1Content1(props) {
   const {
     cartStep,
-    setCartStep,
-    cartCate,
-    setCartCate,
     seletedDelivery,
     setSeletedDelivery,
     freightTotal,
@@ -21,45 +18,40 @@ function Cart1Content1(props) {
     setQuantityTotal,
   } = props
   // 取得購物車內的資料
-  const [cartItems, setCartItems] = useState([])
+  const [cartItems, setCartItems] = useState([1])
   // const [priceTotal, setPriceTotal] = useState(0)
   const [dataIsReady, setDataIsReady] = useState(false)
-  const [hasError, setError] = useState(false)
   async function fetchCart() {
     const res = await fetch('http://localhost:4000/cart1items', {
       credentials: 'include',
     })
-    res
-      .json()
-      .then((res) => {
-        if (res.length === 0) {
-          console.log('這是空的購物車', res)
-        } else {
-          console.log('購物車的有進來嗎', res)
-          setCartItems(res)
-          let newPrice = 0
-          let newQuantity = 0
-          res.map((item, i) => {
-            newQuantity += +item.quantity
-            newPrice += +item.p_price * +item.quantity
-          })
-          setCartTotal(newPrice)
-          setQuantityTotal(newQuantity)
-          // console.log(newPrice)
-          // console.log(newQuantity)
-        }
-      })
-      .catch((error) => {
-        setError(error)
-      })
+    res.json().then((res) => {
+      if (res.length === 0) {
+        console.log('這是空的購物車', res)
+        setCartItems(res)
+      } else {
+        console.log('購物車的有進來嗎', res)
+        setCartItems(res)
+        let newPrice = 0
+        let newQuantity = 0
+        res.map((item, i) => {
+          newQuantity += +item.quantity
+          newPrice += +item.p_price * +item.quantity
+        })
+        setCartTotal(newPrice)
+        setQuantityTotal(newQuantity)
+        // console.log(newPrice)
+        // console.log(newQuantity)
+      }
+    })
   }
   useEffect(() => {
-    if (sessionStorage.getItem('mid') === null) {
-      // return messageModal
-      // props.history.push('/member/login')
-    } else {
-      fetchCart()
-    }
+    // if (sessionStorage.getItem('mid') === null) {
+    //   // return messageModal
+    //   // props.history.push('/member/login')
+    // } else {
+    fetchCart()
+    // }
     // setTimeout(setDataIsReady(true), 1000)
   }, [])
 
@@ -204,7 +196,7 @@ function Cart1Content1(props) {
         messageModal2}
       {/* {() => {
         if (
-          // dataIsReady &&
+          dataIsReady &&
           sessionStorage.getItem('mid') !== null &&
           cartItems.length === 0
         ) {

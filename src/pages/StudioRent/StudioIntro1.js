@@ -7,6 +7,8 @@ import 'react-slideshow-image/dist/styles.css'
 import { Slide } from 'react-slideshow-image'
 import { Link } from 'react-router-dom'
 import $ from 'jquery'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 
 function StudioIntro1(props) {
   // function handleClick(e) {
@@ -19,7 +21,7 @@ function StudioIntro1(props) {
       body: JSON.stringify({
         token: mid,
         studio_id,
-        date,
+        date: textInput,
         time_period,
         price,
       }),
@@ -144,7 +146,7 @@ function StudioIntro1(props) {
             <div className="w-100 clintroForm">
               <form action="" className="clpub-form col-lg-6 col-12">
                 <h2 className="IntroTitle">
-                  教室預約 <i className="fas fa-wine-glass-alt"></i>
+                  教室預約 <FontAwesomeIcon icon={fas.faWineGlassAlt} />
                 </h2>
                 <div classNames="clborder">
                   <label for="date">日期</label>
@@ -192,10 +194,7 @@ function StudioIntro1(props) {
                   <div className="orderWrap ">
                     <ul className=" orderDate d-flex justify-content-between">
                       <li className="clcount">日期:</li>
-                      <span className="clorder">
-                        <i className="fas fa-dollar-sign"></i>
-                        {textInput}
-                      </span>
+                      <span className="clorder">{textInput}</span>
                     </ul>
                     <ul className=" orderNumber d-flex justify-content-between">
                       <li className="clcount">人數:</li>
@@ -204,7 +203,7 @@ function StudioIntro1(props) {
                     <ul className=" orderTime d-flex justify-content-between">
                       <li className="clcount">時段:</li>
                       <span className="clorder">
-                        <i className="fas fa-dollar-sign"></i> {selectedTime}
+                        <i className="fas fa-dollar-sign"></i> {textInput}
                       </span>
                     </ul>
                     <hr className="orderHr" />
@@ -212,7 +211,7 @@ function StudioIntro1(props) {
                     <ul className=" orderTime d-flex justify-content-between">
                       <li className="clcount">金額 :</li>
                       <span className="clorder" id="cost" type="text">
-                        <i className="fas fa-dollar-sign"></i>
+                        <FontAwesomeIcon icon={fas.faDollarSign} />
                       </span>
                     </ul>
                   </div>
@@ -263,7 +262,7 @@ function StudioIntro1(props) {
                     <div className="clwarning"></div>
                     <li className="atention">
                       與教室確認登記租借日期及時段後，需先預付租借總費用 1/2
-                      的金額以作訂金。。
+                      的金額以作訂金。
                     </li>
                     <div className="clwarning"></div>
                     <li className="atention">
