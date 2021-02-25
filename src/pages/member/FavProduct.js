@@ -5,14 +5,16 @@ import { Link, withRouter } from 'react-router-dom'
 import { FaRegTimesCircle } from 'react-icons/fa'
 import FishAside from '../../components/FishAside'
 function FavProduct(props) {
-  const [rows, setRows] = useState([])
-  const [display, setDisplay] = useState(<h1>尚未收藏商品</h1>)
+  const mid = sessionStorage.getItem('mid')
 
+  const [rows, setRows] = useState([])
+  const [display, setDisplay] = useState('')
+  const [none, setNone] = useState(false)
   const deletefavproduct = async (p_sid) => {
     const url = 'http://localhost:4000/deletefavproduct'
     const request = new Request(url, {
       method: 'DELETE',
-      body: JSON.stringify({ p_sid: p_sid }),
+      body: JSON.stringify({ p_sid: p_sid, mid: mid }),
       headers: new Headers({
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -29,20 +31,27 @@ function FavProduct(props) {
   const FetchData = async () => {
     const url = 'http://localhost:4000/getfavproduct'
     const request = new Request(url, {
-      method: 'GET',
+      method: 'POST',
+      body: JSON.stringify({ mid: mid }),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
     })
     const response = await fetch(request)
     const data = await response.json()
     console.log('伺服器回傳', data)
     if (data.fav !== 'none') {
       setRows(data)
+    } else {
+      setNone(true)
     }
   }
   useEffect(() => {
     FetchData()
   }, [])
   useEffect(() => {
-    const productDisplay = (
+    let productDisplay = (
       <>
         {rows.map((value, i) => (
           <div key={i} className="col-xl-4 col-lg-5 col-md-6">
@@ -79,8 +88,13 @@ function FavProduct(props) {
       </>
     )
     setDisplay(productDisplay)
+    // rows.fav === 'none' ? console.log('123456') :
   }, [rows])
-
+  const NoneDisPlay = (
+    <>
+      <h1>尚未收藏商品</h1>
+    </>
+  )
   return (
     <>
       <div className="container h-100">
@@ -113,7 +127,7 @@ function FavProduct(props) {
         <div className="row justify-content-center">
           <FishAside />
           <div className="col-9 d-flex flex-wrap">
-            {display}
+            {none === true ? NoneDisPlay : display}
 
             {/* <div className="col-xl-4 col-lg-5 col-md-6">
               <div className="product  fish-card w-100 position-relative">

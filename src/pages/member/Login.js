@@ -28,7 +28,7 @@ function Login(props) {
     console.log('伺服器回傳的json資料', data)
     if (data.success === true) {
       sessionStorage.setItem('mid', data.token)
-      props.history.push('/')
+      props.history.push('/MainPage')
     }
     if (data.code === 0) {
       $('#account').next().text('帳號錯誤或不存在')
