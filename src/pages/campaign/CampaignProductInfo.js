@@ -186,6 +186,7 @@ function CampaignProductsInfo(props) {
                 </div>
                 <div className="porductContent">
                   <h4 id="list-item-1">商品說明</h4>
+                  <p>{v.content}</p>
                   <h4>購買須知</h4>
                   <p className="noticed" id="list-item-3">
                     ・{v.notice}
