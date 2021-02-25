@@ -44,6 +44,23 @@ function StudioIntro1(props) {
   const { textInput } = props
 
   useEffect(() => {
+    let curs = document.querySelector('.cursor2')
+
+    document.addEventListener('mousemove', (e) => {
+      let x = e.pageX
+      let y = e.pageY
+      curs.style.left = x - 22 + 'px'
+      curs.style.top = y - 22 + 'px'
+      // console.log('123')
+    })
+
+    document.addEventListener('mouseleave', (e) => {
+      let x = e.pageX
+      let y = e.pageY
+      curs.style.left = x - 22 + 'px'
+      // curs.style.opacity = 0.5
+      curs.style.top = y - 22 + 'px'
+    })
     if (selectedTime === '09:00-12:00AM') {
       $('#cost').text('6000')
       setRent(6000)
@@ -80,6 +97,7 @@ function StudioIntro1(props) {
 
   return (
     <>
+      <div className="cursor2"></div>
       <div className="container">
         <div className="clbreadbox col-lg-12 col-sm-12">
           <Link to="/localhost:3000" className="clbread">
