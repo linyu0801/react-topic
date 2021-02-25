@@ -94,6 +94,19 @@ function Cart1Content2(props) {
               <small></small>
               <input type="checkbox" name="sameAsAccount" id="sameAsAccount" />
               <label htmlFor=""> &nbsp;收件人同訂購人</label>
+
+              {/* <input
+                type="checkbox"
+                value="false"
+                onChange={(e) => {
+                  const key = e.target.value
+                  setLike({
+                    ...like,
+                    [key]: !like[key],
+                  })
+                }}
+                checked={like.optionA}
+              /> */}
               <br />
 
               <label htmlFor="receiver">收件人姓名</label>
