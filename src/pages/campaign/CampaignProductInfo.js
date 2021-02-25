@@ -71,8 +71,6 @@ function CampaignProductsInfo(props) {
     </Carousel>
   )
 
-<<<<<<< HEAD
-=======
   // 加入購物車
   const [total, setTotal] = useState(1)
   const mid = sessionStorage.getItem('mid')
@@ -96,7 +94,6 @@ function CampaignProductsInfo(props) {
       alert('商品已加入購物車')
     }
   }
->>>>>>> 100e304cf5f04a1e76e573022fc40cc5be91e642
   return (
     <>
       {campaignProduct.map((v, i) => (
