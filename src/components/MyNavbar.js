@@ -31,6 +31,7 @@ function MyNavbar(props) {
         collapseOnSelect
         expand="lg"
         variant="dark"
+        id="navbar"
         // fixed="top"
       >
         <Navbar.Brand as={NavLink} to="/" className="nav-left">
