@@ -91,6 +91,7 @@ a {
   margin: auto;
   line-height: 200px;
   text-align: center;
+  border: 1px solid #cdaa8a;
 }
 .mablockinner .mablockcontent {
   display: inline-block;
@@ -131,6 +132,10 @@ a {
   top: 100px;
   z-index: 100;
   background-position: center;
+  transition: all 0.6s ease-in-out;
+}
+.lemonimg:hover {
+  transform: scale(1.25, 1.25);
 }
 .lemoncontent {
   position: absolute;
@@ -142,6 +147,7 @@ a {
   border: #cdaa8a 8px double;
   padding-left: 194px;
   padding-top: 104px;
+  background-color: #fce4cc;
 }
 .lemonhr {
   background-color: #cdaa8a;
@@ -160,14 +166,14 @@ a {
   position: absolute;
   width: 261px;
   height: 50px;
-  background-color: #250404;
+  background-color: #250404 !important;
   bottom: 269px;
-  color: white;
-  border-radius: 0;
+  color: white !important;
+  border-radius: 0 !important;
 }
 .maadd:hover {
-  color: white;
-  background-color: #cdaa8a;
+  color: white !important;
+  background-color: #cdaa8a !important;
 }
 .macard {
   display: none;
@@ -205,6 +211,9 @@ a {
 }
 .popcard {
   display: none;
+}
+.popstar {
+  color: #cdaa8a;
 }
 
 .trrow {
@@ -259,9 +268,14 @@ a {
 .tryimg > img {
   width: 100%;
 }
+.tryimg:hover {
+  border: double 8px #250404;
+}
+.mastudiotitlemargin {
+  margin-bottom: 150px;
+}
 .mastudioimg {
   background-image: url('http://localhost:3000/MainPage/image/makitchen.jpg');
-
   background-size: cover;
   background-repeat: no-repeat;
   height: 700px;
@@ -284,28 +298,42 @@ a {
 .maaddstudio {
   width: 100%;
   height: 10%;
-  background-color: #250404;
+  background-color: #250404 !important;
   bottom: 269px;
-  color: white;
-  border-radius: 0;
+  color: white !important;
+  border-radius: 0 !important;
   margin-top: 150px;
   padding-left: 0;
 }
 .maaddstudio:hover {
-  color: white;
-  background-color: #cdaa8a;
+  color: white !important;
+  background-color: #cdaa8a !important;
 }
 .lastpart {
   margin-top: 198px;
   margin-bottom: 50px;
 }
-.lastparttext {
+.malastpart {
+  background-color: #fce4cc;
+}
+.malastpart {
+  display: inline-block;
+  height: auto;
+  line-height: 1;
+  background-color: #fce4cc;
+  vertical-align: middle;
   text-align: center;
   margin: auto;
+  margin: center;
 }
 .mareadmore {
   text-align: center;
   margin-bottom: 50px;
+  transition: 2s;
+}
+.mareadmore:hover{
+  text-decoration: underline #cdaa8a;
+  
 }
 
 @media (max-width: 415px), print {
@@ -357,6 +385,7 @@ a {
   .popitemtitle {
     display: none;
   }
+
   .popcard {
     display: block;
     margin-top: 50px;

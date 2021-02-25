@@ -3,6 +3,8 @@ import React from 'react'
 import '../../styles/MainPage.scss'
 
 import '../../styles/font.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 
 function MainPage() {
   return (
@@ -92,6 +94,7 @@ function MainPage() {
 
       <div className="popcard" style={{ width: 18 + 'em' }}>
         <h2 className="popitembigtitle">熱銷商品</h2>
+
         <img
           className="card-img-top"
           src="http://localhost:3000/MainPage/image/popitem3.jpg"
@@ -104,11 +107,11 @@ function MainPage() {
 
           <h4 className="lemoncaketname">台北市，板橋區</h4>
           <div className="popstar">
-            <i className="fas fa-star"></i>
-            <i className="fas fa-star"></i>
-            <i className="fas fa-star"></i>
-            <i className="fas fa-star"></i>
-            <i className="fas fa-star"></i>
+            <FontAwesomeIcon icon={fas.faStar} />
+            <FontAwesomeIcon icon={fas.faStar} />
+            <FontAwesomeIcon icon={fas.faStar} />
+            <FontAwesomeIcon icon={fas.faStar} />
+            <FontAwesomeIcon icon={fas.faStar} />
           </div>
 
           <div className="popprice">$350</div>
@@ -165,7 +168,7 @@ function MainPage() {
         </div>
       </div>
 
-      <div className="container malastpart">
+      <div className="container malastpart col-12">
         <div className="lastpart">
           <h2 className="lastparttext">
             “【彌月蛋糕】知名部落客小貓真誠推薦！吃起來超有幸福感的甜點店“
