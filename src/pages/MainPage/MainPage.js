@@ -79,14 +79,14 @@ function MainPage() {
           <div className="co1-4 popitem1">
             <img
               className="popitemimg"
-              src="http://localhost:3000/MainPage/image/popitem.jpeg
+              src="http://localhost:3000/MainPage/image/popitem2.jpeg
         "
             />
           </div>
           <div className="co1-4 popitem1">
             <img
               className="popitemimg"
-              src="http://localhost:3000/MainPage/image/popitem.jpeg"
+              src="http://localhost:3000/MainPage/image/popitem3.jpg"
             />
           </div>
         </div>
@@ -97,7 +97,7 @@ function MainPage() {
 
         <img
           className="card-img-top"
-          src="http://localhost:3000/MainPage/image/popitem3.jpg"
+          src="http://localhost:3000/MainPage/image/popitem.jpg"
           alt="Card image cap"
         />
         <div className="card-body">
