@@ -1,16 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap');
 @import '~bootstrap/scss/bootstrap.scss';
-
-.container-fluid {
-  padding: 0;
-  padding-left: 0px;
-  padding-right: 0px;
-  margin-bottom: 50px;
-}
-
-.container {
-  margin-bottom: 50px;
-}
+@import '~animate.css/animate.css';
 
 h2 {
   font-size: 48px;
@@ -60,7 +50,7 @@ button:focus {
 }
 
 .heroImg {
-  background-image: url(http://localhost:3000/img/HeroImg.jpg);
+  background-image: url(./img/HeroImg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -144,12 +134,12 @@ button:focus {
 .bgImg::before {
   content: ' ';
   width: 100%;
-  height: 1200px;
-  background-image: url(http://localhost:3000/img/illustration/goldenTriangle.png);
+  height: 1600px;
+  background-image: url(./img/illustration/goldenTriangle.png);
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
-  top: 600px;
+  top: 300px;
   opacity: 25%;
 }
 
@@ -157,7 +147,7 @@ button:focus {
   content: ' ';
   width: 250px;
   height: 50%;
-  background-image: url(http://localhost:3000/img/illustration/goldenRing.png);
+  background-image: url(./img/illustration/goldenRing.png);
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
@@ -169,7 +159,7 @@ button:focus {
   content: ' ';
   width: 400px;
   height: 100%;
-  background-image: url(http://localhost:3000/img/illustration/goldenRing.png);
+  background-image: url(./img/illustration/goldenRing.png);
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
@@ -179,10 +169,8 @@ button:focus {
 }
 
 .cardImg {
-  background-image: url(http://localhost:3000/img/CardImg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
+  object-fit: cover;
+  object-position: center center;
   height: 246px;
 }
 
@@ -250,7 +238,7 @@ svg.star {
 }
 
 .tastingImg {
-  background-image: url(http://localhost:3000/img/TastingImg.jpg);
+  background-image: url(./img/TastingImg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 500px;
@@ -265,7 +253,7 @@ svg.star {
 }
 
 .experientImg {
-  background-image: url(http://localhost:3000/img/HandmadeImg.jpg);
+  background-image: url(./img/HandmadeImg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 500px;
@@ -274,7 +262,7 @@ svg.star {
 }
 
 .workshoptImg {
-  background-image: url(http://localhost:3000/img/WorkshopImg.jpg);
+  background-image: url(./img/WorkshopImg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 500px;
@@ -461,15 +449,6 @@ body {
     padding-left: 12px;
     text-align: right;
     margin-bottom: 0px;
-  }
-
-  .tastingBgImg {
-    background-image: url(http://localhost:3000/img/illustration/goldenTriangle.png);
-    background-repeat: no-repeat;
-    background-position: center center;
-    opacity: 25%;
-    height: 200px;
-    top: -30px;
   }
 
   .tastingBg {

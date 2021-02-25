@@ -23,6 +23,7 @@ function Cart1Content1(props) {
   // 取得購物車內的資料
   const [cartItems, setCartItems] = useState([])
   // const [priceTotal, setPriceTotal] = useState(0)
+  const [dataIsReady, setDataIsReady] = useState(false)
   const [hasError, setError] = useState(false)
   async function fetchCart() {
     const res = await fetch('http://localhost:4000/cart1items', {
@@ -54,11 +55,12 @@ function Cart1Content1(props) {
   }
   useEffect(() => {
     if (sessionStorage.getItem('mid') === null) {
-      return messageModal
+      // return messageModal
       // props.history.push('/member/login')
     } else {
       fetchCart()
     }
+    // setTimeout(setDataIsReady(true), 1000)
   }, [])
 
   async function increaseQty(p_sid) {
@@ -169,7 +171,8 @@ function Cart1Content1(props) {
       backdrop="static"
       centered
       onClick={() => {
-        props.history.push('/member/login')
+        // props.history.push('/')
+        handleClose()
       }}
     >
       <Modal.Header>
@@ -184,7 +187,8 @@ function Cart1Content1(props) {
       <Modal.Footer>
         <Button
           onClick={() => {
-            props.history.push('/')
+            // props.history.push('/')
+            handleClose()
           }}
         >
           返回首頁
@@ -195,8 +199,19 @@ function Cart1Content1(props) {
   return (
     <>
       {sessionStorage.getItem('mid') === null && messageModal}
-      {(sessionStorage.getItem('mid') !== null) & (cartItems.length === 0) &&
+      {sessionStorage.getItem('mid') !== null &&
+        cartItems.length === 0 &&
         messageModal2}
+      {/* {() => {
+        if (
+          // dataIsReady &&
+          sessionStorage.getItem('mid') !== null &&
+          cartItems.length === 0
+        ) {
+          console.log(1)
+          return messageModal2
+        }
+      }} */}
 
       <div className="row">
         <div className="col-1"></div>
