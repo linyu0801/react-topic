@@ -21,7 +21,7 @@ function StudioIntro1(props) {
       body: JSON.stringify({
         token: mid,
         studio_id,
-        date,
+        date: textInput,
         time_period,
         price,
       }),
@@ -203,7 +203,7 @@ function StudioIntro1(props) {
                     <ul className=" orderTime d-flex justify-content-between">
                       <li className="clcount">時段:</li>
                       <span className="clorder">
-                        <i className="fas fa-dollar-sign"></i> {selectedTime}
+                        <i className="fas fa-dollar-sign"></i> {textInput}
                       </span>
                     </ul>
                     <hr className="orderHr" />

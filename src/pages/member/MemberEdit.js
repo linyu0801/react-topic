@@ -57,6 +57,23 @@ function MemberEdit(props) {
     } else {
       FetchData(mid)
     }
+    let curs = document.querySelector('.cursor2')
+
+    document.addEventListener('mousemove', (e) => {
+      let x = e.pageX
+      let y = e.pageY
+      curs.style.left = x - 22 + 'px'
+      curs.style.top = y - 22 + 'px'
+      // console.log('123')
+    })
+
+    document.addEventListener('mouseleave', (e) => {
+      let x = e.pageX
+      let y = e.pageY
+      curs.style.left = x - 22 + 'px'
+      // curs.style.opacity = 0.5
+      curs.style.top = y - 22 + 'px'
+    })
   }, [])
 
   useEffect(() => {
@@ -126,6 +143,8 @@ function MemberEdit(props) {
 
   return (
     <>
+      <div class="cursor2"></div>
+
       <div className="container h-100 fish-mt-50">
         <div className="row">
           <div className="col-12 bread-div">
