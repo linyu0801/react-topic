@@ -1,11 +1,23 @@
 @import '~bootstrap/scss/bootstrap.scss';
-
+.hide {
+  transform: translateY(-100px);
+}
+.h-90 {
+  height: 90px;
+  background: #250404;
+}
 .navbar {
   background-color: #250404;
   border-bottom: 1px solid #cdaa8a;
-  z-index: 2;
+  z-index: 300;
 }
-
+.nav-position {
+  transition: 0.4s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
 .navbar a {
   color: white !important;
   margin: 0px;
