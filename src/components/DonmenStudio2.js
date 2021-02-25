@@ -5,6 +5,8 @@ import React, { useState } from 'react'
 import '../styles/studioOrder.scss'
 
 import '../styles/font.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 
 function DonmenStudio2(props) {
   const { textSearch } = props
@@ -14,7 +16,7 @@ function DonmenStudio2(props) {
         <div className="row">
           <div className="col-5">
             <h2 className="studioClass" id="donmen" value="donmen">
-              {textSearch[1]}
+              {textSearch[1]}<FontAwesomeIcon icon={fas.faGlassMartiniAlt} />
             </h2>
           </div>
           <div className="col-7">

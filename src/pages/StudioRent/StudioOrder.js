@@ -10,6 +10,8 @@ import DaanStudio1 from '../../components/DaanStudio1'
 import DonmenStudio2 from '../../components/DonmenStudio2'
 import WestStudio3 from '../../components/WestStudio3'
 import { propTypes } from 'react-bootstrap/esm/Image'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 
 function StudioOrder(props) {
   const [textSearch, setTextSearch] = useState([
@@ -25,11 +27,6 @@ function StudioOrder(props) {
   useEffect(() => {
     console.log('isClassOrdered', isClassOrdered)
   }, [isClassOrdered])
-
-
-  
-  
-
 
   //console.log教室index[i]
 
@@ -90,13 +87,12 @@ function StudioOrder(props) {
                   console.log(textInput)
                 }}
               >
-                <i className="fas fa-search"></i> <span> </span>搜尋
+                <FontAwesomeIcon icon={fas.faSearch} /> <span> </span>搜尋
               </button>
             </div>
           </div>
         </div>
       </div>
-
       <div className="container">
         <div className="breadbox col-lg-12 col-sm-12">
           <Link to="#" className="clbread">
@@ -106,7 +102,6 @@ function StudioOrder(props) {
         </div>
       </div>
       {!isClassOrdered[0] ? <DaanStudio1 textSearch={textSearch} /> : ''}
-
       <div className="decor">
         <img
           src="http://localhost:3000/climage/goldenRing.png"
@@ -131,7 +126,6 @@ function StudioOrder(props) {
         />
       </div>
       {!isClassOrdered[2] ? <WestStudio3 textSearch={textSearch} /> : ''}
-
       <div className="decor">
         <img
           src="http://localhost:3000/climage/goldenRing.png"
