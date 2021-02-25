@@ -135,6 +135,12 @@ h5.product-description-text {
   letter-spacing: 0.1rem;
 }
 
+.row.k-mp-lower{
+  margin-bottom: 200px;
+
+}
+
+
 //accordion 下拉式手風琴資訊*/
 /*info-head*/
 .info-head {
@@ -184,7 +190,7 @@ h5.info-body-text {
 }
 
 .k-material-icons {
-  font-size: 36px;
+  font-size: 24px;
 }
 
 .k-ul-note {
@@ -306,7 +312,7 @@ input:focus,
 
 /*第二支carousel：CarouselShow*/
 .more-info {
-  margin-top: 50px;
+  margin-top: 200px;
   padding: 100px 0;
   height: 692px;
   background-color: #ffeed3;
@@ -344,6 +350,10 @@ button.sc-bdfBwQ.iLquPE.rec.rec-arrow.rec.rec-arrow-left, button.sc-bdfBwQ.lgksP
 button.sc-bdfBwQ.iLquPE.rec.rec-arrow.rec.rec-arrow-left:hover, button.sc-bdfBwQ.lgksPe.rec.rec-arrow.rec.rec-arrow-right:hover{
   opacity: 0.5;
   transition: opacity .2s ease;
+}
+
+button.lgksPe:hover:enabled, .lgksPe:focus:enabled{
+  background-color: #c7ab8e;
 }
 
 /*temp-footer*/
