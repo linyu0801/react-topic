@@ -530,6 +530,9 @@ input[type='date']::-webkit-calendar-picker-indicator {
   width: 45px;
   height: 40px;
 }
+// .googlelogin :hover {
+//   color: #250404;
+// }
 .facebook {
   background: url('http://localhost:3000/icons/facebook.svg') no-repeat center
     center;
@@ -541,6 +544,22 @@ input[type='date']::-webkit-calendar-picker-indicator {
     center;
   width: 45px;
   height: 40px;
+}
+.fav-nonimg {
+  width: 200px;
+  height: 200px;
+}
+
+.fav-nontext {
+  color: #cdaa8a;
+  font-size: 24px;
+  font-family: 'Noto Serif TC';
+  letter-spacing: 3px;
+  font-weight: 600;
+  display: block;
+  width: 400px;
+  // margin-top: 25%;
+  margin: 15% 25% 0 auto;
 }
 .fish-order {
   border: 1px solid #cdaa8a;

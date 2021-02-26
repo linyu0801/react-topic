@@ -112,7 +112,7 @@ function Mpassword(props) {
                 <br />
                 <input
                   className="w-100 pub-input"
-                  type="text"
+                  type="password"
                   name="newpassword"
                   id="newpassword"
                   value={newpassword}
@@ -126,7 +126,7 @@ function Mpassword(props) {
                 <br />
                 <input
                   className="w-100 pub-input"
-                  type="text"
+                  type="password"
                   name="newpassword2"
                   id="newpassword2"
                   value={newpassword2}

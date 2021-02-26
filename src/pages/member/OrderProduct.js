@@ -7,7 +7,15 @@ import { Link, withRouter } from 'react-router-dom'
 moment.locale('zh-tw')
 
 function OrderProduct(props) {
-  const [rows, setRows] = useState([])
+  const [rows, setRows] = useState([
+    {
+      sid: '',
+      order_date: '',
+      amount: '',
+      payment_type: '',
+      deliver_state: '',
+    },
+  ])
   const mid = sessionStorage.getItem('mid')
   const FetchData = async () => {
     const url = 'http://localhost:4000/getorderproduct'
@@ -23,10 +31,12 @@ function OrderProduct(props) {
     const response = await fetch(request)
     const data = await response.json()
     console.log('伺服器回傳', data)
-    data.map((value, i) => {
-      data[i].order_date = moment(data[i].order_date).format('YYYY-MM-DD')
-    })
-    setRows(data)
+    if (data.fav !== 'none') {
+      data.map((value, i) => {
+        data[i].order_date = moment(data[i].order_date).format('YYYY-MM-DD')
+      })
+      setRows(data)
+    }
   }
   useEffect(() => {
     FetchData()
