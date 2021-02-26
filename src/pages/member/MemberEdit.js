@@ -168,24 +168,26 @@ function MemberEdit(props) {
         <div className="row justify-content-center">
           <div className="col-2"></div>
           <div className="col-9">
-            <h2 className="fish-topic">
+            <h2 className="fish-topic  fadeInRight delay-1">
               <i className="fas fa-user-edit"> </i> 編輯個人資訊
             </h2>
           </div>
         </div>
         <div className="row justify-content-center">
           <FishAside />
-          <div className="col-9">
+          <div className="col-9  ">
             <div className="w-100 d-flex justify-content-center">
               <form
                 action=""
                 className="pub-form col-xl-7 col-lg-8 col-md-10 col-sm-12"
                 name="editform"
               >
-                <label htmlFor="username ">使用者名稱</label>
+                <label htmlFor="username " className="zoomInput delay-1">
+                  使用者名稱
+                </label>
                 <br />
                 <input
-                  className="w-100 pub-input"
+                  className="w-100 pub-input zoomInput delay-1"
                   type="text"
                   name="username"
                   id="username"
@@ -195,10 +197,12 @@ function MemberEdit(props) {
                 <br />
                 <small></small>
 
-                <label htmlFor="email">電子郵件</label>
+                <label htmlFor="email" className="zoomInput delay-3">
+                  電子郵件
+                </label>
                 <br />
                 <input
-                  className="w-100 pub-input"
+                  className="w-100 pub-input zoomInput delay-3"
                   type="text"
                   name="email"
                   id="email"
@@ -207,10 +211,12 @@ function MemberEdit(props) {
                 />
                 <small></small>
 
-                <label htmlFor="birthday">生日</label>
+                <label htmlFor="birthday" className="zoomInput delay-5">
+                  生日
+                </label>
                 <br />
                 <DatePicker
-                  className="pub-input w-100"
+                  className="pub-input w-100 zoomInput delay-5"
                   id="datepicker"
                   selected={birthDate}
                   dateFormat="yyyy-MM-dd"
@@ -230,10 +236,12 @@ function MemberEdit(props) {
                 <br />
                 <small></small>
 
-                <label htmlFor="tel">手機</label>
+                <label htmlFor="tel" className="zoomInput delay-5">
+                  手機
+                </label>
                 <br />
                 <input
-                  className="w-100 pub-input"
+                  className="w-100 pub-input zoomInput delay-5"
                   type="text"
                   name="tel"
                   id="tel"
@@ -242,10 +250,12 @@ function MemberEdit(props) {
                 />
                 <small></small>
 
-                <label htmlFor="address">地址</label>
+                <label htmlFor="address" className="zoomInput delay-7">
+                  地址
+                </label>
                 <br />
                 <input
-                  className="w-100 pub-input"
+                  className="w-100 pub-input zoomInput delay-7"
                   type="text"
                   name="address"
                   id="address"
@@ -256,7 +266,7 @@ function MemberEdit(props) {
 
                 <button
                   type="button"
-                  className="pub-button pub-mb-100 mx-auto"
+                  className="pub-button pub-mb-100 mx-auto zoomInput delay-9"
                   onClick={() => {
                     EditToServer()
                   }}
