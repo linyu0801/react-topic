@@ -25,6 +25,23 @@ function StudioOrder(props) {
   const { textInput, setTextInput } = props
 
   useEffect(() => {
+    let curs = document.querySelector('.cursor2')
+
+    document.addEventListener('mousemove', (e) => {
+      let x = e.pageX
+      let y = e.pageY
+      curs.style.left = x - 22 + 'px'
+      curs.style.top = y - 22 + 'px'
+      // console.log('123')
+    })
+
+    document.addEventListener('mouseleave', (e) => {
+      let x = e.pageX
+      let y = e.pageY
+      curs.style.left = x - 22 + 'px'
+      // curs.style.opacity = 0.5
+      curs.style.top = y - 22 + 'px'
+    })
     console.log('isClassOrdered', isClassOrdered)
   }, [isClassOrdered])
 
@@ -32,6 +49,7 @@ function StudioOrder(props) {
 
   return (
     <>
+      <div className="cursor2"></div>
       <div className="clsection jumbotron text-white col-lg-12 col-md-6 col-sm-4 container-fluid ">
         <div className="container">
           <h2 className="clheromsg  d-flex justify-content-center">

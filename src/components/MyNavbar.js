@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 // 要使用能有active css效果的NavLink元件
 import { FaSearch } from 'react-icons/fa'
@@ -6,7 +6,7 @@ import { FaUserAlt } from 'react-icons/fa'
 import { FaShoppingCart } from 'react-icons/fa'
 import { NavLink, withRouter, Link } from 'react-router-dom'
 import '../styles/navbar.scss'
-import { Collapse } from 'reactstrap'
+import $ from 'jquery'
 function MyNavbar(props) {
   const [test, setTest] = useState(false)
   async function logout() {
@@ -23,7 +23,27 @@ function MyNavbar(props) {
       props.history.push('/member/login')
     }
   }
+  useEffect(() => {
+    let last = 0
+    $(window).scroll(function () {
+      let scrollNow = $(this).scrollTop()
+      if ($(window).scrollTop() >= 1) {
+        $('.navbar').addClass('nav-position ')
 
+        if (scrollNow > last) {
+          $('.navbar').addClass('hide')
+          //   $(".navbar").hide();
+        } else {
+          $('.navbar').removeClass('hide')
+          //   $(".navbar").show();
+        }
+      } else {
+        $('.navbar').removeClass('nav-position')
+      }
+
+      last = scrollNow
+    })
+  }, [])
   return (
     <>
       <Navbar
@@ -31,6 +51,7 @@ function MyNavbar(props) {
         collapseOnSelect
         expand="lg"
         variant="dark"
+        id="navbar"
         // fixed="top"
       >
         <Navbar.Brand as={NavLink} to="/" className="nav-left">
