@@ -133,13 +133,7 @@ function CartActivity(props) {
                       <td className="hy-rwd-d-none"></td>
                       <td className="py-4 hy-rwd-d-none">
                         <div className="hy-img d-flex justify-content-center">
-                          <img
-                            src={
-                              `http://localhost:3000/k-images/` +
-                              item.campaignCover
-                            }
-                            alt=""
-                          />
+                          <img src={`/img/${item.campaignCover}`} alt="" />
                         </div>
                       </td>
                       <td className="hy-rwd-d-none">{item.title}</td>

@@ -22,7 +22,7 @@ function StudioIntro1(props) {
         token: mid,
         studio_id,
         date: textInput,
-        time_period,
+        time_period: selectedTime,
         price,
       }),
       headers: {
