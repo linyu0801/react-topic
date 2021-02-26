@@ -18,21 +18,6 @@ function Cart1Content2(props) {
 
   const [equal, setEqual] = useState(false)
 
-  // useEffect(() => {
-  //   $('#sameAsAccount').on('click', () => {
-  //     let sameAsAccount = $('#sameAsAccount').prop('checked')
-  //     console.log(sameAsAccount)
-  //     if (sameAsAccount === true) {
-  //       $('#receiver').val($('#username').val())
-  //       $('#receiverMobile').val($('#tel').val())
-  //     }
-  //     if (sameAsAccount === false) {
-  //       $('#receiver').val('')
-  //       $('#receiverMobile').val('')
-  //     }
-  //   })
-  // }, [])
-
   useEffect(() => {
     equal === true
       ? setInputs({ ...inputs, receiver: inputs.username })
@@ -51,6 +36,8 @@ function Cart1Content2(props) {
     // }
     // return
   }
+
+  const [paymentType, setPaymentType] = useState('信用卡一次付清')
 
   return (
     <>
