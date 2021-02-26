@@ -41,7 +41,7 @@ function CampaignIndex(props) {
 
   return (
     <>
-      <div class="cursorFinn"></div>
+      <div class="cursorFinn d-none d-sm-block"></div>
       <Container fluid className="heroImg position-relative">
         <div className="box position-absolute">
           <video id="myVideo" autoPlay muted loop>
