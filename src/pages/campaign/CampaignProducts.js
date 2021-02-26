@@ -275,6 +275,7 @@ function CampaignProducts(props) {
 
   return (
     <>
+      <div class="cursorFinn d-none d-sm-block"></div>
       <div className="container breadcrumbFinn">
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
@@ -781,7 +782,6 @@ function CampaignProducts(props) {
           </div>
         </div>
       </div>
-      <div class="cursorFinn position-absolute"></div>
     </>
   )
 }
