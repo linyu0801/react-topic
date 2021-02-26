@@ -27,7 +27,9 @@ function MyNavbar(props) {
     let last = 0
     $(window).scroll(function () {
       let scrollNow = $(this).scrollTop()
-
+      if ($(window).scrollTop() >= 0) {
+        $('.navbar').removeClass('hide')
+      }
       if ($(window).scrollTop() >= 1) {
         $('.navbar').addClass('nav-position ')
 
