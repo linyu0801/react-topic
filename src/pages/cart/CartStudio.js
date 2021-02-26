@@ -133,8 +133,9 @@ function CartStudio(props) {
                         <div className="hy-img d-flex justify-content-center">
                           <img
                             src={
-                              `http://localhost:3000/k-images/` +
-                              item.campaignCover
+                              `http://localhost:3000/climage/1/` +
+                              item.img +
+                              `.jpg`
                             }
                             alt=""
                           />

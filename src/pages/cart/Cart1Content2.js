@@ -6,6 +6,7 @@ function Cart1Content2(props) {
     cartTotal,
     setForm1,
     inputs,
+    setInputs,
     onChangeForField,
     seletedOption,
     setSeletedOption,
@@ -15,24 +16,28 @@ function Cart1Content2(props) {
     setSeletedOptionCardYear,
   } = props
 
-  useEffect(() => {
-    $('#sameAsAccount').on('click', () => {
-      let sameAsAccount = $('#sameAsAccount').prop('checked')
-      console.log(sameAsAccount)
-      if (sameAsAccount === true) {
-        $('#receiver').val($('#username').val())
-        $('#receiverMobile').val($('#tel').val())
-      }
-      if (sameAsAccount === false) {
-        $('#receiver').val('')
-        $('#receiverMobile').val('')
-      }
-    })
-  }, [])
+  const [equal, setEqual] = useState(false)
 
   // useEffect(() => {
-  //   console.log(inputs)
-  // }, [inputs])
+  //   $('#sameAsAccount').on('click', () => {
+  //     let sameAsAccount = $('#sameAsAccount').prop('checked')
+  //     console.log(sameAsAccount)
+  //     if (sameAsAccount === true) {
+  //       $('#receiver').val($('#username').val())
+  //       $('#receiverMobile').val($('#tel').val())
+  //     }
+  //     if (sameAsAccount === false) {
+  //       $('#receiver').val('')
+  //       $('#receiverMobile').val('')
+  //     }
+  //   })
+  // }, [])
+
+  useEffect(() => {
+    equal === true
+      ? setInputs({ ...inputs, receiver: inputs.username })
+      : setInputs({ ...inputs, receiver: '' })
+  }, [equal])
 
   useEffect(() => {
     setForm1(inputs)
@@ -92,21 +97,16 @@ function Cart1Content2(props) {
               />
               <br />
               <small></small>
-              <input type="checkbox" name="sameAsAccount" id="sameAsAccount" />
-              <label htmlFor=""> &nbsp;收件人同訂購人</label>
+              {/* <input type="checkbox" name="sameAsAccount" id="sameAsAccount" /> */}
 
-              {/* <input
+              <input
                 type="checkbox"
-                value="false"
-                onChange={(e) => {
-                  const key = e.target.value
-                  setLike({
-                    ...like,
-                    [key]: !like[key],
-                  })
+                // value="false"
+                onClick={(e) => {
+                  setEqual(!equal)
                 }}
-                checked={like.optionA}
-              /> */}
+              />
+              <label htmlFor=""> &nbsp;收件人同訂購人</label>
               <br />
 
               <label htmlFor="receiver">收件人姓名</label>
