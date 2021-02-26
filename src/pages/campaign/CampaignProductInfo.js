@@ -3,7 +3,7 @@ import '../../styles/campaignIndex.scss'
 import '../../styles/campaignProducts.scss'
 import '../../styles/campaignProductInfo.scss'
 import '../../styles/font.scss'
-import { Carousel, Row, Col, Container } from 'react-bootstrap'
+import { Carousel, Container } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faMapMarkerAlt,
@@ -16,8 +16,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import Iframe from 'react-iframe'
 import { far } from '@fortawesome/free-regular-svg-icons'
-import { fas } from '@fortawesome/free-solid-svg-icons'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import Scrollspy from 'react-scrollspy'
 import DisplayCampaignCards from '../../components/DisplayCampaignCards'
 
@@ -42,23 +41,7 @@ function CampaignProductsInfo(props) {
       setCampaignProduct(rows) //rows的東西會傳到product中
       setCarouselImg(rows[0].campaignImg.split(','))
     }
-
     FetchData()
-  }, [props.match.params.id])
-
-  useEffect(() => {
-    async function fetchdata() {
-      // const editform = new FormData(document.editform)
-
-      const url = 'http://localhost:4000/campaignlist'
-      const request = new Request(url, {
-        method: 'GET',
-      })
-      const response = await fetch(request)
-      const rows = await response.json()
-      setData(rows)
-    }
-    fetchdata()
   }, [])
 
   const carouselFinn = (
@@ -91,11 +74,32 @@ function CampaignProductsInfo(props) {
     if (cartresult === 'error') {
       alert('Something Went Wrong')
     } else {
-      alert('商品已加入購物車')
+      alert('Something Went Wrong')
     }
   }
+  useEffect(() => {
+    let curs = document.querySelector('.cursorFinn')
+
+    document.addEventListener('mousemove', (e) => {
+      let x = e.pageX
+      let y = e.pageY
+      curs.style.left = x - 22 + 'px'
+      curs.style.top = y - 22 + 'px'
+      // console.log('123')
+    })
+
+    document.addEventListener('mouseleave', (e) => {
+      let x = e.pageX
+      let y = e.pageY
+      curs.style.left = x - 22 + 'px'
+      // curs.style.opacity = 0.5
+      curs.style.top = y - 22 + 'px'
+    })
+  }, [])
+
   return (
     <>
+      <div class="cursorFinn d-none d-sm-block"></div>
       {campaignProduct.map((v, i) => (
         <>
           <div className="container">
@@ -186,31 +190,70 @@ function CampaignProductsInfo(props) {
                 </div>
                 <div className="porductContent">
                   <h4 id="list-item-1">商品說明</h4>
-                  <p>{v.content}</p>
+                  <p className="porductContentText">{v.content}</p>
                   <h4>購買須知</h4>
-                  <p className="noticed" id="list-item-3">
+                  <p className="noticed porductContentText" id="list-item-3">
                     ・{v.notice}
                   </p>
                   <h4>體驗地點</h4>
-                  <div className="locationContent" id="list-item-4">
-                    <h5>醉糕品味 大安店</h5>
+                  <div
+                    className="locationContent porductContentText mb-4"
+                    id="list-item-4"
+                  >
+                    <h5>醉糕品味 {v.district.slice(4, 6)}店</h5>
                     <p>{v.address}</p>
                     <hr />
-                    <Iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.7974968723406!2d121.54369831437482!3d25.04094544416838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abd07c0f0709%3A0x6546de69c86a8bcf!2zMTA25Y-w5YyX5biC5aSn5a6J5Y2A5aSn5a6J6Lev5LiA5q61ODTlt7c06Jmf!5e0!3m2!1szh-TW!2stw!4v1614065363089!5m2!1szh-TW!2stw"
-                      width={600}
-                      height={450}
-                      frameBorder={0}
-                      style={{ border: 0 }}
-                      allowFullScreen
-                      aria-hidden="false"
-                      tabIndex={0}
-                      className="w-100"
-                    />
+                    {v.district.slice(4, 6) === '大安' ? (
+                      <Iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.7974968723406!2d121.54369831437482!3d25.04094544416838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abd07c0f0709%3A0x6546de69c86a8bcf!2zMTA25Y-w5YyX5biC5aSn5a6J5Y2A5aSn5a6J6Lev5LiA5q61ODTlt7c06Jmf!5e0!3m2!1szh-TW!2stw!4v1614065363089!5m2!1szh-TW!2stw"
+                        width={600}
+                        height={450}
+                        frameBorder={0}
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        aria-hidden="false"
+                        tabIndex={0}
+                        className="w-100"
+                      />
+                    ) : (
+                      ''
+                    )}
+                    {v.district.slice(4, 6) === '中正' ? (
+                      <Iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.8939662926778!2d121.52551161437478!3d25.037672244299554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a979b2a8e3cb%3A0x2bd38db2bef9fcb2!2zMTAw5Y-w5YyX5biC5Lit5q2j5Y2A5LuB5oSb6Lev5LqM5q61NDLlt7c!5e0!3m2!1szh-TW!2stw!4v1614314838449!5m2!1szh-TW!2stw"
+                        width={600}
+                        height={450}
+                        frameBorder={0}
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        aria-hidden="false"
+                        tabIndex={0}
+                        className="w-100"
+                      />
+                    ) : (
+                      ''
+                    )}
+                    {v.district.slice(4, 6) === '板橋' ? (
+                      <Iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.607276625303!2d121.45818451437424!3d25.013457245270025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a81c79101513%3A0xfbc601740eb0d989!2zMjIw5paw5YyX5biC5p2_5qmL5Y2A5paH5YyW6Lev5LiA5q61NDXlt7cy6Jmf!5e0!3m2!1szh-TW!2stw!4v1614314904906!5m2!1szh-TW!2stw"
+                        width={600}
+                        height={450}
+                        frameBorder={0}
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        aria-hidden="false"
+                        tabIndex={0}
+                        className="w-100"
+                      />
+                    ) : (
+                      ''
+                    )}
                   </div>
                   <h4 id="list-item-5">如何取消</h4>
                   <p>・所選日期 1 天（含）之前取消，收取手續費 0%</p>
-                  <p>・所選日期 0 ~ 0 天之間取消，收取手續費 100%</p>
+                  <p className="porductContentText">
+                    ・所選日期 0 ~ 0 天之間取消，收取手續費 100%
+                  </p>
                   <p className="caption">
                     {' '}
                     <FontAwesomeIcon icon={faExclamationCircle} />

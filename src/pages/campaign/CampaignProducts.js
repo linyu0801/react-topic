@@ -90,6 +90,26 @@ function CampaignProducts(props) {
     }
   }, [productData, categoryActiveObj])
 
+  useEffect(() => {
+    let curs = document.querySelector('.cursorFinn')
+
+    document.addEventListener('mousemove', (e) => {
+      let x = e.pageX
+      let y = e.pageY
+      curs.style.left = x - 22 + 'px'
+      curs.style.top = y - 22 + 'px'
+      // console.log('123')
+    })
+
+    document.addEventListener('mouseleave', (e) => {
+      let x = e.pageX
+      let y = e.pageY
+      curs.style.left = x - 22 + 'px'
+      // curs.style.opacity = 0.5
+      curs.style.top = y - 22 + 'px'
+    })
+  }, [])
+
   function doAllCategory() {
     setProductDataDisplay(productData)
   }
@@ -255,7 +275,8 @@ function CampaignProducts(props) {
 
   return (
     <>
-      <div className="container breadcrumbFinn sticky-top">
+      <div class="cursorFinn d-none d-sm-block"></div>
+      <div className="container breadcrumbFinn">
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
@@ -311,9 +332,9 @@ function CampaignProducts(props) {
       </div>
       <div className="container">
         <div className="row">
-          <Col lg={3} className="col-xl-3 col-12 sticky-top">
-            <div className="sticky-top">
-              <div className="categoryGroup d-none d-sm-block position-sticky">
+          <Col lg={3} className="col-xl-3 col-12 ">
+            <div className="">
+              <div className="categoryGroup d-none d-sm-block ">
                 <button
                   className={`categoryBtn w-100 categoryBtn1
             ${buttonActiveObj.categoryBtn4 ? 'active' : ''}`}
@@ -668,7 +689,7 @@ function CampaignProducts(props) {
             </div>
           </div>
           <div className="campaignCardBigPC col-xl-9 col-12 d-none d-sm-block">
-            <div className="sortBar sticky-top">
+            <div className="sortBar ">
               <ol className="sort">
                 <li className="sortItem">
                   <h5>排序：</h5>
@@ -755,7 +776,9 @@ function CampaignProducts(props) {
                 </li>
               </ol>
             </div>
-            {isLoading ? spinner : displayProductCards}
+            <div className="displayPCardsBox w-100">
+              {isLoading ? spinner : displayProductCards}
+            </div>
           </div>
         </div>
       </div>

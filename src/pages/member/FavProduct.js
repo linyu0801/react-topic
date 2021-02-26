@@ -92,7 +92,9 @@ function FavProduct(props) {
   }, [rows])
   const NoneDisPlay = (
     <>
-      <h1>尚未收藏商品</h1>
+      <div className="col-xl-4 col-lg-5 col-md-6">
+        <h1>尚未收藏商品</h1>
+      </div>
     </>
   )
   return (

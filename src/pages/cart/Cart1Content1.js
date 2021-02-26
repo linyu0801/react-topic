@@ -29,6 +29,7 @@ function Cart1Content1(props) {
       if (res.length === 0) {
         console.log('這是空的購物車', res)
         setCartItems(res)
+        setCartTotal(0)
       } else {
         console.log('購物車的有進來嗎', res)
         setCartItems(res)

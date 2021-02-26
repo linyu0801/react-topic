@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 
 function CartContent3(props) {
   const { cartStep, setCartStep, cartCate, setCartCate } = props
-  const [cartStudioTotal, setCartStudioTotal] = useState(123)
+  const [cartStudioTotal, setCartStudioTotal] = useState()
   return (
     <>
       {cartStep === 'step1' && (
