@@ -3,7 +3,7 @@ import '../../styles/campaignIndex.scss'
 import '../../styles/campaignProducts.scss'
 import '../../styles/campaignProductInfo.scss'
 import '../../styles/font.scss'
-import { Carousel, Container } from 'react-bootstrap'
+import { Carousel, Container, Modal, Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faMapMarkerAlt,
@@ -74,9 +74,48 @@ function CampaignProductsInfo(props) {
     if (cartresult === 'error') {
       alert('Something Went Wrong')
     } else {
-      alert('Something Went Wrong')
+      handleShow()
     }
   }
+  //彈跳視窗
+  const [modalShow, setModalShow] = useState(false)
+  const handleClose = () => setModalShow(false)
+  const handleShow = () => setModalShow(true)
+  const messageModal = (
+    <Modal
+      contentClassName="hy-modal"
+      show={modalShow}
+      onHide={handleClose}
+      size="md"
+      aria-labelledby="contained-modal-title-vcenter"
+      keyboard={false}
+      backdrop="static"
+      centered
+      onClick={() => {
+        handleClose()
+      }}
+    >
+      <Modal.Header>
+        <Modal.Title id="contained-modal-title-vcenter">
+          <h5>提示訊息</h5>
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>您已將該體驗加入購物車</h4>
+        <p>謝謝!</p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button
+          onClick={() => {
+            handleClose()
+          }}
+        >
+          關閉
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  )
+
   useEffect(() => {
     let curs = document.querySelector('.cursorFinn')
 
@@ -99,6 +138,7 @@ function CampaignProductsInfo(props) {
 
   return (
     <>
+      {messageModal}
       <div class="cursorFinn d-none d-sm-block"></div>
       {campaignProduct.map((v, i) => (
         <>

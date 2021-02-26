@@ -82,6 +82,7 @@ function Cart1Content2(props) {
                 id="username"
                 value={inputs.username}
                 onChange={onChangeForField('username')}
+                required
               />
               <br />
               <small></small>
@@ -94,6 +95,7 @@ function Cart1Content2(props) {
                 id="tel"
                 value={inputs.tel}
                 onChange={onChangeForField('tel')}
+                required
               />
               <br />
               <small></small>
@@ -118,6 +120,7 @@ function Cart1Content2(props) {
                 id="receiver"
                 value={inputs.receiver}
                 onChange={onChangeForField('receiver')}
+                required
               />
               <small></small>
               <label htmlFor="receiverMobile">收件人手機</label>
@@ -129,8 +132,9 @@ function Cart1Content2(props) {
                 id="receiverMobile"
                 value={inputs.receiverMobile}
                 onChange={onChangeForField('receiverMobile')}
+                required
               />
-              <small>請輸入正確的手機格式</small>
+              {/* <small>請輸入正確的手機格式</small> */}
               <label htmlFor="address">收件地址</label>
               <br />
               <input
@@ -140,6 +144,7 @@ function Cart1Content2(props) {
                 id="address"
                 value={inputs.address}
                 onChange={onChangeForField('address')}
+                required
               />
               <small></small>
               <label htmlFor="designated_date">收件日期</label>
@@ -151,6 +156,7 @@ function Cart1Content2(props) {
                 id="designated_date"
                 value={inputs.designated_date}
                 onChange={onChangeForField('designated_date')}
+                required
               />
               <small></small>
               <label htmlFor="designated_period">可收件時段</label>
@@ -163,6 +169,7 @@ function Cart1Content2(props) {
                 onChange={(e) => {
                   setSeletedOption(e.target.value)
                 }}
+                required
               >
                 <option value="不指定">不指定</option>
                 <option value="8:00-12:00">8:00-12:00</option>
