@@ -84,7 +84,7 @@ function Login(props) {
                   <br />
                   <input
                     className="w-100 member-input"
-                    type="text"
+                    type="password"
                     name={password}
                     id="password"
                     onChange={(event) => {
