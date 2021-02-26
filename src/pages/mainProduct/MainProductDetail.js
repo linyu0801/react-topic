@@ -53,6 +53,24 @@ function MainProductDetail(props) {
       //rows[0].p_carousel_img.split(',')的東西會回傳至carouselImg中，即可針對carouselImg進行map傾印資料
     }
 
+    let curs = document.querySelector('.cursor2')
+
+    document.addEventListener('mousemove', (e) => {
+      let x = e.pageX
+      let y = e.pageY
+      curs.style.left = x - 22 + 'px'
+      curs.style.top = y - 22 + 'px'
+      // console.log('123')
+    })
+
+    document.addEventListener('mouseleave', (e) => {
+      let x = e.pageX
+      let y = e.pageY
+      curs.style.left = x - 22 + 'px'
+      // curs.style.opacity = 0.5
+      curs.style.top = y - 22 + 'px'
+    })
+
     FetchData()
   }, [])
 
@@ -275,92 +293,13 @@ function MainProductDetail(props) {
               </Card.Body>
             </Accordion.Collapse>
           </Card>
-          {/* <Card>
-            <Accordion.Toggle as={Card.Header} eventKey="2">
-              <div className="info-head d-flex justify-content-between d-flex align-items-center">
-                <h5 className="k-note">評價</h5>
-                <MdAdd />
-              </div>
-            </Accordion.Toggle>
-            <Accordion.Collapse eventKey="2">
-              <Card.Body>
-                <div className="info-body">
-                  <div className="k-commons">
-                    <div className="member-common">
-                      <div className="member-name">林*文</div>
-                      <div className="common-text">
-                        君度橙酒的香氣和帶點酸氣的檸檬奶油讓人欲罷不能，一口接一口啊！
-                      </div>
-                    </div>
-                    <div className="member-common">
-                      <div className="member-name">林*文</div>
-                      <div className="common-text">
-                        君度橙酒的香氣和帶點酸氣的檸檬奶油讓人欲罷不能，一口接一口啊！
-                      </div>
-                    </div>
-                    <div className="member-common">
-                      <div className="member-name">林*文</div>
-                      <div className="common-text">
-                        君度橙酒的香氣和帶點酸氣的檸檬奶油讓人欲罷不能，一口接一口啊！
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="add-common">
-                    <form action="" className="pub-form">
-                      <h5 className="form-title">新增評價</h5>
-                      <label htmlFor="account ">使用者名稱</label>
-                      <br />
-                      <input
-                        className="w-100 pub-input"
-                        type="text"
-                        name="acoount"
-                        id="account"
-                      />
-                      <br />
-                      <small></small>
-
-                      <label htmlFor="password">電子郵件</label>
-                      <br />
-                      <input
-                        className="w-100 pub-input"
-                        type="text"
-                        name="password"
-                        id="password"
-                      />
-                      <small>請輸入正確的電子郵件格式</small>
-
-                      <div className="mb-3">
-                        <label htmlFor="validationTextarea">您的評價</label>
-                        <textarea
-                          className="form-control pub-textarea"
-                          id=""
-                          placeholder="請留下評價"
-                          required
-                        ></textarea>
-                        <div className="invalid-feedback">
-                          請留下評價後再送出
-                        </div>
-                      </div>
-
-                      <button
-                        type="button"
-                        className="k-pub-button pub-mb-100 mx-auto"
-                      >
-                        送出評價
-                      </button>
-                    </form>
-                  </div>
-                </div>
-              </Card.Body>
-            </Accordion.Collapse>
-          </Card> */}
         </Accordion>
       </div>
       <div className="more-info">
         <h4 className="more container">更多蛋糕</h4>
         <CarouselShow />
       </div>
+      <div class="cursor2"></div>
       {/* <div id="footer" className="temp-footer"></div> */}
     </>
   )

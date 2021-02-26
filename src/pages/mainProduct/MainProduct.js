@@ -56,7 +56,23 @@ function MainProduct(props) {
 
       setProduct(rows) //rows的東西會傳到product中，用setXXX的方式啟動整個畫面的更新
     }
+    let curs = document.querySelector('.cursor2')
 
+    document.addEventListener('mousemove', (e) => {
+      let x = e.pageX
+      let y = e.pageY
+      curs.style.left = x - 22 + 'px'
+      curs.style.top = y - 22 + 'px'
+      // console.log('123')
+    })
+
+    document.addEventListener('mouseleave', (e) => {
+      let x = e.pageX
+      let y = e.pageY
+      curs.style.left = x - 22 + 'px'
+      // curs.style.opacity = 0.5
+      curs.style.top = y - 22 + 'px'
+    })
     FetchData()
   }, []) //空陣列表示只向資料庫要一次商品資料
 
@@ -111,6 +127,8 @@ function MainProduct(props) {
 
   return (
     <>
+      <div class="cursor2"></div>
+
       <div className="content">
         <div className="k-hero-img">
           <div className="k-product-desc">
@@ -258,62 +276,6 @@ function MainProduct(props) {
               </li>
             </ul>
           </nav>
-
-          {/* <nav
-            aria-label="Page navigation example"
-            className="hoyu-mt d-flex justify-content-end"
-          >
-            <ul className="pagination justify-content-center">
-              <li className="page-item">
-                <Link
-                  className="page-link hoyu-page-link hoyu-page-arrow"
-                  to="#"
-                  aria-label="Previous"
-                >
-                  <span aria-hidden="true">
-                    <MdKeyboardArrowLeft />
-                  </span>
-                </Link>
-              </li>
-
-              <li className="page-item">
-                <Link className="page-link hoyu-page-link" to="#">
-                  1
-                </Link>
-              </li>
-              <li className="page-item">
-                <Link className="page-link hoyu-page-link" to="#">
-                  2
-                </Link>
-              </li>
-              <li className="page-item">
-                <Link className="page-link hoyu-page-link" to="#">
-                  3
-                </Link>
-              </li>
-              <li className="page-item">
-                <Link className="page-link hoyu-page-link" to="#">
-                  4
-                </Link>
-              </li>
-              <li className="page-item">
-                <Link className="page-link hoyu-page-link" to="#">
-                  5
-                </Link>
-              </li>
-              <li className="page-item">
-                <Link
-                  className="page-link hoyu-page-link hoyu-page-arrow"
-                  to="#"
-                  aria-label="Next"
-                >
-                  <span aria-hidden="true">
-                    <MdKeyboardArrowRight />
-                  </span>
-                </Link>
-              </li>
-            </ul>
-          </nav> */}
 
           <div className="k-golden-design"></div>
         </div>
