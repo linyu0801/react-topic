@@ -21,7 +21,7 @@ function DisplayCampaignCards(props) {
       setData(rows)
     }
     fetchdata()
-  }, [data])
+  }, [])
 
   return (
     <>
