@@ -92,8 +92,12 @@ function FavProduct(props) {
   }, [rows])
   const NoneDisPlay = (
     <>
-      <div className="col-xl-4 col-lg-5 col-md-6">
-        <h1>尚未收藏商品</h1>
+      <div className="d-flex">
+        {' '}
+        <div className="d-flex  ">
+          <img src="/images/icons-column.png" alt="" className="mr-5" />{' '}
+        </div>
+        <h3 className="fav-nontext  ">尚未收藏商品</h3>
       </div>
     </>
   )
