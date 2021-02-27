@@ -14,7 +14,7 @@ import { useState, useEffect } from 'react'
 import CarouselShow from '../../components/CarouselShow'
 import { Link, withRouter } from 'react-router-dom'
 import { Carousel } from 'react-bootstrap'
-import { Accordion, Card } from 'react-bootstrap' //有用到動態效果就要import react-bootstrap
+import { Modal, Button, Accordion, Card } from 'react-bootstrap' //有用到動態效果就要import react-bootstrap
 import $ from 'jquery'
 function MainProductDetail(props) {
   //測試有無拿到id：console.log('url', props.match.params.id)
@@ -116,9 +116,48 @@ function MainProductDetail(props) {
     if (cartresult === 'error') {
       alert('Something Went Wrong')
     } else {
-      alert('商品已加入購物車')
+      handleShow()
     }
   }
+
+  const [modalShow, setModalShow] = useState(false)
+  const handleClose = () => setModalShow(false)
+  const handleShow = () => setModalShow(true)
+  const messageModal = (
+    <Modal
+      contentClassName="hy-modal"
+      show={modalShow}
+      onHide={handleClose}
+      size="md"
+      aria-labelledby="contained-modal-title-vcenter"
+      keyboard={false}
+      backdrop="static"
+      centered
+      onClick={() => {
+        handleClose()
+      }}
+    >
+      <Modal.Header>
+        <Modal.Title id="contained-modal-title-vcenter">
+          <h5>提示訊息</h5>
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>您已將該商品加入購物車</h4>
+        <p>謝謝!</p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button
+          onClick={() => {
+            handleClose()
+          }}
+        >
+          關閉
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  )
+
   return (
     <>
       <div className="content container">
