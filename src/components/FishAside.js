@@ -20,7 +20,7 @@ function FishAside(props) {
 
   return (
     <>
-      <aside className="fish-aside h-100 col-2">
+      <aside className="fish-aside h-100 col-2 fadeInRight">
         <h4>會員中心</h4>
 
         <ul onClick={toggle1}>
