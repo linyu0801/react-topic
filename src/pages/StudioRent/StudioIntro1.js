@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 import $ from 'jquery'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fas } from '@fortawesome/free-solid-svg-icons'
+import { Modal, Button } from 'react-bootstrap'
 
 function StudioIntro1(props) {
   // function handleClick(e) {
@@ -34,7 +35,7 @@ function StudioIntro1(props) {
     if (cartresult === 'error') {
       alert('error')
     } else {
-      alert('成功加入購物車')
+      handleShow()
     }
   }
   const [textNumber, setTextNumber] = useState('')
@@ -94,9 +95,47 @@ function StudioIntro1(props) {
   // }, [])
 
   // {data[].product}用法
-
+  //彈跳視窗
+  const [modalShow, setModalShow] = useState(false)
+  const handleClose = () => setModalShow(false)
+  const handleShow = () => setModalShow(true)
+  const messageModal = (
+    <Modal
+      contentClassName="hy-modal"
+      show={modalShow}
+      onHide={handleClose}
+      size="md"
+      aria-labelledby="contained-modal-title-vcenter"
+      keyboard={false}
+      backdrop="static"
+      centered
+      onClick={() => {
+        handleClose()
+      }}
+    >
+      <Modal.Header>
+        <Modal.Title id="contained-modal-title-vcenter">
+          <h5>提示訊息</h5>
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>您已將該時段加入購物車</h4>
+        <p>謝謝!</p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button
+          onClick={() => {
+            handleClose()
+          }}
+        >
+          關閉
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  )
   return (
     <>
+      {messageModal}
       <div className="cursor2"></div>
       <div className="container">
         <div className="clbreadbox col-lg-12 col-sm-12">

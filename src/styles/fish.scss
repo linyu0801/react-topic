@@ -266,6 +266,105 @@ input:focus,
   margin-bottom: 100px;
   z-index: 2;
 }
+.zoomInput {
+  -webkit-animation-name: zoomInput;
+  animation-name: zoomInput;
+  transition: transform 0.2s;
+  -webkit-animation-duration: 1.5s;
+  animation-duration: 1.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.zoomer {
+  -webkit-animation-name: zoomer;
+  animation-name: zoomer;
+  transition: transform 0.2s;
+  -webkit-animation-duration: 1.2s;
+  animation-duration: 1.2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.delay-1 {
+  animation-delay: 0.1s;
+}
+.delay-2 {
+  animation-delay: 0.2s;
+}
+.delay-3 {
+  animation-delay: 0.3s;
+}
+.delay-4 {
+  animation-delay: 0.4s;
+}
+.delay-5 {
+  animation-delay: 0.5s;
+}
+.delay-6 {
+  animation-delay: 0.6s;
+}
+.delay-7 {
+  animation-delay: 0.7s;
+}
+.delay-8 {
+  animation-delay: 0.8s;
+}
+.delay-9 {
+  animation-delay: 0.9s;
+}
+// @keyframes zoomer {
+//   0% {
+//     opacity: 0;
+//     transform: scale(0.8);
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: scale(1);
+//   }
+// }
+@keyframes zoomInput {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes zoomer {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-70px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.fadeInRight {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+}
+.fish-aside {
+  transition: transform 1.2s, opacity 1.2s;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
 .fish-aside ul {
   font-family: 'Noto Sans TC';
   font-weight: 300;
