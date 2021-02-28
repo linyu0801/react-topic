@@ -27,15 +27,16 @@ function MyNavbar(props) {
     let last = 0
     $(window).scroll(function () {
       let scrollNow = $(this).scrollTop()
+      if ($(window).scrollTop() >= 0) {
+        $('.navbar').removeClass('hide')
+      }
       if ($(window).scrollTop() >= 1) {
         $('.navbar').addClass('nav-position ')
 
         if (scrollNow > last) {
           $('.navbar').addClass('hide')
-          //   $(".navbar").hide();
         } else {
           $('.navbar').removeClass('hide')
-          //   $(".navbar").show();
         }
       } else {
         $('.navbar').removeClass('nav-position')
@@ -44,6 +45,7 @@ function MyNavbar(props) {
       last = scrollNow
     })
   }, [])
+
   return (
     <>
       <Navbar

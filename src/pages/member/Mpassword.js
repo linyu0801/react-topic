@@ -89,7 +89,7 @@ function Mpassword(props) {
         <div className="row justify-content-center">
           <FishAside />
           <div className="col-9">
-            <div className="w-100 d-flex justify-content-center">
+            <div className="w-100 d-flex justify-content-center zoomer delay-3">
               <form
                 action=""
                 className="pub-form col-xl-7 col-lg-8 col-md-10 col-sm-12"
@@ -112,7 +112,7 @@ function Mpassword(props) {
                 <br />
                 <input
                   className="w-100 pub-input"
-                  type="text"
+                  type="password"
                   name="newpassword"
                   id="newpassword"
                   value={newpassword}
@@ -126,7 +126,7 @@ function Mpassword(props) {
                 <br />
                 <input
                   className="w-100 pub-input"
-                  type="text"
+                  type="password"
                   name="newpassword2"
                   id="newpassword2"
                   value={newpassword2}
