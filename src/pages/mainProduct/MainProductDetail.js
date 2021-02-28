@@ -117,6 +117,7 @@ function MainProductDetail(props) {
       alert('Something Went Wrong')
     } else {
       handleShow()
+      // alert('已將商品成功加入購物車')
     }
   }
 
@@ -160,6 +161,7 @@ function MainProductDetail(props) {
 
   return (
     <>
+      {messageModal}
       <div className="content container">
         <div className="row k-mp-upper">
           <div className="col breadcrumbs">

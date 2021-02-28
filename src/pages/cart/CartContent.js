@@ -87,7 +87,7 @@ function CartContent(props) {
             seletedOption={seletedOption}
             setSeletedOption={setSeletedOption}
             seletedPaymentType={seletedPaymentType}
-            setTeletedPaymentType={setSeletedPaymentType}
+            setSeletedPaymentType={setSeletedPaymentType}
             seletedOptionCardMonth={seletedOptionCardMonth}
             setSeletedOptionCardMonth={setSeletedOptionCardMonth}
             seletedOptionCardYear={seletedOptionCardYear}
@@ -104,7 +104,7 @@ function CartContent(props) {
             seletedOption={seletedOption}
             setSeletedOption={setSeletedOption}
             seletedPaymentType={seletedPaymentType}
-            setTeletedPaymentType={setSeletedPaymentType}
+            setSeletedPaymentType={setSeletedPaymentType}
             seletedOptionCardMonth={seletedOptionCardMonth}
             setSeletedOptionCardMonth={setSeletedOptionCardMonth}
             seletedOptionCardYear={seletedOptionCardYear}
