@@ -339,8 +339,6 @@ function Cart1Content1(props) {
                           : '-'}
                         {seletedDelivery === '快遞宅配' &&
                           setFreightTotal(200 * quantityTotal)}
-                        {seletedDelivery === '快遞宅配' &&
-                          console.log(freightTotal)}
                       </td>
                       <td></td>
                       <td></td>
