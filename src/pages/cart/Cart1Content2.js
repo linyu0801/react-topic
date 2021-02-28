@@ -36,6 +36,12 @@ function Cart1Content2(props) {
     setForm1(inputs)
   }, [inputs])
 
+  // 信用卡自動帶到下一個欄位
+
+  const pan1 = useRef(null)
+  const pan2 = useRef(null)
+  const pan3 = useRef(null)
+  const pan4 = useRef(null)
   useEffect(() => {
     //jquery的程式碼需要寫在這裡，確保dom元素已經出現在網頁上
     if (inputs.pan_no1.length === 4) {
@@ -49,21 +55,7 @@ function Cart1Content2(props) {
     }
   }, [inputs.pan_no1, inputs.pan_no2, inputs.pan_no3])
 
-  // 信用卡自動帶到下一個欄位
-  function setBlur(obj, target2) {
-    // console.log(obj.value)
-    // var target = document.getElementById(target2)
-    // if (obj.value.length === obj.getAttribute('maxLength')) {
-    //   target.focus()
-    // }
-    // return
-  }
-
   // 信用卡動畫及翻轉
-  const pan1 = useRef(null)
-  const pan2 = useRef(null)
-  const pan3 = useRef(null)
-  const pan4 = useRef(null)
 
   return (
     <>
