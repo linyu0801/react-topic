@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import $ from 'jquery'
-import CheckOut from '../../components/CheckOut'
+
 function Cart1Content2(props) {
   const {
     freightTotal,

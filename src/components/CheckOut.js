@@ -16,7 +16,7 @@ export default class CheckOut extends React.Component {
   //   }
   render() {
     // const { fetching } = this.state
-    return <Spinner segments="15" />
+    return <Spinner segments="20" />
   }
 }
 
@@ -32,14 +32,15 @@ class Spinner extends React.Component {
   splitPath(numberOfSegments, dValue) {
     if (this._pathLength) {
       const segmentLength = this._pathLength / numberOfSegments // 55.81
-      const gapLength = 20
+      const gapLength = 50
       const segments = []
+      const colorInterval = () => {}
       for (let i = 0; i < numberOfSegments; i++) {
         segments.push(
           <path
             d={dValue}
             style={{
-              stroke: `hsla(${(i * 720) / numberOfSegments}, 40%, 50%, 1)`,
+              stroke: `hsla(${(i * 360) / numberOfSegments}, 50%, 50%, 1)`,
               strokeDasharray: `
                 0
                 ${i * segmentLength + gapLength}
@@ -61,7 +62,7 @@ class Spinner extends React.Component {
     const segments = this.splitPath(numberOfSegments, dValue)
     return (
       <svg
-        viewBox="0 0 1000 1000"
+        viewBox="0 0 550 550"
         preserveAspectRatio="xMidYMid"
         className="CheckOutSVG"
       >

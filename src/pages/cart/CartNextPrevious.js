@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Modal, Button } from 'react-bootstrap'
+import CheckOut from '../../components/CheckOut'
 function CartNextPrevious(props) {
   const {
     form1,
@@ -65,7 +66,8 @@ function CartNextPrevious(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        {isLoading ? spinner : null}
+        {/* {isLoading ? spinner : null} */}
+        <CheckOut />
         <h4>付款授權驗證中...</h4>
         <p>請勿關閉此視窗，以免發生錯誤!</p>
       </Modal.Body>

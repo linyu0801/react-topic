@@ -4,6 +4,7 @@ import { MdRemove } from 'react-icons/md'
 import { MdAdd } from 'react-icons/md'
 import { withRouter, Redirect } from 'react-router-dom'
 import { Modal, Button } from 'react-bootstrap'
+import CheckOut from '../../components/CheckOut'
 
 function Cart1Content1(props) {
   const {
@@ -191,6 +192,10 @@ function Cart1Content1(props) {
   )
   return (
     <>
+      <div className="hy-checkout">
+        <CheckOut />
+      </div>
+
       {sessionStorage.getItem('mid') === null && messageModal}
       {sessionStorage.getItem('mid') !== null &&
         cartItems.length === 0 &&
