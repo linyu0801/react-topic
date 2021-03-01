@@ -11,7 +11,7 @@ import $ from 'jquery'
 // 載入小車
 import SmallCart from '../pages/cart/SmallCart'
 function MyNavbar(props) {
-  const [SCcartQuantityTotal, SCcartSetQuantityTotal] = useState(0)
+  const [smallCartTotal, setSmallCartTotal] = useState(0)
   const [test, setTest] = useState(false)
   async function logout() {
     const url = 'http://localhost:4000/logout'
@@ -225,11 +225,10 @@ function MyNavbar(props) {
               <FaShoppingCart />
               {/* <span className="badge badge-pill badge-info cart-count">
                 123
-              </span> */}
-              {/* <SmallCart
-                SCcartQuantityTotal={SCcartQuantityTotal}
-                SCcartSetQuantityTotal={SCcartSetQuantityTotal}
-                style={{ display: 'none' }}
+              </span>
+              <SmallCart
+                smallCartTotal={smallCartTotal}
+                setSmallCartTotal={setSmallCartTotal}
               /> */}
             </Nav.Link>
           </Nav>

@@ -56,7 +56,6 @@ function Cart1Content2(props) {
   }, [inputs.pan_no1, inputs.pan_no2, inputs.pan_no3])
 
   // 信用卡動畫及翻轉
-  const card = useRef(null)
 
   return (
     <>
@@ -222,6 +221,10 @@ function Cart1Content2(props) {
               <small></small>
               {seletedPaymentType === '信用卡一次付清' && (
                 <>
+                  <div className="hy-creditCard">
+                    <span className="cardpan1">{inputs.pan_no1}</span>
+                  </div>
+                  <small></small>
                   <label htmlFor="creditCardNumber">信用卡卡號</label>
                   <br />
                   <div className="w-100 d-flex jusitfy-content-between align-items-center text-center">
@@ -231,7 +234,6 @@ function Cart1Content2(props) {
                       name="pan_no1"
                       size="4"
                       maxLength="4"
-                      // onKeyUp="setBlur(this,'pan_no2');"
                       value={inputs.pan_no1}
                       onChange={onChangeForField('pan_no1')}
                       ref={pan1}

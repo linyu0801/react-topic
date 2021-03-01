@@ -1,6 +1,22 @@
 /* * {
   outline: 1px red solid;
 } */
+
+.hy-card__background {
+  max-width: 430px;
+  width: 100%;
+}
+
+.hy-creditCard {
+  width: 350px;
+  height: 200px;
+  background-color: black;
+  border-radius: 10px;
+  margin: 0 auto;
+  span {
+    color: #bebebe;
+  }
+}
 .hy-SmallCart {
   padding: 15px;
   width: 300px;

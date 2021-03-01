@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 
 function SmallCart(props) {
-  const { SCcartQuantityTotal, SCcartSetQuantityTotal } = props
+  const { smallCartTotal, setSmallCartTotal } = props
+  // setSmallCartTotal(123)
   // 取得購物車內的資料
   const [SCcartItems, SCsetCartItems] = useState([])
   const [SCcartActivity, SCsetCartActivity] = useState([])
@@ -55,9 +56,8 @@ function SmallCart(props) {
   }
 
   useEffect(() => {
-    // const SCtotal =
+    // let SCtotal =
     //   SCItemsQuantityTotal + SCActivityQuantityTotal + SCStudioQuantityTotal
-    //   SCcartSetQuantityTotal(SCtotal)
 
     fetchCartItems()
     fetchCartActivity()
