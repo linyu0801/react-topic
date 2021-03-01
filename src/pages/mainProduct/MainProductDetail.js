@@ -16,6 +16,7 @@ import { Link, withRouter } from 'react-router-dom'
 import { Carousel } from 'react-bootstrap'
 import { Modal, Button, Accordion, Card } from 'react-bootstrap' //有用到動態效果就要import react-bootstrap
 import $ from 'jquery'
+
 function MainProductDetail(props) {
   //測試有無拿到id：console.log('url', props.match.params.id)
   const [product, setProduct] = useState([])
@@ -338,7 +339,36 @@ function MainProductDetail(props) {
       </div>
       <div className="more-info">
         <h4 className="more container">更多蛋糕</h4>
+
         <CarouselShow />
+
+        {/* <div className="container">
+          <Carousel cols={3} rows={1} gap={30} loop>
+            {product.map((v, i) => (
+              <Carousel.Item>
+                <Link
+                  to={`/mainproductdetail/products/` + v.p_sid}
+                  style={{ textDecoration: 'none' }}
+                >
+                  <div className="campaignCard w-100">
+                    <img
+                      className="cardImg w-100"
+                      src={`http://localhost:3000/k-images/` + v.p_img}
+                      alt=""
+                    />
+                    <div className="cardText">
+                      <h4 className="cardTitle">{v.p_name}</h4>
+
+                      <div className="d-flex justify-content-between align-items-center">
+                        <p className="price">{v.p_price}</p>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </Carousel.Item>
+            ))}
+          </Carousel>
+        </div> */}
       </div>
       <div class="cursor2"></div>
       {/* <div id="footer" className="temp-footer"></div> */}
