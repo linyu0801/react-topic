@@ -67,19 +67,13 @@ function CartNextPrevious(props) {
       </Modal.Header>
       <Modal.Body>
         {/* {isLoading ? spinner : null} */}
-        <CheckOut />
+        <div className="hy-checkout">
+          <CheckOut />
+        </div>
         <h4>付款授權驗證中...</h4>
         <p>請勿關閉此視窗，以免發生錯誤!</p>
       </Modal.Body>
-      <Modal.Footer>
-        <Button
-          onClick={() => {
-            handleClose()
-          }}
-        >
-          關閉
-        </Button>
-      </Modal.Footer>
+      <Modal.Footer></Modal.Footer>
     </Modal>
   )
 
@@ -164,7 +158,7 @@ function CartNextPrevious(props) {
                         //   console.log('error')
                         // }
                       })
-                  }, 3000)
+                  }, 5000)
                   // 抓第三步的頁面，然後
                 }}
               >

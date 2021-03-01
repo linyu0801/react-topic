@@ -15,7 +15,6 @@ import Register from './pages/member/Register'
 import FavProduct from './pages/member/FavProduct'
 import FavActive from './pages/member/FavActive'
 import Cart from './pages/cart/Cart'
-import MainProductDetailTest2 from './pages/cart/MainProductDetailTest2'
 import MainProduct from './pages/mainProduct/MainProduct'
 import MainProductDetail from './pages/mainProduct/MainProductDetail'
 import NotFoundPage from './pages/NotFoundPage'
@@ -28,6 +27,8 @@ import StudioIntro2 from './pages/StudioRent/StudioIntro2'
 import StudioIntro3 from './pages/StudioRent/StudioIntro3'
 
 import OrderDetail from './pages/member/OrderDetail'
+
+import SmallCart from './pages/cart/SmallCart'
 
 // 組合用元件
 
@@ -141,8 +142,8 @@ function App() {
               <Route path="/cart">
                 <Cart />
               </Route>
-              <Route path="/mainproductdetailtest2">
-                <MainProductDetailTest2 />
+              <Route path="/smallcart">
+                <SmallCart />
               </Route>
               <Route path="/StudioRent/StudioOrder">
                 <StudioOrder

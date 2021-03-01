@@ -56,6 +56,7 @@ function Cart1Content2(props) {
   }, [inputs.pan_no1, inputs.pan_no2, inputs.pan_no3])
 
   // 信用卡動畫及翻轉
+  const card = useRef(null)
 
   return (
     <>
