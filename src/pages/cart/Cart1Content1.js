@@ -4,6 +4,7 @@ import { MdRemove } from 'react-icons/md'
 import { MdAdd } from 'react-icons/md'
 import { withRouter, Redirect } from 'react-router-dom'
 import { Modal, Button } from 'react-bootstrap'
+import CheckOut from '../../components/CheckOut'
 
 function Cart1Content1(props) {
   const {
@@ -20,7 +21,6 @@ function Cart1Content1(props) {
   // 取得購物車內的資料
   const [cartItems, setCartItems] = useState([1])
   // const [priceTotal, setPriceTotal] = useState(0)
-  const [dataIsReady, setDataIsReady] = useState(false)
   async function fetchCart() {
     const res = await fetch('http://localhost:4000/cart1items', {
       credentials: 'include',
@@ -240,6 +240,7 @@ function Cart1Content1(props) {
                           <img
                             src={`http://localhost:3000/k-images/` + item.p_img}
                             alt=""
+                            style={{ width: '64px', height: '64px' }}
                           />
                         </div>
                       </td>
@@ -339,8 +340,6 @@ function Cart1Content1(props) {
                           : '-'}
                         {seletedDelivery === '快遞宅配' &&
                           setFreightTotal(200 * quantityTotal)}
-                        {seletedDelivery === '快遞宅配' &&
-                          console.log(freightTotal)}
                       </td>
                       <td></td>
                       <td></td>

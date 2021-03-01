@@ -106,7 +106,7 @@ function MainProduct(props) {
   //分類的各分頁
 
   let items = []
-  for (let number = page; number <= totalPages; number++) {
+  for (let number = 1; number <= totalPages; number++) {
     items.push(
       <li
         onClick={() => {

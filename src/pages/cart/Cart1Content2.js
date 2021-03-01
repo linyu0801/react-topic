@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import $ from 'jquery'
+
 function Cart1Content2(props) {
   const {
     freightTotal,
@@ -14,30 +15,47 @@ function Cart1Content2(props) {
     setSeletedOptionCardMonth,
     seletedOptionCardYear,
     setSeletedOptionCardYear,
+    seletedPaymentType,
+    setSeletedPaymentType,
   } = props
 
+  // 訂購人與收貨人相同
   const [equal, setEqual] = useState(false)
 
   useEffect(() => {
     equal === true
-      ? setInputs({ ...inputs, receiver: inputs.username })
-      : setInputs({ ...inputs, receiver: '' })
+      ? setInputs({
+          ...inputs,
+          receiver: inputs.username,
+          receiverMobile: inputs.tel,
+        })
+      : setInputs({ ...inputs, receiver: '', receiverMobile: '' })
   }, [equal])
 
   useEffect(() => {
     setForm1(inputs)
   }, [inputs])
 
-  function setBlur(obj, target2) {
-    // console.log(obj.value)
-    // var target = document.getElementById(target2)
-    // if (obj.value.length === obj.getAttribute('maxLength')) {
-    //   target.focus()
-    // }
-    // return
-  }
+  // 信用卡自動帶到下一個欄位
 
-  const [paymentType, setPaymentType] = useState('信用卡一次付清')
+  const pan1 = useRef(null)
+  const pan2 = useRef(null)
+  const pan3 = useRef(null)
+  const pan4 = useRef(null)
+  useEffect(() => {
+    //jquery的程式碼需要寫在這裡，確保dom元素已經出現在網頁上
+    if (inputs.pan_no1.length === 4) {
+      $(pan2.current).focus()
+      if (inputs.pan_no2.length === 4) {
+        $(pan3.current).focus()
+        if (inputs.pan_no3.length === 4) {
+          $(pan4.current).focus()
+        }
+      }
+    }
+  }, [inputs.pan_no1, inputs.pan_no2, inputs.pan_no3])
+
+  // 信用卡動畫及翻轉
 
   return (
     <>
@@ -192,119 +210,141 @@ function Cart1Content2(props) {
                 className="w-100 pub-input pr-2 hoyu-select"
                 name="payment_type"
                 id="payment_type"
+                value={seletedPaymentType}
+                onChange={(e) => {
+                  setSeletedPaymentType(e.target.value)
+                }}
               >
                 <option value="信用卡一次付清">信用卡一次付清</option>
                 <option value="ATM轉帳">ATM轉帳</option>
               </select>
               <small></small>
-              <label htmlFor="creditCardNumber">信用卡卡號</label>
-              <br />
-              <div className="w-100 d-flex jusitfy-content-between align-items-center text-center">
-                <input
-                  className="pub-input"
-                  type="text"
-                  name="pan_no1"
-                  size="4"
-                  maxLength="4"
-                  // onKeyUp="setBlur(this,'pan_no2');"
-                  value={inputs.pan_no1}
-                  onChange={onChangeForField('pan_no1')}
-                />
-                <span className="hy-w-6">-</span>
-                <input
-                  className="pub-input"
-                  type="text"
-                  name="pan_no2"
-                  size="4"
-                  maxLength="4"
-                  value={inputs.pan_no2}
-                  onChange={onChangeForField('pan_no2')}
-                />
-                <span className="hy-w-6">-</span>
+              {seletedPaymentType === '信用卡一次付清' && (
+                <>
+                  <div className="hy-creditCard">
+                    <span className="cardpan1">{inputs.pan_no1}</span>
+                  </div>
+                  <small></small>
+                  <label htmlFor="creditCardNumber">信用卡卡號</label>
+                  <br />
+                  <div className="w-100 d-flex jusitfy-content-between align-items-center text-center">
+                    <input
+                      className="pub-input"
+                      type="text"
+                      name="pan_no1"
+                      size="4"
+                      maxLength="4"
+                      value={inputs.pan_no1}
+                      onChange={onChangeForField('pan_no1')}
+                      ref={pan1}
+                    />
+                    <span className="hy-w-6">-</span>
+                    <input
+                      className="pub-input"
+                      type="text"
+                      name="pan_no2"
+                      size="4"
+                      maxLength="4"
+                      value={inputs.pan_no2}
+                      onChange={onChangeForField('pan_no2')}
+                      ref={pan2}
+                    />
+                    <span className="hy-w-6">-</span>
 
-                <input
-                  className="pub-input"
-                  type="text"
-                  name="pan_no3"
-                  size="4"
-                  maxLength="4"
-                  value={inputs.pan_no3}
-                  onChange={onChangeForField('pan_no3')}
-                />
-                <span className="hy-w-6">-</span>
+                    <input
+                      className="pub-input"
+                      type="text"
+                      name="pan_no3"
+                      size="4"
+                      maxLength="4"
+                      value={inputs.pan_no3}
+                      onChange={onChangeForField('pan_no3')}
+                      ref={pan3}
+                    />
+                    <span className="hy-w-6">-</span>
 
-                <input
-                  className="pub-input"
-                  type="text"
-                  name="pan_no4"
-                  size="4"
-                  maxLength="4"
-                  value={inputs.pan_no4}
-                  onChange={onChangeForField('pan_no4')}
-                />
+                    <input
+                      className="pub-input"
+                      type="text"
+                      name="pan_no4"
+                      size="4"
+                      maxLength="4"
+                      value={inputs.pan_no4}
+                      onChange={onChangeForField('pan_no4')}
+                      ref={pan4}
+                    />
 
-                <small></small>
-              </div>
-              <br />
-              <label htmlFor="creditCardExpire">有效年月</label>
-              <br />
-              <select
-                className="w-25 pub-input pr-2 hoyu-select-plastic"
-                name="creditCardExpireMonth"
-                id="creditCardExpireMonth"
-                value={seletedOptionCardMonth}
-                onChange={(e) => {
-                  setSeletedOptionCardMonth(e.target.value)
-                }}
-              >
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-              </select>
-              &nbsp; 月
-              <select
-                className="w-25 pub-input pr-2 hoyu-select-plastic ml-4"
-                name="creditCardExpireYear"
-                id="creditCardExpireYear"
-                value={seletedOptionCardYear}
-                onChange={(e) => {
-                  setSeletedOptionCardYear(e.target.value)
-                }}
-              >
-                <option value="2021">2021</option>
-                <option value="2022">2022</option>
-                <option value="2023">2023</option>
-                <option value="2024">2024</option>
-                <option value="2025">2025</option>
-                <option value="2026">2026</option>
-                <option value="2027">2027</option>
-                <option value="2028">2028</option>
-                <option value="2029">2029</option>
-                <option value="2030">2030</option>
-              </select>
-              &nbsp; 年
-              <br />
-              <small></small>
-              <label htmlFor="creditCardBack">背面末三碼</label>
-              <br />
-              <input
-                className="w-25 pub-input"
-                type="text"
-                name="creditCardBack"
-                id="creditCardBack"
-                value={inputs.creditCardBack}
-                onChange={onChangeForField('creditCardBack')}
-              />
-              <small></small>
+                    <small></small>
+                  </div>
+                  <br />
+                  <label htmlFor="creditCardExpire">有效年月</label>
+                  <br />
+                  <select
+                    className="w-25 pub-input pr-2 hoyu-select-plastic"
+                    name="creditCardExpireMonth"
+                    id="creditCardExpireMonth"
+                    value={seletedOptionCardMonth}
+                    onChange={(e) => {
+                      setSeletedOptionCardMonth(e.target.value)
+                    }}
+                  >
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+                  &nbsp; 月
+                  <select
+                    className="w-25 pub-input pr-2 hoyu-select-plastic ml-4"
+                    name="creditCardExpireYear"
+                    id="creditCardExpireYear"
+                    value={seletedOptionCardYear}
+                    onChange={(e) => {
+                      setSeletedOptionCardYear(e.target.value)
+                    }}
+                  >
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
+                    <option value="2028">2028</option>
+                    <option value="2029">2029</option>
+                    <option value="2030">2030</option>
+                  </select>
+                  &nbsp; 年
+                  <br />
+                  <small></small>
+                  <label htmlFor="creditCardBack">背面末三碼</label>
+                  <br />
+                  <input
+                    className="w-25 pub-input"
+                    type="text"
+                    name="creditCardBack"
+                    id="creditCardBack"
+                    size="3"
+                    maxLength="3"
+                    value={inputs.creditCardBack}
+                    onChange={onChangeForField('creditCardBack')}
+                  />
+                  <small></small>
+                </>
+              )}
+              {seletedPaymentType === 'ATM轉帳' && (
+                <>
+                  <p>點擊結帳後，請至會員信箱收取相關匯款訊息!</p>
+                </>
+              )}
             </form>
           </div>
         </div>
