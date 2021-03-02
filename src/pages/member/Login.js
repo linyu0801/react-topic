@@ -55,6 +55,23 @@ function Login(props) {
       // curs.style.opacity = 0.5
       curs.style.top = y - 22 + 'px'
     })
+
+    // document.addEventListener('mousemove', parallax)
+    // const elem = document.querySelector('#parallax')
+    // // Magic happens here
+    // function parallax(e) {
+    //   let _w = window.innerWidth / 2
+    //   let _h = window.innerHeight / 2
+    //   let _mouseX = e.clientX
+    //   let _mouseY = e.clientY
+    //   let _depth1 = `${50 - (_mouseX - _w) * 0.01}% ${
+    //     50 - (_mouseY - _h) * 0.01
+    //   }%`
+    //   console.log('_depth1 : ', _depth1)
+    //   let x = ` ${_depth1}`
+    //   console.log(x)
+    //   elem.style.backgroundPosition = x
+    // }
   }, [])
   return (
     <>
@@ -63,8 +80,8 @@ function Login(props) {
       <div className="fish-login-bg ">
         <div className="container h-100 member-mg">
           <div className="row justify-content-center">
-            <div className="fish-mask d-flex justify-content-center col-xl-6 col-lg-8 col-md-10 col-sm-12">
-              <form action="" className="pub-form w-80">
+            <div className="fish-mask d-flex justify-content-center col-xl-6 col-lg-8 col-md-10 col-sm-12 ">
+              <form action="" className="pub-form w-80 ">
                 <div className="zindex">
                   <h3>會員登入</h3>
                   <label htmlFor="account ">請輸入帳號</label>

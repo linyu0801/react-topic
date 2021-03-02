@@ -236,10 +236,12 @@ input:focus,
 }
 .fish-login-bg {
   background: url('http://localhost:3000/images/login.jpg') no-repeat;
-  background-size: cover;
+  background-size: 108%;
+  // background-size: cover;
   background-color: rgba(0, 0, 0, 0.2);
   background-blend-mode: multiply;
   background-position: center;
+  background-position: 50% 50%;
 }
 .fish-registerbg {
   background: url('http://localhost:3000/images/register.jpg') no-repeat center
@@ -380,6 +382,28 @@ input:focus,
 .fadeInRight {
   -webkit-animation-name: fadeInRight;
   animation-name: fadeInRight;
+}
+
+@keyframes flipInX {
+  0% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 1deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 1deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+
+.flipInX {
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  // -webkit-animation-name: flipInX;
+  animation: flipInX 0.8s ease-in;
 }
 .fish-aside {
   animation-delay: 0.7s;
@@ -858,9 +882,9 @@ input[type='date']::-webkit-calendar-picker-indicator {
     background-color: transparent;
     border: none;
   }
-  // .fish-login-bg {
-  //   background-position: none;
-  // }
+  .fish-login-bg {
+    background-size: cover;
+  }
 }
 @media screen and (max-width: 992px) {
   .cursor {

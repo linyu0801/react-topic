@@ -5,6 +5,7 @@ import { Link, withRouter } from 'react-router-dom'
 import { FaRegTimesCircle } from 'react-icons/fa'
 import FishAside from '../../components/FishAside'
 import $ from 'jquery'
+import { Modal, Button } from 'react-bootstrap' //有用到動態效果就要import react-bootstrap
 
 function FavProduct(props) {
   const mid = sessionStorage.getItem('mid')
@@ -12,9 +13,19 @@ function FavProduct(props) {
   const [rows, setRows] = useState([])
   const [display, setDisplay] = useState('')
   const [none, setNone] = useState(false)
-  const deletefavproduct = async (p_sid) => {
-    $(`#pid${p_sid}`).addClass('zoomout')
+  // const [favindex, setFavIndex] = useState(0)
+  // const [nowindex, setNowIndex] = useState(0)
 
+  const deletefavproduct = async (p_sid, i, fl) => {
+    // console.log('click nowindex', nowindex)
+    // if (nowindex === 0) {
+    //   setNowIndex(fl - 1)
+    // }
+    // if (nowindex !== 0) {
+    //   setNowIndex(nowindex - 1)
+    // }
+    $(`#pid${p_sid}`).addClass('zoomout')
+    $(`#pid${p_sid}`).removeClass(`zoomer delay-${i * 3}`)
     setTimeout(() => {
       $(`#pid${p_sid}`).hide()
     }, 900)
@@ -50,10 +61,70 @@ function FavProduct(props) {
     console.log('伺服器回傳', data)
     if (data.fav !== 'none') {
       setRows(data)
+      // setNowIndex(data.length)
     } else {
       setNone(true)
     }
   }
+  const addToCart = async (id) => {
+    const response = await fetch('http://localhost:4000/AddToCart1', {
+      method: 'POST',
+      body: JSON.stringify({
+        p_sid: id,
+        quantity: 1,
+        token: mid,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+    let cartresult = await response.json()
+    console.log('cartresult', cartresult)
+    if (cartresult === 'error') {
+      alert('Something Went Wrong')
+    } else {
+      handleShow()
+      // alert('已將商品成功加入購物車')
+    }
+  }
+  let i = 0
+  const [modalShow, setModalShow] = useState(false)
+  const handleClose = () => setModalShow(false)
+  const handleShow = () => setModalShow(true)
+  const messageModal = (
+    <Modal
+      contentClassName="hy-modal"
+      show={modalShow}
+      onHide={handleClose}
+      size="md"
+      aria-labelledby="contained-modal-title-vcenter"
+      keyboard={false}
+      backdrop="static"
+      centered
+      onClick={() => {
+        handleClose()
+      }}
+    >
+      <Modal.Header>
+        <Modal.Title id="contained-modal-title-vcenter">
+          <h5>提示訊息</h5>
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>您已將該商品加入購物車</h4>
+        <p>謝謝!</p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button
+          onClick={() => {
+            handleClose()
+          }}
+        >
+          關閉
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  )
   useEffect(() => {
     FetchData()
   }, [])
@@ -63,7 +134,7 @@ function FavProduct(props) {
         {rows.map((value, i) => (
           <div
             key={i}
-            className="col-xl-4 col-lg-5 col-md-6"
+            className={`col-xl-4 col-lg-5 col-md-6 zoomer delay-${i * 3}`}
             id={`pid${value.p_sid}`}
           >
             {/* {value.p_name} */}
@@ -73,7 +144,7 @@ function FavProduct(props) {
                 <i>
                   <FaRegTimesCircle
                     onClick={() => {
-                      deletefavproduct(value.p_sid)
+                      deletefavproduct(value.p_sid, i, rows.length)
                     }}
                   />
                 </i>
@@ -91,7 +162,14 @@ function FavProduct(props) {
                 <p className="fish-card-text">{value.p_desc}</p>
                 <hr className="fish-product-hr" />
                 <div className="fish-product-price mb-1">{value.p_price}</div>
-                <button className="addToCartBtn">加入購物車</button>
+                <button
+                  className="addToCartBtn"
+                  onClick={() => {
+                    addToCart(value.p_sid)
+                  }}
+                >
+                  加入購物車
+                </button>
               </div>
             </div>
           </div>
@@ -99,8 +177,13 @@ function FavProduct(props) {
       </>
     )
     setDisplay(productDisplay)
-    // rows.fav === 'none' ? console.log('123456') :
+    //   // let favlen = rows.length
+    //   // setFavIndex(favlen)
+    //   // rows.fav === 'none' ? console.log('123456') :
   }, [rows])
+  // useEffect(() => {
+  //   console.log('nowindex變化 :', nowindex)
+  // }, [nowindex])
   const NoneDisPlay = (
     <>
       <div className="d-flex">
@@ -114,6 +197,7 @@ function FavProduct(props) {
   )
   return (
     <>
+      {messageModal}
       <div className="container h-100">
         <div className="row">
           <div className="col-12 bread-div">
@@ -143,7 +227,7 @@ function FavProduct(props) {
         </div>
         <div className="row justify-content-center">
           <FishAside />
-          <div className="col-9 d-flex flex-wrap">
+          <div className="col-9 d-flex flex-wrap" id="favbox">
             {none === true ? NoneDisPlay : display}
 
             {/* 
