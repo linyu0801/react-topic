@@ -17,6 +17,7 @@ import { far } from '@fortawesome/free-regular-svg-icons'
 
 function CampaignProducts(props) {
   const [productData, setProductData] = useState([])
+  const [cateProductData, setCateProductData] = useState([])
   const [productDataDisplay, setProductDataDisplay] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
@@ -111,12 +112,14 @@ function CampaignProducts(props) {
   }, [])
 
   function doAllCategory() {
+    setCateProductData(productData)
     setProductDataDisplay(productData)
   }
   function doCategoryTaste() {
     const newProductData = productData.filter((v, i) => {
       return v.category.includes('taste')
     })
+    setCateProductData(newProductData)
     setProductDataDisplay(newProductData)
   }
 
@@ -124,6 +127,7 @@ function CampaignProducts(props) {
     const newProductData = productData.filter((v, i) => {
       return v.category.includes('handmade')
     })
+    setCateProductData(newProductData)
     setProductDataDisplay(newProductData)
   }
 
@@ -131,6 +135,7 @@ function CampaignProducts(props) {
     const newProductData = productData.filter((v, i) => {
       return v.category.includes('workshop')
     })
+    setCateProductData(newProductData)
     setProductDataDisplay(newProductData)
   }
 
@@ -146,35 +151,35 @@ function CampaignProducts(props) {
   }
 
   function doPriceSort() {
-    const newProductData = productData.sort(function (a, b) {
+    const newProductData = cateProductData.sort(function (a, b) {
       return a.price > b.price ? 1 : -1
     })
     setProductDataDisplay([...newProductData])
   }
 
   function doRateSort() {
-    const newProductData = productData.sort(function (a, b) {
+    const newProductData = cateProductData.sort(function (a, b) {
       return a.rating < b.rating ? 1 : -1
     })
     setProductDataDisplay([...newProductData])
   }
 
   function doHotSort() {
-    const newProductData = productData.filter((v, i) => {
+    const newProductData = cateProductData.filter((v, i) => {
       return v.hot === 1
     })
     setProductDataDisplay(newProductData)
   }
 
   function doSeasonSort() {
-    const newProductData = productData.filter((v, i) => {
+    const newProductData = cateProductData.filter((v, i) => {
       return v.season === 1
     })
     setProductDataDisplay(newProductData)
   }
 
   function doDateSort() {
-    const newProductData = productData.sort(function (a, b) {
+    const newProductData = cateProductData.sort(function (a, b) {
       return a.date > b.date ? 1 : -1
     })
     setProductDataDisplay(newProductData)
@@ -362,7 +367,7 @@ function CampaignProducts(props) {
                   })
                 }}
               >
-                甜點品嚐
+                品味鑑賞
               </button>
               <button
                 className={`categoryBtn w-100 categoryBtn2
