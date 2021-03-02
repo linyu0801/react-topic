@@ -175,7 +175,7 @@ function CampaignIndex(props) {
       </Container>
       <Container
         fluid
-        className="displayCampaignCardsBox d-none d-sm-block animate__animated animate__slideInRight animate__slow"
+        className="displayCampaignCardsBox d-none d-sm-block animate__animated animate__slideInRight"
       >
         <Row>
           <Col lg={1} xs={8}></Col>
