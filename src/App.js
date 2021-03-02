@@ -67,10 +67,13 @@ function App() {
     categoryBtn4: true,
   })
 
+  // 小購物車
+  const [scCartTotal, setScCartTotal] = useState(0)
+
   return (
     <Router>
       <>
-        <MyNavbar />
+        <MyNavbar scCartTotal={scCartTotal} setScCartTotal={setScCartTotal} />
         <MainContent>
           <Height />
           <ScrollToTop>
@@ -78,6 +81,12 @@ function App() {
             {/* <ThemeContext.Provider value={themeNow}> */}
 
             <Switch>
+              <Route path="/smallcart">
+                <SmallCart
+                  scCartTotal={scCartTotal}
+                  setScCartTotal={setScCartTotal}
+                />
+              </Route>
               <Route exact path="/">
                 <MainPage />
               </Route>
@@ -142,9 +151,7 @@ function App() {
               <Route path="/cart">
                 <Cart />
               </Route>
-              <Route path="/smallcart">
-                <SmallCart />
-              </Route>
+
               <Route path="/StudioRent/StudioOrder">
                 <StudioOrder
                   textInput={textInput}

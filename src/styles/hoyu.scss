@@ -24,7 +24,10 @@
   overflow-y: scroll;
   background-color: #250404;
   color: #bebebe;
-
+  position: absolute;
+  top: 92px;
+  right: 0;
+  z-index: 10;
   p {
     color: #bebebe;
     border-bottom: 1px solid #cdaa8a;

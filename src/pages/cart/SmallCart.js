@@ -1,17 +1,14 @@
 import { useEffect, useState } from 'react'
 
 function SmallCart(props) {
-  const { smallCartTotal, setSmallCartTotal } = props
-  // setSmallCartTotal(123)
-  // 取得購物車內的資料
-  const [SCcartItems, SCsetCartItems] = useState([])
-  const [SCcartActivity, SCsetCartActivity] = useState([])
-  const [SCcartStudio, SCsetCartStudio] = useState([])
-  const [SCItemsQuantityTotal, SCItemsSetQuantityTotal] = useState(0)
-  const [SCActivityQuantityTotal, SCActivitySetQuantityTotal] = useState(0)
-  const [SCStudioQuantityTotal, SCStudioSetQuantityTotal] = useState(0)
+  const { scCartTotal, setScCartTotal } = props
+  const [scCartItems, setScCartItems] = useState([])
+  const [scCartItemsQ, setScCartItemsQ] = useState(0)
+  const [scCartActivity, setScCartActivity] = useState([])
+  const [scCartActivityQ, setScCartActivityQ] = useState(0)
+  const [scCartStudio, setScCartStudio] = useState([])
+  const [scCartStudioQ, setScCartStudioQ] = useState(0)
 
-  // const [priceTotal, setPriceTotal] = useState(0)
   async function fetchCartItems() {
     const res = await fetch('http://localhost:4000/cart1items', {
       credentials: 'include',
@@ -19,17 +16,15 @@ function SmallCart(props) {
     res.json().then((res) => {
       if (res.length === 0) {
         console.log('這是空的小購物車', res)
-        SCsetCartItems(res)
+        setScCartItems(res)
       } else {
         console.log('小購物車的有進來嗎', res)
-        SCsetCartItems(res)
-        let newPrice = 0
+        setScCartItems(res)
         let newQuantity = 0
         res.map((item, i) => {
           newQuantity += +item.quantity
-          newPrice += +item.p_price * +item.quantity
         })
-        SCItemsSetQuantityTotal(newQuantity)
+        setScCartItemsQ(newQuantity)
       }
     })
   }
@@ -40,36 +35,36 @@ function SmallCart(props) {
     })
     res.json().then((res) => {
       if (res.length === 0) {
-        SCsetCartActivity(res)
+        setScCartActivity(res)
       } else {
         console.log('購物車的有進來嗎', res)
-        SCsetCartActivity(res)
-        let newPrice = 0
+        setScCartActivity(res)
         let newQuantity = 0
         res.map((item, i) => {
           newQuantity += +item.quantity
-          newPrice += +item.price * +item.quantity
         })
-        SCActivitySetQuantityTotal(newQuantity)
+        setScCartActivityQ(newQuantity)
       }
     })
   }
 
   useEffect(() => {
-    // let SCtotal =
-    //   SCItemsQuantityTotal + SCActivityQuantityTotal + SCStudioQuantityTotal
-
     fetchCartItems()
     fetchCartActivity()
+    let scTotal = scCartItemsQ + scCartActivityQ + scCartStudioQ
+    setScCartTotal(scTotal)
+    console.log('scTotal:', scTotal)
+    console.log('scCartTotal:', scCartTotal)
+
     // SCcartItems, SCcartActivity, SCcartStudio
   }, [])
 
   return (
     <>
-      <div className="hy-SmallCart">
+      <div className="hy-SmallCart ">
         <p>商品</p>
         <div className="hy-mainprudoct">
-          {SCcartItems.map((item, i) => (
+          {scCartItems.map((item, i) => (
             <>
               <div key={i} className="hy-smallcart-content d-flex mt-3">
                 <div className="hy-img mr-3">
@@ -94,7 +89,7 @@ function SmallCart(props) {
         </div>
         <p>體驗</p>
         <div className="hy-activity">
-          {SCcartActivity.map((item, i) => (
+          {scCartActivity.map((item, i) => (
             <>
               <div key={i} className="hy-smallcart-content d-flex mt-3">
                 <div className="hy-img mr-3">

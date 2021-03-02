@@ -11,7 +11,7 @@ import $ from 'jquery'
 // 載入小車
 import SmallCart from '../pages/cart/SmallCart'
 function MyNavbar(props) {
-  const [smallCartTotal, setSmallCartTotal] = useState(0)
+  const { scCartTotal, setScCartTotal } = props
   const [test, setTest] = useState(false)
   async function logout() {
     const url = 'http://localhost:4000/logout'
@@ -223,13 +223,9 @@ function MyNavbar(props) {
 
             <Nav.Link eventKey={2} as={NavLink} to="/cart">
               <FaShoppingCart />
-              {/* <span className="badge badge-pill badge-info cart-count">
-                123
+              <span className="badge badge-pill badge-info cart-count">
+                {scCartTotal}
               </span>
-              <SmallCart
-                smallCartTotal={smallCartTotal}
-                setSmallCartTotal={setSmallCartTotal}
-              /> */}
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
