@@ -12,7 +12,8 @@ import CartContent3 from './CartContent3'
 import '../../styles/hoyu.scss'
 import '../../styles/font.scss'
 
-function Cart() {
+function Cart(props) {
+  const { scChange, setScChange } = props
   const [cartCate, setCartCate] = useState('cart1')
   const [cartStep, setCartStep] = useState('step1')
   // const [cartContent, setCartContent] = useState(['123'])
@@ -44,6 +45,8 @@ function Cart() {
 
         {cartCate === 'cart1' && (
           <CartContent
+            scChange={scChange}
+            setScChange={setScChange}
             cartCate={cartCate}
             setCartCate={setCartCate}
             cartStep={cartStep}
@@ -52,6 +55,8 @@ function Cart() {
         )}
         {cartCate === 'cart2' && (
           <CartContent2
+            scChange={scChange}
+            setScChange={setScChange}
             cartCate={cartCate}
             setCartCate={setCartCate}
             cartStep={cartStep}
@@ -60,6 +65,8 @@ function Cart() {
         )}
         {cartCate === 'cart3' && (
           <CartContent3
+            scChange={scChange}
+            setScChange={setScChange}
             cartCate={cartCate}
             setCartCate={setCartCate}
             cartStep={cartStep}

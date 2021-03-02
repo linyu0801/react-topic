@@ -23,6 +23,10 @@ function MainProductDetail(props) {
   const [carouselImg, setCarouselImg] = useState([])
   const mid = sessionStorage.getItem('mid')
   const [favstate, setFavstate] = useState(false)
+
+  // 小購物車的東西
+  const { scChange, setScChange } = props
+
   useEffect(() => {
     const FetchData = async () => {
       // var formData = new FormData()
@@ -117,6 +121,7 @@ function MainProductDetail(props) {
     if (cartresult === 'error') {
       alert('Something Went Wrong')
     } else {
+      setScChange(scChange + 1)
       handleShow()
       // alert('已將商品成功加入購物車')
     }

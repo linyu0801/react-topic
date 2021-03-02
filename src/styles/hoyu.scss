@@ -17,6 +17,15 @@
     color: #bebebe;
   }
 }
+
+.hy-outerSC {
+  width: 283px;
+  overflow: hidden;
+  position: absolute;
+  top: 92px;
+  right: 3%;
+  z-index: 10;
+}
 .hy-SmallCart {
   padding: 15px;
   width: 300px;
@@ -24,13 +33,15 @@
   overflow-y: scroll;
   background-color: #250404;
   color: #bebebe;
-  position: absolute;
-  top: 92px;
-  right: 0;
-  z-index: 10;
-  p {
+
+  h6 {
     color: #bebebe;
     border-bottom: 1px solid #cdaa8a;
+  }
+  p {
+    color: #bebebe;
+    padding: 0;
+    margin: 0;
   }
 
   img {

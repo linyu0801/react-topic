@@ -2,7 +2,7 @@ import { FaRegTimesCircle } from 'react-icons/fa'
 import { useEffect, useState } from 'react'
 import { MdRemove } from 'react-icons/md'
 import { MdAdd } from 'react-icons/md'
-import { withRouter, Redirect } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { Modal, Button } from 'react-bootstrap'
 import CheckOut from '../../components/CheckOut'
 
@@ -17,6 +17,8 @@ function Cart1Content1(props) {
     setCartTotal,
     quantityTotal,
     setQuantityTotal,
+    scChange,
+    setScChange,
   } = props
   // 取得購物車內的資料
   const [cartItems, setCartItems] = useState([1])
@@ -30,6 +32,7 @@ function Cart1Content1(props) {
         console.log('這是空的購物車', res)
         setCartItems(res)
         setCartTotal(0)
+        setScChange(scChange + 1)
       } else {
         console.log('購物車的有進來嗎', res)
         setCartItems(res)
@@ -41,6 +44,7 @@ function Cart1Content1(props) {
         })
         setCartTotal(newPrice)
         setQuantityTotal(newQuantity)
+        setScChange(scChange + 1)
         // console.log(newPrice)
         // console.log(newQuantity)
       }

@@ -7,7 +7,14 @@ import { withRouter } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 function CartContent(props) {
-  const { cartStep, setCartStep, cartCate, setCartCate } = props
+  const {
+    cartStep,
+    setCartStep,
+    cartCate,
+    setCartCate,
+    scChange,
+    setScChange,
+  } = props
   const [form1, setForm1] = useState('')
   const [cartTotal, setCartTotal] = useState(0)
   const [freightTotal, setFreightTotal] = useState(0)
@@ -41,6 +48,8 @@ function CartContent(props) {
       {cartStep === 'step1' && (
         <>
           <Cart1Content1
+            scChange={scChange}
+            setScChange={setScChange}
             cartCate={cartCate}
             setCartCate={setCartCate}
             cartStep={cartStep}
