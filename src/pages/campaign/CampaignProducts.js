@@ -199,11 +199,13 @@ function CampaignProducts(props) {
           style={{ color: 'inherit', textDecoration: 'none' }}
         >
           <div className="campaignCardBig w-100 d-flex " key={i}>
-            <img
-              className="cardBigImg"
-              src={`/img/` + v.campaignCover}
-              alt="campaignImg"
-            />
+            <div className="cardBigImgBox">
+              <img
+                className="cardBigImg"
+                src={`/img/` + v.campaignCover}
+                alt="campaignImg"
+              />
+            </div>
             <div className="cardBigText position-relative">
               <div className="heart position-absolute">
                 <FontAwesomeIcon icon={faHeart} />
