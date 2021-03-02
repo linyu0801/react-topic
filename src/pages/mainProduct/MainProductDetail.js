@@ -5,7 +5,6 @@ import { MdFavorite } from 'react-icons/md'
 import { MdRemove } from 'react-icons/md'
 import { MdAdd } from 'react-icons/md'
 import { MdLocalBar } from 'react-icons/md'
-// import { RiCakeFill } from 'react-icons/ri'
 import { GiCakeSlice } from 'react-icons/gi'
 import { GiBerriesBowl } from 'react-icons/gi'
 // import ProductCarousel from '../../components/ProductCarousel'
@@ -51,6 +50,7 @@ function MainProductDetail(props) {
       }
       setProduct(rows) //rows的東西會傳到product中
       setCarouselImg(rows[0].p_carousel_img.split(','))
+      //console.log('rows[0]', rows[0])
       //rows[0].p_carousel_img.split(',')的東西會回傳至carouselImg中，即可針對carouselImg進行map傾印資料
     }
 
@@ -215,6 +215,7 @@ function MainProductDetail(props) {
                   }}
                 >
                   {favstate ? <MdFavorite /> : <MdFavoriteBorder />}
+                  {/* 判斷式：favstate若為true，則顯示填滿的愛心，若否則為無填滿 */}
                 </i>
                 {/* </Link> */}
               </div>
