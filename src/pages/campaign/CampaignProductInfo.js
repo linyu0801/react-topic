@@ -231,10 +231,8 @@ function CampaignProductsInfo(props) {
                 <div className="porductContent">
                   <h4 id="list-item-1">商品說明</h4>
                   <p className="porductContentText">{v.content}</p>
-                  <h4>購買須知</h4>
-                  <p className="noticed porductContentText" id="list-item-3">
-                    ・{v.notice}
-                  </p>
+                  <h4 id="list-item-3">購買須知</h4>
+                  <p className="noticed porductContentText">・{v.notice}</p>
                   <h4>體驗地點</h4>
                   <div
                     className="locationContent porductContentText mb-4"
@@ -327,7 +325,6 @@ function CampaignProductsInfo(props) {
                     className=" porductContentList list-group d-none d-sm-block"
                     items={[
                       'list-item-1',
-                      'list-item-2',
                       'list-item-3',
                       'list-item-4',
                       'list-item-5',
