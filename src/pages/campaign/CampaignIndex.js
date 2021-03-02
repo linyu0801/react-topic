@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 import { Container, Row, Col } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fas } from '@fortawesome/free-solid-svg-icons'
-import DisplayCampaignCards from '../../components/DisplayCampaignCards'
+import DisplayCampaignCardsIndex from '../../components/DisplayCampaignCardsIndex'
 import indexVideo from '../../styles/img/indexVideo.mp4'
 import { useEffect } from 'react'
 import '../../styles/fontstyle.scss'
@@ -45,7 +45,7 @@ function CampaignIndex(props) {
     $(window).on('scroll', function () {
       console.log('scroll:', $(this).scrollTop())
       let scrollTop = $(this).scrollTop()
-      $('.goldenRing').css('transform', 'translateY(-' + scrollTop / 10 + 'px)')
+      $('.goldenRing').css('transform', 'translateY(-' + scrollTop / 8 + 'px)')
     })
   }, [])
 
@@ -53,10 +53,7 @@ function CampaignIndex(props) {
     $(window).on('scroll', function () {
       console.log('scroll:', $(this).scrollTop())
       let scrollTop = $(this).scrollTop()
-      $('.goldenRing2').css(
-        'transform',
-        'translateY(-' + scrollTop / 10 + 'px)'
-      )
+      $('.goldenRing2').css('transform', 'translateY(-' + scrollTop / 8 + 'px)')
     })
   }, [])
 
@@ -65,13 +62,14 @@ function CampaignIndex(props) {
       if ($(window).scrollTop() < 500) {
         $('.searchTitle').addClass('animate__fadeIn animate__slow')
       }
-      if ($(window).scrollTop() > 500) {
+      if ($(window).scrollTop() > 400) {
         $('.searchTitle').removeClass('animate__fadeIn animate__slow')
+
         $('.tastingContent').addClass('animate__fadeInLeft animate__slow')
         $('.tastingBg').addClass('animate__fadeInLeft animate__slow')
         $('.tastingImg').addClass('animate__fadeInRight animate__slow')
       }
-      if ($(window).scrollTop() < 500) {
+      if ($(window).scrollTop() < 400) {
         $('.tastingContent').removeClass('animate__fadeInLeft animate__slow')
         $('.tastingBg').removeClass('animate__fadeInLeft animate__slow')
         $('.tastingImg').removeClass('animate__fadeInRight animate__slow')
@@ -81,12 +79,12 @@ function CampaignIndex(props) {
         $('.tastingBg').removeClass('animate__fadeInLeft animate__slow')
         $('.tastingImg').removeClass('animate__fadeInRight animate__slow')
       }
-      if ($(window).scrollTop() > 1200) {
+      if ($(window).scrollTop() > 1100) {
         $('.experientContent').addClass('animate__fadeInRight animate__slow')
         $('.experientBg').addClass('animate__fadeInRight animate__slow')
         $('.experientImg').addClass('animate__fadeInLeft animate__slow')
       }
-      if ($(window).scrollTop() < 1300) {
+      if ($(window).scrollTop() < 1100) {
         $('.experientContent').removeClass('animate__fadeInRight animate__slow')
         $('.experientBg').removeClass('animate__fadeInRight animate__slow')
         $('.experientImg').removeClass('animate__fadeInLeft animate__slow')
@@ -96,12 +94,12 @@ function CampaignIndex(props) {
         $('.experientBg').removeClass('animate__fadeInRight animate__slow')
         $('.experientImg').removeClass('animate__fadeInLeft animate__slow')
       }
-      if ($(window).scrollTop() > 2000) {
+      if ($(window).scrollTop() > 1900) {
         $('.workshopContent').addClass('animate__fadeInLeft animate__slow')
         $('.workshopBg').addClass('animate__fadeInLeft animate__slow')
         $('.workshopImg').addClass('animate__fadeInRight animate__slow')
       }
-      if ($(window).scrollTop() < 2000) {
+      if ($(window).scrollTop() < 1900) {
         $('.workshopContent').removeClass('animate__fadeInLeft animate__slow')
         $('.workshopBg').removeClass('animate__fadeInLeft animate__slow')
         $('.workshopImg').removeClass('animate__fadeInRight animate__slow')
@@ -165,15 +163,26 @@ function CampaignIndex(props) {
           </Col>
         </Row>
       </Container>
-      <Container className="hit">
+      <Container fluid className="hit">
         <Row>
-          <Col lg={3} xs={8}>
-            <h2 className="hitTitle">熱門活動</h2>
+          <Col lg={7} xs={8} className="d-flex">
+            <Col lg={2} xs={8}></Col>
+            <Col lg={5} xs={8}>
+              <h2 className="hitTitle">熱門活動</h2>
+            </Col>
           </Col>
         </Row>
       </Container>
-      <Container className="d-none d-sm-block">
-        <DisplayCampaignCards />
+      <Container
+        fluid
+        className="displayCampaignCardsBox d-none d-sm-block animate__animated animate__slideInRight"
+      >
+        <Row>
+          <Col lg={1} xs={8}></Col>
+          <Col lg={10} xs={8}>
+            <DisplayCampaignCardsIndex />
+          </Col>
+        </Row>
       </Container>
 
       <Container fluid className="d-none d-sm-block">
@@ -194,7 +203,7 @@ function CampaignIndex(props) {
           >
             <Col lg={2}></Col>
             <Col lg={5} className="tastingContent animate__animated ">
-              <h2 className="tastingTitle mb-4">甜點鑑賞</h2>
+              <h2 className="tastingTitle mb-4">品味鑑賞</h2>
               <p className="tastingText">
                 曾經被櫥窗裡的美麗甜點誘惑過的人，大概沒有不好奇它們是怎麼做出來的。
                 <br />
@@ -226,7 +235,7 @@ function CampaignIndex(props) {
         </Row>
       </Container>
       <Container fluid>
-        <Row className="position-relative">
+        <Row className="position-relative slideArea">
           <div className="goldenRing"></div>
         </Row>
       </Container>

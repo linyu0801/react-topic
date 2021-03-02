@@ -2,6 +2,44 @@
 @import '~bootstrap/scss/bootstrap.scss';
 @import '~animate.css/animate.css';
 
+.arrowBtnLeft {
+  width: 30px;
+  height: 30px;
+}
+
+.carousel-control-next-finn {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #c7ab8e;
+  opacity: 0.7;
+  z-index: 10;
+  top: calc(50% - 25px);
+  border: 0px;
+}
+
+.carousel-control-prev-finn {
+  transform: scaleX(-1);
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #c7ab8e;
+  opacity: 0.7;
+  z-index: 10;
+  top: calc(50% - 25px);
+  right: 0;
+  border: 0px;
+}
+
+.carousel-control-prev-finn:hover,
+.carousel-control-next-finn:hover {
+  opacity: 1;
+  box-shadow: 0 0 5px 0 #0009;
+  transition: opacity 0.5s ease;
+}
+
 .cursorFinn {
   width: 75px;
   height: 75px;
@@ -156,6 +194,18 @@ button:focus {
   font-size: 48px;
 }
 
+.cardImg {
+  object-fit: cover;
+  object-position: center center;
+  height: 246px;
+  transition-duration: 1s;
+}
+
+.cardImgBox {
+  overflow: hidden;
+  height: 246px;
+}
+
 .campaignCard {
   background-color: #ffeed3;
   transition-duration: 0.5s;
@@ -163,10 +213,13 @@ button:focus {
 }
 
 .campaignCard:hover {
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 16%);
+  box-shadow: 0px 0px 300px rgba(255, 255, 255, 30%) inset;
   transition-duration: 0.5s;
 }
 
+.cardImg:hover {
+  height: 270px;
+}
 .cardTitle {
   font-size: 24px;
 }
@@ -179,7 +232,7 @@ button:focus {
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
-  top: 300px;
+  top: 150px;
   opacity: 25%;
 }
 
@@ -189,10 +242,11 @@ button:focus {
   background-image: url(./img/illustration/goldenRing.png);
   background-repeat: no-repeat;
   position: absolute;
-  top: -300px;
+  top: -250px;
   right: -200px;
   z-index: 2;
   opacity: 50%;
+  transition: 1s ease-out;
 }
 
 .goldenRing2 {
@@ -202,16 +256,11 @@ button:focus {
   background-repeat: no-repeat;
   position: absolute;
   background-size: contain;
-  top: -80px;
+  top: -50px;
   left: -150px;
   z-index: 2;
   opacity: 50%;
-}
-
-.cardImg {
-  object-fit: cover;
-  object-position: center center;
-  height: 246px;
+  transition: 1s ease-out;
 }
 
 .cardText {

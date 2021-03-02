@@ -124,216 +124,33 @@ function OrderProduct(props) {
                 </div>
               </div>
             </div>
-            <nav aria-label="Page navigation example" className="fish-order-mt">
-              <ul className="pagination justify-content-center">
-                <li className="page-item">
-                  <a
-                    className="page-link hoyu-page-link hoyu-page-arrow"
-                    href="*"
-                    aria-label="Previous"
-                  >
-                    <span aria-hidden="true">
-                      <i className="fas fa-chevron-left"></i>
-                    </span>
-                  </a>
-                </li>
-                <li className="page-item">
-                  <a className="page-link hoyu-page-link" href="*">
-                    1
-                  </a>
-                </li>
-                <li className="page-item">
-                  <a className="page-link hoyu-page-link" href="*">
-                    2
-                  </a>
-                </li>
-                <li className="page-item">
-                  <a className="page-link hoyu-page-link" href="*">
-                    3
-                  </a>
-                </li>
-                <li className="page-item">
-                  <a className="page-link hoyu-page-link" href="*">
-                    4
-                  </a>
-                </li>
-                <li className="page-item">
-                  <a className="page-link hoyu-page-link" href="*">
-                    5
-                  </a>
-                </li>
-                <li className="page-item">
-                  <a
-                    className="page-link hoyu-page-link hoyu-page-arrow"
-                    href="*"
-                    aria-label="Next"
-                  >
-                    <span aria-hidden="true">
-                      <i className="fas fa-chevron-right"></i>
-                    </span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
           </div>
           <div className="col-8 mob-order">
-            <div className="mob-order-pd">
-              <div className="w-100 fish-order fish-order-pd d-flex">
-                <div className="col-6 mob-pd mob-topic">
-                  <h6>訂單編號</h6>
-                  <h6>訂購日期</h6>
-                  <h6>訂單金額</h6>
-                  <h6>付款方式</h6>
-                  <h6>訂單狀態</h6>
+            {rows.map((value, i) => (
+              <>
+                <div className="mob-order-pd">
+                  <div className="w-100 fish-order fish-order-pd d-flex">
+                    <div className="col-6 mob-pd mob-topic">
+                      <h6>訂單編號</h6>
+                      <h6>訂購日期</h6>
+                      <h6>訂單金額</h6>
+                      <h6>付款方式</h6>
+                      <h6>訂單狀態</h6>
+                    </div>
+                    <div className="col-6 mob-pd">
+                      <a href="*">
+                        {' '}
+                        <h6>{value.sid}</h6>{' '}
+                      </a>
+                      <h6>{value.order_date}</h6>
+                      <h6>{value.amount}</h6>
+                      <h6>{value.payment_type}</h6>
+                      <h6>{value.deliver_state}</h6>
+                    </div>
+                  </div>
                 </div>
-                <div className="col-6 mob-pd">
-                  <a href="*">
-                    {' '}
-                    <h6>123456</h6>{' '}
-                  </a>
-                  <h6>2020/02/15</h6>
-                  <h6>800</h6>
-                  <h6>銀行轉帳</h6>
-                  <h6>已送達</h6>
-                </div>
-              </div>
-            </div>
-            <div className="mob-order-pd">
-              <div className="w-100 fish-order fish-order-pd d-flex">
-                <div className="col-6 mob-pd mob-topic">
-                  <h6>訂單編號</h6>
-                  <h6>訂購日期</h6>
-                  <h6>訂單金額</h6>
-                  <h6>付款方式</h6>
-                  <h6>訂單狀態</h6>
-                </div>
-                <div className="col-6 mob-pd">
-                  <a href="*">
-                    {' '}
-                    <h6>123456</h6>{' '}
-                  </a>
-                  <h6>2020/02/15</h6>
-                  <h6>800</h6>
-                  <h6>銀行轉帳</h6>
-                  <h6>已送達</h6>
-                </div>
-              </div>
-            </div>
-            <div className="mob-order-pd">
-              <div className="w-100 fish-order fish-order-pd d-flex">
-                <div className="col-6 mob-pd mob-topic">
-                  <h6>訂單編號</h6>
-                  <h6>訂購日期</h6>
-                  <h6>訂單金額</h6>
-                  <h6>付款方式</h6>
-                  <h6>訂單狀態</h6>
-                </div>
-                <div className="col-6 mob-pd">
-                  <a href="*">
-                    {' '}
-                    <h6>123456</h6>{' '}
-                  </a>
-                  <h6>2020/02/15</h6>
-                  <h6>800</h6>
-                  <h6>銀行轉帳</h6>
-                  <h6>已送達</h6>
-                </div>
-              </div>
-            </div>
-            <div className="mob-order-pd">
-              <div className="w-100 fish-order fish-order-pd d-flex">
-                <div className="col-6 mob-pd mob-topic">
-                  <h6>訂單編號</h6>
-                  <h6>訂購日期</h6>
-                  <h6>訂單金額</h6>
-                  <h6>付款方式</h6>
-                  <h6>訂單狀態</h6>
-                </div>
-                <div className="col-6 mob-pd">
-                  <a href="*">
-                    {' '}
-                    <h6>123456</h6>{' '}
-                  </a>
-                  <h6>2020/02/15</h6>
-                  <h6>800</h6>
-                  <h6>銀行轉帳</h6>
-                  <h6>已送達</h6>
-                </div>
-              </div>
-            </div>
-            <div className="mob-order-pd">
-              <div className="w-100 fish-order fish-order-pd d-flex">
-                <div className="col-6 mob-pd mob-topic">
-                  <h6>訂單編號</h6>
-                  <h6>訂購日期</h6>
-                  <h6>訂單金額</h6>
-                  <h6>付款方式</h6>
-                  <h6>訂單狀態</h6>
-                </div>
-                <div className="col-6 mob-pd">
-                  <a href="*">
-                    {' '}
-                    <h6>123456</h6>{' '}
-                  </a>
-                  <h6>2020/02/15</h6>
-                  <h6>800</h6>
-                  <h6>銀行轉帳</h6>
-                  <h6>已送達</h6>
-                </div>
-              </div>
-            </div>
-
-            <nav aria-label="Page navigation example" className="fish-order-mt">
-              <ul className="pagination justify-content-center">
-                <li className="page-item">
-                  <a
-                    className="page-link hoyu-page-link hoyu-page-arrow"
-                    href="*"
-                    aria-label="Previous"
-                  >
-                    <span aria-hidden="true">
-                      <i className="fas fa-chevron-left"></i>
-                    </span>
-                  </a>
-                </li>
-                <li className="page-item">
-                  <a className="page-link hoyu-page-link" href="*">
-                    1
-                  </a>
-                </li>
-                <li className="page-item">
-                  <a className="page-link hoyu-page-link" href="*">
-                    2
-                  </a>
-                </li>
-                <li className="page-item">
-                  <a className="page-link hoyu-page-link" href="*">
-                    3
-                  </a>
-                </li>
-                <li className="page-item">
-                  <a className="page-link hoyu-page-link" href="*">
-                    4
-                  </a>
-                </li>
-                <li className="page-item">
-                  <a className="page-link hoyu-page-link" href="*">
-                    5
-                  </a>
-                </li>
-                <li className="page-item">
-                  <a
-                    className="page-link hoyu-page-link hoyu-page-arrow"
-                    href="*"
-                    aria-label="Next"
-                  >
-                    <span aria-hidden="true">
-                      <i className="fas fa-chevron-right"></i>
-                    </span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
+              </>
+            ))}
           </div>
         </div>
       </div>

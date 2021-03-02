@@ -6,7 +6,6 @@ import { MdKeyboardArrowRight } from 'react-icons/md'
 import { MdKeyboardArrowLeft } from 'react-icons/md'
 import React, { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
-import Pagination from 'react-bootstrap/Pagination'
 
 function MainProduct(props) {
   const [product, setProduct] = useState([])
@@ -280,8 +279,6 @@ function MainProduct(props) {
           <div className="k-golden-design"></div>
         </div>
       </div>
-
-      {/* <div id="footer" className="temp-footer"></div> */}
     </>
   )
 }

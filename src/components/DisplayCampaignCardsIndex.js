@@ -7,7 +7,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 import Carousel from 'react-grid-carousel'
 
-function DisplayCampaignCards(props) {
+function DisplayCampaignCardsIndex(props) {
   const [data, setData] = useState([])
 
   useEffect(() => {
@@ -95,9 +95,23 @@ function DisplayCampaignCards(props) {
     <>
       <Row className="campaignCards mb-5">
         <Carousel
-          cols={3}
+          cols={5}
           rows={1}
           gap={30}
+          responsiveLayout={[
+            {
+              breakpoint: 1200,
+              cols: 5,
+            },
+            {
+              breakpoint: 990,
+              cols: 3,
+            },
+          ]}
+          mobileBreakpoint={670}
+          showDots
+          loop={true}
+          autoplay={5000}
           arrowLeft={arrowBtnLeft}
           arrowRight={arrowBtnRight}
         >
@@ -172,4 +186,4 @@ function DisplayCampaignCards(props) {
   )
 }
 
-export default withRouter(DisplayCampaignCards)
+export default withRouter(DisplayCampaignCardsIndex)

@@ -17,9 +17,9 @@ function CarouselShow() {
               </Link>
             </div>
             <div class="card-body">
-              <h5 class="card-title">微醺森林</h5>
+              <h5 class="card-title">花生好事</h5>
 
-              <div class="product-price">$ 450</div>
+              <div class="product-price">$ 650</div>
             </div>
           </div>
           <div className="box">
@@ -33,9 +33,9 @@ function CarouselShow() {
               </Link>
             </div>
             <div class="card-body">
-              <h5 class="card-title">微醺森林</h5>
+              <h5 class="card-title">森聲</h5>
 
-              <div class="product-price">$ 450</div>
+              <div class="product-price">$ 650</div>
             </div>
           </div>
           <div className="box">
@@ -49,9 +49,9 @@ function CarouselShow() {
               </Link>
             </div>
             <div class="card-body">
-              <h5 class="card-title">微醺森林</h5>
+              <h5 class="card-title">莓好願景</h5>
 
-              <div class="product-price">$ 450</div>
+              <div class="product-price">$ 650</div>
             </div>
           </div>
           <div className="box">
@@ -65,7 +65,7 @@ function CarouselShow() {
               </Link>
             </div>
             <div class="card-body">
-              <h5 class="card-title">微醺森林</h5>
+              <h5 class="card-title">微光</h5>
 
               <div class="product-price">$ 450</div>
             </div>
@@ -81,9 +81,9 @@ function CarouselShow() {
               </Link>
             </div>
             <div class="card-body">
-              <h5 class="card-title">微醺森林</h5>
+              <h5 class="card-title">月牙</h5>
 
-              <div class="product-price">$ 450</div>
+              <div class="product-price">$ 650</div>
             </div>
           </div>
         </Carousel>
