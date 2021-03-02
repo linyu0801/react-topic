@@ -67,11 +67,12 @@ function CartNextPrevious(props) {
       </Modal.Header>
       <Modal.Body>
         {/* {isLoading ? spinner : null} */}
-        <div className="hy-checkout">
+        <div className="hy-checkout d-flex justify-content-center mb-3">
           <CheckOut />
         </div>
-        <h4>付款授權驗證中...</h4>
-        <p>請勿關閉此視窗，以免發生錯誤!</p>
+
+        <h4 className="text-center">付款授權驗證中...</h4>
+        <p className="text-center">請勿關閉此視窗，以免發生錯誤!</p>
       </Modal.Body>
       <Modal.Footer></Modal.Footer>
     </Modal>

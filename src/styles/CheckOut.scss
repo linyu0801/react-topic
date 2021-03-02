@@ -10,9 +10,9 @@ $accent: #7ca;
 $accent-shade: shade($accent, 40%);
 $accent-tint: tint($accent, 40%);
 // $Checkcontent-width: 75vw;
-$Checkcontent-width: 100%;
+$Checkcontent-width: 20%;
 // $Checkcontent-height: 75vh;
-$Checkcontent-height: 100%;
+$Checkcontent-height: 20%;
 $Checkmatte-width: 7vw;
 $Checkmatte-height: 7vh;
 
@@ -27,6 +27,7 @@ $Checkmatte-height: 7vh;
   max-width: $Checkcontent-height;
   max-height: $Checkcontent-width;
   transform: rotate(0deg);
+  margin: 0 auto;
   // animation: 12s spin linear infinite;
 
   path {
