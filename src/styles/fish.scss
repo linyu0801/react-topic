@@ -266,24 +266,6 @@ input:focus,
   margin-bottom: 100px;
   z-index: 2;
 }
-.zoomInput {
-  -webkit-animation-name: zoomInput;
-  animation-name: zoomInput;
-  transition: transform 0.2s;
-  -webkit-animation-duration: 1.5s;
-  animation-duration: 1.5s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-.zoomer {
-  -webkit-animation-name: zoomer;
-  animation-name: zoomer;
-  transition: transform 0.2s;
-  -webkit-animation-duration: 1.2s;
-  animation-duration: 1.2s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
 
 .delay-1 {
   animation-delay: 0.1s;
@@ -312,6 +294,9 @@ input:focus,
 .delay-9 {
   animation-delay: 0.9s;
 }
+.delay-10 {
+  animation-delay: 1s;
+}
 // @keyframes zoomer {
 //   0% {
 //     opacity: 0;
@@ -322,6 +307,44 @@ input:focus,
 //     transform: scale(1);
 //   }
 // }
+.zoomout {
+  -webkit-animation-name: zoomout;
+  animation-name: zoomout;
+  transition: transform 0.2s;
+  -webkit-animation-duration: 1.2s;
+  animation-duration: 1.2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@keyframes zoomout {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+}
+.zoomInput {
+  -webkit-animation-name: zoomInput;
+  animation-name: zoomInput;
+  transition: transform 0.2s;
+  -webkit-animation-duration: 1.5s;
+  animation-duration: 1.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.zoomer {
+  -webkit-animation-name: zoomer;
+  animation-name: zoomer;
+  transition: transform 0.2s;
+  -webkit-animation-duration: 1.2s;
+  animation-duration: 1.2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
 @keyframes zoomInput {
   0% {
     opacity: 0;
@@ -359,6 +382,8 @@ input:focus,
   animation-name: fadeInRight;
 }
 .fish-aside {
+  animation-delay: 0.7s;
+
   transition: transform 1.2s, opacity 1.2s;
   -webkit-animation-duration: 2s;
   animation-duration: 2s;

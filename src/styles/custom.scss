@@ -97,3 +97,11 @@ li.page-item > a.page-link:hover {
 .card {
   border: none;
 }
+
+//K：修改carouselshow的box高度與focus效果
+.sc-gsTCUz.tXlBS.rec.rec-item-wrapper>.box{
+  height: auto;
+}
+.box:focus{
+  outline: none;
+}
