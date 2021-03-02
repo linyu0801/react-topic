@@ -111,6 +111,7 @@ button:focus {
 }
 
 #campaignSearch {
+  font-family: 'Noto Serif TC';
   width: 75%;
   border: 0 none;
   font-size: 16px;
@@ -128,6 +129,7 @@ button:focus {
 }
 
 .searchBtn {
+  font-family: 'Noto Serif TC';
   width: 25%;
   font-size: 16px;
   font-weight: bold;
@@ -181,29 +183,29 @@ button:focus {
   opacity: 25%;
 }
 
-.experienceIntro::after {
-  content: ' ';
-  width: 250px;
-  height: 50%;
+.goldenRing {
+  width: 600px;
+  height: 600px;
   background-image: url(./img/illustration/goldenRing.png);
   background-repeat: no-repeat;
-  background-size: cover;
   position: absolute;
-  top: -220px;
-  right: 0px;
+  top: -300px;
+  right: -200px;
+  z-index: 2;
+  opacity: 50%;
 }
 
-.workshopIntro::after {
-  content: ' ';
-  width: 400px;
-  height: 100%;
+.goldenRing2 {
+  width: 450px;
+  height: 450px;
   background-image: url(./img/illustration/goldenRing.png);
   background-repeat: no-repeat;
-  background-size: contain;
   position: absolute;
-  top: -250px;
-  left: -300px;
-  transform: rotate(45deg);
+  background-size: contain;
+  top: -80px;
+  left: -150px;
+  z-index: 2;
+  opacity: 50%;
 }
 
 .cardImg {
@@ -299,7 +301,12 @@ svg.star {
   top: 100px;
 }
 
-.workshoptImg {
+.workshopBg {
+  height: 700px;
+  background-color: #ffeed3;
+}
+
+.workshopImg {
   background-image: url(./img/WorkshopImg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
