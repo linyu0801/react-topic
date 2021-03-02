@@ -26,7 +26,7 @@ function CarouselShow() {
             <div class="img-box">
               <Link to="#">
                 <img
-                  src="http://localhost:3000/k-images/10.jpeg"
+                  src="http://localhost:3000/k-images/8.jpeg"
                   class="card-img-top product-img"
                   alt="cake29"
                 />
