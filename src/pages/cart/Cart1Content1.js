@@ -180,11 +180,11 @@ function Cart1Content1(props) {
       <Modal.Footer>
         <Button
           onClick={() => {
-            // props.history.push('/')
+            props.history.push('/mainproduct')
             handleClose()
           }}
         >
-          返回首頁
+          返回甜點商城
         </Button>
       </Modal.Footer>
     </Modal>
