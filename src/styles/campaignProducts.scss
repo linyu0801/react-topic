@@ -1,9 +1,31 @@
-.displayPCardsBox {
-  height: 900px;
-  overflow: scroll;
-  margin-bottom: 50px;
-}
+// //scrollBar color
 
+// //捲軸底色
+// .displayPCardsBox::-webkit-scrollbar-track {
+//   background-color: #cdaa8a;
+// }
+// //捲軸寬度
+// .displayPCardsBox::-webkit-scrollbar {
+//   width: 6px;
+//   background-color: black;
+// }
+// //捲軸本體顏色
+// .displayPCardsBox::-webkit-scrollbar-thumb {
+//   background-color: #250404;
+// }
+
+// .displayPCardsBox {
+//   height: 700px;
+//   overflow-x: hidden;
+//   overflow-y: scroll;
+//   margin-bottom: 300px;
+//   padding-right: 2px;
+// }
+
+.sticky-top {
+  top: 100px !important;
+  z-index: 3 !important;
+}
 a {
   color: none;
   text-decoration: none;

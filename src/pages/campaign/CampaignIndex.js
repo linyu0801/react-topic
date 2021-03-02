@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 import { Container, Row, Col } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fas } from '@fortawesome/free-solid-svg-icons'
-import DisplayCampaignCards from '../../components/DisplayCampaignCards'
+import DisplayCampaignCardsIndex from '../../components/DisplayCampaignCardsIndex'
 import indexVideo from '../../styles/img/indexVideo.mp4'
 import { useEffect } from 'react'
 import '../../styles/fontstyle.scss'
@@ -42,9 +42,67 @@ function CampaignIndex(props) {
   }, [])
 
   useEffect(() => {
+    $(window).on('scroll', function () {
+      console.log('scroll:', $(this).scrollTop())
+      let scrollTop = $(this).scrollTop()
+      $('.goldenRing').css('transform', 'translateY(-' + scrollTop / 8 + 'px)')
+    })
+  }, [])
+
+  useEffect(() => {
+    $(window).on('scroll', function () {
+      console.log('scroll:', $(this).scrollTop())
+      let scrollTop = $(this).scrollTop()
+      $('.goldenRing2').css('transform', 'translateY(-' + scrollTop / 8 + 'px)')
+    })
+  }, [])
+
+  useEffect(() => {
     $(window).scroll(function () {
-      if ($(window).scrollTop() > 1000) {
-        $('.tastingContent').addClass('animate__fadeInLeft ')
+      if ($(window).scrollTop() < 500) {
+        $('.searchTitle').addClass('animate__fadeIn animate__slow')
+      }
+      if ($(window).scrollTop() > 400) {
+        $('.searchTitle').removeClass('animate__fadeIn animate__slow')
+
+        $('.tastingContent').addClass('animate__fadeInLeft animate__slow')
+        $('.tastingBg').addClass('animate__fadeInLeft animate__slow')
+        $('.tastingImg').addClass('animate__fadeInRight animate__slow')
+      }
+      if ($(window).scrollTop() < 400) {
+        $('.tastingContent').removeClass('animate__fadeInLeft animate__slow')
+        $('.tastingBg').removeClass('animate__fadeInLeft animate__slow')
+        $('.tastingImg').removeClass('animate__fadeInRight animate__slow')
+      }
+      if ($(window).scrollTop() > 1500) {
+        $('.tastingContent').removeClass('animate__fadeInLeft animate__slow')
+        $('.tastingBg').removeClass('animate__fadeInLeft animate__slow')
+        $('.tastingImg').removeClass('animate__fadeInRight animate__slow')
+      }
+      if ($(window).scrollTop() > 1100) {
+        $('.experientContent').addClass('animate__fadeInRight animate__slow')
+        $('.experientBg').addClass('animate__fadeInRight animate__slow')
+        $('.experientImg').addClass('animate__fadeInLeft animate__slow')
+      }
+      if ($(window).scrollTop() < 1100) {
+        $('.experientContent').removeClass('animate__fadeInRight animate__slow')
+        $('.experientBg').removeClass('animate__fadeInRight animate__slow')
+        $('.experientImg').removeClass('animate__fadeInLeft animate__slow')
+      }
+      if ($(window).scrollTop() > 2300) {
+        $('.experientContent').removeClass('animate__fadeInRight animate__slow')
+        $('.experientBg').removeClass('animate__fadeInRight animate__slow')
+        $('.experientImg').removeClass('animate__fadeInLeft animate__slow')
+      }
+      if ($(window).scrollTop() > 1900) {
+        $('.workshopContent').addClass('animate__fadeInLeft animate__slow')
+        $('.workshopBg').addClass('animate__fadeInLeft animate__slow')
+        $('.workshopImg').addClass('animate__fadeInRight animate__slow')
+      }
+      if ($(window).scrollTop() < 1900) {
+        $('.workshopContent').removeClass('animate__fadeInLeft animate__slow')
+        $('.workshopBg').removeClass('animate__fadeInLeft animate__slow')
+        $('.workshopImg').removeClass('animate__fadeInRight animate__slow')
       } else {
       }
     })
@@ -61,18 +119,12 @@ function CampaignIndex(props) {
         </div>
         <div className="rowBg position-absolute"></div>
         <Row className="h-100">
-          <Col
-            lg={6}
-            xs={12}
-            className="mx-auto  align-self-center searchTitle"
-          >
-            <h2 className="searchTitleText animate__animated animate__fadeIn animate__slow">
-              最有質感的甜點活動
-            </h2>
+          <Col lg={6} xs={12} className="mx-auto  align-self-center ">
+            <div className="searchTitle animate__animated animate__fadeIn animate__slow">
+              <h2 className="searchTitleText">最有質感的甜點活動</h2>
 
-            <p className="animate__animated animate__fadeIn animate__slow ">
-              體驗獨一無二的活動體驗
-            </p>
+              <p>體驗獨一無二的活動體驗</p>
+            </div>
             <div
               className="searchBar w-100 d-flex
            justify-content-center "
@@ -111,15 +163,26 @@ function CampaignIndex(props) {
           </Col>
         </Row>
       </Container>
-      <Container className="hit">
+      <Container fluid className="hit">
         <Row>
-          <Col lg={3} xs={8}>
-            <h2 className="hitTitle">熱門活動</h2>
+          <Col lg={7} xs={8} className="d-flex">
+            <Col lg={2} xs={8}></Col>
+            <Col lg={5} xs={8}>
+              <h2 className="hitTitle">熱門活動</h2>
+            </Col>
           </Col>
         </Row>
       </Container>
-      <Container className="d-none d-sm-block">
-        <DisplayCampaignCards />
+      <Container
+        fluid
+        className="displayCampaignCardsBox d-none d-sm-block animate__animated animate__slideInRight animate__slow"
+      >
+        <Row>
+          <Col lg={1} xs={8}></Col>
+          <Col lg={10} xs={8}>
+            <DisplayCampaignCardsIndex />
+          </Col>
+        </Row>
       </Container>
 
       <Container fluid className="d-none d-sm-block">
@@ -134,7 +197,10 @@ function CampaignIndex(props) {
         className="tastingIntro d-none d-sm-block position-relative mb-5"
       >
         <Row className="h-100">
-          <Col lg={7} className="tastingBg d-flex align-items-center">
+          <Col
+            lg={7}
+            className="tastingBg d-flex align-items-center animate__animated"
+          >
             <Col lg={2}></Col>
             <Col lg={5} className="tastingContent animate__animated ">
               <h2 className="tastingTitle mb-4">甜點鑑賞</h2>
@@ -162,10 +228,17 @@ function CampaignIndex(props) {
               </p>
             </Col>
           </Col>
-          <Col lg={7} className="tastingImg position-absolute"></Col>
+          <Col
+            lg={7}
+            className="tastingImg position-absolute animate__animated"
+          ></Col>
         </Row>
       </Container>
-
+      <Container fluid>
+        <Row className="position-relative slideArea">
+          <div className="goldenRing"></div>
+        </Row>
+      </Container>
       <Container
         fluid
         className="experienceIntro d-none d-sm-block position-relative mb-5"
@@ -174,11 +247,11 @@ function CampaignIndex(props) {
           <Col lg={5}></Col>
           <Col
             lg={7}
-            className="experientBg d-flex align-items-center
+            className="experientBg d-flex align-items-center animate__animated
             "
           >
             <Col lg={5}></Col>
-            <Col lg={5} className="tastingContent">
+            <Col lg={5} className="experientContent animate__animated">
               <h2 className="tastingTitle mb-4">手作體驗</h2>
               <p className="tastingText">
                 手作課程，除了可以挑選自己喜愛的甜點、享受DIY的創作過程、還可以從中獲得滿滿的成就感。
@@ -204,7 +277,15 @@ function CampaignIndex(props) {
               </p>
             </Col>
           </Col>
-          <Col lg={7} className="experientImg position-absolute"></Col>
+          <Col
+            lg={7}
+            className="experientImg position-absolute animate__animated"
+          ></Col>
+        </Row>
+      </Container>
+      <Container fluid>
+        <Row className="position-relative">
+          <div className="goldenRing2"></div>
         </Row>
       </Container>
       <Container
@@ -212,9 +293,12 @@ function CampaignIndex(props) {
         className="workshopIntro d-none d-sm-block position-relative mb-5"
       >
         <Row className="h-100">
-          <Col lg={7} className="tastingBg d-flex align-items-center">
+          <Col
+            lg={7}
+            className="workshopBg d-flex align-items-center animate__animated"
+          >
             <Col lg={2}></Col>
-            <Col lg={5} className="tastingContent">
+            <Col lg={5} className="workshopContent animate__animated">
               <h2 className="tastingTitle mb-4">職人講座</h2>
               <p className="tastingText">
                 忙碌的生活總是需要心靈的調劑，創意生活的美學更是貼近人心，只有從心出發才會帶給生活美妙的體驗與經驗。
@@ -240,7 +324,10 @@ function CampaignIndex(props) {
               </p>
             </Col>
           </Col>
-          <Col lg={7} className="workshoptImg position-absolute"></Col>
+          <Col
+            lg={7}
+            className="workshopImg position-absolute animate__animated"
+          ></Col>
         </Row>
       </Container>
     </>
