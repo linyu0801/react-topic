@@ -23,10 +23,84 @@ function DisplayCampaignCards(props) {
     fetchdata()
   }, [])
 
+  const arrowBtnLeft = (
+    <>
+      <button class="carousel-control-next-finn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="13.41"
+          height="19.929"
+          viewBox="0 0 13.41 19.929"
+        >
+          <g id="Group_89" data-name="Group 89" transform="translate(0 0.254)">
+            <path
+              id="Path_20"
+              data-name="Path 20"
+              d="M4263.009,2996.582s-2.47,9.421-12.443,9.421"
+              transform="translate(-4250.566 -2996.582)"
+              fill="none"
+              stroke="#fff"
+              stroke-width="2"
+            />
+            <path
+              id="Path_21"
+              data-name="Path 21"
+              d="M4263.009,3006s-2.47-9.421-12.443-9.421"
+              transform="translate(-4250.566 -2986.582)"
+              fill="none"
+              stroke="#fff"
+              stroke-width="2"
+            />
+          </g>
+        </svg>
+      </button>
+    </>
+  )
+
+  const arrowBtnRight = (
+    <>
+      <button class="carousel-control-prev-finn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="13.41"
+          height="19.929"
+          viewBox="0 0 13.41 19.929"
+        >
+          <g id="Group_89" data-name="Group 89" transform="translate(0 0.254)">
+            <path
+              id="Path_20"
+              data-name="Path 20"
+              d="M4263.009,2996.582s-2.47,9.421-12.443,9.421"
+              transform="translate(-4250.566 -2996.582)"
+              fill="none"
+              stroke="#fff"
+              stroke-width="2"
+            />
+            <path
+              id="Path_21"
+              data-name="Path 21"
+              d="M4263.009,3006s-2.47-9.421-12.443-9.421"
+              transform="translate(-4250.566 -2986.582)"
+              fill="none"
+              stroke="#fff"
+              stroke-width="2"
+            />
+          </g>
+        </svg>
+      </button>
+    </>
+  )
+
   return (
     <>
       <Row className="campaignCards mb-5">
-        <Carousel cols={3} rows={1} gap={30} loop>
+        <Carousel
+          cols={3}
+          rows={1}
+          gap={30}
+          arrowLeft={arrowBtnLeft}
+          arrowRight={arrowBtnRight}
+        >
           {data.map((v, i) => (
             <Carousel.Item>
               <Link
@@ -34,11 +108,13 @@ function DisplayCampaignCards(props) {
                 style={{ textDecoration: 'none' }}
               >
                 <div className="campaignCard w-100">
-                  <img
-                    className="cardImg w-100"
-                    src={`/img/` + v.campaignCover}
-                    alt="campaignImg"
-                  />
+                  <div className="cardImgBox">
+                    <img
+                      className="cardImg w-100"
+                      src={`/img/` + v.campaignCover}
+                      alt="campaignImg"
+                    />
+                  </div>
                   <div className="cardText">
                     <h4 className="cardTitle">{v.title}</h4>
                     <p className="campaignSite my-2">
