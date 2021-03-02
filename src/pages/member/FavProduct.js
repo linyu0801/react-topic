@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { FaRegTimesCircle } from 'react-icons/fa'
 import FishAside from '../../components/FishAside'
+import $ from 'jquery'
+
 function FavProduct(props) {
   const mid = sessionStorage.getItem('mid')
 
@@ -11,6 +13,11 @@ function FavProduct(props) {
   const [display, setDisplay] = useState('')
   const [none, setNone] = useState(false)
   const deletefavproduct = async (p_sid) => {
+    $(`#pid${p_sid}`).addClass('zoomout')
+
+    setTimeout(() => {
+      $(`#pid${p_sid}`).hide()
+    }, 900)
     const url = 'http://localhost:4000/deletefavproduct'
     const request = new Request(url, {
       method: 'DELETE',
@@ -23,9 +30,9 @@ function FavProduct(props) {
     const response = await fetch(request)
     const data = await response.json()
     console.log('刪除', data)
-    if (data.code === 1) {
-      FetchData()
-    }
+    // if (data.code === 1) {
+    //   FetchData()
+    // }
   }
 
   const FetchData = async () => {
@@ -54,7 +61,11 @@ function FavProduct(props) {
     let productDisplay = (
       <>
         {rows.map((value, i) => (
-          <div key={i} className="col-xl-4 col-lg-5 col-md-6">
+          <div
+            key={i}
+            className="col-xl-4 col-lg-5 col-md-6"
+            id={`pid${value.p_sid}`}
+          >
             {/* {value.p_name} */}
             <div className="product  fish-card w-100 position-relative">
               <div className="fish-img-box w-100">
@@ -135,34 +146,6 @@ function FavProduct(props) {
           <div className="col-9 d-flex flex-wrap">
             {none === true ? NoneDisPlay : display}
 
-            {/* <div className="col-xl-4 col-lg-5 col-md-6">
-              <div className="product  fish-card w-100 position-relative">
-                <div className="fish-img-box w-100">
-                  <Link to="#123">
-                    <i>
-                      <FaRegTimesCircle />
-                    </i>
-                  </Link>
-                  <Link to="#456">
-                    <img
-                      src="http://localhost:3000/images/pd1.jpeg"
-                      className="fish-product-img"
-                      alt="cake29"
-                    />
-                  </Link>
-                </div>
-                <div className="fish-card-body w-100">
-                  <h5 className="fish-card-title">微醺森林</h5>
-                  <p className="fish-card-text">
-                    以德式黑森林蛋糕為基礎，加入蘭姆酒烘托出成熟的味道,
-                    鮮奶油與酒漬櫻桃的巧妙搭配讓整體風味更溫柔、更迷人
-                  </p>
-                  <hr className="fish-product-hr" />
-                  <div className="fish-product-price mb-1">$ 450</div>
-                  <button className="addToCartBtn">加入購物車</button>
-                </div>
-              </div>
-            </div> */}
             {/* 
             <nav
               aria-label="Page navigation example"

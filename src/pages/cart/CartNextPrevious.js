@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Modal, Button } from 'react-bootstrap'
+import CheckOut from '../../components/CheckOut'
 function CartNextPrevious(props) {
   const {
     form1,
@@ -65,19 +66,15 @@ function CartNextPrevious(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        {isLoading ? spinner : null}
-        <h4>付款授權驗證中...</h4>
-        <p>請勿關閉此視窗，以免發生錯誤!</p>
+        {/* {isLoading ? spinner : null} */}
+        <div className="hy-checkout d-flex justify-content-center mb-3">
+          <CheckOut />
+        </div>
+
+        <h4 className="text-center">付款授權驗證中...</h4>
+        <p className="text-center">請勿關閉此視窗，以免發生錯誤!</p>
       </Modal.Body>
-      <Modal.Footer>
-        <Button
-          onClick={() => {
-            handleClose()
-          }}
-        >
-          關閉
-        </Button>
-      </Modal.Footer>
+      <Modal.Footer></Modal.Footer>
     </Modal>
   )
 
@@ -162,7 +159,7 @@ function CartNextPrevious(props) {
                         //   console.log('error')
                         // }
                       })
-                  }, 3000)
+                  }, 5000)
                   // 抓第三步的頁面，然後
                 }}
               >

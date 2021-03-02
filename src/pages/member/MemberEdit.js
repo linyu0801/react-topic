@@ -187,7 +187,7 @@ function MemberEdit(props) {
                 </label>
                 <br />
                 <input
-                  className="w-100 pub-input zoomInput delay-1"
+                  className="w-100 pub-input zoomInput delay-5"
                   type="text"
                   name="username"
                   id="username"
@@ -202,7 +202,7 @@ function MemberEdit(props) {
                 </label>
                 <br />
                 <input
-                  className="w-100 pub-input zoomInput delay-3"
+                  className="w-100 pub-input zoomInput delay-6"
                   type="text"
                   name="email"
                   id="email"
@@ -216,7 +216,7 @@ function MemberEdit(props) {
                 </label>
                 <br />
                 <DatePicker
-                  className="pub-input w-100 zoomInput delay-5"
+                  className="pub-input w-100 zoomInput delay-7"
                   id="datepicker"
                   selected={birthDate}
                   dateFormat="yyyy-MM-dd"
@@ -236,12 +236,12 @@ function MemberEdit(props) {
                 <br />
                 <small></small>
 
-                <label htmlFor="tel" className="zoomInput delay-5">
+                <label htmlFor="tel" className="zoomInput delay-7">
                   手機
                 </label>
                 <br />
                 <input
-                  className="w-100 pub-input zoomInput delay-5"
+                  className="w-100 pub-input zoomInput delay-8"
                   type="text"
                   name="tel"
                   id="tel"
@@ -250,12 +250,12 @@ function MemberEdit(props) {
                 />
                 <small></small>
 
-                <label htmlFor="address" className="zoomInput delay-7">
+                <label htmlFor="address" className="zoomInput delay-9">
                   地址
                 </label>
                 <br />
                 <input
-                  className="w-100 pub-input zoomInput delay-7"
+                  className="w-100 pub-input zoomInput delay-9"
                   type="text"
                   name="address"
                   id="address"
@@ -266,7 +266,7 @@ function MemberEdit(props) {
 
                 <button
                   type="button"
-                  className="pub-button pub-mb-100 mx-auto zoomInput delay-9"
+                  className="pub-button pub-mb-100 mx-auto zoomInput delay-10"
                   onClick={() => {
                     EditToServer()
                   }}

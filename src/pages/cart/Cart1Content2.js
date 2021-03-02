@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import $ from 'jquery'
+
 function Cart1Content2(props) {
   const {
     freightTotal,
@@ -18,28 +19,43 @@ function Cart1Content2(props) {
     setSeletedPaymentType,
   } = props
 
+  // 訂購人與收貨人相同
   const [equal, setEqual] = useState(false)
 
   useEffect(() => {
     equal === true
-      ? setInputs({ ...inputs, receiver: inputs.username })
-      : setInputs({ ...inputs, receiver: '' })
+      ? setInputs({
+          ...inputs,
+          receiver: inputs.username,
+          receiverMobile: inputs.tel,
+        })
+      : setInputs({ ...inputs, receiver: '', receiverMobile: '' })
   }, [equal])
 
   useEffect(() => {
     setForm1(inputs)
   }, [inputs])
 
-  function setBlur(obj, target2) {
-    // console.log(obj.value)
-    // var target = document.getElementById(target2)
-    // if (obj.value.length === obj.getAttribute('maxLength')) {
-    //   target.focus()
-    // }
-    // return
-  }
+  // 信用卡自動帶到下一個欄位
 
-  const [paymentType, setPaymentType] = useState('信用卡一次付清')
+  const pan1 = useRef(null)
+  const pan2 = useRef(null)
+  const pan3 = useRef(null)
+  const pan4 = useRef(null)
+  useEffect(() => {
+    //jquery的程式碼需要寫在這裡，確保dom元素已經出現在網頁上
+    if (inputs.pan_no1.length === 4) {
+      $(pan2.current).focus()
+      if (inputs.pan_no2.length === 4) {
+        $(pan3.current).focus()
+        if (inputs.pan_no3.length === 4) {
+          $(pan4.current).focus()
+        }
+      }
+    }
+  }, [inputs.pan_no1, inputs.pan_no2, inputs.pan_no3])
+
+  // 信用卡動畫及翻轉
 
   return (
     <>
@@ -205,6 +221,10 @@ function Cart1Content2(props) {
               <small></small>
               {seletedPaymentType === '信用卡一次付清' && (
                 <>
+                  <div className="hy-creditCard">
+                    <span className="cardpan1">{inputs.pan_no1}</span>
+                  </div>
+                  <small></small>
                   <label htmlFor="creditCardNumber">信用卡卡號</label>
                   <br />
                   <div className="w-100 d-flex jusitfy-content-between align-items-center text-center">
@@ -214,9 +234,9 @@ function Cart1Content2(props) {
                       name="pan_no1"
                       size="4"
                       maxLength="4"
-                      // onKeyUp="setBlur(this,'pan_no2');"
                       value={inputs.pan_no1}
                       onChange={onChangeForField('pan_no1')}
+                      ref={pan1}
                     />
                     <span className="hy-w-6">-</span>
                     <input
@@ -227,6 +247,7 @@ function Cart1Content2(props) {
                       maxLength="4"
                       value={inputs.pan_no2}
                       onChange={onChangeForField('pan_no2')}
+                      ref={pan2}
                     />
                     <span className="hy-w-6">-</span>
 
@@ -238,6 +259,7 @@ function Cart1Content2(props) {
                       maxLength="4"
                       value={inputs.pan_no3}
                       onChange={onChangeForField('pan_no3')}
+                      ref={pan3}
                     />
                     <span className="hy-w-6">-</span>
 
@@ -249,6 +271,7 @@ function Cart1Content2(props) {
                       maxLength="4"
                       value={inputs.pan_no4}
                       onChange={onChangeForField('pan_no4')}
+                      ref={pan4}
                     />
 
                     <small></small>
@@ -309,6 +332,8 @@ function Cart1Content2(props) {
                     type="text"
                     name="creditCardBack"
                     id="creditCardBack"
+                    size="3"
+                    maxLength="3"
                     value={inputs.creditCardBack}
                     onChange={onChangeForField('creditCardBack')}
                   />
