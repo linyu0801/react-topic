@@ -77,7 +77,7 @@ function MainProductDetail(props) {
     })
 
     FetchData()
-  }, [])
+  }, [props.match.params.id]) //componentDidMount+componentDidUpdate：原先空白時，MainProductDetail元件只會載入一次，當此頁面中有其它元件要再變化時，就需要寫[props.match.params.id]，來重新componentDidUpdate，畫面才會變動
 
   const [total, setTotal] = useState(1)
 

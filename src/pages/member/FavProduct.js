@@ -11,21 +11,15 @@ function FavProduct(props) {
   const mid = sessionStorage.getItem('mid')
 
   const [rows, setRows] = useState([])
-  const [display, setDisplay] = useState('')
+  // const [display, setDisplay] = useState('')
   const [none, setNone] = useState(false)
-  // const [favindex, setFavIndex] = useState(0)
-  // const [nowindex, setNowIndex] = useState(0)
-
+  const [nowindex, setNowIndex] = useState(0)
   const deletefavproduct = async (p_sid, i, fl) => {
-    // console.log('click nowindex', nowindex)
-    // if (nowindex === 0) {
-    //   setNowIndex(fl - 1)
-    // }
-    // if (nowindex !== 0) {
-    //   setNowIndex(nowindex - 1)
-    // }
+    console.log('nowindex-click', nowindex)
+    setNowIndex(nowindex - 1)
+    // console.log('nowindex', nowindex)
     $(`#pid${p_sid}`).addClass('zoomout')
-    $(`#pid${p_sid}`).removeClass(`zoomer delay-${i * 3}`)
+    $(`#pid${p_sid}`).removeClass(`zoomer delay-${i * 2}`)
     setTimeout(() => {
       $(`#pid${p_sid}`).hide()
     }, 900)
@@ -41,11 +35,7 @@ function FavProduct(props) {
     const response = await fetch(request)
     const data = await response.json()
     console.log('刪除', data)
-    // if (data.code === 1) {
-    //   FetchData()
-    // }
   }
-
   const FetchData = async () => {
     const url = 'http://localhost:4000/getfavproduct'
     const request = new Request(url, {
@@ -61,7 +51,7 @@ function FavProduct(props) {
     console.log('伺服器回傳', data)
     if (data.fav !== 'none') {
       setRows(data)
-      // setNowIndex(data.length)
+      setNowIndex(data.length)
     } else {
       setNone(true)
     }
@@ -128,70 +118,67 @@ function FavProduct(props) {
   useEffect(() => {
     FetchData()
   }, [])
-  useEffect(() => {
-    let productDisplay = (
-      <>
-        {rows.map((value, i) => (
-          <div
-            key={i}
-            className={`col-xl-4 col-lg-5 col-md-6 zoomer delay-${i * 3}`}
-            id={`pid${value.p_sid}`}
-          >
-            {/* {value.p_name} */}
-            <div className="product  fish-card w-100 position-relative">
-              <div className="fish-img-box w-100">
-                {/* <Link to="#123"> */}
-                <i>
-                  <FaRegTimesCircle
-                    onClick={() => {
-                      deletefavproduct(value.p_sid, i, rows.length)
-                    }}
-                  />
-                </i>
-                {/* </Link> */}
-                <Link to="#456">
-                  <img
-                    src={`http://localhost:3000/k-images/` + value.p_img}
-                    className="fish-product-img"
-                    alt={`cake` + value.p_img}
-                  />
-                </Link>
-              </div>
-              <div className="fish-card-body w-100">
-                <h5 className="fish-card-title">{value.p_name}</h5>
-                <p className="fish-card-text">{value.p_desc}</p>
-                <hr className="fish-product-hr" />
-                <div className="fish-product-price mb-1">{value.p_price}</div>
-                <button
-                  className="addToCartBtn"
+  let display = (
+    <>
+      {rows.map((value, i) => (
+        <div
+          key={i}
+          className={`col-xl-4 col-lg-5 col-md-6 zoomer delay-${i * 2}`}
+          id={`pid${value.p_sid}`}
+        >
+          <div className="product  fish-card w-100 position-relative">
+            <div className="fish-img-box w-100">
+              <i>
+                <FaRegTimesCircle
                   onClick={() => {
-                    addToCart(value.p_sid)
+                    deletefavproduct(value.p_sid, i, rows.length)
                   }}
-                >
-                  加入購物車
-                </button>
-              </div>
+                />
+              </i>
+              <Link to="#">
+                <img
+                  src={`http://localhost:3000/k-images/` + value.p_img}
+                  className="fish-product-img"
+                  alt={`cake` + value.p_img}
+                />
+              </Link>
+            </div>
+            <div className="fish-card-body w-100">
+              <h5 className="fish-card-title">{value.p_name}</h5>
+              <p className="fish-card-text">{value.p_desc}</p>
+              <hr className="fish-product-hr" />
+              <div className="fish-product-price mb-1">{value.p_price}</div>
+              <button
+                className="addToCartBtn"
+                onClick={() => {
+                  addToCart(value.p_sid)
+                }}
+              >
+                加入購物車
+              </button>
             </div>
           </div>
-        ))}
-      </>
-    )
-    setDisplay(productDisplay)
-    //   // let favlen = rows.length
-    //   // setFavIndex(favlen)
-    //   // rows.fav === 'none' ? console.log('123456') :
-  }, [rows])
-  // useEffect(() => {
-  //   console.log('nowindex變化 :', nowindex)
-  // }, [nowindex])
+        </div>
+      ))}
+    </>
+  )
+
+  useEffect(() => {
+    if (nowindex === 0) {
+      setNone(true)
+    } else {
+      setNone(false)
+    }
+    console.log('nowindex變化 :', nowindex)
+  }, [nowindex])
+
   const NoneDisPlay = (
     <>
-      <div className="d-flex">
-        {' '}
-        <div className="d-flex  ">
-          <img src="/images/icons-column.png" alt="" className="mr-5" />{' '}
+      <div className="d-flex zoomer delay-3">
+        <div className="d-flex   ">
+          <img src="/images/icons-column.png" alt="" className="mr-5 favimg" />
         </div>
-        <h3 className="fav-nontext  ">尚未收藏商品</h3>
+        <h3 className="fav-nontext"> 尚未收藏商品</h3>
       </div>
     </>
   )
