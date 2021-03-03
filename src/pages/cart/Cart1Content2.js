@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { FcSimCardChip } from 'react-icons/fc'
 import $ from 'jquery'
 
 function Cart1Content2(props) {
@@ -22,6 +23,17 @@ function Cart1Content2(props) {
   // 訂購人與收貨人相同
   const [equal, setEqual] = useState(false)
 
+  // 信用卡翻轉
+  const [isFlip, setIsFlip] = useState(false)
+
+  // 信用卡focus
+  // const [focusSection, setFocusSection] = useState('')
+  // const [focusBoxStyle, setFocusBoxStyle] = useState({
+  //   width: '100%',
+  //   height: '100%',
+  //   transform: 'null',
+  // })
+
   useEffect(() => {
     equal === true
       ? setInputs({
@@ -37,11 +49,19 @@ function Cart1Content2(props) {
   }, [inputs])
 
   // 信用卡自動帶到下一個欄位
+  // 信用卡focus
 
+  const pannum = useRef(null)
   const pan1 = useRef(null)
   const pan2 = useRef(null)
   const pan3 = useRef(null)
   const pan4 = useRef(null)
+  const CVC = useRef(null)
+  const expireMonth = useRef(null)
+  const expireYear = useRef(null)
+  const cardFlip = useRef(null)
+
+  // 信用卡填完自動跳到下一個
   useEffect(() => {
     //jquery的程式碼需要寫在這裡，確保dom元素已經出現在網頁上
     if (inputs.pan_no1.length === 4) {
@@ -55,8 +75,34 @@ function Cart1Content2(props) {
     }
   }, [inputs.pan_no1, inputs.pan_no2, inputs.pan_no3])
 
-  // 信用卡動畫及翻轉
+  // 信用卡翻轉
+  useEffect(() => {
+    $(CVC.current).focus(function () {
+      setIsFlip(true)
+      console.log('focus:', isFlip)
+    })
+    $(CVC.current).blur(function () {
+      setIsFlip(false)
+      console.log('blur:', isFlip)
+    })
+  }, [])
 
+  // 信用卡focus
+  // useEffect(() => {
+  //   if (focusSection === 'pannum') {
+  //     // const target = $(pannum.current)
+  //     setFocusBoxStyle({
+  //       // width: `${target.offsetWidth}px`,
+  //       width: $(pannum.current).offsetWidth + `px`,
+  //       // height: `${target.offsetHeight}px`,
+  //       height: $(pannum.current).offsetHeight + `px`,
+  //       // transform: `translate(${target.offsetLeft}px, ${target.offsetTop}px)`,
+  //       transform: `translate(${$(pannum.current).offsetLeft}px, ${
+  //         $(pannum.current).offsetTop
+  //       }px)`,
+  //     })
+  //   }
+  // }, [focusSection])
   return (
     <>
       <div className="row">
@@ -221,13 +267,12 @@ function Cart1Content2(props) {
               <small></small>
               {seletedPaymentType === '信用卡一次付清' && (
                 <>
-                  <div className="hy-creditCard">
-                    <span className="cardpan1">{inputs.pan_no1}</span>
-                  </div>
-                  <small></small>
                   <label htmlFor="creditCardNumber">信用卡卡號</label>
                   <br />
-                  <div className="w-100 d-flex jusitfy-content-between align-items-center text-center">
+                  <div
+                    className="w-100 d-flex jusitfy-content-between align-items-center text-center"
+                    ref={pannum}
+                  >
                     <input
                       className="pub-input"
                       type="text"
@@ -236,6 +281,9 @@ function Cart1Content2(props) {
                       maxLength="4"
                       value={inputs.pan_no1}
                       onChange={onChangeForField('pan_no1')}
+                      onClick={() => {
+                        // setFocusSection('pannum')
+                      }}
                       ref={pan1}
                     />
                     <span className="hy-w-6">-</span>
@@ -336,8 +384,89 @@ function Cart1Content2(props) {
                     maxLength="3"
                     value={inputs.creditCardBack}
                     onChange={onChangeForField('creditCardBack')}
+                    ref={CVC}
                   />
                   <small></small>
+                  <div className="hy-scene">
+                    <div
+                      className={`hy-flipcard  ${isFlip ? 'is-flipped' : ''}`}
+                      // className={`hy-flipcard  ${isFlip && `is-flipped`}`}
+                      ref={cardFlip}
+                    >
+                      {/* <div
+                        className={`card__focus-box ${
+                          !!focusSection && `card__focus-box--active`
+                        }`}
+                        style={focusBoxStyle}
+                      /> */}
+                      <div
+                        className="hy-creditCard hy-card-front card__face"
+                        onClick={() => setIsFlip(!isFlip)}
+                      >
+                        <div className="d-flex justify-content-between">
+                          <FcSimCardChip className="hy-chip" />
+                          <div className="card__visa-icon">
+                            <img src="https://i.imgur.com/lokBLnp.png" alt="" />
+                          </div>
+                        </div>
+
+                        <div className="hy-pannum d-flex justify-content-between">
+                          <span className="hy-cardpan">
+                            {inputs.pan_no1 ? inputs.pan_no1 : '####'}
+                          </span>
+                          <span className="hy-cardpan">
+                            {inputs.pan_no2 ? inputs.pan_no2 : '####'}
+                          </span>
+                          <span className="hy-cardpan">
+                            {inputs.pan_no3 ? inputs.pan_no3 : '####'}
+                          </span>
+                          <span className="hy-cardpan">
+                            {inputs.pan_no4 ? inputs.pan_no4 : '####'}
+                          </span>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </div>
+
+                        <div className="expiredate d-flex justify-content-between">
+                          <div className="hy-cardName">
+                            <p className="hy-valid"> Card Holder</p>
+                            <span className="hy-cardpan">持卡人</span>
+                          </div>
+                          <div className="hy-valid">
+                            <p className="hy-valid text-right"> valid thru</p>
+                            <span className="hy-cardpan">
+                              {seletedOptionCardMonth && seletedOptionCardYear
+                                ? seletedOptionCardMonth +
+                                  `/` +
+                                  seletedOptionCardYear
+                                : '####'}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        className="hy-creditCard hy-card-back card__face card__face--back"
+                        onClick={() => setIsFlip(!isFlip)}
+                      >
+                        <div className="hy-card-back-bar1"></div>
+
+                        <div className="hy-card-cvc text-right mb-1">
+                          <span className="hy-cardpan ">
+                            {inputs.creditCardBack
+                              ? inputs.creditCardBack
+                              : 'CVC'}
+                          </span>
+                        </div>
+                        <div className="hy-card-signature mb-3">
+                          Your Signature
+                        </div>
+                        <div className="d-flex justify-content-end">
+                          <div className="card__visa-icon">
+                            <img src="https://i.imgur.com/lokBLnp.png" alt="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </>
               )}
               {seletedPaymentType === 'ATM轉帳' && (
