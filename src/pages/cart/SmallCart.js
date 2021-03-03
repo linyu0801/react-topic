@@ -204,6 +204,7 @@ function SmallCart(props) {
         $('.hy-outerSC').hide()
       } else {
         // $('.hy-outerSC').animate({ display: 'block' })
+        $('.hy-outerSC').show()
         $('.hy-outerSC').css({ top: 90 + scrollNow })
       }
       // }
