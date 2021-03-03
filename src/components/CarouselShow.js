@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 
 function CarouselShow() {
   const [product, setProduct] = useState([])
-  const history = useHistory()
   useEffect(() => {
     const FetchData = async () => {
       const url = 'http://localhost:4000/mainproductcate' //讀取寫在node中的app.get('/mainproduct')
@@ -28,9 +27,10 @@ function CarouselShow() {
   return (
     <>
       <div className="container">
-        <Carousel itemsToScroll={3} itemsToShow={3} pagination={false}>
+        <Carousel itemsToShow={3} pagination={false} showEmptySlots>
+          {/* 原本沒有showEmptySlots時會出現破圖無法輪播，猜測原因是50/3除不盡，故加上showEmptySlots後就解決了 */}
           {product.map((v, i) => (
-            <div class="box" key={i}>
+            <div className="box" key={i}>
               <div className="img-box">
                 <Link to={`/mainproductdetail/products/` + v.p_sid}>
                   <img
