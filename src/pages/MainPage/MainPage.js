@@ -34,7 +34,7 @@ function MainPage() {
         <div className="maherosection">
           <h5 className="masubtitle">甜蜜的幸福滋味</h5>
           <h2 className="matitle">紅酒醋栗黑森林</h2>
-          <div className="letsbuy">buy it now</div>
+          <div className="letsbuy">立即購買</div>
         </div>
       </div>
       <div className="mablock mablockinner">
@@ -56,7 +56,7 @@ function MainPage() {
             <h2 className="lemoncaketitle">期間限定</h2>
             <hr className="lemonhr" />
             <h4 className="lemoncaketname">
-              玫瑰紅酒蛋糕 <span className="lemoncakeprice"> $350 </span>
+              檸檬白酒蛋糕 <span className="lemoncakeprice"> $350 </span>
             </h4>
             <p>將清新的烏龍茶，融入北海道的中澤鮮奶油中，</p>
             <p>淡淡茶香搭配鬆軟的海綿蛋糕</p>
@@ -97,14 +97,14 @@ function MainPage() {
               src="http://localhost:3000/MainPage/image/popitem.jpeg"
             />
           </div>
-          <div className="co1-4 popitem1">
+          <div className="co1-4 popitem1 ">
             <img
               className="popitemimg"
               src="http://localhost:3000/MainPage/image/popitem2.jpeg
         "
             />
           </div>
-          <div className="co1-4 popitem1">
+          <div className="co1-4 popitem1 ">
             <img
               className="popitemimg"
               src="http://localhost:3000/MainPage/image/popitem3.jpg"
@@ -118,7 +118,7 @@ function MainPage() {
 
         <img
           className="card-img-top"
-          src="http://localhost:3000/MainPage/image/popitem.jpg"
+          src="http://localhost:3000/MainPage/image/popitem3.jpg"
           alt="Card image cap"
         />
         <div className="card-body">
@@ -147,15 +147,13 @@ function MainPage() {
           <div className="trybrown col-lg-6  col-sm-12">
             <h2 className="trytitle">鑑賞試吃</h2>
             <p className="trycontent">
-              將清新的烏龍茶，融入北海道的中澤鮮奶油中，
-              淡淡茶香搭配鬆軟的海綿蛋糕， 加上雙層焦糖腰果，豐富了味蕾，
-              最後淋上海鹽奶油霜，沉穩而趣味的搭配。{' '}
+              曾經被櫥窗裡的美麗甜點誘惑過的人，大概沒有不好奇它們是怎麼做出來的。{' '}
             </p>
             <p className="trycontent">
-              將清新的烏龍茶，融入北海道的中澤鮮奶油中，
-              淡淡茶香搭配鬆軟的海綿蛋糕， 加上雙層焦糖腰果，豐富了味蕾，
-              淡淡茶香搭配鬆軟的海綿蛋糕， 加上雙層焦糖腰果，豐富了味蕾，
-              最後淋上海鹽奶油霜，沉穩而趣味的搭配。
+              甜點製作是一門藝術，而藝術品從來不是只有吃下肚一途，
+              在那之前藉著了解它的製作過程與細節，在品嘗時能更領略甜點師的用心、也更有樂趣。
+              醉糕品味，提供消費者從吃甜點進階到甜點鑑賞，希望能和更多朋友分享甜點藝術的奧妙。
+              帶著誠摯且熱情的心歡迎各位參與這場盛宴。
             </p>
             <div className="gotocat">進入分類</div>
           </div>
@@ -172,16 +170,21 @@ function MainPage() {
             <h4 className="mastudiotitle">烘焙教室｜大安館</h4>
 
             <p className="mastudiocontent">
-              將清新的烏龍茶，融入北海道的中澤鮮奶油中，
-              淡淡茶香搭配鬆軟的海綿蛋糕， 加上雙層焦糖腰果，豐富了味蕾，
-              最後淋上海鹽奶油霜，沉穩而趣味的搭配。
+              我們擁有最時尚、最高級的廚房，
+              <br />
+              讓喜愛製作甜點的你們
+              <br />
+              不用再擔心沒有器具抑或是烤箱不夠熱這種麻煩事!
             </p>
 
             <p className="mastudiocontent">
-              將清新的烏龍茶，融入北海道的中澤鮮奶油中，
-              淡淡茶香搭配鬆軟的海綿蛋糕， 加上雙層焦糖腰果，豐富了味蕾，
-              淡淡茶香搭配鬆軟的海綿蛋糕， 加上雙層焦糖腰果，豐富了味蕾，
-              最後淋上海鹽奶油霜，沉穩而趣味的搭配。
+              Drunked Cake提供最好品質得廚具與設備
+              <br />
+              以及最高級美麗的烘陪教室
+              <br />
+              除了製作甜點外還備有下午茶區域
+              <br />
+              讓顧可以放鬆的享用自己手工製作糕點。
             </p>
 
             <button className="btn maaddstudio">加入購物車</button>
