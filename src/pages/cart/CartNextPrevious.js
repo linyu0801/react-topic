@@ -4,6 +4,8 @@ import { Modal, Button } from 'react-bootstrap'
 import CheckOut from '../../components/CheckOut'
 function CartNextPrevious(props) {
   const {
+    scChange,
+    setScChange,
     form1,
     freightTotal,
     inputs,
@@ -152,6 +154,7 @@ function CartNextPrevious(props) {
                       .then((r) => r.json())
                       .then((obj) => {
                         console.log(obj)
+
                         setCartStep('step3')
                         // if (obj.success) {
                         //   console.log('success')
