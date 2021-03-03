@@ -414,19 +414,16 @@ function Cart1Content2(props) {
                           <span className="hy-cardpan">
                             {inputs.pan_no1 ? inputs.pan_no1 : '####'}
                           </span>
-                          &nbsp;&nbsp;
                           <span className="hy-cardpan">
                             {inputs.pan_no2 ? inputs.pan_no2 : '####'}
                           </span>
-                          &nbsp;&nbsp;
                           <span className="hy-cardpan">
                             {inputs.pan_no3 ? inputs.pan_no3 : '####'}
                           </span>
-                          &nbsp;&nbsp;
                           <span className="hy-cardpan">
                             {inputs.pan_no4 ? inputs.pan_no4 : '####'}
                           </span>
-                          &nbsp;&nbsp;
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </div>
 
                         <div className="expiredate d-flex justify-content-between">
@@ -459,7 +456,9 @@ function Cart1Content2(props) {
                               : 'CVC'}
                           </span>
                         </div>
-                        <div className="hy-card-signature mb-3"></div>
+                        <div className="hy-card-signature mb-3">
+                          Your Signature
+                        </div>
                         <div className="d-flex justify-content-end">
                           <div className="card__visa-icon">
                             <img src="https://i.imgur.com/lokBLnp.png" alt="" />
