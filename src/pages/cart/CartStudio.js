@@ -25,7 +25,7 @@ function CartStudio(props) {
           newPrice += +item.price
         })
         setCartStudioTotal(newPrice)
-        // console.log(newPrice)
+        console.log('cartStudio的個數', res.length)
         // console.log(newQuantity)
       }
     })
@@ -37,66 +37,6 @@ function CartStudio(props) {
     }
     // setTimeout(setDataIsReady(true), 1000)
   }, [])
-
-  async function increaseQty(p_sid) {
-    try {
-      const res = await fetch(
-        'http://localhost:4000/Cart1Content1IncreaseQty',
-        {
-          method: 'POST',
-          body: JSON.stringify({
-            p_sid: p_sid,
-            quantity: 1,
-          }),
-          headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-          },
-        }
-      )
-      fetchCart()
-      // alert('Item increamented')
-    } catch (err) {
-      console.log(err)
-    }
-  }
-  async function deleteItem(p_sid) {
-    try {
-      const res = await fetch('http://localhost:4000/cart1items', {
-        method: 'DELETE',
-        body: JSON.stringify({
-          p_sid: p_sid,
-        }),
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
-      })
-      // console.log(res)
-      fetchCart()
-    } catch (err) {
-      console.log(err)
-    }
-  }
-  async function decreaseQty(p_sid) {
-    try {
-      const res = await fetch(
-        'http://localhost:4000/Cart1Content1IncreaseQty',
-        {
-          method: 'POST',
-          body: JSON.stringify({
-            p_sid: p_sid,
-            quantity: -1,
-          }),
-          headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-          },
-        }
-      )
-      fetchCart()
-      // alert('Item increamented')
-    } catch (err) {
-      console.log(err)
-    }
-  }
 
   return (
     <>
@@ -158,7 +98,7 @@ function CartStudio(props) {
                           <FaRegTimesCircle
                             className="hy-color-gold"
                             onClick={() => {
-                              deleteItem(item.p_sid)
+                              // deleteItem(item.p_sid)
                             }}
                           />
                         </td>
@@ -287,7 +227,7 @@ function CartStudio(props) {
                         <i className="fas fa-minus k-left-icon hy-left-icon">
                           <MdRemove
                             onClick={() => {
-                              decreaseQty(item.p_sid)
+                              // decreaseQty(item.p_sid)
                             }}
                           />
                         </i>
@@ -295,7 +235,7 @@ function CartStudio(props) {
                         <i className="fas fa-plus k-right-icon hy-right-icon">
                           <MdAdd
                             onClick={() => {
-                              increaseQty(item.p_sid)
+                              // increaseQty(item.p_sid)
                             }}
                           />
                         </i>

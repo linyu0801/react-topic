@@ -8,10 +8,7 @@ import { NavLink, withRouter, Link } from 'react-router-dom'
 import '../styles/navbar.scss'
 import $ from 'jquery'
 
-// 載入小車
-import SmallCart from '../pages/cart/SmallCart'
 function MyNavbar(props) {
-  const [smallCartTotal, setSmallCartTotal] = useState(0)
   const [test, setTest] = useState(false)
   async function logout() {
     const url = 'http://localhost:4000/logout'
@@ -23,7 +20,8 @@ function MyNavbar(props) {
     const rows = await response.json()
     if (rows.logout === true) {
       sessionStorage.removeItem('mid')
-
+      setScCartShow(false)
+      setScCartTotal(0)
       props.history.push('/member/login')
     }
   }
@@ -50,10 +48,122 @@ function MyNavbar(props) {
     })
   }, [])
 
+  // 小車車
+
+  const {
+    scCartTotal,
+    setScCartTotal,
+    scChange,
+    setScChange,
+    scCartShow,
+    setScCartShow,
+  } = props
+  const [scCartItems, setScCartItems] = useState([])
+  const [scCartItemsQ, setScCartItemsQ] = useState(0)
+  const [scCartActivity, setScCartActivity] = useState([])
+  const [scCartActivityQ, setScCartActivityQ] = useState(0)
+  const [scCartStudio, setScCartStudio] = useState([])
+  const [scCartStudioQ, setScCartStudioQ] = useState(0)
+  async function fetchCartItems() {
+    const res = await fetch('http://localhost:4000/cart1items', {
+      credentials: 'include',
+    })
+    res.json().then((res) => {
+      if (res.length === 0) {
+        setScCartItems(res)
+      } else {
+        setScCartItems(res)
+        let newQuantity = 0
+        res.map((item, i) => {
+          newQuantity += +item.quantity
+        })
+        console.log('123')
+
+        setScCartItemsQ(newQuantity)
+      }
+    })
+  }
+
+  async function fetchCartActivity() {
+    const res = await fetch('http://localhost:4000/cartActivityItems', {
+      credentials: 'include',
+    })
+    res.json().then((res) => {
+      if (res.length === 0) {
+        setScCartActivity(res)
+      } else {
+        console.log('456')
+
+        setScCartActivity(res)
+        let newQuantity = 0
+        res.map((item, i) => {
+          newQuantity += +item.quantity
+        })
+        setScCartActivityQ(newQuantity)
+      }
+    })
+  }
+
+  async function fetchCartStudio() {
+    const res = await fetch('http://localhost:4000/cartStudioItems', {
+      credentials: 'include',
+    })
+    res.json().then((res) => {
+      if (res.length === 0) {
+      } else {
+        setScCartStudio(res)
+        let newPrice = 0
+        res.map((item, i) => {
+          newPrice += +item.price
+        })
+        setScCartStudioQ(res.length)
+        console.log('789')
+
+        // console.log(newPrice)
+        // console.log(newQuantity)
+      }
+    })
+  }
+
+  // useEffect(() => {
+  //   if (sessionStorage.getItem('mid')) {
+  //     fetchCartItems()
+  //     fetchCartActivity()
+  //     fetchCartStudio()
+  //     console.log('商品:', 1, '活動:', 2, '租借:', 3)
+  //   }
+  // }, [])
+  useEffect(() => {
+    if (sessionStorage.getItem('mid')) {
+      fetchCartItems()
+      fetchCartActivity()
+      fetchCartStudio()
+      console.log('商品:', 4, '活動:', 5, '租借:', 6)
+      let scTotal = scCartItemsQ + scCartActivityQ + scCartStudioQ
+      setScCartTotal(scTotal)
+    }
+  }, [scChange])
+
+  useEffect(() => {
+    let scTotal = scCartItemsQ + scCartActivityQ + scCartStudioQ
+    setScCartTotal(scTotal)
+    // scCartItemsQ, scCartActivityQ, scCartActivityQ
+  }, [scCartItemsQ])
+
+  useEffect(() => {
+    let scTotal = scCartItemsQ + scCartActivityQ + scCartStudioQ
+    setScCartTotal(scTotal)
+  }, [scCartActivityQ])
+
+  useEffect(() => {
+    let scTotal = scCartItemsQ + scCartActivityQ + scCartStudioQ
+    setScCartTotal(scTotal)
+  }, [scCartStudioQ])
+
   return (
     <>
       <Navbar
-        className="  alex-navbarHeight"
+        className="alex-navbarHeight"
         collapseOnSelect
         expand="lg"
         variant="dark"
@@ -221,15 +331,18 @@ function MyNavbar(props) {
               )}
             </NavDropdown>
 
-            <Nav.Link eventKey={2} as={NavLink} to="/cart">
+            <Nav.Link
+              eventKey={2}
+              className="position-relative"
+              onClick={() => {
+                setScCartShow(!scCartShow)
+              }}
+            >
               <FaShoppingCart />
-              {/* <span className="badge badge-pill badge-info cart-count">
-                123
+
+              <span className="badge badge-pill badge-info  hy-cart-count ">
+                {scCartTotal}
               </span>
-              <SmallCart
-                smallCartTotal={smallCartTotal}
-                setSmallCartTotal={setSmallCartTotal}
-              /> */}
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

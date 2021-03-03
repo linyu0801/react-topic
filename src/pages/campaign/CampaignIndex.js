@@ -175,7 +175,7 @@ function CampaignIndex(props) {
       </Container>
       <Container
         fluid
-        className="displayCampaignCardsBox d-none d-sm-block animate__animated animate__slideInRight animate__slow"
+        className="displayCampaignCardsBox d-none d-sm-block animate__animated animate__slideInRight"
       >
         <Row>
           <Col lg={1} xs={8}></Col>
@@ -203,7 +203,7 @@ function CampaignIndex(props) {
           >
             <Col lg={2}></Col>
             <Col lg={5} className="tastingContent animate__animated ">
-              <h2 className="tastingTitle mb-4">甜點鑑賞</h2>
+              <h2 className="tastingTitle mb-4">品味鑑賞</h2>
               <p className="tastingText">
                 曾經被櫥窗裡的美麗甜點誘惑過的人，大概沒有不好奇它們是怎麼做出來的。
                 <br />

@@ -21,6 +21,7 @@ import Scrollspy from 'react-scrollspy'
 import DisplayCampaignCards from '../../components/DisplayCampaignCards'
 
 function CampaignProductsInfo(props) {
+  const { scChange, setScChange } = props
   const [campaignProduct, setCampaignProduct] = useState([])
   const [data, setData] = useState([])
   const [carouselImg, setCarouselImg] = useState([])
@@ -74,6 +75,7 @@ function CampaignProductsInfo(props) {
     if (cartresult === 'error') {
       alert('Something Went Wrong')
     } else {
+      setScChange(scChange + 1)
       handleShow()
     }
   }

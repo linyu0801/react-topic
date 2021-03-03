@@ -67,10 +67,31 @@ function App() {
     categoryBtn4: true,
   })
 
+  // 小購物車
+  const [scChange, setScChange] = useState(0)
+  const [scCartTotal, setScCartTotal] = useState(0)
+  const [scCartShow, setScCartShow] = useState(false)
+
   return (
     <Router>
       <>
-        <MyNavbar />
+        <MyNavbar
+          scCartTotal={scCartTotal}
+          setScCartTotal={setScCartTotal}
+          scCartShow={scCartShow}
+          setScCartShow={setScCartShow}
+          scChange={scChange}
+          setScChange={setScChange}
+        />
+        <SmallCart
+          scChange={scChange}
+          setScChange={setScChange}
+          scCartShow={scCartShow}
+          setScCartShow={setScCartShow}
+          scCartTotal={scCartTotal}
+          setScCartTotal={setScCartTotal}
+        />
+
         <MainContent>
           <Height />
           <ScrollToTop>
@@ -85,10 +106,16 @@ function App() {
                 <MainProduct />
               </Route>
               <Route path="/mainproductdetail/products/:id?">
-                <MainProductDetail />
+                <MainProductDetail
+                  scChange={scChange}
+                  setScChange={setScChange}
+                />
               </Route>
               <Route path="/campaign/products/:id">
-                <CampaignProductInfo />
+                <CampaignProductInfo
+                  scChange={scChange}
+                  setScChange={setScChange}
+                />
               </Route>
               <Route path="/campaign/searchProducts">
                 <CampaignProducts
@@ -113,7 +140,7 @@ function App() {
                 <Mpassword />
               </Route>
               <Route path="/member/login">
-                <Login />
+                <Login scChange={scChange} setScChange={setScChange} />
               </Route>
               <Route path="/member/forget">
                 <Forget />
@@ -140,11 +167,9 @@ function App() {
                 <OrderDetail />
               </Route>
               <Route path="/cart">
-                <Cart />
+                <Cart scChange={scChange} setScChange={setScChange} />
               </Route>
-              <Route path="/smallcart">
-                <SmallCart />
-              </Route>
+
               <Route path="/StudioRent/StudioOrder">
                 <StudioOrder
                   textInput={textInput}
@@ -152,7 +177,11 @@ function App() {
                 />
               </Route>
               <Route path="/StudioRent/StudioIntro1">
-                <StudioIntro1 textInput={textInput} />
+                <StudioIntro1
+                  textInput={textInput}
+                  scChange={scChange}
+                  setScChange={setScChange}
+                />
               </Route>
               <Route path="/StudioRent/StudioIntro2">
                 <StudioIntro2 textInput={textInput} />

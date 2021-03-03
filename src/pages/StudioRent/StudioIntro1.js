@@ -15,6 +15,7 @@ function StudioIntro1(props) {
   // function handleClick(e) {
   //   e.preventDefault()
   // }
+  const { scChange, setScChange } = props
   const mid = sessionStorage.getItem('mid')
   const addToCartStudio = async (studio_id, date, time_period, price) => {
     const response = await fetch('http://localhost:4000/AddToCartStudio', {
@@ -35,6 +36,7 @@ function StudioIntro1(props) {
     if (cartresult === 'error') {
       alert('error')
     } else {
+      setScChange(scChange + 1)
       handleShow()
     }
   }
