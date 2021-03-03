@@ -182,6 +182,7 @@ function CampaignIndex(props) {
           <Col lg={10} xs={8}>
             <DisplayCampaignCardsIndex />
           </Col>
+          <Col lg={1} xs={8}></Col>
         </Row>
       </Container>
 
