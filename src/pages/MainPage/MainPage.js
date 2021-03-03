@@ -34,7 +34,7 @@ function MainPage() {
         <div className="maherosection">
           <h5 className="masubtitle">甜蜜的幸福滋味</h5>
           <h2 className="matitle">紅酒醋栗黑森林</h2>
-          <div className="letsbuy">buy it now</div>
+          <div className="letsbuy">立即購買</div>
         </div>
       </div>
       <div className="mablock mablockinner">
@@ -97,14 +97,14 @@ function MainPage() {
               src="http://localhost:3000/MainPage/image/popitem.jpeg"
             />
           </div>
-          <div className="co1-4 popitem1">
+          <div className="co1-4 popitem1 ">
             <img
               className="popitemimg"
               src="http://localhost:3000/MainPage/image/popitem2.jpeg
         "
             />
           </div>
-          <div className="co1-4 popitem1">
+          <div className="co1-4 popitem1 ">
             <img
               className="popitemimg"
               src="http://localhost:3000/MainPage/image/popitem3.jpg"
@@ -118,7 +118,7 @@ function MainPage() {
 
         <img
           className="card-img-top"
-          src="http://localhost:3000/MainPage/image/popitem.jpg"
+          src="http://localhost:3000/MainPage/image/popitem3.jpg"
           alt="Card image cap"
         />
         <div className="card-body">
