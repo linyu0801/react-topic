@@ -2,6 +2,12 @@
   outline: 1px red solid;
 } */
 
+span.hy-cart-count {
+  background-color: #d67b76;
+  position: absolute;
+  top: 0;
+}
+
 .hy-card__background {
   max-width: 430px;
   width: 100%;
@@ -22,14 +28,14 @@
   width: 283px;
   overflow: hidden;
   position: absolute;
-  top: 92px;
+  top: 90px;
   right: 3%;
   z-index: 10;
 }
 .hy-SmallCart {
   padding: 15px;
   width: 300px;
-  height: 200px;
+  max-height: 400px;
   overflow-y: scroll;
   background-color: #250404;
   color: #bebebe;

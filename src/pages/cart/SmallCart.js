@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
+import $ from 'jquery'
 
 function SmallCart(props) {
   const {
@@ -25,7 +26,6 @@ function SmallCart(props) {
         console.log('這是空的小購物車', res)
         setScCartItems(res)
       } else {
-        console.log('實體商品的有進來嗎', res)
         setScCartItems(res)
         let newQuantity = 0
         res.map((item, i) => {
@@ -44,7 +44,6 @@ function SmallCart(props) {
       if (res.length === 0) {
         setScCartActivity(res)
       } else {
-        console.log('活動的購物車的有進來嗎', res)
         setScCartActivity(res)
         let newQuantity = 0
         res.map((item, i) => {
@@ -63,7 +62,6 @@ function SmallCart(props) {
       if (res.length === 0) {
         console.log('這是空的購物車', res)
       } else {
-        console.log('購物車的有進來嗎', res)
         setScCartStudio(res)
         let newPrice = 0
         res.map((item, i) => {
@@ -133,7 +131,7 @@ function SmallCart(props) {
             </>
           ))}
         </div>
-        <p>體驗</p>
+        <h6>體驗</h6>
         <div className="hy-activity mb-4">
           {scCartActivity.map((item, i) => (
             <>
@@ -155,7 +153,7 @@ function SmallCart(props) {
             </>
           ))}
         </div>
-        <p>場地租借</p>
+        <h6>場地租借</h6>
         <div className="hy-studio mb-4">
           {scCartStudio.map((item, i) => (
             <>
@@ -191,6 +189,31 @@ function SmallCart(props) {
       </div>
     </div>
   )
+
+  useEffect(() => {
+    let last = 0
+    $(window).scroll(function () {
+      let scrollNow = $(this).scrollTop()
+      // if ($(window).scrollTop() >= 0) {
+      //   $('.navbar').removeClass('hide')
+      // }
+      // if ($(window).scrollTop() >= 1) {
+      // $('.navbar').addClass('nav-position ')
+
+      if (scrollNow > last) {
+        $('.hy-outerSC').hide()
+      } else {
+        // $('.hy-outerSC').animate({ display: 'block' })
+        $('.hy-outerSC').css({ top: 90 + scrollNow })
+      }
+      // }
+      // else {
+      //   $('.navbar').removeClass('nav-position')
+      // }
+
+      last = scrollNow
+    })
+  }, [])
 
   return <>{sessionStorage.getItem('mid') !== null && smallCartDisplay}</>
 }

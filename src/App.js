@@ -80,6 +80,8 @@ function App() {
           setScCartTotal={setScCartTotal}
           scCartShow={scCartShow}
           setScCartShow={setScCartShow}
+          scChange={scChange}
+          setScChange={setScChange}
         />
         <SmallCart
           scChange={scChange}
@@ -138,7 +140,7 @@ function App() {
                 <Mpassword />
               </Route>
               <Route path="/member/login">
-                <Login />
+                <Login scChange={scChange} setScChange={setScChange} />
               </Route>
               <Route path="/member/forget">
                 <Forget />

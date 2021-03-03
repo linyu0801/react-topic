@@ -7,6 +7,9 @@ function Login(props) {
   const [account, setAccount] = useState('')
   const [password, setPassword] = useState('')
 
+  // 小車車
+  const { scChange, setScChange } = props
+
   async function LoginToSever() {
     $('#account').next().text('')
     $('#password').next().text('')
@@ -27,8 +30,10 @@ function Login(props) {
     const data = await response.json()
     console.log('伺服器回傳的json資料', data)
     if (data.success === true) {
+      // 小車車
       sessionStorage.setItem('mid', data.token)
       props.history.push('/')
+      setScChange(scChange + 1)
     }
     if (data.code === 0) {
       $('#account').next().text('帳號錯誤或不存在')
