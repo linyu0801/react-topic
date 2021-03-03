@@ -24,18 +24,64 @@ span.hy-cart-count {
   }
 }
 
+.hy-hide {
+  display: none;
+  // transform: translateY(-100px);
+
+  // fish的
+  -webkit-animation-name: hy-hide;
+  animation-name: hy-hide;
+  transition: transform 0.2s;
+  -webkit-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+// fish的
+
+@keyframes hy-hide {
+  0% {
+    top: 90px;
+  }
+
+  100% {
+    top: -10px;
+  }
+}
+
+// .hy-show {
+//   display: block;
+// }
+.hyanimate {
+  -webkit-animation-name: hyanimate;
+  animation-name: hyanimate;
+  transition: transform 0.2s;
+  -webkit-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@keyframes hyanimate {
+  0% {
+    top: -10px;
+  }
+
+  100% {
+    top: 90px;
+  }
+}
 .hy-outerSC {
-  width: 283px;
+  width: 335px;
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   top: 90px;
   right: 3%;
   z-index: 10;
 }
 .hy-SmallCart {
   padding: 15px;
-  width: 300px;
-  max-height: 400px;
+  width: 350px;
+  max-height: 80vh;
   overflow-y: scroll;
   background-color: #250404;
   color: #bebebe;
