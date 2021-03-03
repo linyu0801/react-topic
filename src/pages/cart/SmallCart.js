@@ -201,10 +201,14 @@ function SmallCart(props) {
       // $('.navbar').addClass('nav-position ')
 
       if (scrollNow > last) {
-        $('.hy-outerSC').hide()
+        $('.hy-outerSC').addClass('hy-hide')
+        $('.hy-outerSC').removeClass('hyanimate')
       } else {
-        // $('.hy-outerSC').animate({ display: 'block' })
-        $('.hy-outerSC').css({ top: 90 + scrollNow })
+        $('.hy-outerSC').removeClass('hy-hide')
+        $('.hy-outerSC').addClass('hyanimate')
+
+        // $('.hy-outerSC').show()
+        // $('.hy-outerSC').css({ top: 90 + scrollNow })
       }
       // }
       // else {
