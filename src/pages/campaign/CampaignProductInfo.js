@@ -3,7 +3,7 @@ import '../../styles/campaignIndex.scss'
 import '../../styles/campaignProducts.scss'
 import '../../styles/campaignProductInfo.scss'
 import '../../styles/font.scss'
-import { Carousel, Container, Modal, Button } from 'react-bootstrap'
+import { Carousel, Container, Modal, Button, Row, Col } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faMapMarkerAlt,
@@ -138,6 +138,61 @@ function CampaignProductsInfo(props) {
     })
   }, [])
 
+  const cardInfo = (
+    <>
+      <div className="SOP">
+        <div className="spot"></div>
+        <p className="porductContentTextSOP">
+          醉糕品味致力打造繁華都市中的綠州，提供一系列主題下午茶
+        </p>
+        <div className="spot"></div>
+        <p className="porductContentTextSOP">
+          「夢幻之願」下午茶– 帶你進入人間仙境
+        </p>
+        <div className="spot"></div>
+        <p className="porductContentTextSOP">
+          醉糕品味為你準備了五花八門的鹹點
+        </p>
+        <div className="spot"></div>
+        <p className="porductContentTextSOP">接著就是各式精美的甜點了</p>
+        <div className="spot"></div>
+        <p className="porductContentTextSOP">
+          「飄雪樂園」下午茶，為客人帶來獨特的五感享受
+        </p>
+        <div className="spot"></div>
+        <p className="porductContentTextSOP">
+          夢幻甜美的雲雨茶伴以即製的有機棉花糖。飲用時先讓如雲一般的有機棉花糖輕輕地融化
+        </p>
+        <div className="spot"></div>
+        <p className="porductContentTextSOP">
+          「極雪祝福 」下午茶以北極熊和雪地為主題，營造濃濃的冬天氣氛
+        </p>
+        <div className="spot"></div>
+        <p className="porductContentTextSOP">
+          伴以白熊棉花糖的雲呢拿杯子蛋糕，可愛賣相打卡一流
+        </p>
+        <div className="spot"></div>
+        <p className="porductContentTextSOP">
+          英國傳統甜點─百果餡餅，內裡是甜甜的果乾醬，進食時猶如置身外國過節
+        </p>
+        <div className="spot"></div>
+        <p className="porductContentTextSOP">
+          英國傳統甜點─百果餡餅，內裡是甜甜的果乾醬，進食時猶如置身外國過節
+        </p>
+        <div className="spot"></div>
+        <p className="porductContentTextSOP">
+          客人預訂「極雪祝福
+          」下午茶時出示捐款予與野生動物保育有關慈善機構的收據，可獲得北極熊公仔乙隻
+          ，數量有限，送完即止
+        </p>
+        <div className="spot"></div>
+        <p className="porductContentTextSOP">
+          醉糕品味將準備「魔法薰香」，每張「魔法卡」均介紹一種香薰精油及其療效
+        </p>
+      </div>
+    </>
+  )
+
   return (
     <>
       {messageModal}
@@ -233,6 +288,15 @@ function CampaignProductsInfo(props) {
                 <div className="porductContent">
                   <h4 id="list-item-1">商品說明</h4>
                   <p className="porductContentText">{v.content}</p>
+                  {v.sid === 11 ? (
+                    <>
+                      <h4 id="list-item-2">行程介紹</h4>
+                      {cardInfo}
+                    </>
+                  ) : (
+                    ''
+                  )}
+
                   <h4 id="list-item-3">購買須知</h4>
                   <p className="noticed porductContentText">・{v.notice}</p>
                   <h4>體驗地點</h4>
@@ -341,7 +405,18 @@ function CampaignProductsInfo(props) {
                         商品說明
                       </a>
                     </li>
-
+                    {v.sid === 11 ? (
+                      <li>
+                        <a
+                          className="porductContentListItem list-group-item list-group-item-action"
+                          href="#list-item-2"
+                        >
+                          行程介紹
+                        </a>
+                      </li>
+                    ) : (
+                      ''
+                    )}
                     <li>
                       <a
                         className="porductContentListItem list-group-item list-group-item-action"

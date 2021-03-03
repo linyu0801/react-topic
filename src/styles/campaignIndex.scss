@@ -139,12 +139,13 @@ button:focus {
   text-align: center;
 }
 
-.searchTitle p {
+.searchTitle > p {
   color: white;
   font-weight: lighter;
 }
 
 .searchTitleText {
+  font-weight: bold;
   font-size: 48px;
 }
 
