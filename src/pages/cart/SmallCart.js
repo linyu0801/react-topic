@@ -75,9 +75,11 @@ function SmallCart(props) {
   }
 
   useEffect(() => {
-    fetchCartItems()
-    fetchCartActivity()
-    fetchCartStudio()
+    if (sessionStorage.getItem('mid')) {
+      fetchCartItems()
+      fetchCartActivity()
+      fetchCartStudio()
+    }
   }, [scChange])
 
   useEffect(() => {
