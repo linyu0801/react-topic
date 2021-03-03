@@ -2,6 +2,121 @@
   outline: 1px red solid;
 } */
 
+// 信用卡foucs
+.card__focus-box {
+  position: absolute;
+  border: 2px solid rgba(255, 255, 255, 0.65);
+  border-radius: 5px;
+  z-index: 2;
+  transition: all 0.35s cubic-bezier(0.71, 0.03, 0.56, 0.85);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+
+  // --active {
+  //   opacity: 1;
+  // }
+}
+
+.card__focus-box--active {
+  opacity: 1;
+}
+
+// 信用卡翻轉
+.hy-scene {
+  width: 350px;
+  height: 200px;
+  perspective: 600px;
+  margin: 0 auto;
+}
+
+.hy-flipcard {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.hy-flipcard.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  // line-height: 260px;
+  // color: white;
+  // text-align: center;
+  // font-weight: bold;
+  // font-size: 40px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.card__face--back {
+  transform: rotateY(180deg);
+}
+
+// 信用卡樣式修正
+.hy-creditCard {
+  width: 350px;
+  height: 200px;
+  padding: 20px 25px 20px 25px;
+  background: linear-gradient(rgba(6, 2, 29, 0.45), rgba(6, 2, 29, 0.45)),
+    url(https://i.imgur.com/5XHCjPT.jpg) center center no-repeat;
+  background-size: cover;
+  // background-position: 100% 50%;
+  box-shadow: 0 20px 60px 0 rgba(14, 42, 90, 0.55);
+  border-radius: 15px;
+  margin: 0 auto;
+  color: #bebebe;
+  .hy-pannum {
+    margin-bottom: 10px;
+  }
+  span {
+    color: #bebebe;
+  }
+  .hy-chip {
+    font-size: 50px;
+    margin-bottom: 30px;
+  }
+  .hy-valid {
+    color: #bebebe;
+    margin: 0;
+  }
+  .hy-cardName {
+    font-size: 16px;
+  }
+  .card__visa-icon {
+    width: 27%;
+    img {
+      width: 100%;
+    }
+  }
+
+  .hy-card-back-bar1 {
+    width: 350px;
+    height: 35px;
+    background-color: #000;
+    margin-left: -25px;
+    margin-bottom: 10px;
+  }
+
+  .hy-card-signature {
+    width: 300px;
+    height: 40px;
+    background-color: #bebebe;
+    border-radius: 5px;
+    // margin-bottom: 15px;
+  }
+}
+
+.hy-cardpan {
+  font-size: 16px;
+  font-family: 'Noto Serif TC';
+}
+
 span.hy-cart-count {
   background-color: #d67b76;
   position: absolute;
@@ -13,17 +128,7 @@ span.hy-cart-count {
   width: 100%;
 }
 
-.hy-creditCard {
-  width: 350px;
-  height: 200px;
-  background-color: black;
-  border-radius: 10px;
-  margin: 0 auto;
-  span {
-    color: #bebebe;
-  }
-}
-
+// 小車車的動畫
 .hy-hide {
   display: none;
   // transform: translateY(-100px);
