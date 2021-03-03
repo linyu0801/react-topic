@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import moment from 'moment'
 
 function Cart1Content3(props) {
+  const { scChange, setScChange } = props
   const [orders1, setOrders1] = useState({ 0: '' })
   const [itemList, setItemList] = useState([])
   async function fetchOrder() {
@@ -23,6 +24,7 @@ function Cart1Content3(props) {
   }
   useEffect(() => {
     fetchOrder()
+    setScChange(scChange + 1)
   }, [])
   return (
     <>

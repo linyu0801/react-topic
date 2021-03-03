@@ -71,6 +71,7 @@ function MyNavbar(props) {
     res.json().then((res) => {
       if (res.length === 0) {
         setScCartItems(res)
+        setScCartItemsQ(0)
       } else {
         setScCartItems(res)
         let newQuantity = 0

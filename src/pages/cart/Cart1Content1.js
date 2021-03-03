@@ -388,9 +388,7 @@ function Cart1Content1(props) {
                         </div>
                       </div>
                       <div className="form-col hy-form-col d-flex flex-column justify-content-around">
-                        <p className="my-0 k-left-icon hy-left-icon">
-                          {item.p_name}
-                        </p>
+                        <p className="my-0">{item.p_name}</p>
                         <p className="my-0">{item.p_size}</p>
                       </div>
                       <div className="form-col hy-form-col d-flex flex-column justify-content-center">

@@ -70,6 +70,8 @@ function CartContent(props) {
       {cartStep === 'step2' && (
         <>
           <Cart1Content1
+            scChange={scChange}
+            setScChange={setScChange}
             cartCate={cartCate}
             setCartCate={setCartCate}
             cartStep={cartStep}
@@ -106,6 +108,8 @@ function CartContent(props) {
             onChangeForField={onChangeForField}
           />
           <CartNextPrevious
+            scChange={scChange}
+            setScChange={setScChange}
             form1={form1}
             inputs={inputs}
             freightTotal={freightTotal}
@@ -139,6 +143,8 @@ function CartContent(props) {
             setCartTotal={setCartTotal}
           /> */}
           <Cart1Content3
+            scChange={scChange}
+            setScChange={setScChange}
             cartCate={cartCate}
             setCartCate={setCartCate}
             cartStep={cartStep}
@@ -151,6 +157,8 @@ function CartContent(props) {
             setCartCate={setCartCate}
             cartStep={cartStep}
             setCartStep={setCartStep}
+            scChange={scChange}
+            setScChange={setScChange}
           />
         </>
       )}

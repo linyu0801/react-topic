@@ -1,5 +1,36 @@
-.porductContentText {
+.SOP {
+  margin: 45px 10px;
+  padding-left: 20px;
+  border-left: 3px solid #cdaa8a;
+}
+
+.spot {
+  position: relative;
+}
+
+.spot::before {
+  color: #cdaa8a;
+  background-color: #cdaa8a;
+  width: 20px;
+  height: 20px;
+  content: '';
+  position: absolute;
+  text-align: center;
+  border-radius: 100%;
+  left: -32px;
+  z-index: 1;
+}
+
+.porductContentTextSOP {
+  font-size: 16px;
   margin-bottom: 30px;
+  letter-spacing: 0.1em;
+}
+
+.porductContentText {
+  font-size: 16px;
+  margin-bottom: 30px;
+  letter-spacing: 0.1em;
 }
 
 .wrapper-navbar {

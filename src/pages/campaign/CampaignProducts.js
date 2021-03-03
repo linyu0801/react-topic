@@ -55,6 +55,7 @@ function CampaignProducts(props) {
       const response = await fetch(request)
       const rows = await response.json()
       setProductData(rows)
+      setCateProductData(rows)
       setProductDataDisplay(rows)
       console.log('回傳的資料', rows)
     }
