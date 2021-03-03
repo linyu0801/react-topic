@@ -124,6 +124,7 @@ function OrderProduct(props) {
                 </div>
               </div>
             </div>
+            <div className="order-bmg"></div>
           </div>
           <div className="col-8 mob-order">
             {rows.map((value, i) => (
@@ -151,6 +152,7 @@ function OrderProduct(props) {
                 </div>
               </>
             ))}
+            <div className="order-bmg"></div>
           </div>
         </div>
       </div>

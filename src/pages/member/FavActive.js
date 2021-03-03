@@ -38,7 +38,15 @@ function FavActive(props) {
           <FishAside />
           <div className="col-9 desk-fav">
             <div className="campaignCardBig w-100 d-flex position-relative">
-              <div className="cardBigImg"></div>
+              {/* <div className="cardBigImg"> */}
+              <div className="cardBigImgBox">
+                <img
+                  className="cardBigImg"
+                  src="/img/campaignImg27.png"
+                  alt="campaignImg"
+                />
+              </div>
+              {/* </div> */}
               <div className="cardBigText">
                 <div className="cardBigTag">
                   季節限定
