@@ -238,6 +238,7 @@ a {
 .trrow > .trybrown {
   padding-left: 100px;
   padding-right: 100px;
+  color: #cdaa8a;
 }
 .trytast {
   position: relative;
@@ -392,10 +393,14 @@ a {
   }
   .gotocat {
     font-size: 12px;
-    color: #cdaa8a;
-    text-decoration: underline 1px #cdaa8a;
+    color: #cdaa8a !important;
+    text-decoration: underline 1px #cdaa8a !important;
     text-align: right;
   }
+  .gotocat:hover {
+    text-decoration: underline 1px #cdaa8a !important;
+  }
+
   .popitemtitle {
     display: none;
   }
