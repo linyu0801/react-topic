@@ -86,14 +86,12 @@ function CampaignProducts(props) {
     setIsLoading(true)
 
     // 模擬和伺服器要資料
-    // 最後設定到狀態中
-    setProductDataDisplay(productData)
 
     // 1秒後關閉指示器
     setTimeout(() => {
       setIsLoading(false)
     }, 1000)
-  }, [])
+  }, [productDataDisplay])
 
   useEffect(() => {
     function enterCategory() {
@@ -217,7 +215,13 @@ function CampaignProducts(props) {
 
   const spinner = (
     <>
-      <Spinner animation="border" variant="warning" />
+      <div className="d-flex justify-content-center w-75 mx-auto mt-5">
+        <img
+          src="../icons/LOGO.svg"
+          alt=""
+          className="nav-icons m-0 mt-5 animate__animated animate__flipInX  animate__infinite "
+        />
+      </div>
     </>
   )
 
