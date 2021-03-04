@@ -1,5 +1,5 @@
 import Carousel from 'react-elastic-carousel'
-import { Link, useHistory, withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 function CarouselShow() {
@@ -118,3 +118,5 @@ function CarouselShow() {
 }
 
 export default withRouter(CarouselShow)
+
+//carousel：showEmptySlots https://sag1v.github.io/react-elastic-carousel/showEmptySlots

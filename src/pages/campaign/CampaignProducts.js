@@ -14,10 +14,15 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 import { far } from '@fortawesome/free-regular-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import $ from 'jquery'
 
 function CampaignProducts(props) {
   const [productData, setProductData] = useState([])
+  const [search, setSearch] = useState('')
+  const [searchText, setSearchText] = useState('')
   const [cateProductData, setCateProductData] = useState([])
+  const [allProductData, setAllProductData] = useState([])
   const [productDataDisplay, setProductDataDisplay] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
@@ -54,10 +59,24 @@ function CampaignProducts(props) {
       })
       const response = await fetch(request)
       const rows = await response.json()
-      setProductData(rows)
+      setSearchText(searchCampaign)
       setCateProductData(rows)
       setProductDataDisplay(rows)
+      setAllProductData(rows)
       console.log('回傳的資料', rows)
+    }
+    fetchdata()
+  }, [])
+
+  useEffect(() => {
+    async function fetchdata() {
+      const url = 'http://localhost:4000/campaignSearch'
+      const request = new Request(url, {
+        method: 'GET',
+      })
+      const response = await fetch(request)
+      const rows = await response.json()
+      setProductData(rows)
     }
     fetchdata()
   }, [])
@@ -112,12 +131,22 @@ function CampaignProducts(props) {
     })
   }, [])
 
+  function doSearch() {
+    const newProductData = productData.filter((v, i) => {
+      return v.title.includes(search)
+    })
+    setSearchText(search)
+    setAllProductData(newProductData)
+    setCateProductData(newProductData)
+    setProductDataDisplay(newProductData)
+  }
+
   function doAllCategory() {
-    setCateProductData(productData)
-    setProductDataDisplay(productData)
+    setCateProductData(allProductData)
+    setProductDataDisplay(allProductData)
   }
   function doCategoryTaste() {
-    const newProductData = productData.filter((v, i) => {
+    const newProductData = allProductData.filter((v, i) => {
       return v.category.includes('taste')
     })
     setCateProductData(newProductData)
@@ -125,7 +154,7 @@ function CampaignProducts(props) {
   }
 
   function doCategoryHandmade() {
-    const newProductData = productData.filter((v, i) => {
+    const newProductData = allProductData.filter((v, i) => {
       return v.category.includes('handmade')
     })
     setCateProductData(newProductData)
@@ -133,7 +162,7 @@ function CampaignProducts(props) {
   }
 
   function doCategoryWorkshop() {
-    const newProductData = productData.filter((v, i) => {
+    const newProductData = allProductData.filter((v, i) => {
       return v.category.includes('workshop')
     })
     setCateProductData(newProductData)
@@ -141,7 +170,7 @@ function CampaignProducts(props) {
   }
 
   function doPriceRange() {
-    const newProductData = productData.filter((v, i) => {
+    const newProductData = allProductData.filter((v, i) => {
       if (priceRangeMax === '') {
         return v.price >= priceRangeMin || v.price <= priceRangeMax
       } else {
@@ -294,16 +323,17 @@ function CampaignProducts(props) {
               <a href="*">體驗</a>
             </li>
             <li className="breadcrumb-item active" aria-current="page">
-              <span>{searchCampaign}</span>
+              <span>{searchText}</span>
             </li>
           </ol>
         </nav>
       </div>
       <div className="container searchResultText d-none d-sm-block">
         <div className="row">
-          <div className="col-lg-12">
+          <div className="col-lg-7">
             <h3>
-              搜尋結果<span className="searchResult">{searchCampaign}</span>{' '}
+              搜尋結果
+              <span className="searchResult">{searchText}</span>
             </h3>
             <p>
               有 
@@ -311,6 +341,37 @@ function CampaignProducts(props) {
                項體驗
             </p>
           </div>
+          <Col lg={5}>
+            <div
+              className="searchBar w-100 d-flex
+           justify-content-center "
+            >
+              <input
+                type="text"
+                name="campaignSearch"
+                id="campaignSearch"
+                placeholder={
+                  searchText ? searchText : '立即搜尋你喜歡的活動...'
+                }
+                value={search}
+                onChange={(event) => {
+                  setSearch(event.target.value)
+                }}
+                style={{ border: '1px solid #cdaa8a' }}
+              />
+              <button
+                className="searchBtn"
+                type="submit"
+                onClick={() => {
+                  doSearch()
+                }}
+              >
+                <i className="fas fa-search" />
+                <FontAwesomeIcon icon={fas.faSearch} />
+                &ensp;搜尋
+              </button>
+            </div>
+          </Col>
         </div>
       </div>
       <div className="container d-xl-none ">
