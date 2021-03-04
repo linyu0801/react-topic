@@ -15,12 +15,14 @@ import {
 
 import { far } from '@fortawesome/free-regular-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
+import $ from 'jquery'
 
 function CampaignProducts(props) {
   const [productData, setProductData] = useState([])
   const [search, setSearch] = useState('')
   const [searchText, setSearchText] = useState('')
   const [cateProductData, setCateProductData] = useState([])
+  const [allProductData, setAllProductData] = useState([])
   const [productDataDisplay, setProductDataDisplay] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
@@ -58,10 +60,23 @@ function CampaignProducts(props) {
       const response = await fetch(request)
       const rows = await response.json()
       setSearchText(searchCampaign)
-      setProductData(rows)
       setCateProductData(rows)
       setProductDataDisplay(rows)
+      setAllProductData(rows)
       console.log('回傳的資料', rows)
+    }
+    fetchdata()
+  }, [])
+
+  useEffect(() => {
+    async function fetchdata() {
+      const url = 'http://localhost:4000/campaignSearch'
+      const request = new Request(url, {
+        method: 'GET',
+      })
+      const response = await fetch(request)
+      const rows = await response.json()
+      setProductData(rows)
     }
     fetchdata()
   }, [])
@@ -121,16 +136,17 @@ function CampaignProducts(props) {
       return v.title.includes(search)
     })
     setSearchText(search)
-    setCateProductData([...newProductData])
-    setProductDataDisplay([...newProductData])
+    setAllProductData(newProductData)
+    setCateProductData(newProductData)
+    setProductDataDisplay(newProductData)
   }
 
   function doAllCategory() {
-    setCateProductData(productData)
-    setProductDataDisplay(productData)
+    setCateProductData(allProductData)
+    setProductDataDisplay(allProductData)
   }
   function doCategoryTaste() {
-    const newProductData = productData.filter((v, i) => {
+    const newProductData = allProductData.filter((v, i) => {
       return v.category.includes('taste')
     })
     setCateProductData(newProductData)
@@ -138,7 +154,7 @@ function CampaignProducts(props) {
   }
 
   function doCategoryHandmade() {
-    const newProductData = productData.filter((v, i) => {
+    const newProductData = allProductData.filter((v, i) => {
       return v.category.includes('handmade')
     })
     setCateProductData(newProductData)
@@ -146,7 +162,7 @@ function CampaignProducts(props) {
   }
 
   function doCategoryWorkshop() {
-    const newProductData = productData.filter((v, i) => {
+    const newProductData = allProductData.filter((v, i) => {
       return v.category.includes('workshop')
     })
     setCateProductData(newProductData)
@@ -154,7 +170,7 @@ function CampaignProducts(props) {
   }
 
   function doPriceRange() {
-    const newProductData = productData.filter((v, i) => {
+    const newProductData = allProductData.filter((v, i) => {
       if (priceRangeMax === '') {
         return v.price >= priceRangeMin || v.price <= priceRangeMax
       } else {

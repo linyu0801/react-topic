@@ -22,6 +22,11 @@
 //   padding-right: 2px;
 // }
 
+#campaignSearch:focus::-webkit-input-placeholder {
+  color: transparent;
+  /* transparent是全透明黑色(black)的速記法，即一個類似rgba(0,0,0,0)這樣的值 */
+}
+
 .input:-internal-autofill-selected {
   background-color: transparent;
 }
