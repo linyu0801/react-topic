@@ -25,6 +25,7 @@ function CampaignProductsInfo(props) {
   const [campaignProduct, setCampaignProduct] = useState([])
   const [data, setData] = useState([])
   const [carouselImg, setCarouselImg] = useState([])
+  const [heartActive, setHeartActive] = useState(false)
 
   useEffect(() => {
     const FetchData = async () => {
@@ -88,7 +89,7 @@ function CampaignProductsInfo(props) {
       contentClassName="hy-modal"
       show={modalShow}
       onHide={handleClose}
-      size="md"
+      size="sm"
       aria-labelledby="contained-modal-title-vcenter"
       keyboard={false}
       backdrop="static"
@@ -99,14 +100,43 @@ function CampaignProductsInfo(props) {
     >
       <Modal.Header>
         <Modal.Title id="contained-modal-title-vcenter">
-          <h5>提示訊息</h5>
+          <h5>該體驗已加入購物車</h5>
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-        <h4>您已將該體驗加入購物車</h4>
-        <p>謝謝!</p>
-      </Modal.Body>
-      <Modal.Footer>
+      <Modal.Footer style={{ padding: '10px' }}>
+        <Button
+          onClick={() => {
+            handleClose()
+          }}
+        >
+          關閉
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  )
+  const [modalShow2, setModalShow2] = useState(false)
+  const handleClose2 = () => setModalShow2(false)
+  const handleShow2 = () => setModalShow2(true)
+  const messageModal2 = (
+    <Modal
+      contentClassName="hy-modal"
+      show={modalShow2}
+      onHide={handleClose2}
+      size="sm"
+      aria-labelledby="contained-modal-title-vcenter"
+      keyboard={false}
+      backdrop="static"
+      centered
+      onClick={() => {
+        handleClose2()
+      }}
+    >
+      <Modal.Header>
+        <Modal.Title id="contained-modal-title-vcenter">
+          <h5>該體驗已加入喜愛清單</h5>
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Footer style={{ padding: '10px' }}>
         <Button
           onClick={() => {
             handleClose()
@@ -204,6 +234,7 @@ function CampaignProductsInfo(props) {
   return (
     <>
       {messageModal}
+      {messageModal2}
       <div class="cursorFinn d-none d-sm-block"></div>
       {campaignProduct.map((v, i) => (
         <>
@@ -278,7 +309,14 @@ function CampaignProductsInfo(props) {
                     （ <span className="reviewsNum">{v.rating}</span> ）
                   </p>
                   <p className="heart ml-auto">
-                    <FontAwesomeIcon icon={faHeart} className="heart " />
+                    <FontAwesomeIcon
+                      icon={faHeart}
+                      className={`heart ml-auto ${heartActive ? 'active' : ''}`}
+                      onClick={() => {
+                        setHeartActive(true)
+                        handleShow2()
+                      }}
+                    />
                   </p>
                 </div>
                 <div className="productTimeLocation">

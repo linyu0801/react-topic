@@ -15,12 +15,14 @@ import {
 
 import { far } from '@fortawesome/free-regular-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
+import $ from 'jquery'
 
 function CampaignProducts(props) {
   const [productData, setProductData] = useState([])
   const [search, setSearch] = useState('')
   const [searchText, setSearchText] = useState('')
   const [cateProductData, setCateProductData] = useState([])
+  const [allProductData, setAllProductData] = useState([])
   const [productDataDisplay, setProductDataDisplay] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
@@ -58,10 +60,23 @@ function CampaignProducts(props) {
       const response = await fetch(request)
       const rows = await response.json()
       setSearchText(searchCampaign)
-      setProductData(rows)
       setCateProductData(rows)
       setProductDataDisplay(rows)
+      setAllProductData(rows)
       console.log('回傳的資料', rows)
+    }
+    fetchdata()
+  }, [])
+
+  useEffect(() => {
+    async function fetchdata() {
+      const url = 'http://localhost:4000/campaignSearch'
+      const request = new Request(url, {
+        method: 'GET',
+      })
+      const response = await fetch(request)
+      const rows = await response.json()
+      setProductData(rows)
     }
     fetchdata()
   }, [])
@@ -71,14 +86,12 @@ function CampaignProducts(props) {
     setIsLoading(true)
 
     // 模擬和伺服器要資料
-    // 最後設定到狀態中
-    setProductDataDisplay(productData)
 
     // 1秒後關閉指示器
     setTimeout(() => {
       setIsLoading(false)
     }, 1000)
-  }, [])
+  }, [productDataDisplay])
 
   useEffect(() => {
     function enterCategory() {
@@ -121,16 +134,17 @@ function CampaignProducts(props) {
       return v.title.includes(search)
     })
     setSearchText(search)
-    setCateProductData([...newProductData])
-    setProductDataDisplay([...newProductData])
+    setAllProductData(newProductData)
+    setCateProductData(newProductData)
+    setProductDataDisplay(newProductData)
   }
 
   function doAllCategory() {
-    setCateProductData(productData)
-    setProductDataDisplay(productData)
+    setCateProductData(allProductData)
+    setProductDataDisplay(allProductData)
   }
   function doCategoryTaste() {
-    const newProductData = productData.filter((v, i) => {
+    const newProductData = allProductData.filter((v, i) => {
       return v.category.includes('taste')
     })
     setCateProductData(newProductData)
@@ -138,7 +152,7 @@ function CampaignProducts(props) {
   }
 
   function doCategoryHandmade() {
-    const newProductData = productData.filter((v, i) => {
+    const newProductData = allProductData.filter((v, i) => {
       return v.category.includes('handmade')
     })
     setCateProductData(newProductData)
@@ -146,7 +160,7 @@ function CampaignProducts(props) {
   }
 
   function doCategoryWorkshop() {
-    const newProductData = productData.filter((v, i) => {
+    const newProductData = allProductData.filter((v, i) => {
       return v.category.includes('workshop')
     })
     setCateProductData(newProductData)
@@ -154,7 +168,7 @@ function CampaignProducts(props) {
   }
 
   function doPriceRange() {
-    const newProductData = productData.filter((v, i) => {
+    const newProductData = allProductData.filter((v, i) => {
       if (priceRangeMax === '') {
         return v.price >= priceRangeMin || v.price <= priceRangeMax
       } else {
@@ -201,7 +215,13 @@ function CampaignProducts(props) {
 
   const spinner = (
     <>
-      <Spinner animation="border" variant="warning" />
+      <div className="d-flex justify-content-center w-75 mx-auto mt-5">
+        <img
+          src="../icons/LOGO.svg"
+          alt=""
+          className="nav-icons m-0 mt-5 animate__animated animate__flipInX  animate__infinite "
+        />
+      </div>
     </>
   )
 
@@ -313,7 +333,7 @@ function CampaignProducts(props) {
         </nav>
       </div>
       <div className="container searchResultText d-none d-sm-block">
-        <div className="row">
+        <div className="row d-flex align-items-center">
           <div className="col-lg-7">
             <h3>
               搜尋結果
@@ -341,7 +361,7 @@ function CampaignProducts(props) {
                 onChange={(event) => {
                   setSearch(event.target.value)
                 }}
-                style={{ border: '1px solid #cdaa8a' }}
+                style={{ border: '1px solid #cdaa8a', height: '46px' }}
               />
               <button
                 className="searchBtn"

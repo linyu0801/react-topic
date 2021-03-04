@@ -183,6 +183,7 @@ function SmallCart(props) {
         <button
           className="k-style-addToCartBtn addToCartBtn"
           onClick={() => {
+            setScCartShow(false)
             props.history.push('/cart')
           }}
         >
