@@ -329,7 +329,7 @@ function CampaignProducts(props) {
         </nav>
       </div>
       <div className="container searchResultText d-none d-sm-block">
-        <div className="row">
+        <div className="row d-flex align-items-center">
           <div className="col-lg-7">
             <h3>
               搜尋結果
@@ -357,7 +357,7 @@ function CampaignProducts(props) {
                 onChange={(event) => {
                   setSearch(event.target.value)
                 }}
-                style={{ border: '1px solid #cdaa8a' }}
+                style={{ border: '1px solid #cdaa8a', height: '46px' }}
               />
               <button
                 className="searchBtn"

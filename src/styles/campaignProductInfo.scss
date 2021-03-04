@@ -71,10 +71,19 @@
 .heart {
   padding: 0;
   font-size: 24px;
+  cursor: pointer;
 }
 
 .heart:hover {
   padding: 0;
+  font-size: 24px;
+}
+
+.heart.active {
+  top: 10px;
+  right: 15px;
+  padding: 0;
+  color: #d67b76 !important;
   font-size: 24px;
 }
 

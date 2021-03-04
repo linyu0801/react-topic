@@ -43,16 +43,8 @@ function CampaignIndex(props) {
 
   useEffect(() => {
     $(window).on('scroll', function () {
-      console.log('scroll:', $(this).scrollTop())
       let scrollTop = $(this).scrollTop()
       $('.goldenRing').css('transform', 'translateY(-' + scrollTop / 8 + 'px)')
-    })
-  }, [])
-
-  useEffect(() => {
-    $(window).on('scroll', function () {
-      console.log('scroll:', $(this).scrollTop())
-      let scrollTop = $(this).scrollTop()
       $('.goldenRing2').css('transform', 'translateY(-' + scrollTop / 8 + 'px)')
     })
   }, [])
