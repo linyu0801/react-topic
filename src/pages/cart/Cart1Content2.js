@@ -476,7 +476,7 @@ function Cart1Content2(props) {
                               : 'CVC'}
                           </span>
                         </div>
-                        <div className="hy-card-signature mb-3">
+                        <div className="hy-card-signature mb-3 text-center">
                           Your Signature
                         </div>
                         <div className="d-flex justify-content-end">
