@@ -38,7 +38,7 @@ function MainProductDetail(props) {
         // body: formData,
         body: JSON.stringify({
           productSid: props.match.params.id,
-          mid: 84,
+          mid: mid,
         }),
         headers: new Headers({
           Accept: 'application/json',
