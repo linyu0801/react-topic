@@ -18,43 +18,49 @@ function Mpassword(props) {
   }, [])
 
   async function Editpassword() {
-    if (newpassword.length >= 6) {
-      if (newpassword === newpassword2) {
-        const url = 'http://localhost:4000/editpassword'
-        const request = new Request(url, {
-          method: 'PUT',
-          // body: editform,
-          body: JSON.stringify({ password, newpassword, token }),
+    if (password.length) {
+      $('#password').next().text('')
 
-          headers: new Headers({
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          }),
-        })
-        const response = await fetch(request)
-        const data = await response.json()
-        console.log(' 回傳的資料', data)
-        if (data.update === false) {
-          console.log('123')
+      if (newpassword.length >= 6) {
+        $('#newpassword').next().text('')
+        if (newpassword === newpassword2) {
+          $('#newpassword2').next().text('')
+          const url = 'http://localhost:4000/editpassword'
+          const request = new Request(url, {
+            method: 'PUT',
+            // body: editform,
+            body: JSON.stringify({ password, newpassword, token }),
 
-          $('#passwordsmall').text('密碼錯誤')
-        }
-        if (data.update === true) {
-          $('#passwordsmall').text('')
-          Swal.fire({
-            title: '修改成功',
-            icon: 'success',
-            type: '修改成功',
-            text: '密碼已修改',
+            headers: new Headers({
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            }),
           })
+          const response = await fetch(request)
+          const data = await response.json()
+          console.log(' 回傳的資料', data)
+          if (data.update === false) {
+            console.log('123')
+
+            $('#passwordsmall').text('密碼錯誤')
+          }
+          if (data.update === true) {
+            $('#passwordsmall').text('')
+            Swal.fire({
+              title: '修改成功',
+              icon: 'success',
+              type: '修改成功',
+              text: '密碼已修改',
+            })
+          }
+        } else {
+          $('#newpassword2').next().text('再次輸入密碼不相同')
         }
-        $('#newpassword2').next().text('')
       } else {
-        $('#newpassword2').next().text('再次輸入密碼不相同')
+        $('#newpassword').next().text('密碼需大於六位數')
       }
-      $('#newpassword').next().text('')
     } else {
-      $('#newpassword').next().text('密碼需大於六位數')
+      $('#password').next().text('請輸入舊密碼')
     }
   }
   return (
@@ -94,19 +100,18 @@ function Mpassword(props) {
                 action=""
                 className="pub-form col-xl-7 col-lg-8 col-md-10 col-sm-12"
               >
-                <label htmlFor="passowrd">請輸入舊密碼</label>
+                <label htmlFor="password">請輸入舊密碼</label>
                 <br />
                 <input
                   className="w-100 pub-input"
-                  type="text"
-                  name="passowrd"
-                  id="passowrd"
+                  type="password"
+                  name="password"
+                  id="password"
                   value={password}
                   onChange={(event) => {
                     setPassword(event.target.value)
                   }}
                 />
-
                 <small id="passwordsmall"></small>
                 <label htmlFor="newpassword">請輸入新密碼</label>
                 <br />
