@@ -57,7 +57,7 @@ function Forget(props) {
                     setEmail(event.target.value)
                   }}
                 />
-                <br />
+
                 <small></small>
                 <div className="form-border w-100"></div>
 
