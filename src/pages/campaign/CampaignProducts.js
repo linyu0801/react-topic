@@ -14,9 +14,12 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 import { far } from '@fortawesome/free-regular-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 
 function CampaignProducts(props) {
   const [productData, setProductData] = useState([])
+  const [search, setSearch] = useState('')
+  const [searchText, setSearchText] = useState('')
   const [cateProductData, setCateProductData] = useState([])
   const [productDataDisplay, setProductDataDisplay] = useState([])
   const [isLoading, setIsLoading] = useState(true)
@@ -54,6 +57,7 @@ function CampaignProducts(props) {
       })
       const response = await fetch(request)
       const rows = await response.json()
+      setSearchText(searchCampaign)
       setProductData(rows)
       setCateProductData(rows)
       setProductDataDisplay(rows)
@@ -111,6 +115,15 @@ function CampaignProducts(props) {
       curs.style.top = y - 22 + 'px'
     })
   }, [])
+
+  function doSearch() {
+    const newProductData = productData.filter((v, i) => {
+      return v.title.includes(search)
+    })
+    setSearchText(search)
+    setCateProductData([...newProductData])
+    setProductDataDisplay([...newProductData])
+  }
 
   function doAllCategory() {
     setCateProductData(productData)
@@ -294,16 +307,17 @@ function CampaignProducts(props) {
               <a href="*">體驗</a>
             </li>
             <li className="breadcrumb-item active" aria-current="page">
-              <span>{searchCampaign}</span>
+              <span>{searchText}</span>
             </li>
           </ol>
         </nav>
       </div>
       <div className="container searchResultText d-none d-sm-block">
         <div className="row">
-          <div className="col-lg-12">
+          <div className="col-lg-7">
             <h3>
-              搜尋結果<span className="searchResult">{searchCampaign}</span>{' '}
+              搜尋結果
+              <span className="searchResult">{searchText}</span>
             </h3>
             <p>
               有 
@@ -311,6 +325,37 @@ function CampaignProducts(props) {
                項體驗
             </p>
           </div>
+          <Col lg={5}>
+            <div
+              className="searchBar w-100 d-flex
+           justify-content-center "
+            >
+              <input
+                type="text"
+                name="campaignSearch"
+                id="campaignSearch"
+                placeholder={
+                  searchText ? searchText : '立即搜尋你喜歡的活動...'
+                }
+                value={search}
+                onChange={(event) => {
+                  setSearch(event.target.value)
+                }}
+                style={{ border: '1px solid #cdaa8a' }}
+              />
+              <button
+                className="searchBtn"
+                type="submit"
+                onClick={() => {
+                  doSearch()
+                }}
+              >
+                <i className="fas fa-search" />
+                <FontAwesomeIcon icon={fas.faSearch} />
+                &ensp;搜尋
+              </button>
+            </div>
+          </Col>
         </div>
       </div>
       <div className="container d-xl-none ">
