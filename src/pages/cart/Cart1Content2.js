@@ -27,12 +27,12 @@ function Cart1Content2(props) {
   const [isFlip, setIsFlip] = useState(false)
 
   // 信用卡focus
-  // const [focusSection, setFocusSection] = useState('')
-  // const [focusBoxStyle, setFocusBoxStyle] = useState({
-  //   width: '100%',
-  //   height: '100%',
-  //   transform: 'null',
-  // })
+  const [focusSection, setFocusSection] = useState('')
+  const [focusBoxStyle, setFocusBoxStyle] = useState({
+    width: '100%',
+    height: '100%',
+    transform: 'null',
+  })
 
   useEffect(() => {
     equal === true
@@ -83,26 +83,40 @@ function Cart1Content2(props) {
     })
     $(CVC.current).blur(function () {
       setIsFlip(false)
+      setFocusSection('')
       console.log('blur:', isFlip)
     })
   }, [])
 
   // 信用卡focus
-  // useEffect(() => {
-  //   if (focusSection === 'pannum') {
-  //     // const target = $(pannum.current)
-  //     setFocusBoxStyle({
-  //       // width: `${target.offsetWidth}px`,
-  //       width: $(pannum.current).offsetWidth + `px`,
-  //       // height: `${target.offsetHeight}px`,
-  //       height: $(pannum.current).offsetHeight + `px`,
-  //       // transform: `translate(${target.offsetLeft}px, ${target.offsetTop}px)`,
-  //       transform: `translate(${$(pannum.current).offsetLeft}px, ${
-  //         $(pannum.current).offsetTop
-  //       }px)`,
-  //     })
-  //   }
-  // }, [focusSection])
+  useEffect(() => {
+    if (focusSection === 'pannum') {
+      setFocusBoxStyle({
+        width: 260 + `px`,
+        height: 24 + `px`,
+        transform: `translate(-5px,81px)`,
+      })
+    }
+  }, [focusSection])
+  useEffect(() => {
+    if (focusSection === 'expire') {
+      setFocusBoxStyle({
+        width: 70 + `px`,
+        height: 24 + `px`,
+        transform: `translate(207px,135px)`,
+      })
+    }
+  }, [focusSection])
+  useEffect(() => {
+    if (focusSection === 'CVC') {
+      setFocusBoxStyle({
+        width: 50 + `px`,
+        height: 24 + `px`,
+        transform: `translate(-10px,46px) rotateY(180deg)`,
+      })
+    }
+  }, [focusSection])
+
   return (
     <>
       <div className="row">
@@ -282,7 +296,7 @@ function Cart1Content2(props) {
                       value={inputs.pan_no1}
                       onChange={onChangeForField('pan_no1')}
                       onClick={() => {
-                        // setFocusSection('pannum')
+                        setFocusSection('pannum')
                       }}
                       ref={pan1}
                     />
@@ -335,6 +349,9 @@ function Cart1Content2(props) {
                     onChange={(e) => {
                       setSeletedOptionCardMonth(e.target.value)
                     }}
+                    onClick={() => {
+                      setFocusSection('expire')
+                    }}
                   >
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -385,6 +402,9 @@ function Cart1Content2(props) {
                     value={inputs.creditCardBack}
                     onChange={onChangeForField('creditCardBack')}
                     ref={CVC}
+                    onClick={() => {
+                      setFocusSection('CVC')
+                    }}
                   />
                   <small></small>
                   <div className="hy-scene">
@@ -393,16 +413,16 @@ function Cart1Content2(props) {
                       // className={`hy-flipcard  ${isFlip && `is-flipped`}`}
                       ref={cardFlip}
                     >
-                      {/* <div
-                        className={`card__focus-box ${
-                          !!focusSection && `card__focus-box--active`
-                        }`}
-                        style={focusBoxStyle}
-                      /> */}
                       <div
                         className="hy-creditCard hy-card-front card__face"
                         onClick={() => setIsFlip(!isFlip)}
                       >
+                        <div
+                          className={`card__focus-box ${
+                            !!focusSection && `card__focus-box--active`
+                          }`}
+                          style={focusBoxStyle}
+                        />
                         <div className="d-flex justify-content-between">
                           <FcSimCardChip className="hy-chip" />
                           <div className="card__visa-icon">
