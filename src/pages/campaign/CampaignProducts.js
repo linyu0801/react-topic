@@ -215,6 +215,8 @@ function CampaignProducts(props) {
     setProductDataDisplay(newProductData)
   }
 
+
+
   const spinner = (
     <>
       <Spinner animation="border" variant="warning" />
