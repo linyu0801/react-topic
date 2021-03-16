@@ -2,6 +2,32 @@
 @import '~bootstrap/scss/bootstrap.scss';
 @import '~animate.css/animate.css';
 
+.phoneBg {
+  background-color: #ffeed3;
+}
+
+.phoneImg1 {
+  background-image: url(./img/TastingImg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 300px;
+}
+.phoneImg2 {
+  background-image: url(./img/HandmadeImg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 300px;
+}
+.phoneImg3 {
+  background-image: url(./img/WorkshopImg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 300px;
+}
+
 .arrowBtnLeft {
   width: 30px;
   height: 30px;
@@ -67,6 +93,7 @@
 #myVideo {
   min-width: 100%;
   min-height: 100%;
+  object-fit: cover;
 }
 
 .rowBg {
@@ -126,12 +153,6 @@ button:focus {
   background-color: #250404;
   height: 100px;
   border-bottom: 1px solid #cdaa8a;
-}
-
-.heroImg {
-  height: 600px;
-  margin-bottom: 50px;
-  padding: 0 !important;
 }
 
 .searchTitle {
@@ -316,10 +337,6 @@ svg.star {
   background-color: #ffeed3;
 }
 
-.tastingTitle {
-  font-size: 48px;
-}
-
 .tastingText {
   font-family: 'Noto Serif TC';
   font-size: 16px;
@@ -418,161 +435,4 @@ body {
   background-color: #250404;
   height: 400px;
   border-top: 1px solid #cdaa8a;
-}
-
-@media screen and (max-width: 575.98px) {
-  .container {
-    margin-bottom: 15px;
-  }
-
-  .searchTitleText {
-    font-size: 30px;
-    color: #cdaa8a;
-    font-family: 'Noto Serif TC';
-    font-weight: bold;
-    letter-spacing: 0.1em;
-  }
-
-  .hitTitle {
-    font-size: 30px;
-    color: #cdaa8a;
-    font-family: 'Noto Serif TC';
-    font-weight: bold;
-    letter-spacing: 0.1em;
-  }
-
-  h2 {
-    font-size: 30px;
-    color: #cdaa8a;
-    font-family: 'Noto Serif TC';
-    font-weight: bold;
-    letter-spacing: 0.1em;
-  }
-
-  h3 {
-    font-size: 16px;
-    font-family: 'Noto Serif TC';
-    letter-spacing: 0.1em;
-  }
-
-  p {
-    font-size: 12px;
-    font-family: 'Noto Serif TC';
-    letter-spacing: 0.1em;
-  }
-
-  a {
-    font-size: 12px;
-    font-family: 'Noto Sans TC';
-    letter-spacing: 0.1em;
-  }
-
-  .p-30 {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-
-  .pl-30 {
-    padding-left: 30px;
-  }
-
-  .navbar {
-    height: 70px;
-  }
-
-  .heroImg {
-    height: 300px;
-    margin-bottom: 30px;
-  }
-
-  .hit {
-    margin-bottom: 5px;
-  }
-
-  .campaignCards {
-    height: 400px;
-    display: flex;
-    overflow: hidden;
-    margin-bottom: 60px;
-  }
-
-  .campaignCard {
-    height: auto;
-  }
-
-  .cardPhone {
-    height: 500px;
-    margin-bottom: 30px;
-  }
-
-  .cardText {
-    padding: 15px;
-  }
-
-  .price::before {
-    display: inline-block;
-    padding: 0px 0.1rem;
-    color: #250404;
-    font-size: 14px;
-    font-family: 'Noto Serif TC';
-    font-weight: bold;
-    content: '$';
-  }
-
-  .campaignSite {
-    font-size: 12px;
-    color: #707070;
-    font-family: 'Noto Sans TC';
-    font-weight: lighter;
-    letter-spacing: 1px;
-  }
-
-  .stars {
-    font-size: 14px;
-    color: #cdaa8a;
-    letter-spacing: 1px;
-    margin-bottom: 0px;
-  }
-
-  .price {
-    font-size: 14px;
-    font-family: 'Noto Serif TC';
-    color: #250404;
-    letter-spacing: 3px;
-    font-weight: bold;
-    border-left: 3px solid #cdaa8a;
-    padding-left: 12px;
-    text-align: right;
-    margin-bottom: 0px;
-  }
-
-  .tastingBg {
-    height: 400px;
-    margin-top: 0;
-    top: 100px;
-  }
-
-  .tastingContent {
-    top: 0;
-  }
-
-  .tastingImg {
-    height: 200px;
-    margin-bottom: 16px;
-  }
-
-  .tastingTitle {
-    margin-bottom: 8px;
-  }
-
-  .tastingText {
-    font-size: 14px;
-    line-height: 20px;
-  }
-
-  a.k_btn {
-    width: 200px;
-    font-size: 12px;
-    border-bottom: 1px solid #cdaa8a;
-  }
 }

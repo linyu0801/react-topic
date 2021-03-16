@@ -99,10 +99,14 @@ li.page-item > a.page-link:hover {
 }
 
 //K：修改carouselshow的box高度與focus效果
-.sc-gsTCUz.tXlBS.rec.rec-item-wrapper>.box{
-  margin:3%;
+.sc-gsTCUz.tXlBS.rec.rec-item-wrapper > .box {
+  margin: 3%;
   height: auto;
 }
-.box:focus{
+.box:focus {
   outline: none;
+}
+
+.body {
+  width: 100vh !important;
 }

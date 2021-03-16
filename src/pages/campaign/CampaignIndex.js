@@ -1,4 +1,5 @@
 import '../../styles/campaignIndex.scss'
+import '../../styles/campaignIndexPhone.scss'
 import { withRouter } from 'react-router-dom'
 import { Container, Row, Col } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -102,100 +103,117 @@ function CampaignIndex(props) {
 
   return (
     <>
-      <div class="cursorFinn d-none d-sm-block"></div>
-      <Container fluid className="heroImg position-relative">
-        <div className="box position-absolute">
-          <video id="myVideo" autoPlay muted loop>
-            <source src={indexVideo} type="video/mp4" />
-          </video>
-        </div>
-        <div className="rowBg position-absolute"></div>
-        <Row className="h-100">
-          <Col lg={6} xs={12} className="mx-auto  align-self-center ">
-            <div className="searchTitle animate__animated animate__fadeIn animate__slow">
-              <h2 className="searchTitleText">最有質感的甜點活動</h2>
+      <div className="cursorFinn d-none d-sm-block"></div>
+      <Container fluid className="callToAction">
+        <Row className="position-relative d-flex justify-content-center mb-3">
+          <div className="box">
+            <video id="myVideo" autoPlay muted loop>
+              <source src={indexVideo} type="video/mp4" />
+            </video>
+          </div>
+          <Col
+            lg={6}
+            md={8}
+            sm={10}
+            xs={12}
+            className="position-absolute
+            h-100
+            d-flex align-items-center"
+          >
+            <div className="searchBox mx-auto w-100">
+              <div className="searchTitle animate__animated animate__fadeIn animate__slow">
+                <h2 className="searchTitleText">最有質感的甜點活動</h2>
 
-              <p>體驗獨一無二的活動體驗</p>
-            </div>
-            <div
-              className="searchBar w-100 d-flex
+                <p>體驗獨一無二的活動體驗</p>
+              </div>
+              <div
+                className="searchBar w-100 d-flex
            justify-content-center "
-            >
-              <input
-                type="text"
-                name="campaignSearch"
-                id="campaignSearch"
-                placeholder="立即搜尋你喜歡的活動..."
-                value={searchCampaign}
-                onChange={(event) => {
-                  setSearchCampaign(event.target.value)
-                }}
-                onKeyPress={(e) => {
-                  if (e.key === 'Enter') search()
-                }}
-              />
-              <button
-                className="searchBtn"
-                type="submit"
-                onClick={() => {
-                  search()
-                  setCategoryActiveObj({
-                    categoryBtn1: false,
-                    categoryBtn2: false,
-                    categoryBtn3: false,
-                    categoryBtn4: true,
-                  })
-                }}
               >
-                <i className="fas fa-search" />
-                <FontAwesomeIcon icon={fas.faSearch} />
-                &ensp;搜尋
-              </button>
+                <input
+                  type="text"
+                  name="campaignSearch"
+                  id="campaignSearch"
+                  placeholder="立即搜尋你喜歡的活動..."
+                  value={searchCampaign}
+                  onChange={(event) => {
+                    setSearchCampaign(event.target.value)
+                  }}
+                  onKeyPress={(e) => {
+                    if (e.key === 'Enter') search()
+                  }}
+                />
+                <button
+                  className="searchBtn"
+                  type="submit"
+                  onClick={() => {
+                    search()
+                    setCategoryActiveObj({
+                      categoryBtn1: false,
+                      categoryBtn2: false,
+                      categoryBtn3: false,
+                      categoryBtn4: true,
+                    })
+                  }}
+                >
+                  <i className="fas fa-search" />
+                  <FontAwesomeIcon icon={fas.faSearch} />
+                  &ensp;搜尋
+                </button>
+              </div>
             </div>
           </Col>
         </Row>
       </Container>
-      <Container fluid className="hit">
+      {/* 熱門活動標籤電腦 */}
+      <Container className="d-none d-sm-block">
         <Row>
-          <Col lg={7} xs={8} className="d-flex">
-            <Col lg={2} xs={8}></Col>
-            <Col lg={5} xs={8}>
-              <h2 className="hitTitle">熱門活動</h2>
-            </Col>
+          <Col lg={12} md={12} sm={12} xs={12} className="mb-2">
+            <h2 className="hitTitle pl-3">熱門活動</h2>
           </Col>
         </Row>
       </Container>
-      <Container
-        fluid
-        className="displayCampaignCardsBox d-none d-sm-block animate__animated animate__slideInRight"
-      >
+      {/* 熱門活動標籤手機 */}
+      <Container fluid className="d-block d-sm-none">
         <Row>
-          <Col lg={1} xs={8}></Col>
-          <Col lg={10} xs={8}>
+          <Col
+            lg={12}
+            xs={12}
+            className="d-flex 
+            justify-content-center mb-2"
+          >
+            <h2 className="hitTitle">熱門活動</h2>
+          </Col>
+        </Row>
+      </Container>
+      {/* 商品輪播 */}
+      <Container className="displayCampaignCardsBox animate__animated animate__slideInRight">
+        <Row className="mb-3">
+          <Col lg={12} md={12} sm={12} xs={12}>
             <DisplayCampaignCardsIndex />
           </Col>
-          <Col lg={1} xs={8}></Col>
         </Row>
       </Container>
 
-      <Container fluid className="d-none d-sm-block">
+      <Container fluid className="d-none d-sm-none d-md-none d-lg-block">
         <Row>
-          <Col lg={12}>
+          <Col lg={12} md={12}>
             <div className="bgImg"></div>
           </Col>
         </Row>
       </Container>
       <Container
         fluid
-        className="tastingIntro d-none d-sm-block position-relative mb-5"
+        className="tastingIntro d-none d-sm-none d-md-none d-lg-block position-relative mb-5"
       >
         <Row className="h-100">
           <Col
+            xl={7}
             lg={7}
             className="tastingBg d-flex align-items-center animate__animated"
           >
-            <Col lg={2}></Col>
-            <Col lg={5} className="tastingContent animate__animated ">
+            <Col xl={2} lg={1}></Col>
+            <Col xl={5} lg={6} className="tastingContent animate__animated ">
               <h2 className="tastingTitle mb-4">品味鑑賞</h2>
               <p className="tastingText">
                 曾經被櫥窗裡的美麗甜點誘惑過的人，大概沒有不好奇它們是怎麼做出來的。
@@ -222,19 +240,57 @@ function CampaignIndex(props) {
             </Col>
           </Col>
           <Col
+            xl={7}
             lg={7}
             className="tastingImg position-absolute animate__animated"
           ></Col>
         </Row>
       </Container>
-      <Container fluid>
+
+      <Container className="cardPhone d-xl-none d-lg-none mb-3">
+        <Row className="phoneBg">
+          <div className="col-12">
+            <div className="phoneImg1 mb-3 "> </div>
+            <div className="tastingContent px-3">
+              <div className="spacingPusher"></div>
+              <h2 className="tastingTitle">甜點鑑賞 </h2>
+              <p className="tastingText">
+                曾經被櫥窗裡的美麗甜點誘惑過的人，大概沒有不好奇它們是怎麼做出來的。
+                <br />
+                甜點製作是一門藝術，而藝術品從來不是只有吃下肚一途，在那之前藉著了解它的製作過程與細節，在品嘗時能更領略甜點師的用心、也更有樂趣。
+                <br />
+                醉糕品味，提供消費者從吃甜點進階到甜點鑑賞，希望能和更多朋友分享甜點藝術的奧妙。
+              </p>
+              <div className="w-100">
+                <p
+                  className="btn k_btn d-flex justify-content-center"
+                  onClick={() => {
+                    enterCategory()
+                    setCategoryActiveObj({
+                      categoryBtn1: true,
+                      categoryBtn2: false,
+                      categoryBtn3: false,
+                      categoryBtn4: false,
+                    })
+                  }}
+                >
+                  立刻購買
+                  <span className="btn-style" />
+                </p>
+              </div>
+            </div>
+          </div>
+        </Row>
+      </Container>
+
+      <Container fluid className="d-none d-sm-none d-md-none d-lg-block">
         <Row className="position-relative slideArea">
           <div className="goldenRing"></div>
         </Row>
       </Container>
       <Container
         fluid
-        className="experienceIntro d-none d-sm-block position-relative mb-5"
+        className="experienceIntro d-none d-sm-none d-md-none d-lg-block position-relative mb-5"
       >
         <Row className="h-100">
           <Col lg={5}></Col>
@@ -276,14 +332,49 @@ function CampaignIndex(props) {
           ></Col>
         </Row>
       </Container>
-      <Container fluid>
+      <Container className="cardPhone d-xl-none d-lg-none">
+        <Row className="phoneBg">
+          <div className="col-12">
+            <div className="phoneImg2 mb-3 "> </div>
+            <div className="tastingContent px-3">
+              <div className="spacingPusher"></div>
+              <h2 className="tastingTitle">手作體驗</h2>
+              <p className="tastingText">
+                手作課程，除了可以挑選自己喜愛的甜點、享受DIY的創作過程、還可以從中獲得滿滿的成就感。
+                <br />
+                不論是要送給心愛的朋友、家人、或是犒賞自己，都會是一種療癒身心的體驗唷！
+                <br />
+                醉糕品味提供最有趣甜點手作體驗，就算是完全新手，也能做出屬於自己的作品，滿足每一個喜歡甜點、熱愛手作、享受生活的你！
+              </p>
+              <div className="w-100">
+                <p
+                  className="btn k_btn d-flex justify-content-center"
+                  onClick={() => {
+                    enterCategory()
+                    setCategoryActiveObj({
+                      categoryBtn1: true,
+                      categoryBtn2: false,
+                      categoryBtn3: false,
+                      categoryBtn4: false,
+                    })
+                  }}
+                >
+                  立刻購買
+                  <span className="btn-style" />
+                </p>
+              </div>
+            </div>
+          </div>
+        </Row>
+      </Container>
+      <Container fluid className="d-none d-sm-none d-md-none d-lg-block">
         <Row className="position-relative">
           <div className="goldenRing2"></div>
         </Row>
       </Container>
       <Container
         fluid
-        className="workshopIntro d-none d-sm-block position-relative mb-5"
+        className="workshopIntro d-none d-sm-none d-md-none d-lg-block position-relative mb-5"
       >
         <Row className="h-100">
           <Col
@@ -321,6 +412,41 @@ function CampaignIndex(props) {
             lg={7}
             className="workshopImg position-absolute animate__animated"
           ></Col>
+        </Row>
+      </Container>
+      <Container className="cardPhone d-xl-none d-lg-none">
+        <Row className="phoneBg">
+          <div className="col-12">
+            <div className="phoneImg3 mb-3 "> </div>
+            <div className="tastingContent px-3">
+              <div className="spacingPusher"></div>
+              <h2 className="tastingTitle">職人講座</h2>
+              <p className="tastingText">
+                忙碌的生活總是需要心靈的調劑，創意生活的美學更是貼近人心，只有從心出發才會帶給生活美妙的體驗與經驗。
+                <br />
+                每個職人背後的人文故事及生活風格，往往才是引人入勝之處。醉糕品味認為成功的秘訣，必須從「專業」為出發點！
+                <br />
+                將專業與生活風格的結合已成為帶動消費者的行為趨勢，醉糕品味找來最具專業的職人，將體驗與美感成為您營造創意生活的基本元素。
+              </p>
+              <div className="w-100">
+                <p
+                  className="btn k_btn d-flex justify-content-center"
+                  onClick={() => {
+                    enterCategory()
+                    setCategoryActiveObj({
+                      categoryBtn1: true,
+                      categoryBtn2: false,
+                      categoryBtn3: false,
+                      categoryBtn4: false,
+                    })
+                  }}
+                >
+                  立刻購買
+                  <span className="btn-style" />
+                </p>
+              </div>
+            </div>
+          </div>
         </Row>
       </Container>
     </>

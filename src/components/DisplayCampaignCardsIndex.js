@@ -93,99 +93,96 @@ function DisplayCampaignCardsIndex(props) {
 
   return (
     <>
-      <Row className="campaignCards mb-5">
-        <Col lg={12}>
-          <Carousel
-            cols={4}
-            rows={1}
-            gap={30}
-            responsiveLayout={[
-              {
-                breakpoint: 1200,
-                cols: 4,
-              },
-              {
-                breakpoint: 990,
-                cols: 3,
-              },
-            ]}
-            mobileBreakpoint={670}
-            loop={true}
-            autoplay={5000}
-            arrowLeft={arrowBtnLeft}
-            arrowRight={arrowBtnRight}
-          >
-            {data.map((v, i) => (
-              <Carousel.Item>
-                <Link
-                  to={`/campaign/products/` + v.sid}
-                  style={{ textDecoration: 'none' }}
-                >
-                  <div className="campaignCard w-100">
-                    <div className="cardImgBox">
-                      <img
-                        className="cardImg w-100"
-                        src={`/img/` + v.campaignCover}
-                        alt="campaignImg"
-                      />
-                    </div>
-                    <div className="cardText">
-                      <h4 className="cardTitle">{v.title}</h4>
-                      <p className="campaignSite my-2">
-                        <FontAwesomeIcon icon={fas.faMapMarkerAlt} />
-                        &ensp;{v.district}
-                      </p>
-                      <div className="d-flex justify-content-between align-items-center">
-                        <p
-                          className="starsFinn"
-                          style={{ marginBottom: '0px' }}
-                        >
-                          {v.rating === 5 ? (
-                            <>
-                              <FontAwesomeIcon icon={faStar} />
-                              <FontAwesomeIcon icon={faStar} />
-                              <FontAwesomeIcon icon={faStar} />
-                              <FontAwesomeIcon icon={faStar} />
-                              <FontAwesomeIcon icon={faStar} />
-                            </>
-                          ) : (
-                            ''
-                          )}
-                          {v.rating > 4 && v.rating < 5 ? (
-                            <>
-                              <FontAwesomeIcon icon={faStar} />
-                              <FontAwesomeIcon icon={faStar} />
-                              <FontAwesomeIcon icon={faStar} />
-                              <FontAwesomeIcon icon={faStar} />
-                              <FontAwesomeIcon icon={faStarHalfAlt} />
-                            </>
-                          ) : (
-                            ''
-                          )}
+      <Carousel
+        cols={3}
+        rows={1}
+        gap={15}
+        responsiveLayout={[
+          {
+            breakpoint: 1300,
+            cols: 3,
+          },
+          {
+            breakpoint: 1150,
+            cols: 3,
+          },
+          {
+            breakpoint: 950,
+            cols: 2,
+          },
+        ]}
+        mobileBreakpoint={670}
+        loop={true}
+        autoplay={5000}
+        arrowLeft={arrowBtnLeft}
+        arrowRight={arrowBtnRight}
+      >
+        {data.map((v, i) => (
+          <Carousel.Item>
+            <Link
+              to={`/campaign/products/` + v.sid}
+              style={{ textDecoration: 'none' }}
+            >
+              <div className="campaignCard w-100">
+                <div className="cardImgBox">
+                  <img
+                    className="cardImg w-100"
+                    src={`/img/` + v.campaignCover}
+                    alt="campaignImg"
+                  />
+                </div>
+                <div className="cardText">
+                  <h4 className="cardTitle">{v.title}</h4>
+                  <p className="campaignSite my-2">
+                    <FontAwesomeIcon icon={fas.faMapMarkerAlt} />
+                    &ensp;{v.district}
+                  </p>
+                  <div className="d-flex justify-content-between align-items-center">
+                    <p className="starsFinn" style={{ marginBottom: '0px' }}>
+                      {v.rating === 5 ? (
+                        <>
+                          <FontAwesomeIcon icon={faStar} />
+                          <FontAwesomeIcon icon={faStar} />
+                          <FontAwesomeIcon icon={faStar} />
+                          <FontAwesomeIcon icon={faStar} />
+                          <FontAwesomeIcon icon={faStar} />
+                        </>
+                      ) : (
+                        ''
+                      )}
+                      {v.rating > 4 && v.rating < 5 ? (
+                        <>
+                          <FontAwesomeIcon icon={faStar} />
+                          <FontAwesomeIcon icon={faStar} />
+                          <FontAwesomeIcon icon={faStar} />
+                          <FontAwesomeIcon icon={faStar} />
+                          <FontAwesomeIcon icon={faStarHalfAlt} />
+                        </>
+                      ) : (
+                        ''
+                      )}
 
-                          {v.rating === 4 ? (
-                            <>
-                              <FontAwesomeIcon icon={faStar} />
-                              <FontAwesomeIcon icon={faStar} />
-                              <FontAwesomeIcon icon={faStar} />
-                              <FontAwesomeIcon icon={faStar} />
-                              <FontAwesomeIcon icon={far.faStar} />
-                            </>
-                          ) : (
-                            ''
-                          )}
-                          <span>{v.rating}</span>
-                        </p>
-                        <p className="price">{v.price}</p>
-                      </div>
-                    </div>
+                      {v.rating === 4 ? (
+                        <>
+                          <FontAwesomeIcon icon={faStar} />
+                          <FontAwesomeIcon icon={faStar} />
+                          <FontAwesomeIcon icon={faStar} />
+                          <FontAwesomeIcon icon={faStar} />
+                          <FontAwesomeIcon icon={far.faStar} />
+                        </>
+                      ) : (
+                        ''
+                      )}
+                      <span>{v.rating}</span>
+                    </p>
+                    <p className="price">{v.price}</p>
                   </div>
-                </Link>
-              </Carousel.Item>
-            ))}
-          </Carousel>
-        </Col>
-      </Row>
+                </div>
+              </div>
+            </Link>
+          </Carousel.Item>
+        ))}
+      </Carousel>
     </>
   )
 }
