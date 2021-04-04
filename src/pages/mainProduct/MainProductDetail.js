@@ -322,7 +322,7 @@ function MainProductDetail(props) {
                 <div className="info-body">
                   <ul className="k-ul-note">
                     <li className="note-list">
-                      訂單運費$185元，滿$3,600元免運費。
+                      訂單運費$200元，滿$3,600元免運費。
                     </li>
                     <li className="note-list">
                       商品圖片僅供實物參考，內容物組成以實物及商品規格為主。
